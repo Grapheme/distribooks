@@ -1,0 +1,1467 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Chrome Frame prompt
+   ========================================================================== */
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.top {
+	z-index: 1;
+	position: relative;
+	background: #ffffff;
+	height: 70px;
+	width: 100%;
+	min-width: 960px;
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Для Firefox */
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Для Safari и Chrome */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+}
+
+.top-logo {
+	position: absolute;
+	display: block;
+	top: 0;
+	right: 0;
+	height: 150px;
+	width: 149px;
+	background: url('../img/logo-top.png');
+}
+
+.min-logo {
+	display: block;
+	height: 150px;
+	width: 149px;
+	background: url('../img/logo-top.png');
+	float: left;
+}
+
+.min-right {
+	float: left;
+	margin-left: 15px;
+	margin-top: 20px;
+	width: 260px;
+}
+
+.min-top {
+	display: none;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+
+.min-top .button {
+	margin-bottom: 5px;
+}
+
+.min-div-left,.min-div-right {
+	float: left;
+	text-align: center;
+}
+
+.min-div-right {
+	width: 130px;
+	text-align: center;
+}
+
+.enter-text {
+	color: #0080b6;
+}
+
+.triangle-right {
+	position: absolute;
+	right: 15px;
+	top: 10px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-left: 9px solid #fff;
+    border-bottom: 5px solid transparent;
+}
+
+.min-div-left .button {
+	width: 130px;
+	padding: 0;
+}
+
+.top-title {
+	font-weight: 700;
+	margin: 0;
+	margin-left: 50px;
+	margin-right: -50px;
+}
+
+.top-container {
+	position: relative;
+	height: 70px;
+}
+
+.top-container .grid_1 {
+	height: 70px;
+	position: relative;
+}
+
+.slider {
+	position: absolute !important;
+	z-index: 0;
+	top: 0;
+}
+
+.slider img {
+	max-width: 960px;
+}
+
+.button {
+	position: relative;
+	display: inline-block;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 35px;
+	border-radius: 4px;
+	height: 35px;
+	padding: 0 20px 0 20px;
+}
+
+.search {
+	display: inline-block;
+	background: #fff;
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 35px;
+	border-radius: 4px;
+	height: 35px;
+	width: 100%;
+	text-align: center
+}
+
+ul, li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.bottom-menu li {
+	float: right;
+	margin: 0 0 0 12px;
+}
+
+.qr {
+	position: absolute; top: 50%; margin-top: -30px;
+	margin-left: 10px;
+}
+
+.qr.pos2 {
+	margin-left: 12px;
+	width: 54px;
+}
+
+.button.red {
+	background: url('../img/red-button.png') repeat-x;
+}
+
+.button.blue {
+	background: url('../img/blue-button.png') repeat-x;
+}
+
+.button.blue.call {
+	width: 100%;
+	text-align: center;
+	padding: 0;
+}
+
+.call img {
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+
+.top-contact {
+	display: block;
+	font-size: 12px;
+	text-decoration: none;
+	margin: 0;
+	margin-bottom: 5px;
+	color: #0080b6;
+}
+
+.top-contact img {
+	margin-right: 5px;
+}
+
+.topb,.topb-left {
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	float: right;
+}
+
+.topb-left {
+	float: left;
+	margin-left: 16px;
+}
+
+.lang {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 95px;
+	text-align: center;
+}
+
+.lang a {
+	font-size: 12px;
+	color: #0080b6;
+}
+
+.lang div {
+	line-height: 19px;
+}
+
+.lang div a {
+	margin-right: 5px;
+}
+
+.med-bar {
+	display: inline-block;
+	height: 15px;
+	width: 1px;
+	background: #000;
+}
+
+.eng {
+	margin: 0 5px;
+	display: inline-block;
+	width: 21px;
+	height: 16px;
+	background: url('../img/eng.png') no-repeat;
+}
+
+.rus {
+	margin: 0 5px;
+	display: inline-block;
+	width: 21px;
+	height: 16px;
+	background: url('../img/rus.png') no-repeat;
+}
+
+.enter {
+	display: inline-block;
+	width: 18px;
+	height: 15px;
+	background: url('../img/enter.png') no-repeat;
+}
+
+
+.gift {
+	margin-top: 300px;
+}
+
+.gift-pad {
+	background: #fbdb00;
+	width: 150px;
+	text-align: center;
+	padding: 10px;
+	border-radius: 3px;
+}
+
+.gift-pad h2 {
+	float: right;
+	line-height: 20px;
+	text-align: left;
+}
+
+.gift-pad p {
+	font-size: 12px;
+	line-height: 15px;
+	text-align: left;
+}
+
+.gift-pad .button {
+	width: 110px;
+}
+
+.boxes {
+	margin-top: 70px;
+	height: 418px;
+}
+
+.box-1,.box-2,.box-3,.box-4 {
+	display: block;
+	height: 400px;
+	width: 190px;
+	float: left;
+	position: absolute;
+	z-index: 50;
+	-webkit-transition: background-image 0s linear;
+  	-moz-transition: background-image 0s linear;
+  	-ms-transition: background-image 0s linear;
+  	-o-transition: background-image 0s linear;
+  	transition: background-image 0s linear;
+}
+
+.box-1 {
+	background-image: url('../img/1.png');
+	left: 0;
+	left: 0px;
+	background-position:-100px 0px;
+	background-repeat: no-repeat;
+}
+
+.box-2 {
+	background: url('../img/2.png') no-repeat;
+	left: 192px;
+	background-position: -20px 7.5px;
+	background-repeat: no-repeat;
+}
+
+.box-3 {
+	background: url('../img/3.png') no-repeat;
+	background-position: -22px -45px;
+	background-repeat: no-repeat;
+	left: 384px;
+}
+
+.box-4 {
+	background: url('../img/4.png') no-repeat;
+	background-position: -159px -27px;
+	background-repeat: no-repeat;
+	left: 576px;
+}
+
+.box-1:hover {
+	background-image: url('../img/1-b.png');
+	background-position:0px 0px;
+	background-repeat: no-repeat;
+	left: -100px;
+	width: 400px;
+	z-index: 49;
+	-webkit-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	-moz-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	-ms-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	-o-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+}
+
+.box-2:hover {
+	background: url('../img/2-b.png') no-repeat;
+	background-position: -20px 7.5px;
+	background-repeat: no-repeat;
+	width: 960px;
+	z-index: 49;
+	-webkit-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	-moz-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	-ms-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	-o-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+}
+
+.box-3:hover {
+	background: url('../img/3-b.png') no-repeat;
+	background-position: -22px 0;
+	top: -45px;
+	height: 445px;
+	background-repeat: no-repeat;
+	width: 960px;
+	z-index: 49;
+	-webkit-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	-moz-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	-ms-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	-o-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+}
+
+.box-4:hover {
+	background: url('../img/4-b.png') no-repeat;
+	background-position: 0 -27px;
+	background-repeat: no-repeat;
+	left: 417px;
+	width: 960px;
+	z-index: 49;
+	-webkit-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	-moz-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	-ms-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	-o-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+  	transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+}
+
+.shop-block {
+	float: left;
+	display: block;
+	position: relative;
+	width: 25%;
+	line-height: 14px;
+}
+
+.shop-top {
+	
+}
+
+.shop-img {
+
+	float: left;
+	position: relative;
+}
+
+.shop-img img {
+	
+}
+
+.shop-img-cont {
+	padding: 5px;
+}
+
+.shop-about {
+	margin-left: 80px;
+}
+
+.adult {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+.vid-play {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -42px;
+	margin-left: -41.5px;
+	height: 85px;
+	width: 83px;
+	background: url('../img/vid-play.png') no-repeat;
+}
+
+.vid-name {
+	position: absolute;
+	color: #fff;
+	bottom: 5px;
+	left: 5px;
+	font-size: 12px;
+}
+
+.vid-like {
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	line-height: 20px;
+	font-size: 12px;
+	color: #fff;
+}
+
+.shopi {
+	position: absolute;
+	display: block;
+	height: 20px;
+	width: 20px;
+}
+
+.shopi#play {
+	background: url('../img/shop-play.png') no-repeat;
+	top: 0;
+	left: 25px;
+}
+
+.shopi#a {
+	background: url('../img/shop-a.png') no-repeat;
+	top: 0;
+	right: 0;
+}
+
+.shopi#like {
+	background: url('../img/shop-like.png') no-repeat;
+	bottom: 0;
+	right: 0;
+}
+
+.shop-top .author {
+	font-size: 10px;
+	color: #626261;
+	margin: 0;
+	margin-top: 20px;
+	line-height: 1px;
+}
+
+.shop-top .title {
+	color: #0080b6;
+	font-size: 12px;
+}
+
+.genre {
+	color: #0080b6;
+	font-size: 11px;
+	margin-top: 0;
+}
+
+.price {
+	margin: 0;
+	font-weight: 700;
+	margin-bottom: -10px;
+}
+
+.share {
+	font-size: 10px;
+	color: #000;
+}
+
+.yellow {
+	background: #ffdf00;
+	overflow: hidden;
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+
+.news-cont {
+	background: #fff;
+	width: 150px;
+	padding: 10px;
+	border-radius: 3px;
+}
+
+.news-cont .title {
+	text-align: center;
+	background: #dc5a0c;
+	margin: -10px -10px 0 -10px;
+	color: #fff;
+	font-size: 20px;
+	padding: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.news-title {
+	color: #0080b6;
+	text-decoration: underline;
+	margin-top: 20px;
+}
+
+.date {
+	color: #575756;
+	text-decoration: underline;
+	font-size: 13px;
+	margin: 0;
+}
+
+.desc {
+	color: #575756;
+	font-size: 12px;
+	margin: 3px 0 0 0;
+}
+
+.news {
+	margin-top: 10px;
+}
+
+.vid {
+	display: block;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 200px;
+}
+
+.vidiv {
+	margin-top: 38px;
+}
+
+.buy {
+	display: block;
+	background: #0080b6;
+	color: #fff;
+	height: 35px;
+	line-height: 35px;
+	width: 90px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 3px;
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+	font-size: 0.8em;
+	float: left;
+}
+
+.tocart {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 5px;
+	line-height: 33px;
+	float: left;
+	font-size: 11px;
+	color: #4a4a4a;
+}
+
+.tocart a {
+	color: #0080b6;
+	margin-left: 5px;
+}
+
+.buyor {
+	border-radius: 3px;
+	border: 1px solid #0080b6;
+	margin-top: 5px;
+	overflow: hidden;
+}
+
+footer {
+	background: #00749c;
+	overflow: hidden;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+footer .button {
+	text-align: center;
+	width: 130px;
+}
+
+.footer-title {
+	color: #fff;
+	margin-top: 5px;
+	margin-bottom: 0;
+	font-size: 14px;
+}
+
+.min-option {
+	position: relative;
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	width: 100%;
+	color: #fff;
+	text-decoration: none;
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Для Firefox */
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Для Safari и Chrome */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+}
+
+.min-option p {
+	margin: 0 0 0 15px;
+	font-weight: 700;
+}
+
+.min-nav {
+	width: 100%;
+}
+
+.min-option#m1 {
+	z-index: 4;
+	background: #35b1e3;
+}
+
+.min-option#m2 {
+	z-index: 3;
+	background: #86b31f;
+}
+
+.min-option#m3 {
+	z-index: 2;
+	background: #cc3b2b;
+}
+
+.min-option#m4 {
+	z-index: 1;
+	background: #c62b80;
+}
+
+.dashed {
+	display: block;
+	margin: 5px 0;
+	border-top: 1px dashed #fff;
+	height: 1px;
+	width: 150px;
+}
+
+.footer-option {
+	color: #fff;
+	font-size: 12px;
+}
+
+.footer-left {
+	float: left;
+	position: relative;
+}
+
+.footer-adult {
+	float: right;
+	margin-top: 15px;
+}
+
+.footer-right {
+	float:left;
+	margin-left: 15px;
+}
+
+.footer-right div {
+	color: #fff;
+	font-size: 14px;
+}
+
+.footer-right div img {
+	margin-right: 5px;
+}
+
+.footer-logo {
+	float: left;
+}
+	
+.block,.block-2,.block-3,.block-4,.block-5,.inblock { float: left; display:block; position: relative; margin-left: 0.5%; margin-right: 0.5%; }
+.block { width: 19%; }
+.block-2 { width: 39%; }
+.block-3 { width: 59%; }
+.block-4 { width: 79%; }
+.block-5 { width: 99%; }
+.inblock { width: 100%; margin-left:0; margin-right:0; }
+.inblock.shop { margin-left: 20px; }
+
+.pos2 {
+	visibility: hidden !important;
+	display: none !important;
+}
+
+.pos3 {
+	visibility: hidden !important;
+	display: none !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 960px) {
+	
+	.grid_1.footer-nav {
+		width: 140px !important;
+	}
+	
+	.footer-nav .button {
+		width: 100px;
+	}
+	
+	.grid_2.footer-nav {
+		width: 300px !important;
+	}
+	
+	.dashed {
+		width: 80px;
+	}
+	
+	.top-title {
+		margin-left: 15px;
+		margin-right: -15px;
+	}
+	
+	.vidiv {
+		width: 296px !important;
+	}
+	
+	.pos1 {
+		visibility: hidden !important;
+		display: none !important;
+	}
+	
+	.pos2 {
+		visibility: visible !important;
+		display: inline-block !important;
+	}
+	
+	.boxes {
+		margin-top: 50px;
+		height: 350px;
+	}
+	
+	.right-box {
+		width: 604px !important;
+	}
+	
+	.right-box .grid_1 {
+		width: 185px !important;
+	}
+	
+	.right-box .grid_1:nth-of-type(3n+1) {
+		margin-right: 0;
+	}
+	
+	.right-box .grid_1:nth-of-type(4n+1) {
+		display: none;
+	}
+	
+	.box-1,.box-2,.box-3,.box-4 {
+		width: 143px;
+	}
+	
+	.box-1 {
+	background-image: url('../img/1.png');
+	left: 0;
+	background-position:-80px 0px;
+	background-repeat: no-repeat;
+	background-size: 300px;
+}
+
+.box-2 {
+	background: url('../img/2.png') no-repeat;
+	left: 146px;
+	background-position: -20px 7px;
+	background-repeat: no-repeat;
+	background-size: 460px;
+}
+
+.box-3 {
+	background: url('../img/3.png') no-repeat;
+	background-position: -22px -36px;
+	background-repeat: no-repeat;
+	left: 287px;
+	background-size: 297px;
+}
+
+.box-4 {
+	background: url('../img/4.png') no-repeat;
+	background-position: -129px -22px;
+	background-repeat: no-repeat;
+	left: 429px;
+	background-size: 268px;
+}
+
+.box-1:hover {
+	background-image: url('../img/1-b.png');
+	background-position:0px 0px;
+	background-repeat: no-repeat;
+	left: -80px;
+	width: 400px;
+	background-size: 300px;
+}
+
+.box-2:hover {
+	background: url('../img/2-b.png') no-repeat;
+	background-position: -20px 7px;
+	background-repeat: no-repeat;
+	width: 960px;
+	background-size: 460px;
+}
+
+.box-3:hover {
+	background: url('../img/3-b.png') no-repeat;
+	background-position: -22px 0;
+	top: -36px;
+	height: 445px;
+	background-repeat: no-repeat;
+	width: 960px;
+	background-size: 297px;
+}
+
+.box-4:hover {
+	background: url('../img/4-b.png') no-repeat;
+	background-position: 0 -22px;
+	background-repeat: no-repeat;
+	left: 300px;
+	width: 960px;
+	background-size: 268px;
+}
+	
+	.gift,.news-div {
+		width: 140px !important;
+	}
+	
+	.gift {
+		margin-top: 230px;
+	}
+	
+	.gift-pad , .news-cont {
+		width: 120px;
+	}
+	
+	.gift-pad .button {
+		width: 80px;
+	} 
+	
+	.top {
+		min-width: 768px;
+	}
+	.slider img {
+		max-width: 780px;
+	}
+	.container_5 {
+		max-width: 768px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	
+	.yellow {
+		padding: 0;
+	}
+	
+	.vidiv:nth-of-type(2n+1) {
+		display: none;
+	}
+	
+	.min-top {
+		display: inline;
+	}
+	
+	.top {
+		visibility: hidden !important;
+		display: none !important;
+	}
+	
+	.pos3-no {
+		visibility: hidden !important;
+		display: none !important;
+	}
+	
+	.pos3 {
+		visibility: visible !important;
+		display: inline-block !important;
+	}
+	
+	.grid_1,.grid_2,.grid_3,.grid_4 {
+		width: 100% !important;
+		margin: 6px 0 !important;
+	}
+	
+	.boxes {
+		display: none !important;
+	}
+	
+	.gift {
+		margin: 0;
+	}
+	
+	.gift-pad {
+		padding: 0;
+		width: 100%;
+	}
+	
+	.block,.block-2,.block-3,.block-4,.block-5,.shop-block {
+		width: 100%;
+		margin: 0;
+	}
+	.slider img {
+		max-width: 480px;
+	}
+	.top {
+		min-width: 480px;
+	}
+	.container_5 {
+		max-width: 480px;
+	}
+	.shop-block:nth-of-type(4) {
+		display: none;
+		visibility: hidden;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   Theses examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+	Variable Grid System.
+	Learn more ~ http://www.spry-soft.com/grids/
+	Based on 960 Grid System - http://960.gs/
+
+	Licensed under GPL and MIT.
+*/
+
+/*
+  Forces backgrounds to span full width,
+  even if there is horizontal scrolling.
+  Increase this if your layout is wider.
+
+  Note: IE6 works fine without this fix.
+*/
+
+/* Containers
+----------------------------------------------------------------------------------------------------*/
+.container_5 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+}
+
+/* Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5 {
+	display:inline;
+	float: left;
+	position: relative;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
+
+
+.push_1, .pull_1,
+.push_2, .pull_2,
+.push_3, .pull_3,
+.push_4, .pull_4,
+.push_5, .pull_5 {
+	position:relative;
+}
+
+
+/* Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+.alpha {
+	margin-left: 0;
+}
+
+.omega {
+	margin-right: 0;
+}
+
+/* Grid >> 5 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.container_5 .grid_1 {
+	width:180px;
+}
+
+.container_5 .grid_2 {
+	width:372px;
+}
+
+.container_5 .grid_3 {
+	width:564px;
+}
+
+.container_5 .grid_4 {
+	width:756px;
+}
+
+.container_5 .grid_5 {
+	width:948px;
+}
+
+
+
+
+/* Prefix Extra Space >> 5 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.container_5 .prefix_1 {
+	padding-left:192px;
+}
+
+.container_5 .prefix_2 {
+	padding-left:384px;
+}
+
+.container_5 .prefix_3 {
+	padding-left:576px;
+}
+
+.container_5 .prefix_4 {
+	padding-left:768px;
+}
+
+
+
+/* Suffix Extra Space >> 5 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.container_5 .suffix_1 {
+	padding-right:192px;
+}
+
+.container_5 .suffix_2 {
+	padding-right:384px;
+}
+
+.container_5 .suffix_3 {
+	padding-right:576px;
+}
+
+.container_5 .suffix_4 {
+	padding-right:768px;
+}
+
+
+
+/* Push Space >> 5 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.container_5 .push_1 {
+	left:192px;
+}
+
+.container_5 .push_2 {
+	left:384px;
+}
+
+.container_5 .push_3 {
+	left:576px;
+}
+
+.container_5 .push_4 {
+	left:768px;
+}
+
+
+
+/* Pull Space >> 5 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.container_5 .pull_1 {
+	left:-192px;
+}
+
+.container_5 .pull_2 {
+	left:-384px;
+}
+
+.container_5 .pull_3 {
+	left:-576px;
+}
+
+.container_5 .pull_4 {
+	left:-768px;
+}
+
+
+
+
+/* `Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+
+.clearfix:before,
+.clearfix:after {
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+
+.clearfix {
+  zoom: 1;
+}}
