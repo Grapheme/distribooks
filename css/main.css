@@ -154,7 +154,7 @@ textarea {
 	color: #0080b6;
 }
 
-.triangle-right {
+.triangle {
 	position: absolute;
 	right: 15px;
 	top: 10px;
@@ -163,6 +163,20 @@ textarea {
     border-top: 5px solid transparent;
     border-left: 9px solid #fff;
     border-bottom: 5px solid transparent;
+}
+
+.active .triangle {
+	top: 12px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 9px solid #fff;
+}
+
+.bottom .triangle {
+	top: 6px;
+	border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 9px solid #fff;
 }
 
 .min-div-left .button {
@@ -191,6 +205,10 @@ textarea {
 	position: absolute !important;
 	z-index: 0;
 	top: 0;
+}
+
+.slider.info {
+	top: 175px !important;
 }
 
 .slider img {
@@ -347,6 +365,11 @@ ul, li {
 	margin-top: 300px;
 }
 
+.gift-info {
+	margin-top: 25px;
+	margin-bottom: 50px;
+}
+
 .gift-pad {
 	background: #fbdb00;
 	width: 150px;
@@ -426,11 +449,11 @@ ul, li {
 	left: -100px;
 	width: 400px;
 	z-index: 49;
-	-webkit-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	-moz-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	-ms-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	-o-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+	-webkit-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	-moz-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	-ms-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	-o-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	transition: background-image 0.25s linear, width 0s ease-in-out 0s;
 }
 
 .box-2:hover {
@@ -439,11 +462,11 @@ ul, li {
 	background-repeat: no-repeat;
 	width: 960px;
 	z-index: 49;
-	-webkit-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	-moz-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	-ms-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	-o-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+	-webkit-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	-moz-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	-ms-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	-o-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	transition: background-image 0.25s linear, width 0s ease-in-out 0s;
 }
 
 .box-3:hover {
@@ -454,11 +477,11 @@ ul, li {
 	background-repeat: no-repeat;
 	width: 960px;
 	z-index: 49;
-	-webkit-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	-moz-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	-ms-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	-o-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+	-webkit-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	-moz-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	-ms-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	-o-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	transition: background-image 0.25s linear, width 0s ease-in-out 0s;
 }
 
 .box-4:hover {
@@ -468,11 +491,11 @@ ul, li {
 	left: 417px;
 	width: 960px;
 	z-index: 49;
-	-webkit-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	-moz-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	-ms-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	-o-transition: background-image 0.5s linear, width 0s ease-in-out 0s;
-  	transition: background-image 0.5s linear, width 0s ease-in-out 0s;
+	-webkit-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	-moz-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	-ms-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	-o-transition: background-image 0.25s linear, width 0s ease-in-out 0s;
+  	transition: background-image 0.25s linear, width 0s ease-in-out 0s;
 }
 
 .shop-block {
@@ -792,6 +815,147 @@ footer .button {
 .footer-logo {
 	float: left;
 }
+
+.information div {
+	float: left;
+}
+
+.inf-img {
+	margin-top: 25px;
+}
+
+.information div:nth-of-type(1n) {
+	width: 160px;
+}
+
+.information div:nth-of-type(2n) {
+	width: 203px;
+}
+
+.information .title {
+	font-size: 25px;
+	font-weight: 700;
+	line-height: 30px;
+}
+
+.information .desc {
+	font-size: 12px;
+	color: #fff;
+	margin-left: 30px;
+	margin-bottom: 25px;
+}
+
+.information .like p {
+	font-size: 12px;
+	margin: 0 0 0 30px;
+	line-height: 22px;
+}
+
+.information .like {
+	height: 22px;
+	margin-bottom: 20px;
+}
+
+.information .like img {
+	position: absolute;
+}
+
+.info-bottom p {
+	font-size: 11px;
+	color: #fff;
+}
+
+.info-bottom {
+	background: url('../img/trans-left-p.png');
+	padding: 10px 15px 15px 20px;
+	margin-top: 60px;
+	margin-bottom: 60px;
+	width: 320px;
+	border-radius: 5px;
+}
+
+.info-bottom.right {
+	background: url('../img/trans-right-p.png');
+}
+
+/*.information div .title span{
+	background: #ffff00;
+}*/
+
+
+.apply-button {
+	display: block;
+	width: 148px;
+	height: 40px;
+	background: url('../img/apply-button.png') no-repeat;
+	line-height: 40px;
+	text-align: center;
+	color: #007195;
+	text-decoration: none;
+	font-size: 14px;
+	margin-left: 15px;
+}
+
+.red-div {
+	position: relative;
+	margin-top: 70px;
+	background: url('../img/trans-back.png') repeat-y;
+	background-size: 100%;
+	overflow: hidden;
+	z-index: 99;
+	width: 100%;
+}
+
+.left-boxes {
+	
+}
+
+.left-box {
+	position: relative;
+	display: inline-block;
+	width: 140px;
+	height: 79px;
+	margin-top: -5px;
+	text-decoration: none;
+}
+
+.left-box p {
+	font-weight: 700;
+	color: #fff;
+	font-size: 14px;
+	margin: 52px 0 0 20px;
+}
+
+.left-box.active p {
+	font-weight: 700;
+	color: #000;
+	font-size: 14px;
+	margin: 40px 0 0 5px;
+	width: 124px;
+	height: 30px;
+	background: url('../img/active.png');
+	line-height: 30px;
+	padding-left: 20px;
+}
+
+.left-box#edit {
+	z-index: 4;
+	background: url('../img/edit-box.png') no-repeat;
+}
+
+.left-box#style {
+	z-index: 3;
+	background: url('../img/style-box.png') no-repeat;
+}
+
+.left-box#trans {
+	z-index: 2;
+	background: url('../img/trans-box.png') no-repeat;
+}
+.left-box#dist {
+	z-index: 1;
+	background: url('../img/dist-box.png') no-repeat;
+}
 	
 .block,.block-2,.block-3,.block-4,.block-5,.inblock { float: left; display:block; position: relative; margin-left: 0.5%; margin-right: 0.5%; }
 .block { width: 19%; }
@@ -813,6 +977,27 @@ footer .button {
 }
 
 @media screen and (min-width: 768px) and (max-width: 960px) {
+	
+	.grid_2.information,.info-bottom-div {
+		width: 276px !important;
+	}
+	
+	.info-bottom {
+		width: 218px !important;
+	}
+	
+	.apply-button {
+		margin-left: 0;
+	}
+	
+	.information .desc {
+		margin-left: 0;
+	}
+	
+	.red-div {
+		background: url('../img/trans-back-2.png') repeat-y;
+		background-size: 100%;
+	}
 	
 	.grid_1.footer-nav {
 		width: 140px !important;
@@ -971,6 +1156,29 @@ footer .button {
 
 @media screen and (max-width: 767px) {
 	
+	.gift-info,.info-bottom-div {
+		display: none !important;
+	}
+	
+	.red-div {
+		background: none;
+		margin: 0;
+	}
+	
+	.information {
+		background: url('../img/trans-left-p.png');
+		margin: 0 !important;
+	}
+	
+	.information:last-child {
+		background: url('../img/trans-right-p.png');
+		margin: 0 !important;
+	}
+	
+	.left-boxes {
+		display: none !important;
+	}
+	
 	.yellow {
 		padding: 0;
 	}
@@ -1000,7 +1208,7 @@ footer .button {
 	
 	.grid_1,.grid_2,.grid_3,.grid_4 {
 		width: 100% !important;
-		margin: 6px 0 !important;
+		margin: 6px 0;
 	}
 	
 	.boxes {
