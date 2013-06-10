@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	var slide = "none";
+	var slide = "1";
 	
 	$(".box-1").hover(
   		function () {
