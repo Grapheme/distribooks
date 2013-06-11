@@ -527,6 +527,36 @@ ul, li {
   	transition: background-image 0.25s linear, width 0s ease-in-out 0s;
 }
 
+.text-box,.text-box-2,.text-box-3,.text-box-4 {
+	position: absolute;
+	width: 167px;
+	height: 34px;
+	background: url('../img/text-box.png');
+	z-index: 99;
+	background-size: 100%;
+	bottom: 35px;
+	left: 16px;
+}
+
+.intext {
+	margin: 0 0 0 25px;
+	line-height: 34px;
+	font-weight: 700;
+	color: #000;
+}
+
+.intext:hover {
+	text-decoration: underline;
+}
+
+.box-1:hover .text-box {
+	left: 116px;
+}
+
+.box-4:hover .text-box-4 {
+	left: 175px;
+}
+
 .shop-block {
 	float: left;
 	display: block;
@@ -1098,6 +1128,34 @@ footer .button {
 }
 
 @media screen and (min-width: 768px) and (max-width: 960px) {
+	
+	.text-box,.text-box-2,.text-box-3,.text-box-4 {
+	position: absolute;
+	width: 130px;
+	height: 25px;
+	background: url('../img/text-box.png') no-repeat;
+	z-index: 99;
+	background-size: 100%;
+	bottom: 120px;
+	left: 12px;
+	}
+	
+	.box-1:hover .text-box {
+		left: 92px;
+	}
+	
+	.box-3:hover .text-box-3 {
+		bottom: 129px;
+	}
+	
+	.box-4:hover .text-box-4 {
+		left: 141px;
+	}
+	
+	.intext {
+		font-size: 15px;
+		line-height: 28px;
+	}
 	
 	.slider-i img {
 		width: 768px;
