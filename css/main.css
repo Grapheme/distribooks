@@ -109,7 +109,6 @@ textarea {
 	position: absolute;
 	display: block;
 	top: 0;
-	right: 0;
 	height: 150px;
 	width: 149px;
 	background: url('../img/logo-top.png');
@@ -186,9 +185,8 @@ textarea {
 
 .top-title {
 	font-weight: 700;
-	margin: 0;
-	margin-left: 50px;
-	margin-right: -50px;
+	margin: 0 -50px 5px 10px;
+	font-size: 1em;
 }
 
 .top-container {
@@ -209,6 +207,7 @@ textarea {
 	height: 600px;
 	background-image: url('../img/slider-1.png');
 	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .slider-i {
@@ -247,10 +246,11 @@ textarea {
 	line-height: 35px;
 	border-radius: 4px;
 	height: 35px;
-	padding: 0 20px 0 20px;
+	padding: 0 2.8em;
 }
 
 .search {
+	position: relative;
 	display: inline-block;
 	background: #fff;
 	text-decoration: none;
@@ -263,6 +263,25 @@ textarea {
 	text-align: center
 }
 
+.search input {
+	position: absolute;
+	left: 35px;
+	top: 7px;
+	width: 130px;
+	border: 1px solid #aaaaaa;
+	border-radius: 3px;
+	padding-left: 5px;
+}
+
+.search a {
+	position: absolute;
+	left: 8px;
+	top: 8px;
+	height: 20px;
+	width: 20px;
+	background: url('../img/find.png') no-repeat;
+}
+
 ul, li {
 	padding: 0;
 	margin: 0;
@@ -271,7 +290,7 @@ ul, li {
 
 .bottom-menu li {
 	float: right;
-	margin: 0 0 0 12px;
+	margin: 0 0 0 0.2em;red
 }
 
 .qr {
@@ -280,12 +299,13 @@ ul, li {
 }
 
 .qr.pos2 {
-	margin-left: 12px;
+	margin-left: -25px;
 	width: 54px;
 }
 
 .button.red {
 	background: url('../img/red-button.png') repeat-x;
+	padding: 0 1.5em;
 }
 
 .button.blue {
@@ -300,7 +320,7 @@ ul, li {
 
 .call img {
 	position: absolute;
-	left: 5px;
+	left: 10px;
 	top: 5px;
 }
 
@@ -375,13 +395,28 @@ ul, li {
 	background: url('../img/rus.png') no-repeat;
 }
 
+.enter-div {
+	position: relative;
+	overflow: hidden;
+	height: 18px;
+	width: 95px;
+}
+
 .enter {
+	position: absolute;
+	top: 0;
+	right: 17px;
 	display: inline-block;
 	width: 18px;
 	height: 15px;
 	background: url('../img/enter.png') no-repeat;
 }
 
+.sign-in {
+	top: -2px;
+	left: 7px;
+	position: absolute;
+}
 
 .gift {
 	margin-top: 300px;
@@ -1357,6 +1392,10 @@ footer .button {
 }
 
 @media screen and (max-width: 767px) {
+	
+	.enter {
+		position: static !important;
+	}
 	
 	.gift-pad {
 		height: 220px;
