@@ -5,7 +5,10 @@ $(document).ready(function() {
 	$(".box-1").hover(
   		function () {
   			if(slide!='1') {
-    		$(".slider").css({'background-image': "url('img/slider-1.png')"});}
+    		$(".slider").stop().animate({opacity: 0},0,function(){
+    			$(this).css({'background-image': "url('img/slider-1.png')"})
+               .animate({opacity: 1},{duration:250});
+ 			});}
   		},
   		function () {
     		slide = '1';
@@ -14,7 +17,10 @@ $(document).ready(function() {
 	$(".box-2").hover(
   		function () {
     		if(slide!='2') {
-    		$(".slider").css({'background-image': "url('img/style-pic.png')"});}
+    		$(".slider").stop().animate({opacity: 0},0,function(){
+    			$(this).css({'background-image': "url('img/style-pic.png')"})
+               .animate({opacity: 1},{duration:250});
+ 			});}
   		},
   		function () {
     		slide = '2';
@@ -23,7 +29,10 @@ $(document).ready(function() {
 	$(".box-3").hover(
   		function () {
     		if(slide!='3') {
-    		$(".slider").css({'background-image': "url('img/trans-pic.png')"});}
+    		$(".slider").stop().animate({opacity: 0},0,function(){
+    			$(this).css({'background-image': "url('img/trans-pic.png')"})
+               .animate({opacity: 1},{duration:250});
+ 			});}
   		},
   		function () {
     		slide = '3';
@@ -32,7 +41,10 @@ $(document).ready(function() {
 	$(".box-4").hover(
   		function () {
     		if(slide!='4') {
-    		$(".slider").css({'background-image': "url('img/dist-pic.png')"});}
+    		$(".slider").stop().animate({opacity: 0},0,function(){
+    			$(this).css({'background-image': "url('img/dist-pic.png')"})
+               .animate({opacity: 1},{duration:250});
+ 			});}
   		},
   		function () {
     		slide = '4';
