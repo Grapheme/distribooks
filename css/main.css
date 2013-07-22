@@ -216,6 +216,24 @@ textarea {
 	transition: background .5s ease;
 }
 
+.slider.edit {
+	margin-top: 200px;
+}
+
+.slider.trans {
+	background-image: url('../img/trans-pic.png');
+	margin-top: 200px;
+}
+
+.slider.style {
+	background-image: url('../img/style-pic.png');
+	margin-top: 200px;
+}
+
+.slider.dist {
+	background-image: url('../img/dist-pic.png');
+	margin-top: 200px;
+}
 
 .slide-container {
 	margin-left: auto;
@@ -437,6 +455,11 @@ ul, li {
 	margin-top: 300px;
 }
 
+.gift.shop {
+	margin-top: 0;
+	position: absolute;
+}
+
 .gift-info {
 	margin-top: 25px;
 	margin-bottom: 50px;
@@ -635,6 +658,20 @@ ul, li {
 	padding: 5px;
 }
 
+.shop-img-cont img {
+	max-width: 62px;
+	max-height: 89px;
+}
+
+.shop-img-cont.big img {
+	max-width: 100px;
+	max-height: 141px;
+}
+
+.shop-img-cont.big {
+	padding-left: 0;
+}
+
 .shop-about {
 	margin-left: 80px;
 }
@@ -673,6 +710,26 @@ ul, li {
 	color: #fff;
 }
 
+.sale {
+	max-width: 756px;
+}
+
+.sale-title {
+	position: absolute;
+	font-size: 30px;
+	background: url('../img/gift-title.png') repeat-x;
+}
+
+.sale.button {
+	position: absolute;
+	bottom: 50px;
+}
+
+.shop-new-div {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
 .shopi {
 	position: absolute;
 	display: block;
@@ -683,7 +740,7 @@ ul, li {
 .shopi#play {
 	background: url('../img/shop-play.png') no-repeat;
 	top: 0;
-	left: 25px;
+	right: 25px;
 }
 
 .shopi#a {
@@ -733,6 +790,10 @@ ul, li {
 	overflow: hidden;
 	margin-top: 20px;
 	padding-bottom: 38px;
+}
+
+.yellow.blue {
+	background: #0080b6;
 }
 
 .news-cont {
@@ -837,6 +898,21 @@ ul, li {
 	display: inline-block;
 }
 
+.top-shop {
+	width: 252px;
+	float: left;
+}
+
+.top-shop-div {
+	margin-top: 50px;
+}
+
+.top-shop-title {
+	color: #007195;
+	font-size: .8em;
+	margin-bottom: 20px;
+}
+
 footer {
 	background: #00749c;
 	overflow: hidden;
@@ -846,7 +922,7 @@ footer {
 
 footer .button {
 	text-align: center;
-	width: 130px;
+	width: 135px;
 }
 
 .footer-title {
@@ -911,6 +987,11 @@ footer .button {
 	left: -190px;
 	top: -50px;
 	z-index: 98;
+}
+
+.shadow-top {
+	position: absolute;
+	width: 960px;
 }
 
 .footer-option {
@@ -1078,17 +1159,27 @@ footer .button {
 .red-div,.dist-div,.edit-div,.style-div {
 	position: relative;
 	background: url('../img/trans-back.png') repeat-y;
-	background-size: 100%;
+	background-size: 2500px 1px;
+	background-position: center top;
 	overflow: hidden;
 	z-index: 99;
+	min-width: 960px;
+	max-width: 2500px;
 	width: 100%;
 	margin-top: 90px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .left-boxes {
 	position: absolute !important;
 	z-index: 100;
 	top: 145px;
+}
+
+.left-boxes.shop {
+	position: relative !important;
+	top: 35px;
 }
 
 .empty {
@@ -1102,18 +1193,20 @@ footer .button {
 
 .dist-div {
 	background: url('../img/dist-back.png') repeat-y;
-	background-size: 100%;
+	background-size: 2500px 1px;
+	background-position: center top;
 }
 
 .edit-div {
 	background: url('../img/edit-back.png') repeat-y;
-	background-size: 100%;
+	background-size: 2500px 1px;
+	background-position: center top;
 }
 
 .style-div {
 	background: url('../img/style-back.png') repeat-y;
-	background-size: 100%;
-	background-position: 50% 100%;
+	background-size: 2500px 1px;
+	background-position: center top;
 }
 
 .left-boxes nav {
@@ -1188,6 +1281,18 @@ footer .button {
 
 @media screen and (min-width: 768px) and (max-width: 960px) {
 	
+	.style-div,.dist-div,.red-div,.edit-div {
+	min-width: 768px;
+	}
+	
+	.slide-container {
+	min-width: 768px;
+	}
+	
+	.slider {
+	min-width: 768px;
+	}
+	
 	.text-box,.text-box-2,.text-box-3,.text-box-4 {
 	position: absolute;
 	width: 130px;
@@ -1241,23 +1346,27 @@ footer .button {
 	}
 	
 	.red-div {
-		background: url('../img/trans-back-2.png') repeat-y;
-		background-size: 100%;
+		background: url('../img/trans-back.png') repeat-y;
+		background-size: 960px 1px;
+		background-position: center top;
 	}
 	
 	.edit-div {
-		background: url('../img/edit-back-2.png') repeat-y;
-		background-size: 100%;
+		background: url('../img/edit-back.png') repeat-y;
+		background-size: 960px 1px;
+		background-position: center top;
 	}
 	
 	.style-div {
-		background: url('../img/style-back-2.png') repeat-y;
-		background-size: 100%;
+		background: url('../img/style-back.png') repeat-y;
+		background-size: 960px 1px;
+		background-position: center top;
 	}
 	
 	.dist-div {
-		background: url('../img/dist-back-2.png') repeat-y;
-		background-size: 100%;
+		background: url('../img/dist-back.png') repeat-y;
+		background-size: 960px 1px;
+		background-position: center top;
 	}
 	
 	.grid_1.footer-nav {
@@ -1407,15 +1516,16 @@ footer .button {
 	.top {
 		min-width: 768px;
 	}
-	.slider {
-		width: 780px;
-	}
 	.container_5 {
 		max-width: 768px;
 	}
 }
 
 @media screen and (max-width: 767px) {
+	
+	.red-div,.dist-div,.edit-div,.style-div {
+	min-width: 0px;	
+	}
 	
 	.enter {
 		position: static !important;
