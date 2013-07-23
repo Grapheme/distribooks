@@ -180,7 +180,7 @@ textarea {
 
 .min-div-left .button {
 	width: 130px;
-	padding: 0;
+	padding: 0 !important;
 }
 
 .top-title {
@@ -315,6 +315,20 @@ textarea {
 	background: url('../img/find.png') no-repeat;
 }
 
+.search.min {
+	left: 170px;
+}
+
+.like-min {
+	position: absolute;
+	display: block;
+	width: 46px;
+	height: 40px;
+	background: url('../img/like-min.png') no-repeat;
+	left: 545px;
+	z-index: 99;
+}
+
 ul, li {
 	padding: 0;
 	margin: 0;
@@ -417,7 +431,8 @@ ul, li {
 	display: inline-block;
 	width: 21px;
 	height: 16px;
-	background: url('../img/eng.png') no-repeat;
+	background: url('../img/eng.jpg') no-repeat;
+	background-size: 100% 100%;
 }
 
 .rus {
@@ -425,7 +440,8 @@ ul, li {
 	display: inline-block;
 	width: 21px;
 	height: 16px;
-	background: url('../img/rus.png') no-repeat;
+	background: url('../img/rus.jpg') no-repeat;
+	background-size: 100% 100%;
 }
 
 .enter-div {
@@ -994,6 +1010,12 @@ footer .button {
 	width: 960px;
 }
 
+.shadow-min {
+	 position: absolute;
+	 top: 145px;
+	 z-index: -1;
+}
+
 .footer-option {
 	color: #fff;
 	font-size: 12px;
@@ -1522,6 +1544,20 @@ footer .button {
 }
 
 @media screen and (max-width: 767px) {
+	
+	.shadow {
+	display: none;
+	}
+	
+	.eng {
+	width: 30px;
+	height: 29px;
+	}
+
+	.rus {
+	width: 30px;
+	height: 29px;
+	}
 	
 	.red-div,.dist-div,.edit-div,.style-div {
 	min-width: 0px;	
