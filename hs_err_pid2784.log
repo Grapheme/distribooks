@@ -1,0 +1,226 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+# java.lang.OutOfMemoryError: requested 32756 bytes for ChunkPool::allocate. Out of swap space?
+#
+#  Internal Error (allocation.cpp:166), pid=2784, tid=1236
+#  Error: ChunkPool::allocate
+#
+# JRE version: 6.0_24-b07
+# Java VM: Java HotSpot(TM) Client VM (19.1-b02 mixed mode windows-x86 )
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x02677400):  VMThread [stack: 0x04de0000,0x04ee0000] [id=1236]
+
+Stack: [0x04de0000,0x04ee0000],  sp=0x04edfa7c,  free space=1022k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x1fa487]
+V  [jvm.dll+0xa340c]
+V  [jvm.dll+0x2a09]
+V  [jvm.dll+0x2c02]
+V  [jvm.dll+0x2e03]
+V  [jvm.dll+0x1a3a5e]
+V  [jvm.dll+0xdbee0]
+V  [jvm.dll+0xe234b]
+V  [jvm.dll+0x1b4efd]
+V  [jvm.dll+0xcaeb0]
+V  [jvm.dll+0xcb15b]
+V  [jvm.dll+0xcf1ba]
+V  [jvm.dll+0x1de8a2]
+V  [jvm.dll+0xc9e88]
+V  [jvm.dll+0xca281]
+V  [jvm.dll+0x1fa9f4]
+V  [jvm.dll+0x1fd903]
+V  [jvm.dll+0x1fcbde]
+V  [jvm.dll+0x1fcf00]
+V  [jvm.dll+0x1fd302]
+V  [jvm.dll+0x18317c]
+C  [MSVCR71.dll+0x9565]
+C  [kernel32.dll+0x133ca]
+C  [ntdll.dll+0x39ed2]
+C  [ntdll.dll+0x39ea5]
+
+VM_Operation (0x0018b7cc): GenCollectForPermanentAllocation, mode: safepoint, requested by thread 0x02d29800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x08ee1c00 JavaThread "" [_thread_blocked, id=2040, stack(0x0a2c0000,0x0a3c0000)]
+  0x08edf000 JavaThread "Unknown thread" daemon [_thread_blocked, id=4348, stack(0x0a8e0000,0x0a9e0000)]
+  0x06c0c800 JavaThread "À€ À€é¸ã€‡é°ã€æŸ¨ã€„ê¤¨ã€À€À€À€À€À€À€À€À€À€À€À€À€ê¬ˆã€æŸ¨ã€„í‹€ã€–À€À€ç»ˆã€À€!è€€À€À€À€À€À€À€À€À€À€À€À€À€À€éŸ¨ã€á‡¨ã€„é°ã€é°ã€éŸˆã€è»€ã€À€À€À€À€À€À€À€À€À€À€À€À€ê­¨ã€À€À€À€À€é›ˆã€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€Ä€À€1À€é €Ë’À€À€À€À€À€À€À€À€ïºˆÉ®À€À€â·ˆà£À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€æœˆã€„êŒˆã€æ¸ã€„êã€ê ã€é©ã€é°ˆã€ê‡¨ã€é¾¨ã€é« ã€é­°ã€êƒˆã€ê‰¸ã€é¼˜ã€ê€¸ã€é´°ã€ê”°ã€ê…˜ã€é¹ã€é·€ã€ê£˜ã€êš˜ã€é² ã€À€À€é¸ã€‡Æ À€À€À€À€À€é©ã€é°ˆã€êŒˆã€ê‡¨ã€êã€é¾¨ã€êƒˆã€ê‰¸ã€é¼˜ã€ê€¸ã€é´°ã€ê…˜ã€é¹ã€é·€ã€À€À€Â…À€çƒ ã€…ê¤¨ã€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€À€à¦¨ã€„À€~%Ø‰Â‚Â)	Â„ÂƒÄ€À€À€À€à¾€ã€„5À€è»€ã€À€Ã‹ë–´ê¤¨ã€À€À€ç€€ÃŒÀ€À€À€À€À€À€À€ÃÀ€À€À€À€À€À€À€ÃÀ€À€À€À€À€À€À€ÃÀ€À€À€À€À€À€À€Ãë˜€À€À€â©€ã€…à²€Ã‘À€À€À€À€À€À€À€Ã’À€À€À€À€À€À€À€Ã“Â·æ€ã€„À€À€è‚€Ã”À€À€À€À€À€À€À€Ã•Â·é”˜ã€„À€À€è¢€Ã–À€À€À€À€À€À€À€Ã—À€À€À€À€À€À€À€Ã˜Â·é¢°ã€„À€À€è¢€Ã™À€À€À€À€À€À€À€ÃšÀ€À€À€À€À€À€À€Ã›À€À€À€À€À€À€À€ÃœÀ€À€À€À€À€À€À€ÃÀ€À€À€À€À€À€À€ÃÀ€À€À€À€À€À€À€ÃŸÂ¸à¬°ã€†À€À€è¢€Ã Â·ì£˜ã€‹À€À€è‚€Ã¡Â·ì¨ ã€‹À€À€è‚€Ã¢Â·é¤¨ã€À€À€è‚€Ã£À€À€À€À€À€À€À€Ã¤Â·é§€ã€À€À€è‚€Ã¥ë˜€À€À€À€ç‚€Ã¦À€À€À€À€À€À€À€Ã§ë˜€À€À€À€ç‚€Ã¨ë˜€À€À€À€ç‚€Ã©À€À€À€À€À€À€À€ÃªÂ·ïŒã€À€À€è‚€Ã«À€À€À€À€À€À€À€Ã¬ë˜€À€À€À€Â€Ã­ë˜€À€À€À€ã‚€Ã®À€À€À€À€À€À€À€Ã¯À€À€À€À€À€À€À€Ã°Â¹ä› ã€À€À€Â€Ã±Â¹ä› ã€À€ç‚€Ã²Â¹é¸ã€‡	À€ã‚€Ã³À€À€À€À€À€À€À€Ã´À€À€À€À€À€À€À€ÃµÀ€À€À€À€À€À€À€Ã¶À€À€À€À€À€À€À€Ã·À€À€À€À€À€À€À€Ã¸Â¹é¸ã€‡À€ç‚€Ã¹À€À€À€À€À€À€À€ÃºÂ¹é¸ã€‡À€À€ç‚€Ã»À€À€À€À€À€À€À€Ã¼Â¹é¸ã€‡À€ç‚€Ã½Â¹Ä°ã€ŒÀ€ç‚€Ã¾Â¹Ä°ã€ŒÀ€ç‚€Ã¿Â¹ã§˜ã€À€ç‚€À€À€À€à¼ˆã€„ë€°ã€ë«˜ã€ë£€ã€À€À€DÀ€À€À€À€À€À€ä°ã€„ä ã€„äã€„ä’€ã€„í¦°ã€â®˜ã€•â¹ˆã€„á¬ã€„á¬ ã€„ä“ ã€„á« ã€„à¡€ã€„ã¤ ã€„â®°ã€•ç‡°ã€•å¥€ã€‡çšˆã€„çŸ€ã€‹ïˆã€…ç‰¨ã€•â…°ã€„å§˜ã€‡á‰€ã€„íŒã€–ç†€ã€ïˆ°ã€çŒ ã€•ä½ã€’å­˜ã€‡â² ã€•èã€•â…°ã€„äˆã€•á«°ã€†íŒã€–ë£€ã€ï´€ã€…ï¶°ã€…ç°ã€•ä¹ã€„
+
+%&'($)$*$+$,3!-!.!0!1"5$/$2$4ç‹°ã€À€À€À€à¡ã€„DÀ€Ä€ÄÄÄÄÄÄÄÄÄÄÄ daemon [_thread_blocked, id=3124, stack(0x0a7e0000,0x0a8e0000)]
+  0x06c10c00 JavaThread "â•¸ã‚œÀ€À€À€À€á¡£á²šï¾°ã„À€À€á¡¸á²šá á²šÀ€À€á¡»á²šîª°ã€À€À€
+À€á¢á²šá¢“á²šî–¨ã€ŠÀ€á¡€á²šÀ€À€À€À€À€À€À€À€á¢³á²šë•ã„À€á›á²šÀ€À€á á²šÀ€À€à¾¸á²™À€À€À€À€æµ ã„á¤€á²šá££á²šã»¨ã„Â¨À€á¢°á²šì¡°ã„¼â•¸ã‚œÀ€À€À€À€á¤ƒá²šï¾°ã„À€À€á¤˜á²šá¢°á²šÀ€À€á¤›á²šîª°ã€À€À€
+À€á¤°á²šá¤³á²šî–¨ã€ŠÀ€á£ á²šÀ€À€À€À€À€À€À€À€á¥“á²šë•ã„À€á€á²™À€À€á…˜á²™À€À€à¾¸á²™á¦€á²šÀ€À€æ¶˜ã„ã‹°á²šá¦ƒá²šë•ã„À€á¥á²šÀ€À€âº€á²šá° á²šà¾¸á²™á®€á²šÀ€À€á–ˆã€›á§á²šá¦³á²šã»¨ã„Â¨À€á¦€á²šì›˜á««æ…ã„À€À€À€À€á§“á²šï¾°ã„À€À€á§¨á²šá¦€á²šÀ€À€á§«á²šîª°ã€À€À€
+À€á¨€á²šá¨ƒá²šî–¨ã€ŠÀ€á¦°á²šá¨ á²šá©€á²šá© á²šÀ€À€á¨£á²šã»¨ã„Â¨À€á¦€á²šì›°á««áœ°ã€›À€À€À€À€á©ƒá²šã»¨ã„Â¨À€á¦€á²ší·¨á«­æ¿¸ã€¼À€À€À€À€á©£á²šã»¨ã„Â¨À€á¦€á²šìœˆá««ä¤¨ãƒ¢À€À€À€À€áªƒá²šì¨ã„
+À€ç©°á«­À€À€áª¨á²šÀ€À€À€À€ÔšÀ€À€À€áª«á²šë¨˜ã„À€ç©°á«­À€À€á« á²šáª€á²šî–á«¯À€À€À€À€æ·ã„á¬ˆá²šÔ˜À€À€À€á«£á²šì¨ã„À€ç©°á«­À€À€áª€á²šáª¨á²šÀ€À€Ô—À€À€À€á¬‹á²šï¾°ã„À€À€á­ˆá²šáª¨á²šÀ€À€á¬£á²šäŒ¨ã„Â¨À€áª¨á²šìœ¸á««æ†ˆã„À€À€À€À€Ô™À€À€À€á­‹á²šîª°ã€À€À€
+À€á­ á²šá­£á²šî–¨ã€ŠÀ€á¬ á²šÀ€À€À€À€À€À€À€À€á®ƒá²šë•ã„À€á¦€á²šÀ€À€á®€á²šÀ€À€à¾¸á²™À€À€À€À€æ·ã„á¯á²šá®³á²šã»¨ã„Â¨À€á®€á²šìœ¸á««æ†ˆã„À€À€À€À€á¯“á²šï¾°ã„À€À€á¯¨á²šá®€á²šÀ€À€á¯«á²šîª°ã€À€À€
+À€á°€á²šá°ƒá²šî–¨ã€ŠÀ€á®°á²šÀ€À€À€À€À€À€À€À€á°£á²šë•ã„À€á¥á²šÀ€À€á¦€á²šá»€á²šà¾¸á²™á¸ á²šÀ€À€á–ˆã€›á±°á²šá±“á²šã»¨ã„Â¨À€á° á²šì€á««æ…ã„À€À€À€À€á±³á²šï¾°ã„À€À€á²ˆá²šá° á²šÀ€À€á²‹á²šîª°ã€À€À€
+À€á² á²šá²£á²šî–¨ã€ŠÀ€á±á²šá³€á²šá³ á²šá´€á²šÀ€À€á³ƒá²šã»¨ã„Â¨À€á° á²šì˜á««áœ°ã€›À€À€À€À€á³£á²šã»¨ã„Â¨À€á° á²ší¸á«­æ¿¸ã€¼À€À€À€À€á´ƒá²šã»¨ã„Â¨À€á° á²šì°á««ä¤¨ãƒ¢À€À€À€À€á´£á²šì¨ã„
+À€è¤á«­À€À€áµˆá²šÀ€À€À€À€Ô¤À€À€À€áµ‹á²šë¨˜ã„À€è¤á«­À€À€á¶€á²šá´ á²šî–á«¯À€À€À€À€æ·ã„á¶¨á²šÔ¢À€À€À€á¶ƒá²šì¨ã„À€è¤á«­À€À€á´ á²šáµˆá²šÀ€À€Ô¡À€À€À€á¶«á²šï¾°ã„À€À€á·¨á²šáµˆá²šÀ€À€á·ƒá²šäŒ¨ã„Â¨À€áµˆá²šìŸ á««æ†ˆã„À€À€À€À€Ô£À€À€À€á·«á²šîª°ã€À€À€
+À€á¸€á²šá¸ƒá²šî–¨ã€ŠÀ€á·€á²šÀ€À€À€À€À€À€À€À€á¸£á²šë•ã„À€á° á²šÀ€À€á¸ á²šÀ€À€à¾¸á²™À€À€À€À€æ·ã„á¹°á²šá¹“á²šã»¨ã„Â¨À€á¸ á²šìŸ á««æ†ˆã„À€À€À€À€á¹³á²šï¾°ã„À€À€á [_thread_blocked, id=4304, stack(0x0a050000,0x0a150000)]
+  0x06c10400 
+[error occurred during error reporting (printing all threads), id 0xc0000005]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x02d279c0] Threads_lock - owner thread: 0x02677400
+[0x02d27dd0] Heap_lock - owner thread: 0x02d29800
+
+Heap
+ def new generation   total 32256K, used 2969K [0x10040000, 0x12330000, 0x1aae0000)
+  eden space 28736K,  10% used [0x10040000, 0x10326430, 0x11c50000)
+  from space 3520K,   0% used [0x11c50000, 0x11c50000, 0x11fc0000)
+  to   space 3520K,   0% used [0x11fc0000, 0x11fc0000, 0x12330000)
+ tenured generation   total 71444K, used 32728K [0x1aae0000, 0x1f0a5000, 0x30040000)
+   the space 71444K,  45% used [0x1aae0000, 0x1cad6110, 0x1cb19600, 0x1f0a5000)
+ compacting perm gen  total 63828K, used 63827K [0x30040000, 0x33e95000, 0x40040000)
+   the space 63828K,  99% used [0x30040000, 0x33e94fd8, 0x33e93000, 0x33e95000)
+No shared spaces configured.
+
+Dynamic libraries:
+0x00400000 - 0x0040d000 	E:\Kostya_dek\Aptana\AptanaStudio3.exe
+0x777a0000 - 0x77920000 	C:\Windows\SysWOW64\ntdll.dll
+0x76120000 - 0x76230000 	C:\Windows\syswow64\kernel32.dll
+0x76580000 - 0x765c6000 	C:\Windows\syswow64\KERNELBASE.dll
+0x75fb0000 - 0x760b0000 	C:\Windows\syswow64\USER32.dll
+0x76860000 - 0x768f0000 	C:\Windows\syswow64\GDI32.dll
+0x762d0000 - 0x762da000 	C:\Windows\syswow64\LPK.dll
+0x76ea0000 - 0x76f3d000 	C:\Windows\syswow64\USP10.dll
+0x76c10000 - 0x76cbc000 	C:\Windows\syswow64\msvcrt.dll
+0x76ae0000 - 0x76b80000 	C:\Windows\syswow64\ADVAPI32.dll
+0x76f40000 - 0x76f59000 	C:\Windows\SysWOW64\sechost.dll
+0x76f60000 - 0x77050000 	C:\Windows\syswow64\RPCRT4.dll
+0x75300000 - 0x75360000 	C:\Windows\syswow64\SspiCli.dll
+0x752f0000 - 0x752fc000 	C:\Windows\syswow64\CRYPTBASE.dll
+0x77050000 - 0x770d4000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.7601.17514_none_ec83dffa859149af\COMCTL32.dll
+0x765d0000 - 0x76630000 	C:\Windows\system32\IMM32.DLL
+0x771b0000 - 0x7727c000 	C:\Windows\syswow64\MSCTF.dll
+0x72000000 - 0x7200d000 	E:\Kostya_dek\Aptana\plugins\org.eclipse.equinox.launcher.win32.win32.x86_1.1.100.v20110502\eclipse_1406.dll
+0x75220000 - 0x75229000 	C:\Windows\system32\VERSION.dll
+0x72e60000 - 0x72ee0000 	C:\Windows\system32\uxtheme.dll
+0x10000000 - 0x10037000 	C:\Windows\SysWOW64\HsSrv.dll
+0x72590000 - 0x725c2000 	C:\Windows\SysWOW64\WINMM.dll
+0x71e50000 - 0x71ec2000 	C:\Windows\SysWOW64\DSOUND.dll
+0x76ce0000 - 0x76e3c000 	C:\Windows\syswow64\ole32.dll
+0x71e20000 - 0x71e45000 	C:\Windows\SysWOW64\POWRPROF.dll
+0x763e0000 - 0x7657d000 	C:\Windows\syswow64\SETUPAPI.dll
+0x76830000 - 0x76857000 	C:\Windows\syswow64\CFGMGR32.dll
+0x76b80000 - 0x76c0f000 	C:\Windows\syswow64\OLEAUT32.dll
+0x760b0000 - 0x760c2000 	C:\Windows\syswow64\DEVOBJ.dll
+0x6d7f0000 - 0x6da96000 	E:\Kostya_dek\Aptana\jre\bin\client\jvm.dll
+0x7c340000 - 0x7c396000 	C:\Windows\system32\MSVCR71.dll
+0x72670000 - 0x726bc000 	C:\Windows\system32\apphelp.dll
+0x6d7a0000 - 0x6d7ac000 	E:\Kostya_dek\Aptana\jre\bin\verify.dll
+0x6d320000 - 0x6d33f000 	E:\Kostya_dek\Aptana\jre\bin\java.dll
+0x6d280000 - 0x6d288000 	E:\Kostya_dek\Aptana\jre\bin\hpi.dll
+0x762c0000 - 0x762c5000 	C:\Windows\syswow64\PSAPI.DLL
+0x6d7e0000 - 0x6d7ef000 	E:\Kostya_dek\Aptana\jre\bin\zip.dll
+0x732b0000 - 0x732c6000 	C:\Windows\system32\CRYPTSP.dll
+0x73270000 - 0x732ab000 	C:\Windows\system32\rsaenh.dll
+0x732f0000 - 0x73307000 	C:\Windows\system32\USERENV.dll
+0x732e0000 - 0x732eb000 	C:\Windows\system32\profapi.dll
+0x6d600000 - 0x6d613000 	E:\Kostya_dek\Aptana\jre\bin\net.dll
+0x770e0000 - 0x77115000 	C:\Windows\syswow64\WS2_32.dll
+0x76cc0000 - 0x76cc6000 	C:\Windows\syswow64\NSI.dll
+0x73230000 - 0x7326c000 	C:\Windows\system32\mswsock.dll
+0x6b2e0000 - 0x6b2e6000 	C:\Windows\System32\wship6.dll
+0x72540000 - 0x72550000 	C:\Windows\system32\NLAapi.dll
+0x72530000 - 0x72540000 	C:\Windows\system32\napinsp.dll
+0x72510000 - 0x72522000 	C:\Windows\system32\pnrpnsp.dll
+0x724c0000 - 0x72504000 	C:\Windows\system32\DNSAPI.dll
+0x724b0000 - 0x724b8000 	C:\Windows\System32\winrnr.dll
+0x71ef0000 - 0x71ef5000 	C:\Windows\System32\wshtcpip.dll
+0x731d0000 - 0x731ec000 	C:\Windows\system32\IPHLPAPI.DLL
+0x731c0000 - 0x731c7000 	C:\Windows\system32\WINNSI.DLL
+0x72100000 - 0x72106000 	C:\Windows\system32\rasadhlp.dll
+0x72470000 - 0x724a8000 	C:\Windows\System32\fwpuclnt.dll
+0x6d620000 - 0x6d629000 	E:\Kostya_dek\Aptana\jre\bin\nio.dll
+0x06890000 - 0x068fe000 	E:\Kostya_dek\Aptana\configuration\org.eclipse.osgi\bundles\245\1\.cp\swt-win32-3740.dll
+0x76a60000 - 0x76adb000 	C:\Windows\syswow64\comdlg32.dll
+0x76e40000 - 0x76e97000 	C:\Windows\syswow64\SHLWAPI.dll
+0x06e70000 - 0x0700e000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+0x75360000 - 0x75faa000 	C:\Windows\syswow64\SHELL32.dll
+0x751c0000 - 0x75211000 	C:\Windows\system32\WINSPOOL.DRV
+0x762e0000 - 0x763d5000 	C:\Windows\syswow64\WININET.dll
+0x76920000 - 0x76a56000 	C:\Windows\syswow64\urlmon.dll
+0x77280000 - 0x7739d000 	C:\Windows\syswow64\CRYPT32.dll
+0x77770000 - 0x7777c000 	C:\Windows\syswow64\MSASN1.dll
+0x76630000 - 0x7682b000 	C:\Windows\syswow64\iertutil.dll
+0x73070000 - 0x73083000 	C:\Windows\system32\dwmapi.dll
+0x71590000 - 0x71685000 	C:\Windows\system32\propsys.dll
+0x77120000 - 0x771a3000 	C:\Windows\syswow64\CLBCatQ.DLL
+0x05ba0000 - 0x05bbd000 	E:\Kostya_dek\Aptana\configuration\org.eclipse.osgi\bundles\245\1\.cp\swt-gdip-win32-3740.dll
+0x72cd0000 - 0x72e60000 	C:\Windows\WinSxS\x86_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.7601.17514_none_72d18a4386696c80\gdiplus.dll
+0x72140000 - 0x7223b000 	C:\Windows\system32\WindowsCodecs.dll
+0x07060000 - 0x0706e000 	E:\Kostya_dek\Aptana\configuration\org.eclipse.osgi\bundles\156\1\.cp\os\win32\x86\localfile_1_0_0.dll
+0x07080000 - 0x07088000 	E:\Kostya_dek\Aptana\configuration\org.eclipse.osgi\bundles\161\1\.cp\os\win32\x86\win32refresh.dll
+0x747d0000 - 0x7480c000 	C:\Windows\system32\oleacc.dll
+0x6dcd0000 - 0x6de3f000 	C:\Windows\system32\explorerframe.dll
+0x72f70000 - 0x72f9f000 	C:\Windows\system32\DUser.dll
+0x708e0000 - 0x70992000 	C:\Windows\system32\DUI70.dll
+0x73220000 - 0x7322e000 	C:\Windows\system32\RpcRtRemote.dll
+0x73d20000 - 0x73d4e000 	C:\Windows\system32\mlang.dll
+0x097d0000 - 0x097df000 	E:\Kostya_dek\Aptana\configuration\org.eclipse.osgi\bundles\11\1\.cp\os\win32\x86\core_3_0_0.dll
+0x6d000000 - 0x6d14a000 	E:\Kostya_dek\Aptana\jre\bin\awt.dll
+0x6d230000 - 0x6d27f000 	E:\Kostya_dek\Aptana\jre\bin\fontmanager.dll
+0x75190000 - 0x751b1000 	C:\Windows\system32\ntmarta.dll
+0x760d0000 - 0x76115000 	C:\Windows\syswow64\WLDAP32.dll
+0x6c570000 - 0x6c708000 	C:\Windows\system32\NetworkExplorer.dll
+0x716a0000 - 0x716ce000 	C:\Windows\System32\shdocvw.dll
+0x6b2f0000 - 0x6b2fa000 	C:\Windows\system32\slc.dll
+0x6c720000 - 0x6c72f000 	E:\Kostya_dek\Aptana\configuration\org.eclipse.osgi\bundles\159\1\.cp\jWinHttp-1.0.0.dll
+0x6afc0000 - 0x6b018000 	C:\Windows\system32\WINHTTP.dll
+0x6af70000 - 0x6afbf000 	C:\Windows\system32\webio.dll
+0x72920000 - 0x72932000 	C:\Windows\system32\dhcpcsvc.DLL
+0x74a70000 - 0x74a7d000 	C:\Windows\system32\dhcpcsvc6.DLL
+0x74810000 - 0x74818000 	C:\Windows\system32\credssp.dll
+0x67540000 - 0x67554000 	E:\Kostya_dek\Aptana\configuration\org.eclipse.osgi\bundles\60\1\.cp\os\win32\x86\jnotify.dll
+0x72110000 - 0x72115000 	C:\Windows\system32\msimg32.dll
+0x6d780000 - 0x6d788000 	E:\Kostya_dek\Aptana\jre\bin\sunmscapi.dll
+0x737e0000 - 0x73811000 	C:\Windows\system32\EhStorShell.dll
+0x6b240000 - 0x6b2b0000 	C:\Windows\system32\ntshrui.dll
+0x72f20000 - 0x72f39000 	C:\Windows\system32\srvcli.dll
+0x728a0000 - 0x728ab000 	C:\Windows\system32\cscapi.dll
+0x0e1d0000 - 0x0ec50000 	C:\Windows\SysWOW64\ieframe.dll
+0x70790000 - 0x707ef000 	C:\Windows\system32\SXS.DLL
+0x6e4c0000 - 0x6ea77000 	C:\Windows\SysWOW64\mshtml.dll
+0x72640000 - 0x7266a000 	C:\Windows\SysWOW64\msls31.dll
+0x73d00000 - 0x73d0b000 	C:\Windows\system32\msimtf.dll
+0x740a0000 - 0x740cb000 	C:\Program Files (x86)\Internet Explorer\ieproxy.dll
+0x73000000 - 0x7304e000 	C:\Windows\SysWOW64\actxprxy.dll
+0x6d550000 - 0x6d559000 	E:\Kostya_dek\Aptana\jre\bin\management.dll
+
+VM Arguments:
+jvm_args: -Xms40m -Xmx512m -Declipse.p2.unsignedPolicy=allow -Declipse.log.size.max=10000 -Declipse.log.backup.max=5 -Djava.awt.headless=true -XX:MaxPermSize=256m 
+java_command: <unknown>
+Launcher Type: generic
+
+Environment Variables:
+PATH=E:/Kostya_dek/Aptana/jre/bin/client;E:/Kostya_dek/Aptana/jre/bin;E:/Kostya_dek/Aptana/jre/lib/i386;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\Dobriy\Documents\GitHub\distribooks;
+USERNAME=Dobriy
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 15 Stepping 6, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 Build 7601 Service Pack 1
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 15 stepping 6, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+Memory: 4k page, physical 4192760k(694712k free), swap 4190916k(448k free)
+
+vm_info: Java HotSpot(TM) Client VM (19.1-b02) for windows-x86 JRE (1.6.0_24-b07), built on Feb  2 2011 17:44:41 by "java_re" with MS VC++ 7.1 (VS2003)
+
+time: Thu Jul 25 14:01:40 2013
+elapsed time: 7015 seconds
+

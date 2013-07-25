@@ -109,9 +109,10 @@ textarea {
 	position: absolute;
 	display: block;
 	top: 0;
-	height: 150px;
-	width: 149px;
+	height: 110px;
+	width: 110px;
 	background: url('../img/logo-top.png') no-repeat;
+	background-size: 100% 100%;
 }
 
 .min-logo {
@@ -351,12 +352,32 @@ ul, li {
 }
 
 .button.red {
-	background: url('../img/red-button.png') repeat-x;
+	background: url('../img/button-red.png') repeat-x;
+	background-size: 100% 100%;
 	padding: 0 1.5em;
 }
 
+.button.red:hover {
+	background: url('../img/button-red-hover.png') repeat-x;
+}
+
+.button.red:active {
+	background: url('../img/button-red-active.png') repeat-x;
+}
+
 .button.blue {
-	background: url('../img/blue-button.png') repeat-x;
+	background: url('../img/button-blue.png') repeat-x;
+	background-size: 100% 100%;
+}
+
+.button.blue:hover {
+	background: url('../img/button-blue-hover.png') repeat-x;
+	background-size: 100% 100%;
+}
+
+.button.blue:active {
+	background: url('../img/button-blue-active.png') repeat-x;
+	background-size: 100% 100%;
 }
 
 .button.blue.call {
@@ -484,7 +505,7 @@ ul, li {
 .gift-pad {
 	position: relative;
 	background: #fbdb00;
-	width: 150px;
+	width: 120px;
 	text-align: center;
 	padding: 10px;
 	border-radius: 3px;
@@ -510,7 +531,7 @@ ul, li {
 }
 
 .gift-pad .button {
-	width: 110px;
+	width: 80px;
 }
 
 .boxes {
@@ -674,6 +695,11 @@ ul, li {
 	padding: 5px;
 }
 
+.shop-img-cont.one {
+	padding: 10px;
+	padding-left: 0;
+}
+
 .shop-img-cont img {
 	max-width: 62px;
 	max-height: 89px;
@@ -684,18 +710,95 @@ ul, li {
 	max-height: 141px;
 }
 
+.shop-img-cont.one img {
+	max-width: 350px;
+	max-height: 450px;
+}
+
 .shop-img-cont.big {
 	padding-left: 0;
 }
 
 .shop-about {
-	margin-left: 80px;
+	margin-left: 30px;
+}
+
+.shop-about.big {
+	float: left;
+}
+
+.shop-about.big .title {
+	margin: 0;
+	font-weight: 700;
+	width: 400px;
 }
 
 .adult {
 	position: absolute;
 	right: 5px;
 	top: 5px;
+}
+
+.product-div {
+	float: left;
+	margin-top: 45px;
+}
+
+.formats {
+	float: left;
+	border: 1px solid #0080b6;
+	border-radius: 5px;
+	width: 150px;
+	font-size: 12px;
+	padding: 5px;
+}
+
+.formats-title {
+	margin: 0;
+	font-weight: 700;
+	text-decoration: underline;
+	font-size: 12px;
+}
+
+.format {
+	font-size: 11px;
+	margin-top: 10px;
+	margin-bottom: 0;
+	font-weight: 700;
+}
+
+.format-link {
+	color: #000;
+}
+
+.about-product {
+	float: left;
+	width: 200px;
+	font-size: 11px;
+	margin-left: 30px;
+}
+
+.share-product {
+	color: #000;
+}
+
+.share-product span {
+	margin-left: 10px;
+}
+
+.about-p a {
+	color: #0080b6;
+}
+
+.about-p span {
+	color: #000;
+	font-weight: 700;
+}
+
+.product-desc {
+	display: inline-block;
+	font-size: 11px;
+	margin-top: 20px;
 }
 
 .vid-play {
@@ -771,6 +874,31 @@ ul, li {
 	right: 0;
 }
 
+.shopi.big {
+	position: absolute;
+	display: block;
+	height: 31px;
+	width: 31px;
+}
+
+.shopi.big#adult {
+	background: url('../img/adult.png') no-repeat;
+	top: 0;
+	left: 10px;
+}
+
+.shopi.big#play {
+	background: url('../img/big-play.png') no-repeat;
+	top: 0;
+	right: 65px;
+}
+
+.shopi.big#a {
+	background: url('../img/big-shop.png') no-repeat;
+	top: 0;
+	right: 20px;
+}
+
 .shop-top .author {
 	font-size: 10px;
 	color: #626261;
@@ -779,9 +907,29 @@ ul, li {
 	line-height: 1px;
 }
 
+.shop-top .author-big {
+	font-size: 12px;
+	color: #000;
+	text-decoration: underline;
+	margin: 0;
+	margin-top: 20px;
+	line-height: 1px;
+}
+
+.rating {
+	margin-top: 15px;
+	margin-bottom: 5px;
+	font-size: 10px;
+	color: #000;
+}
+
 .shop-top .title {
 	color: #0080b6;
 	font-size: 12px;
+}
+
+.big .title {
+	font-size: 22px;
 }
 
 .genre {
@@ -794,6 +942,12 @@ ul, li {
 	margin: 0;
 	font-weight: 700;
 	margin-bottom: -10px;
+}
+
+.price-big {
+	font-size: 22px;
+	font-weight: 700;
+	margin: 0;
 }
 
 .share {
@@ -814,7 +968,7 @@ ul, li {
 
 .news-cont {
 	background: #fff;
-	width: 150px;
+	width: 120px;
 	padding: 10px;
 	border-radius: 3px;
 }
@@ -938,7 +1092,7 @@ footer {
 
 footer .button {
 	text-align: center;
-	width: 135px;
+	width: 105px;
 }
 
 .footer-title {
@@ -1196,12 +1350,12 @@ footer .button {
 .left-boxes {
 	position: absolute !important;
 	z-index: 100;
-	top: 145px;
+	top: 115px;
 }
 
 .left-boxes.shop {
 	position: relative !important;
-	top: 35px;
+	top: 5px;
 }
 
 .empty {
@@ -1251,6 +1405,30 @@ footer .button {
 	margin: 52px 0 0 20px;
 }
 
+.left-box:hover p {
+	font-weight: 700;
+	color: #000;
+	font-size: 14px;
+	margin: 40px 0 0 5px;
+	width: 124px;
+	height: 30px;
+	background: url('../img/active.png');
+	line-height: 30px;
+	padding-left: 20px;
+}
+
+.left-box:active p {
+	font-weight: 700;
+	color: #000;
+	font-size: 14px;
+	margin: 42px 0 0 5px;
+	width: 124px;
+	height: 30px;
+	background: url('../img/active.png');
+	line-height: 30px;
+	padding-left: 20px;
+}
+
 .left-box.active p {
 	font-weight: 700;
 	color: #000;
@@ -1280,6 +1458,17 @@ footer .button {
 .left-box#dist {
 	z-index: 1;
 	background: url('../img/dist-box.png') no-repeat;
+}
+
+.bread {
+	position: absolute;
+	top: 126px;
+	left: 351px;
+}
+
+.bread a {
+	font-size: 10px;
+	color: #359ad2;
 }
 	
 .block,.block-2,.block-3,.block-4,.block-5,.inblock { float: left; display:block; position: relative; margin-left: 0.5%; margin-right: 0.5%; }
@@ -1568,7 +1757,7 @@ footer .button {
 	}
 	
 	.gift-pad {
-		height: 220px;
+		height: 120px;
 	}
 	
 	.gift-pad img {
