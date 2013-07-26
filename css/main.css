@@ -1030,11 +1030,12 @@ ul, li {
 
 .buy {
 	display: block;
-	background: #0080b6;
+	background: url('../img/buy.png') no-repeat;
+	background-size: 100% 100%;
 	color: #fff;
 	height: 35px;
 	line-height: 35px;
-	width: 90px;
+	width: 86px;
 	text-align: center;
 	text-decoration: none;
 	border-radius: 3px;
@@ -1042,6 +1043,18 @@ ul, li {
 	border-top-left-radius: 0px;
 	font-size: 0.8em;
 	float: left;
+	margin-top: -1px;
+	margin-left: -1px;
+}
+
+.buy:hover {
+	background: url('../img/buy-hover.png') no-repeat;
+	background-size: 100% 100%;
+}
+
+.buy:active {
+	background: url('../img/buy-active.png') no-repeat;
+	background-size: 100% 100%;
 }
 
 .tocart {
@@ -1061,8 +1074,8 @@ ul, li {
 }
 
 .buyor {
-	border-radius: 3px;
-	border: 1px solid #0080b6;
+	border-radius: 5px;
+	border: 1px solid #39a935;
 	margin-top: 5px;
 	overflow: hidden;
 	display: inline-block;
@@ -1463,7 +1476,7 @@ footer .button {
 .bread {
 	position: absolute;
 	top: 126px;
-	left: 351px;
+	left: 200px;
 }
 
 .bread a {
