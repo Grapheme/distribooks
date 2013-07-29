@@ -38,4 +38,43 @@ $(document).ready(function() {
     		slide = '4';
   		}
 	);
+	
+	var basket = "close";
+	
+	$("html").click(function() {
+		
+	});
+	
+	$(document).click(function(event) {
+    	if ($(event.target).closest(".button.basket,.basket-min-div").length) return;
+   		$(".basket-min-div").fadeOut("fast");
+   		basket = "close";
+  	});
+	
+	$(".basket-close").click(function() {
+		$(".basket-min-div").fadeOut("fast");
+		basket = "close";
+	});
+	
+	$(".button.basket").click(function() {
+		if(basket == "close") { $(".basket-min-div").fadeIn("fast"); basket = "open"; }
+		else { $(".basket-min-div").fadeOut("fast"); basket = "close"; }
+	});
+	
+	
+	var search = "close";
+	
+	$('.search input').focus(function() {
+		$(".search-full").slideDown("fast");
+		$(".search").addClass("open");
+		search = "open";
+	});
+	
+	$(document).click(function(event) {
+    	if ($(event.target).closest(".search-full,.search").length) return;
+   		$(".search-full").slideUp("fast");
+   		$(".search").removeClass("open");
+   		search = "close";
+  	});
+	
 });
