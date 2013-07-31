@@ -322,6 +322,15 @@ textarea {
 	background: url('../img/find.png') no-repeat;
 }
 
+.search-a {
+	display: inline-block;
+	left: 8px;
+	top: 8px;
+	height: 20px;
+	width: 20px;
+	background: url('../img/find.png') no-repeat;
+}
+
 .search.min {
 	left: 170px;
 }
@@ -1964,7 +1973,6 @@ footer .button {
 	font-size: 12px;
 	display: none;
 	position: absolute;
-	width: 475px;
 	top: 105px;
 	right: 10px;
 	background: #fff;
@@ -1985,6 +1993,10 @@ footer .button {
 
 .search-full-in {
 	margin: 15px;
+}
+
+.search-full-in.min div {
+	float: left;
 }
 
 .search-full input[type=text] {
