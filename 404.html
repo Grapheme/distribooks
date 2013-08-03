@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -26,18 +25,30 @@
         	
         	<div class="container_5">
         		<div style="position: relative;">
+        			<div class="bread">
+                		<a href="#">Главная / Фантастика </a>
+              		</div>
         				<div class="search-full">
         					<div class="search-full-in">
-        					<div><select>
+        					<form action="">	
+        					<div class="format-select">
+        					<select>
         						<option value="1">Формат</option>
         						<option value="2">2</option>
         					</select>
         					</div>
         					<div><input type="text" placeholder="автор"></div>
-        					<div><span>Аудио </span><input id="rsecond" type="radio"></div>
-        					<div><span>Текст </span><input type="radio"></div>
+        					<div>
+        						<span>Аудио </span><input id="audio" type="checkbox" name="audio" checked="checked">
+        						<label for="audio"></label>
+        					</div>
+        					<div>
+        						<span>Текст </span><input id="text" type="checkbox" name="text" checked="checked">
+        						<label for="text"></label>
+        					</div>
         					<div><input type="text" placeholder="формат"></div>
         					</div>
+        					</form>
         				</div>
         			
         				<div class="basket-min-div">
@@ -47,7 +58,7 @@
         						<p class="basket-title">Каждая четвертая книга в подарок!</p>
         						<div class="basket-item">
         							<a class="basket-rm" href="#"></a>
-        							<div class="basket-img"><img src="img/book-sh.png"></div>
+        							<div class="basket-img"><img src="img/book-big.png"></div>
         							<p class="basket-item-name">Назавние Назавние Назавние Назавние</p>
         							<p class="basket-price">200 р.</p>
         							<div class="basket-one-buy">
@@ -63,7 +74,7 @@
         						</div>
         						<div class="basket-item">
         							<a class="basket-rm" href="#"></a>
-        							<div class="basket-img"><img src="img/book-sh.png"></div>
+        							<div class="basket-img"><img src="img/book-big.png"></div>
         							<p class="basket-item-name">Назавние Назавние Назавние Назавние</p>
         							<p class="basket-price">200 р.</p>
         							<div class="basket-one-buy">
@@ -79,7 +90,7 @@
         						</div>
         						<div class="basket-item">
         							<a class="basket-rm" href="#"></a>
-        							<div class="basket-img"><img src="img/book-sh.png"></div>
+        							<div class="basket-img"><img src="img/book-big.png"></div>
         							<p class="basket-item-name">Назавние Назавние Назавние Назавние</p>
         							<p class="basket-price">200 р.</p>
         							<div class="basket-one-buy">
@@ -95,7 +106,7 @@
         						</div>
         						<div class="basket-item basket-sale">
         							<a class="basket-rm" href="#"></a>
-        							<div class="basket-img"><img src="img/book-sh.png"></div>
+        							<div class="basket-img"><img src="img/book-big.png"></div>
         							<p class="basket-item-name">Назавние Назавние Назавние Назавние</p>
         							<p class="basket-price"><a href="#" class="button red">Выбрать</a></p>
         							<div class="basket-one-buy">
@@ -116,7 +127,7 @@
         							<p class="basket-item-name all">Всего</p>
         							<p class="basket-price" style="border: 0;">2000 р.</p>
         							<div class="basket-one-buy">
-        								<a href="cart.html" class="buy" style="margin-right: 5px;">Buy all</a>
+        								<a href="cart.html" class="buy buy-all">Buy all</a>
     									
         							</div>
         						</div>
@@ -137,7 +148,12 @@
         	
         	<div class="top">
         		<div class="container_5">
-        			
+        			<div style="position: relative;">
+        				<div class="min-div-right pos2">
+        					<a href="#" class="eng"></a><div class="med-bar"></div><a href="#" class="rus"></a>	
+        					<a href="#" class="enter-text">Sign in</a>&nbsp;<a href="#" class="enter"></a>
+        				</div>
+        			</div>
         				<div class="grid_1" style="z-index: 100;">&nbsp;
         					<a class="top-logo" href="index.html"></a>
         				</div>
@@ -159,7 +175,7 @@
         					<div style="position: absolute; bottom: -1px; width: 100%;">
         						<a href="mailto:welcome@distibbooks.com" class="top-contact"><img src="img/mail.png">welcome@distibbooks.com</a>
         						<a href="#" class="blue button call pos1"><img src="img/call.png">Request a call</a>
-        						<a href="#" class="blue button call pos2 basket"><img src="img/cart.png">Shopping Cart</a>
+        						<a href="#" class="blue button call pos2 basket"><img src="img/cart.png">Shopping Cart&nbsp;<span>2000 р.</span></a>
         					</div>
         				</div>
         				<div class="grid_1 pos1">
@@ -184,7 +200,7 @@
         				</div>
         			</div>
         			<div class="grid_1">
-        				<a href="#" class="blue button call pos1 basket"><img src="img/cart.png">Shopping Cart</a>
+        				<a href="#" class="blue button call pos1 basket"><img src="img/cart.png">Shopping Cart&nbsp;<span>2000 р.</span></a>
         			</div>
         		</div>
         	</div>
@@ -202,7 +218,7 @@
         							<a href="#" class="eng"></a><div class="med-bar"></div><a href="#" class="rus"></a>	
         							<div><a href="#" class="enter-text">Sign in</a>&nbsp;<a href="#" class="enter"></a></div>
         					</div>
-        					<a href="#" class="blue button call"><img src="img/cart.png">Shopping Cart</a>
+        					<a href="#" class="blue button call basket"><img src="img/cart.png">Shopping Cart&nbsp;<span>2000 р.</span></a>
         				</div>
         			</div>
         			<div class="clear"></div>
@@ -314,23 +330,28 @@
         			</nav>
         		</div>
         		<div class="grid_1 footer-nav pos3">
-        			<a href="#" class="button red">Lottery</a>
+        			<a href="#" class="button red" style="font-size: 18px;">Lottery</a>
         			<div class="social-footer">
         		<a href="#" class="social-link" id="vk"></a>
         		<a href="#" class="social-link" id="fb"></a>
         		<a href="#" class="social-link" id="tw"></a>
         		<a href="#" class="social-link" id="vk"></a>
         			</div>
+        			<div class="footer-right">
+        				<div><a href="mailto:welcome@distibbooks.com"><img src="img/white-mail.png">welcome@distibbooks.com</a></div>
+        				<div><a href="skype:DistibBooks?call"><img src="img/white-skype.png">DistibBooks</a></div>
+        			</div>
         		</div>
         		<div class="grid_2 footer-nav">
         			<div class="footer-left">
         				<img src="img/qr.png"><br>
-        				<img class="footer-adult" src="img/adult.png">
+        				<img class="footer-adult pos3-no" src="img/adult.png">
         			</div>
         			<div class="footer-right">
         				<div><img class="footer-logo" src="img/min-logo.png"><p>&copy; Distibbooks.com<br>2013</p></div>
-        				<div><img src="img/white-mail.png">welcome@distibbooks.com</div>
-        				<div><img src="img/white-skype.png">DistibBooks</div>
+        				<div class="pos3-no"><a href="mailto:welcome@distibbooks.com"><img src="img/white-mail.png">welcome@distibbooks.com</a></div>
+        				<div class="pos3-no"><a href="skype:DistibBooks?call"><img src="img/white-skype.png">DistibBooks</a></div>
+        				<img class="footer-adult pos3" src="img/adult.png" style="float: left; margin: 0;">
         			</div>
         		</div>
         	</div>

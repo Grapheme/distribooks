@@ -150,6 +150,14 @@ textarea {
 	text-align: center;
 }
 
+.min-div-right.pos2 {
+	position: absolute;
+	right: 0;
+	top: 110px;
+	z-index: 50;
+	width: 195px;
+}
+
 .enter-text {
 	color: #0080b6;
 }
@@ -157,12 +165,16 @@ textarea {
 .triangle {
 	position: absolute;
 	right: 15px;
-	top: 10px;
+	top: 14px;
     width: 0;
     height: 0;
     border-top: 5px solid transparent;
     border-left: 9px solid #fff;
     border-bottom: 5px solid transparent;
+}
+
+.shop-new-div .grid_1 {
+	margin-bottom: 25px;
 }
 
 .active .triangle {
@@ -202,7 +214,7 @@ textarea {
 
 .slider {
 	position: absolute !important;
-	z-index: 0;
+	z-index: -1;
 	top: 0;
 	max-width: 1920px;
 	min-width: 960px;
@@ -367,6 +379,11 @@ ul, li {
 .qr {
 	position: absolute; top: 50%; margin-top: -30px;
 	margin-left: 10px;
+	width: 63px;
+}
+
+.footer-left img:nth-of-type(1) {
+	width: 61px;
 }
 
 .qr.pos2 {
@@ -428,7 +445,7 @@ ul, li {
 	margin-right: 5px;
 }
 
-.topb {
+.topb,.topb-left {
 	background: url('../img/bookm.png') no-repeat !important;
 }
 
@@ -436,7 +453,15 @@ ul, li {
 	background: url('../img/bookm-hover.png') no-repeat !important;
 }
 
+.topb-left:hover {
+	background: url('../img/bookm-hover.png') no-repeat !important;
+}
+
 .topb:active {
+	background: url('../img/bookm-active.png') no-repeat !important;
+}
+
+.topb-left:active {
 	background: url('../img/bookm-active.png') no-repeat !important;
 }
 
@@ -713,7 +738,7 @@ ul, li {
 }
 
 .shop-top {
-	
+	overflow: hidden;
 }
 
 .shop-img {
@@ -775,6 +800,7 @@ ul, li {
 	font-size: 11px;
 	margin-top: 5px;
 	margin-bottom: 10px;
+	max-width: 195px;
 }
 
 .adult {
@@ -845,7 +871,7 @@ ul, li {
 }
 
 .formats {
-	float: left;
+	float: right;
 	border: 1px solid #0080b6;
 	border-radius: 5px;
 	width: 150px;
@@ -905,8 +931,8 @@ ul, li {
 }
 
 .about-product {
-	float: left;
-	width: 200px;
+	float: right;
+	width: 210px;
 	font-size: 11px;
 	margin-left: 30px;
 }
@@ -943,6 +969,7 @@ ul, li {
 
 .typo-img {
 	float: left;
+	max-width: 45%;
 }
 
 .typo-left-text {
@@ -1008,32 +1035,34 @@ ul, li {
 
 .shop-new-div {
 	margin-top: 25px;
-	margin-bottom: 25px;
 }
 
 .shopi {
 	position: absolute;
 	display: block;
-	height: 20px;
-	width: 20px;
+	height: 23px;
+	width: 23px;
 }
 
 .shopi#play {
-	background: url('../img/shop-play.png') no-repeat;
+	background: url('../img/big-play.png') no-repeat;
 	top: 0;
-	right: 25px;
+	right: 30px;
+	background-size: 100% 100%;
 }
 
 .shopi#a {
-	background: url('../img/shop-a.png') no-repeat;
+	background: url('../img/big-shop.png') no-repeat;
 	top: 0;
 	right: 0;
+	background-size: 100% 100%;
 }
 
 .shopi#like {
-	background: url('../img/shop-like.png') no-repeat;
+	background: url('../img/big-like.png') no-repeat;
 	bottom: 0;
 	right: 0;
+	background-size: 100% 100%;
 }
 
 .shopi.big {
@@ -1059,6 +1088,33 @@ ul, li {
 	background: url('../img/big-shop.png') no-repeat;
 	top: 0;
 	right: 20px;
+}
+
+.tooltip {
+  z-index: 9999;
+  position: absolute;
+  display: none;
+  top:0px;
+  left:0px;
+}
+
+.tooltip-in {
+	width: 83px;
+	position: relative;
+	top: 8px;
+	border: 1px solid #0180b3;
+	border-radius: 5px;
+	background: #fff;
+}
+
+.tooltip-arrow {
+	position: absolute;
+	z-index: 9999;
+	left: 25px;
+}
+
+.tooltip .social-link {
+	display: inline-block;
 }
 
 .shop-top .author {
@@ -1302,6 +1358,7 @@ ul, li {
 	width: 100px;
 	margin-left: 25px;
 	margin-top: 10px;
+	height: 52px;
 }
 
 .social-link#vk {
@@ -1314,6 +1371,17 @@ ul, li {
 
 .social-link#tw {
 	background: url('../img/tw.png');
+}
+
+.tooltip .social-link#vk {
+	background: url('../img/tooltip-vk.png') no-repeat;
+	width: 18px;
+	height: 16px;
+}
+
+.tooltip .social-link:nth-of-type(3n-1) {
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .not-found {
@@ -1488,8 +1556,13 @@ ul, li {
 	border-right: 1px solid #037295;
 }
 
-.basket-price:nth-of-type(2n+1) {
-	border-left: 0;
+.basket-price:nth-of-type(2n) {
+	border-right: 0;
+}
+
+.basket-min .basket-price {
+	border-left: 1px solid #037295;
+	border-right: 1px solid #037295;
 }
 
 .basket-price .date {
@@ -1576,6 +1649,7 @@ ul, li {
 }
 
 footer {
+	min-width: 480px;
 	background: #00749c;
 	overflow: hidden;
 	padding-top: 20px;
@@ -1597,8 +1671,8 @@ footer .button {
 .min-option {
 	position: relative;
 	display: block;
-	height: 30px;
-	line-height: 30px;
+	height: 35px;
+	line-height: 35px;
 	width: 100%;
 	color: #fff;
 	text-decoration: none;
@@ -1747,6 +1821,7 @@ footer .button {
 	font-size: 12px;
 	margin: 0 0 0 30px;
 	line-height: 22px;
+	width: 180px;
 }
 
 .information .like {
@@ -1814,6 +1889,10 @@ footer .button {
 	background: #ffff00;
 }*/
 
+.buy-all {
+	width: 190px !important;
+	margin-right: 5px;
+}
 
 .apply-button {
 	display: block;
@@ -1982,9 +2061,9 @@ footer .button {
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	z-index: 51;
-	-moz-box-shadow: 0 2px 5px 0px rgba(0,0,0,0.5); /* Для Firefox */
-    -webkit-box-shadow: 0 2px 5px 0px rgba(0,0,0,0.5); /* Для Safari и Chrome */
-    box-shadow: 0 2px 5px 0px rgba(0,0,0,0.5); /* Параметры тени */
+	-moz-box-shadow: 0 3px 5px 0px rgba(0,0,0,0.5); /* Для Firefox */
+    -webkit-box-shadow: 0 3px 5px 0px rgba(0,0,0,0.5); /* Для Safari и Chrome */
+    box-shadow: 0 3px 5px 0px rgba(0,0,0,0.5); /* Параметры тени */
 }
 
 .search-full div {
@@ -1999,6 +2078,16 @@ footer .button {
 	float: left;
 }
 
+.format-select {
+	width: 100px;
+	background: url('../img/search-button.png') no-repeat right;
+	overflow: hidden;
+	border:1px solid #aaaaaa;
+	border: 1px solid #aaaaaa;
+	border-radius: 3px;
+	height: 18px;
+}
+
 .search-full input[type=text] {
 	width: 100px;
 	border: 1px solid #aaaaaa;
@@ -2011,12 +2100,41 @@ footer .button {
 }
 
 .search-full select {
-	width: 100px;
-	border: 1px solid #aaaaaa;
-	border-radius: 3px;
-	height: 20px;
+	background: transparent;
+	width: 120px;
+	border: 0;
+	width: 120px;
+	height: 18px;
 	font-size: 12px;
 	padding-left: 5px;
+}
+
+input[type="checkbox"]{
+    display:none;
+}
+
+.search-full label {
+	position: relative;
+	top: 3px;
+	cursor: pointer;
+}
+
+input[type="checkbox"] + label
+{
+    background: url('../img/notcheked.png') no-repeat;
+    height: 15px;
+    width: 15px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+input[type="checkbox"]:checked + label
+{
+    background: url('../img/cheked.png') no-repeat;
+    height: 15px;
+    width: 15px;
+    display:inline-block;
+    padding: 0 0 0 0px;
 }
 
 .news-one {
@@ -2025,6 +2143,10 @@ footer .button {
 
 .news-after {
 	margin: 15px 0;
+}
+
+.info-bottom-div {
+	min-height: 415px;
 }
 	
 .block,.block-2,.block-3,.block-4,.block-5,.inblock { float: left; display:block; position: relative; margin-left: 0.5%; margin-right: 0.5%; }
@@ -2046,7 +2168,65 @@ footer .button {
 	display: none !important;
 }
 
+.wrapper {
+	width: 100%;
+	min-width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
 @media screen and (min-width: 768px) and (max-width: 960px) {
+	
+	.about-product {
+		/*float: none;*/
+		margin-left: 0;
+		width: 170px;
+		margin-left: 5px;
+	}
+	
+	.formats {
+		/*float: none;*/
+		width: 131px;
+	}
+	
+	.shop-img-cont.one img {
+		max-width: 220px;	
+	}
+	
+	.shop-about.big .title {
+		width: 250px;
+	}
+	
+	.eng {
+		width: 38px;
+		height: 25px;
+	}
+	
+	.rus {
+		width: 38px;
+		height: 25px;
+	}
+	
+	.enter-text {
+		position:absolute;
+		left: 114px;
+		font-size: 14px;
+		top: 2px;
+	}
+	
+	.enter {
+		position: absolute;
+		right: 10px;
+		top: 4px;
+	}
+	
+	.min-div-right {
+		text-align: left;
+	}
+	
+	.wrapper {
+		min-width: 768px;
+	}
 	
 	.top-shop {
 		width: 180px;
@@ -2336,33 +2516,164 @@ footer .button {
 		width: 560px;
 	}
 	
-	.basket-one-buy {
-		width: 145px;
-	}
-	
-	.basket-select {
-		width: 145px;
-	}
-	
 	.cart-page .basket-item-name {
 		width: 25%;
 	}
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 767px) {
+	
+	.basket-price {
+		border: none;
+	}
+	
+	.about-product {
+		margin-left: 25px !important;
+		width: 290px;
+	}
+	
+	.shop-about.big .title {
+		width: 240px;
+		margin-top: 15px;
+	}
+	
+	.shop-img-cont.one img {
+		max-width: 220px;
+		max-height: 450px;
+	}
+	
+	.format-text {
+		width: 430px;
+	}
+	
+	.footer-nav .footer-right {
+		margin-top: 10px;
+	}
+	
+	.top-shop-title {
+		margin-left: 30px;
+	}
+	
+	.shop-new-div .grid_1 {
+		margin-left: 30px;
+	}
+	
+	.basket-min {
+		border-top: 1px solid !important;
+		border-radius: 5px !important;
+		width: 480px;	
+	}
+	
+	.basket-arrow {
+		right: 135px;
+	}
+	
+	.basket-min-div {
+		right: 0;
+		top: 140px;
+	}
+	
+	.search-full {
+		border: none;
+		-moz-box-shadow: none;
+    	-webkit-box-shadow: none;
+    	box-shadow: none;
+	}
+	
+	.search input {
+		width: 138px;
+	}
+	
+	.shop-img-cont img {
+		max-width: 100px;
+		max-height: 141px
+	}
+	
+	.shop-top .title {
+		font-size: 16px;
+	}
+	
+	.top-shop .price {
+		font-size: 20px;
+	}
+	
+	.genre {
+		font-size: 14px;
+	}
+	
+	.tocart {
+		line-height: 44px;
+		font-size: 14px;
+	}
+	
+	.top-shop {
+		margin-left: 30px;
+	}
+	
+	.shop-desc {
+		margin-bottom: 20px;
+	}
+	
+	.footer-left img:nth-of-type(1) {
+		width: 100px;
+	}
+	
+	.wrapper {
+		min-width: 480px;
+	}
+	
+	.buy {
+	display: block;
+	background: url('../img/green-button.png') repeat-x;
+	background-size: 100% 100%;
+	color: #fff;
+	height: 45px;
+	line-height: 45px;
+	width: 120px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 5px;
+	font-size: 0.8em;
+	float: left;
+	margin-top: -1px;
+	margin-left: -1px;
+	}
+	
 	.social {
 		display: none;
 	}
-}
+	
+	.shopi {
+	position: absolute;
+	display: block;
+	height: 31px;
+	width: 31px;
+	}
 
-@media screen and (max-width: 767px) {
+	.shopi#play {
+	background: url('../img/big-play.png') no-repeat;
+	top: 0;
+	right: 40px;
+	background-size: 100% 100%;
+	}
 	
 	.cart-page {
 		width: 560px !important;
 	}
 	
 	.cart-page .basket-min {
-		width: 560px;
+		width: 480px;
+		padding-top: 0;
+		box-shadow: none;
+	}
+	
+	.buy-all {
+		width: 130px !important;
+	}
+	
+	.cart-page {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
 	}
 	
 	.basket-one-buy {
@@ -2374,7 +2685,7 @@ footer .button {
 	}
 	
 	.cart-page .basket-item-name {
-		width: 25%;
+		width: 145px !important;
 	}
 	
 	.news-text.all {
@@ -2382,7 +2693,7 @@ footer .button {
 	}
 	
 	.news-one div {
-		margin: 10px 0;
+		margin: 5px 0;
 	}
 	
 	.news-after div {
@@ -2443,7 +2754,7 @@ footer .button {
 	}
 	
 	.red-div,.dist-div,.edit-div,.style-div {
-	min-width: 0px;	
+	min-width: 480px;	
 	}
 	
 	.enter {
@@ -2472,13 +2783,14 @@ footer .button {
 	.gift-pad .button {
 		position: absolute;
 		left: -149px;
-		top: 103px;
+		top: 160px;
 		width: 65px;
 	}
 	
 	.gift-pad div {
 		position: absolute;
-		top: 60px;
+		top: 7px;
+		width: 118px;
 		left: 175px;
 	}
 	
