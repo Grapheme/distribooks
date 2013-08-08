@@ -1,5 +1,55 @@
 $(document).ready(function() {
 	
+	$(".recall-button").click(function(){
+		$(".before-recall-div").css("display","none");
+		$(".after-recall-div").fadeIn();
+	});
+	
+	$(".apply-button").click(function() {
+		$(".dark-screen").fadeIn("fast");
+		$(".request-div").fadeIn("fast");
+	});
+	
+	
+	$(".donation").click(function() {
+		$(".dark-screen").fadeIn("fast");
+		$(".window-donation").fadeIn("fast");
+	});
+	
+	$(".dark-screen").click(function() {
+		$(".dark-screen").fadeOut("fast");
+		$(".window-donation").fadeOut("fast");
+		$(".request-div").fadeOut("fast");
+	});
+	
+	$(".donate-close").click(function() {
+		$(".dark-screen").fadeOut("fast");
+		$(".window-donation").fadeOut("fast");
+		$(".request-div").fadeOut("fast");
+	});
+	
+	var recall = "close";
+	
+	$(".recall").click(function () {
+		if( recall == "open" ) {
+			$(".recall-div").slideUp("fast");
+			recall = "close";
+		} else {
+			$(".recall-div").css({
+				"top:" : $(this).offset().top,
+				"left" : $(this).offset().left
+			});
+			$(".recall-div").slideDown("fast");
+			recall = "open";	
+		}
+	});
+	
+	$(document).click(function(event) {
+    	if ($(event.target).closest(".recall-div,.recall").length) return;
+   		$(".recall-div").slideUp("fast");
+   		recall = "close";
+  	});
+	
 	var timer;
 	
 	$(".shopi#like,.share-product,.like").mousemove(function () {

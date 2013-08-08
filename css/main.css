@@ -882,7 +882,6 @@ ul, li {
 .formats-title {
 	margin: 0;
 	font-weight: 700;
-	text-decoration: underline;
 	font-size: 12px;
 }
 
@@ -1090,6 +1089,327 @@ ul, li {
 	right: 20px;
 }
 
+.dark-screen {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .5;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+
+.window-donation {
+	display: none;
+	position: fixed;
+	width: 600px;
+	background: #88b41f;
+	left: 50%;
+	margin-left: -300px;
+	top: 15%;
+	z-index: 9999;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.how-much {
+	position: relative;
+	float: left;
+	width: 125px;
+}
+
+.how-much p {
+	display: inline-block;
+	margin: 0;
+	font-size: 12px;
+	color: #fff;
+	width: 35px;
+	white-space: nowrap;
+}
+
+.how-much#f {
+	margin-top: 91px;
+}
+
+.how-much#s {
+	margin-top: 71px;
+}
+
+.how-much#t {
+	margin-top: 37px;
+}
+
+.how-much#f label {
+	margin-top: 9px;
+}
+
+.how-much#s label {
+	margin-top: 9px;
+}
+
+.how-much label {
+	margin-left: 20px;
+}
+
+.donate-another-div {
+	margin-top: 10px;
+}
+
+.donate-div {
+	position: relative;
+	margin-left: 40px;
+	margin-top: 60px;
+}
+
+.donate-close {
+	position: absolute;
+	display: block;
+	height: 22px;
+	width: 22px;
+	top: 5px;
+	right: 5px;
+	background: url('../img/donate-close.png') no-repeat;
+}
+
+.donate-top {
+	position: absolute;
+	top: 30px;
+	left: 15px;
+}
+
+.donate-top-img {
+	float: left;
+}
+
+.donate-text {
+	color: #fff;
+	font-size: 11px;
+	width: 85px;
+	height: 50px;
+	padding: 5px;
+	background: url('../img/donate-text.png');
+	background-size: 100% 100%;
+	float: left;
+	margin-left: 5px;
+}
+
+.donate-another-div {
+	overflow: hidden;
+}
+
+.donate-another {
+	float: left;
+	margin-left: 55px;
+	width: 135px;
+	border: 1px solid #52af2b;
+	padding-left: 5px;
+	border-radius: 5px;
+}
+
+.donate-another-text {
+	float: left;
+	color: #fff;
+	font-size: 12px;
+	width: 300px;
+	margin: 0;
+	margin-left: 20px;
+	margin-top: -5px;
+}
+
+.donate-link {
+	display: inline-block;
+	width: 158px;
+	height: 51px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.donate-link#wm {
+	background: url('../img/wm.png') no-repeat;
+}
+
+.donate-link#visa {
+	background: url('../img/visa.png') no-repeat;
+}
+
+.donate-link#mc {
+	background: url('../img/mc.png') no-repeat;
+}
+
+.donate-links {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.howmuch {
+	display: none;
+}
+
+label {
+	cursor: pointer;
+}
+
+input[type="radio"] + label
+{
+    background: url('../img/radio.png') no-repeat;
+    height: 15px;
+    width: 15px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+input[type="radio"]:checked + label
+{
+    background: url('../img/radio-ed.png') no-repeat;
+    height: 15px;
+    width: 15px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+.recall-div,.request-div {
+	position: absolute;
+	z-index: 9999;
+	display: none;
+}
+
+.request-div {
+	position: fixed;
+	top: 20%;
+	left: 50%;
+	margin-left: -140px;
+}
+
+.recall-img {
+	float: left;
+	width: 60px;
+}
+
+.request-div .recall-img {
+	margin-left: 20px;
+	width: 87px;
+}
+
+.recall-arrow {
+	position: relative;
+	top: -7px;
+	left: 81px;
+}
+
+.recall-in {
+	position: relative;
+	top: -12px;
+	width: 170px;
+	padding: 5px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background: #007195;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.after-recall-div {
+	display: none;
+}
+
+.recall-after {
+	width: 140px;
+	margin-bottom: 20px;
+}
+
+.recall-after-text {
+	width: 60px;
+	font-size: 11px;
+	color: #fff;
+	float: left;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+.recall-in.request{
+	width: 270px;
+	top: 0;
+}
+
+.recall-text {
+	color: #fff;
+	font-size: 11px;
+	width: 85px;
+	height: 65px;
+	padding: 5px;
+	background: url('../img/recall-back.png');
+	background-size: 100% 100%;
+	float: left;
+	margin-left: 5px;
+}
+
+.request-div .recall-text {
+	width: 112px;
+	margin-left: 15px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.recall-div input[type=text] {
+	height: 15px;
+	margin: 5px 15px 0px 15px;
+	width: 130px;
+	border-radius: 3px;
+	border: 0;
+	font-size: 12px;
+	padding-left: 5px;
+}
+
+.request-div input[type=text] {
+	height: 15px;
+	margin: 5px 20px 0px 20px;
+	width: 220px;
+	border-radius: 3px;
+	border: 0;
+	font-size: 12px;
+	padding-left: 5px;
+}
+
+.request-div textarea {
+	height: 200px;
+	margin: 5px 20px 0px 20px;
+	width: 218px;
+	border-radius: 3px;
+	border: 0;
+	font-size: 12px;
+	padding-left: 5px;
+}
+
+.recall-button {
+	width: 135px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 700;
+	margin-top: 5px;
+	margin-left: 14px;
+	margin-right: 15px;
+	margin-bottom: 10px;
+	background: url('../img/recall-button.png') no-repeat;
+	background-size: 100% 100%;
+	border: 0;
+}
+
+.recall-button:active {
+	background: url('../img/white-active.png') no-repeat;
+	background-size: 100% 100%;
+}
+
+.request-div .recall-button {
+	width: 213px;
+	margin-left: 25px;
+	margin-top: 10px;
+}
+
 .tooltip {
   z-index: 9999;
   position: absolute;
@@ -1121,7 +1441,7 @@ ul, li {
 	font-size: 10px;
 	color: #626261;
 	margin: 0;
-	margin-top: 20px;
+	margin-top: 10px;
 	line-height: 1px;
 }
 
@@ -1171,6 +1491,12 @@ ul, li {
 .price {
 	font-weight: 700;
 	margin: 0;
+}
+
+.price.old {
+	color: #e08308;
+	font-size: 12px;
+	text-decoration: line-through;
 }
 
 .price-big {

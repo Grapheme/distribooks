@@ -33,7 +33,7 @@
         					<form action="">	
         					<div class="format-select">
         					<select>
-        						<option value="1">Формат</option>
+        						<option value="1">Жанр</option>
         						<option value="2">2</option>
         					</select>
         					</div>
@@ -174,7 +174,7 @@
         				<div class="grid_1">
         					<div style="position: absolute; bottom: -1px; width: 100%;">
         						<a href="mailto:welcome@distibbooks.com" class="top-contact"><img src="img/mail.png">welcome@distibbooks.com</a>
-        						<a href="#" class="blue button call pos1"><img src="img/call.png">Request a call</a>
+        						<a href="#" class="blue button call pos1 recall"><img src="img/call.png">Request a call</a>
         						<a href="#" class="blue button call pos2 basket"><img src="img/cart.png">Shopping Cart&nbsp;<span>2000 р.</span></a>
         					</div>
         				</div>
@@ -189,7 +189,7 @@
         			</div>
         			<div class="grid_3 bottom-menu">
         				
-        				<li><a href="#" class="blue button">Make donation</a></li>
+        				<li><a href="#" class="blue button donation">Make donation</a></li>
         				<li><a href="#" class="blue button">About</a></li>
         				<li><a href="shop.html" class="blue button">Catalog</a></li>
         				
@@ -229,6 +229,83 @@
         		</div>
         	</div>
         </header>
+        <div class="dark-screen"></div>
+        <div class="window-donation">
+        	<form action="">
+        	<a href="#" class="donate-close"></a>
+        	<div class="donate-top">
+        		<img class="donate-top-img" src="img/big-coins.png">
+        		<div class="donate-text">Спасибо<br> за помощь</div>
+        	</div>
+        	<div class="donate-div">
+        	
+        	<div class="how-much" id="f">
+        		<img src="img/coins-1.png">
+        		<p>100 р.</p>
+     			<div>
+     				<input type="radio" name="howmuch" value="100" id="100" class="howmuch">
+     				<label for="100"></label>
+     			</div>
+        	</div>
+        	<div class="how-much" id="s">
+        		<img src="img/coins-2.png">
+        		<p>1000 р.</p>
+        		<div>
+     				<input type="radio" name="howmuch" value="1000" id="1000" class="howmuch">
+     				<label for="1000"></label>
+     			</div>
+        	</div>
+        	<div class="how-much" id="t">
+        		<img src="img/coins-3.png">
+        		<p>10 000 р.</p>
+        		<div>
+     				<input type="radio" name="howmuch" value="10000" id="10000" class="howmuch">
+     				<label for="10000"></label>
+     			</div>
+        	</div>
+        	<div class="how-much" id="l">
+        		<img src="img/coins-4.png">
+        		<p>100 000 р.</p>
+        		<div>
+     				<input type="radio" name="howmuch" value="100000" id="100000" class="howmuch">
+     				<label for="100000"></label>
+     			</div>
+        	</div>
+        	
+        	</div>
+        	<div class="clear"></div>
+        	<div class="donate-another-div">
+        		<input class="donate-another" type="text" placeholder="Другая сумма">
+        		<p class="donate-another-text">вы можете воспользоваться счетом в любом банке поддерживающем следующие платежные системы:</p>
+        	</div>
+        	<div class="donate-links">
+        		<a href="#" class="donate-link" id="wm"></a>
+        		<a href="#" class="donate-link" id="visa"></a>
+        		<a href="#" class="donate-link" id="mc"></a>
+        	</div>
+        	</form>
+        </div>
+        <div class="recall-div">
+        	<img class="recall-arrow" src="img/recall-arrow.png">
+       		<div class="recall-in">
+       			<div class="after-recall-div">
+       				<img class="recall-after" src="img/after-recall.png">
+       				<p class="recall-after-text">Ваш запрос успешно обработан</p>
+        			<div class="recall-text">Мы перезвоним в указаное вами время</div>
+       			</div>
+       			<div class="before-recall-div">
+        			<img class="recall-img" src="img/recall.png">
+        			<div class="recall-text">Мы перезвоним в удобное для вас время</div>
+        			<form>
+        				<input type="text" placeholder="Представтесь">
+        				<input type="text" placeholder="E-mail">
+        				<input type="text" placeholder="Номер телефона">
+        				<input type="button" class="recall-button" value="Отправить запрос">
+        			</form>
+        		</div>
+        	</div>
+        </div>
+        
         <div class="tooltip">
 			<img class="tooltip-arrow" src="img/tooltip-arrow.png">
 			<div class="tooltip-in">
@@ -295,6 +372,7 @@
         										<img src="img/star-none.png">
         								</div>
         								<a href="#" class="genre">Drama</a>
+        								<p class="price old">500 RUB</p>
         								<p class="price">450 RUB</p>
         								
         							</div>
@@ -320,6 +398,7 @@
         										<img src="img/star-none.png">
         								</div>
         								<a href="#" class="genre">Drama</a>
+        								<p class="price old">500 RUB</p>
         								<p class="price">450 RUB</p>
         								
         							</div>
@@ -345,6 +424,7 @@
         										<img src="img/star-none.png">
         								</div>
         								<a href="#" class="genre">Comedy</a>
+        								<p class="price old">500 RUB</p>
         								<p class="price">780 RUB</p>
         								
         							</div>
@@ -370,6 +450,7 @@
         										<img src="img/star-none.png">
         								</div>
         								<a href="#" class="genre">Drama</a>
+        								<p class="price old">500 RUB</p>
         								<p class="price">450 RUB</p>
         								
         							</div>
