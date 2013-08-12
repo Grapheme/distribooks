@@ -2453,7 +2453,7 @@ footer .button {
 
 .format-select {
 	width: 100px;
-	background: url('../img/search-button.png') no-repeat right;
+	background: url('../img/search-button.png') no-repeat right #fff;
 	overflow: hidden;
 	border:1px solid #aaaaaa;
 	border: 1px solid #aaaaaa;
