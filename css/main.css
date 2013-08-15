@@ -142,6 +142,7 @@ textarea {
 	left: 0;
 	height: 145px;
 	width: 100%;
+	min-width: 480px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
@@ -487,6 +488,18 @@ ul, li {
 .topb-left {
 	float: left;
 	margin-left: 16px;
+}
+
+.min-menu {
+	position: absolute;
+	top: 97px;
+	z-index: 999;
+	display: none;
+}
+
+.min-menu .button {
+	margin-top: -1px;
+	width: 145px;
 }
 
 .lang {
@@ -1164,7 +1177,7 @@ ul, li {
 	z-index: 9999;
 }
 
-.window-donation {
+.window-donation,.window-auth {
 	display: none;
 	position: fixed;
 	width: 600px;
@@ -1226,6 +1239,12 @@ ul, li {
 	margin-top: 60px;
 }
 
+.auth-top {
+	position: relative;
+	margin-left: 40px;
+	margin-top: 20px;
+}
+
 .donate-close {
 	position: absolute;
 	display: block;
@@ -1242,7 +1261,7 @@ ul, li {
 	left: 15px;
 }
 
-.donate-top-img {
+.donate-top-img,.auth-top-img {
 	float: left;
 }
 
@@ -1253,6 +1272,18 @@ ul, li {
 	height: 50px;
 	padding: 5px;
 	background: url('../img/donate-text.png');
+	background-size: 100% 100%;
+	float: left;
+	margin-left: 5px;
+}
+
+.auth-text {
+	color: #fff;
+	font-size: 11px;
+	width: 400px;
+	height: 50px;
+	padding: 5px;
+	background: url('../img/auth-text.png');
 	background-size: 100% 100%;
 	float: left;
 	margin-left: 5px;
@@ -1305,6 +1336,67 @@ ul, li {
 	margin-top: 30px;
 	margin-bottom: 30px;
 	text-align: center;
+}
+
+.auth-left {
+	width: 150px;
+	margin-left: 40px;
+	margin-top: 20px;
+	float: left;
+}
+
+.auth-right {
+	float: left;
+	margin-left: 40px;
+	width: 310px;
+	text-align: center;
+}
+
+.auth-soc {
+	display: inline-block;
+	width: 56px;
+	height: 55px;
+	margin-right: 8px;
+	margin-left: 8px;
+	text-align: center;
+}
+
+.auth-soc#vk {
+	background: url('../img/auth-vk.png') no-repeat;
+}
+
+.auth-soc#fb {
+	background: url('../img/auth-fb.png') no-repeat;
+}
+
+.auth-soc#tw {
+	background: url('../img/auth-tw.png') no-repeat;
+}
+
+.auth-soc#ok {
+	background: url('../img/auth-ok.png') no-repeat;
+}
+
+.auth-soc-email {
+	width: 280px !important;
+	margin-top: 8px;
+}
+
+.auth-right p {
+	color: #fff;
+	text-align: left;
+	font-size: 11px;
+	width: 280px;
+	margin-left: 13px;
+}
+
+.window-auth input[type=text] {
+	height: 15px;
+	width: 145px;
+	border-radius: 3px;
+	border: 0;
+	font-size: 12px;
+	padding-left: 5px;
 }
 
 .howmuch {
@@ -1431,9 +1523,13 @@ input[type="radio"]:checked + label
 	margin: 5px 20px 0px 20px;
 	width: 220px;
 	border-radius: 3px;
-	border: 0;
+	border: 0px solid transparent;
 	font-size: 12px;
 	padding-left: 5px;
+}
+
+.request-div input[type=text].error {
+	border: 1px solid red;
 }
 
 .request-div textarea {
@@ -1441,12 +1537,16 @@ input[type="radio"]:checked + label
 	margin: 5px 20px 0px 20px;
 	width: 218px;
 	border-radius: 3px;
-	border: 0;
+	border: 0px solid transparent;
 	font-size: 12px;
 	padding-left: 5px;
 }
 
-.recall-button {
+.request-div textarea.error {
+	border: 1px solid red;
+}
+
+.recall-button,.auth-button {
 	width: 135px;
 	height: 35px;
 	line-height: 35px;
@@ -1462,7 +1562,17 @@ input[type="radio"]:checked + label
 	border: 0;
 }
 
+.auth-button {
+	width: 148px;
+	margin: 30px 0 20px 0;
+}
+
 .recall-button:active {
+	background: url('../img/white-active.png') no-repeat;
+	background-size: 100% 100%;
+}
+
+.auth-button:active {
 	background: url('../img/white-active.png') no-repeat;
 	background-size: 100% 100%;
 }
@@ -1709,7 +1819,7 @@ input[type="radio"]:checked + label
 
 .top-shop-title {
 	color: #007195;
-	font-size: .8em;
+	font-size: 14px;
 	margin-bottom: 20px;
 }
 
@@ -1747,7 +1857,6 @@ input[type="radio"]:checked + label
 .social-footer {
 	width: 100px;
 	margin-left: 25px;
-	margin-top: 10px;
 	height: 52px;
 }
 
@@ -1829,7 +1938,7 @@ input[type="radio"]:checked + label
 	position: absolute;
 	top: 105px;
 	right: 5px;
-	z-index: 101;
+	z-index: 999;
 	display: none;
 }
 
@@ -1997,6 +2106,10 @@ input[type="radio"]:checked + label
   	border-radius: 5px;
    	height: 35px;
    	-webkit-appearance: none;
+}
+
+.basket-select select.error {
+	border-color: red;
 }
 
 .basket-sale .basket-price {
@@ -2473,7 +2586,6 @@ footer .button {
 	width: 100px;
 	background: url('../img/search-button.png') no-repeat right #fff;
 	overflow: hidden;
-	border:1px solid #aaaaaa;
 	border: 1px solid #aaaaaa;
 	border-radius: 3px;
 	height: 18px;
@@ -2617,6 +2729,30 @@ input[type="checkbox"].cart-check:checked + label
 	height: 33px;
 	background: url('../img/yellow-bottom.png') repeat-x;
 }
+
+.footer-nav .button.red {
+	display: none;
+}
+
+.search-title {
+	margin-bottom: 20px !important;
+}
+
+.shop-sort {
+	position: absolute;
+	right: 0;
+	top: 0;
+	color: #000;
+	font-size: 14px;
+}
+
+.search-page .shop-sort {
+	position: relative;
+}
+
+.sort-link {
+	color: #000;
+}
 	
 .block,.block-2,.block-3,.block-4,.block-5,.inblock { float: left; display:block; position: relative; margin-left: 0.5%; margin-right: 0.5%; }
 .block { width: 19%; }
@@ -2645,6 +2781,28 @@ input[type="checkbox"].cart-check:checked + label
 }
 
 @media screen and (min-width: 768px) and (max-width: 960px) {
+	
+	.search-title {
+		margin-top: 40px !important;
+	}
+	
+	.search-results .grid_1 {
+		margin: 0 !important;
+		width: 140px !important;
+	}
+	
+	.search-results {
+		width: 560px !important;
+	}
+	
+	.search-results .buyor {
+		width: 100px;
+		margin-bottom: 20px;
+	}
+	
+	.search-results .buy {
+		width: 101px !important;
+	}
 	
 	.basket-min .basket-sale .basket-item-name {
 		width: 122px;
@@ -3033,12 +3191,36 @@ input[type="checkbox"].cart-check:checked + label
 	.cart-check-div {
 		left: 8px;
 	}
+	
+	.search-page .min-div-right.pos2 {
+		top: 175px;
+	}
+	
+	.basket-min .basket-item .basket-one-buy {
+		float: right;
+	}
+	
+	.basket-select {
+		margin-left: 0 !important;
+	}
 }
 
 @media screen and (max-width: 767px) {
 	
+	.basket-select {
+		margin-left: 0 !important;
+	}
+	
+	.search-title {
+		margin-top: 50px !important;
+	}
+	
 	.basket-min .basket-sale .basket-item-name {
-		width: 122px;
+		width: 122px !important;
+	}
+	
+	.basket-min .basket-item .basket-one-buy {
+		float: right;
 	}
 	
 	.grid_4 .grid_1 {
@@ -3168,6 +3350,9 @@ input[type="checkbox"].cart-check:checked + label
 		-moz-box-shadow: none;
     	-webkit-box-shadow: none;
     	box-shadow: none;
+    	border: none;
+    	border-bottom: 1px solid #aaa;
+    	border-radius: 0;
 	}
 	
 	.search input {
@@ -3332,7 +3517,8 @@ input[type="checkbox"].cart-check:checked + label
 	}
 		
 	.search-full {
-	top: 195px;
+	top: 186px;
+	width:100%;
 	right: 0;
 	}
 	
@@ -3513,6 +3699,9 @@ input[type="checkbox"].cart-check:checked + label
 	.shop-block:nth-of-type(4) {
 		display: none;
 		visibility: hidden;
+	}
+	.window-donation,.window-auth {
+		position: absolute;
 	}
 }
 

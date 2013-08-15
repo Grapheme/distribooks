@@ -122,6 +122,7 @@
         							</div>
         						</div>
         						<div class="basket-sale-bottom"></div>
+        					
         						<div class="basket-item basket-sale">
         							<a class="basket-rm" href="#"></a>
         							<div class="basket-img"><img src="img/cart-gift.png" class="cart-gift"></div>
@@ -139,23 +140,7 @@
         							</div>
         						</div>
         						<div class="basket-sale-bottom"></div>
-        						<div class="basket-item basket-sale">
-        							<a class="basket-rm" href="#"></a>
-        							<div class="basket-img"><img src="img/cart-gift.png" class="cart-gift"></div>
-        							<p class="basket-item-name">Назавние Назавние Назавние Назавние</p>
-        							<p class="basket-price"><a href="#" class="button red">Выбрать</a></p>
-        							<div class="basket-one-buy">
-        								<a href="#" class="buy">Buy</a>
-        								<div class="basket-select">
-        									<select>
-        										<option value="1"> </option>
-        										<option value="2"> </option>
-    										</select>
-        								</div>
-    									
-        							</div>
-        						</div>
-        						<div class="basket-sale-bottom"></div>
+        						
         						<div class="basket-line"></div>
         						<div class="basket-item">
         						<div style="float: right;">
@@ -248,7 +233,7 @@
         				<div class="min-right">
         					<div class="min-div-left">
         						<a href="#" class="red button">Promotion -30%!</a><br>
-        						<a href="#" class="blue button">Menu</a>
+        						<a href="#" class="blue button menu-open">Menu</a>
         					</div>
         					<div class="min-div-right">
         							<a href="#" class="eng"></a><div class="med-bar"></div><a href="#" class="rus"></a>	
@@ -266,6 +251,35 @@
         </header>
         
         <div class="dark-screen"></div>
+        <div class="min-menu">
+			<a href="shop.html" class="blue button">Каталог</a><br>
+			<a class="blue button">О проекте</a><br>
+			<a class="blue button donation">Поддержать проект</a>
+		</div>
+		
+		<div class="window-auth">
+        	<div class="auth-top">
+        		<img class="auth-top-img" src="img/auth-img.png">
+        		<div class="auth-text">Вам необходимо зарегестрироваться для получения купленных вами книг на электронную почту и доступа к бонусам и скидкам</div>
+        	</div>
+        	<div class="clear"></div>
+        	<div class="auth-left">
+        		<form action="">
+        		<input type="text" name="name" placeholder="Ник-нейм">
+        		<input type="text" name="email" placeholder="E-mail">
+        		<input type="text" name="phone" placeholder="Номер телефона">
+        		<input type="button" value="Авторизоваться" class="auth-button">
+        		</form>
+        	</div>
+        	<div class="auth-right">
+        		<a href="#" class="auth-soc" id="tw"></a>
+        		<a href="#" class="auth-soc" id="vk"></a>
+        		<a href="#" class="auth-soc" id="fb"></a>
+        		<a href="#" class="auth-soc" id="ok"></a>
+        		<input type="text" name="email-soc" placeholder="E-mail" class="auth-soc-email">
+        		<p>Вы так же можете зарегистрироваться через любую доступную вам соц-сеть, указав почтовый адрес</p>
+        	</div>
+        </div>
         <div class="window-donation">
         	<form action="">
         	<a href="#" class="donate-close"></a>
@@ -348,10 +362,10 @@
         		<img class="recall-img" src="img/request.png">
         		<div class="recall-text">Спасибо за предложение</div>
         		<form>
-        			<input type="text" placeholder="Представтесь">
+        			<input class="error" type="text" placeholder="Представтесь">
         			<input type="text" placeholder="E-mail">
         			<input type="text" placeholder="Номер телефона">
-        			<textarea placeholder="Текст письма:"></textarea>
+        			<textarea class="error" placeholder="Текст письма:"></textarea>
         			<input type="button" class="recall-button" value="Отправить заявку">
         		</form>
         	</div>

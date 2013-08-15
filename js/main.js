@@ -1,5 +1,10 @@
 $(document).ready(function() {
 	
+	$(".enter-div a").click(function(){
+		$(".dark-screen").fadeIn("fast");
+		$(".window-auth").fadeIn("fast");
+	});
+	
 	$(".recall-button").click(function(){
 		$(".before-recall-div").css("display","none");
 		$(".after-recall-div").fadeIn();
@@ -20,6 +25,7 @@ $(document).ready(function() {
 		$(".dark-screen").fadeOut("fast");
 		$(".window-donation").fadeOut("fast");
 		$(".request-div").fadeOut("fast");
+		$(".window-auth").fadeOut("fast");
 	});
 	
 	$(".donate-close").click(function() {
@@ -48,6 +54,28 @@ $(document).ready(function() {
     	if ($(event.target).closest(".recall-div,.recall").length) return;
    		$(".recall-div").slideUp("fast");
    		recall = "close";
+  	});
+  	
+  	var minmenu = "close";
+  	
+  	$(".menu-open").click(function () {
+		if( minmenu == "open" ) {
+			$(".min-menu").slideUp("fast");
+			minmenu = "close";
+		} else {
+			$(".min-menu").css({
+				"top:" : $(this).offset().top,
+				"left" : $(this).offset().left
+			});
+			$(".min-menu").slideDown("fast");
+			minmenu = "open";	
+		}
+	});
+	
+	$(document).click(function(event) {
+    	if ($(event.target).closest(".min-menu,.menu-open").length) return;
+   		$(".min-menu").slideUp("fast");
+   		minmenu = "close";
   	});
 	
 	var timer;
@@ -150,7 +178,7 @@ $(document).ready(function() {
 	});
 	
 	$(document).click(function(event) {
-    	if ($(event.target).closest(".search-full,.search").length) return;
+    	if ($(event.target).closest(".search-full,.search,.search-page").length) return;
    		$(".search-full").slideUp("fast");
    		$(".search").removeClass("open");
    		search = "close";
