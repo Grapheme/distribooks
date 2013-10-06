@@ -15,6 +15,9 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 define('PATH_SMILEYS',							getcwd().'/img/smileys');
 
+define('ENGLAN',								'en');
+define('RUSLAN',								'ru');
+
 define('NO_IMAGE',								getcwd().'/img/icons/no-photo.png');
 define('NO_IMAGE_THUMBNAIL',					getcwd().'/img/icons/no-photo-thumbnail.png');
 

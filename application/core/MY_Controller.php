@@ -8,9 +8,14 @@ class MY_Controller extends CI_Controller{
 	var $language = 1;
 	var $acceptedDocTypes = array();
 	
+	var $baseURL = '';
+	var $baseLanguageURL = RUSLAN;
+	var $languages = array(RUSLAN=>'russian',ENGLAN=>'english');
+	
 	function __construct(){
 		
 		parent::__construct();
+		$this->baseURL = base_url();
 		
 		$sessionLogon = $this->session->userdata('logon');
 		if($sessionLogon):
@@ -39,12 +44,25 @@ class MY_Controller extends CI_Controller{
 			'text/plain' => base_url('img/icons/txt.png'),
 			'application/pdf' => base_url('img/icons/pdf.png'),
 			'application/x-zip-compressed' => base_url('img/icons/zip.png'),
-			'application/msword' => base_url('img/icons/word.png'),
-			'application/vnd.openxmlformats-officedocument.wordprocessingml.document' => base_url('img/icons/word.png'),
-			'application/vnd.ms-excel' => base_url('img/icons/excel.png'),
-			'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' => base_url('img/icons/excel.png'),
-			'application/vnd.ms-powerpoint' => base_url('img/icons/no-photo-thumbnail.png'),
-			'application/vnd.openxmlformats-officedocument.presentationml.presentation' => base_url('img/icons/no-photo-thumbnail.png')
+			'application/msword' => base_url('img/icons/doc.png'),
+			'application/vnd.openxmlformats-officedocument.wordprocessingml.document' => base_url('img/icons/doc.png'),
+			'application/vnd.ms-excel' => base_url('img/icons/doc.png'),
+			'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' => base_url('img/icons/doc.png'),
+			'application/vnd.ms-powerpoint' => base_url('img/icons/doc.png'),
+			'application/vnd.openxmlformats-officedocument.presentationml.presentation' => base_url('img/icons/doc.png'),
+			
+			'image/png' => base_url('img/icons/pic.png'),
+			'image/jpeg'=> base_url('img/icons/pic.png'),
+			'image/gif'=> base_url('img/icons/pic.png'),
+			
+			'audio/mpeg' => base_url('img/icons/sound.png'),
+			'audio/ogg'=> base_url('img/icons/sound.png'),
+			'audio/webm'=> base_url('img/icons/sound.png'),
+			
+			'video/avi' => base_url('img/icons/video.png'),
+			'video/mpeg' => base_url('img/icons/video.png'),
+			'video/mp4'=> base_url('img/icons/video.png'),
+			'video/webm'=> base_url('img/icons/video.png'),
 		);
 	}
 	

@@ -11,13 +11,9 @@ class Guests_interface extends MY_Controller{
 	
 	public function index(){
 		
-		$this->load->model(array('users_accounts','courses_projects'));
 		$pagevar = array(
-			'accounts' => $this->users_accounts->countAllResults(),
-			'courses' => $this->courses_projects->countAllResults()
+			'page_content'=>array()
 		);
-		$pagevar['popup_statuses'] = $this->setPopupStatuses();
-		$this->session->set_userdata('current_url',uri_string());
 		$this->load->view("guests_interface/index",$pagevar);
 	}
 	

@@ -48,5 +48,15 @@
 		endif;
 		return $getLink;
 	}
-
+	
+	function baseURL($url = NULL){
+		
+		$CI = & get_instance();
+		if(!is_null($url)):
+			return $CI->baseURL.$url;
+		else:
+			return $CI->baseURL;
+		endif;
+	}
+	
 ?>
