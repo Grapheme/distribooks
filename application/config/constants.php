@@ -1,41 +1,48 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-/*
-|--------------------------------------------------------------------------
-| File and Directory Modes
-|--------------------------------------------------------------------------
-|
-| These prefs are used when checking and setting modes when working
-| with the file system.  The defaults are fine on servers with proper
-| security, but you may wish (or even need) to change the values in
-| certain environments (Apache running a separate process for each
-| user, PHP under CGI with Apache suEXEC, etc.).  Octal values should
-| always be used to set the mode correctly.
-|
-*/
 define('FILE_READ_MODE', 0644);
 define('FILE_WRITE_MODE', 0666);
 define('DIR_READ_MODE', 0755);
 define('DIR_WRITE_MODE', 0777);
 
-/*
-|--------------------------------------------------------------------------
-| File Stream Modes
-|--------------------------------------------------------------------------
-|
-| These modes are used when working with fopen()/popen()
-|
-*/
-
 define('FOPEN_READ',							'rb');
 define('FOPEN_READ_WRITE',						'r+b');
-define('FOPEN_WRITE_CREATE_DESTRUCTIVE',		'wb'); // truncates existing file data, use with care
-define('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE',	'w+b'); // truncates existing file data, use with care
+define('FOPEN_WRITE_CREATE_DESTRUCTIVE',		'wb');
+define('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE',	'w+b');
 define('FOPEN_WRITE_CREATE',					'ab');
 define('FOPEN_READ_WRITE_CREATE',				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
+define('PATH_SMILEYS',							getcwd().'/img/smileys');
 
+define('NO_IMAGE',								getcwd().'/img/icons/no-photo.png');
+define('NO_IMAGE_THUMBNAIL',					getcwd().'/img/icons/no-photo-thumbnail.png');
 
-/* End of file constants.php */
-/* Location: ./application/config/constants.php */
+define('NO_AVATAR',								getcwd().'/img/icons/no-avatar.png');
+define('NO_AVATAR_THUMBNAIL',					getcwd().'/img/icons/no-avatar-thumbnail.png');
+
+define('PER_PAGE_DEFAULT',						10);
+
+define('TOOLTIP_FIELD_BLANK',					'data-trigger="manual" data-placement="right" role="tooltip" data-original-title="Поле не заполнено"');
+define('TOOLTIP_FIELD_IMAGE_UPLOAD',			'data-trigger="hover" data-placement="top" role="tooltip" data-original-title="Нажмите для загрузки фотографии"');
+define('TOOLTIP_BUTTON_EDIT',					'data-trigger="hover" data-placement="bottom" role="tooltip" data-original-title="Редактировать"');
+define('TOOLTIP_BUTTON_DELETE',					'data-trigger="hover" data-placement="bottom" role="tooltip" data-original-title="Удалить"');
+define('TEMPORARY',								getcwd().'/temporary/');
+
+define('ADMIN_START_PAGE',						'admin-panel');
+define('USER_START_PAGE',						'user');
+
+define('BASE_WIDTH',							960);
+define('BASE_HEIGHT',							450);
+define('BASE_THUMBNAIL_WIDTH',					120);
+define('BASE_THUMBNAIL_HEIGHT',					120);
+define('THUMBNAIL_PERCENT',						25);
+
+define('ADMIN_GROUP_VALUE',						1);
+define('USER_GROUP_VALUE',						2);
+
+define('ALLOWED_TYPES_DOCUMENTS',				'doc|docx|xls|xlsx|txt|pdf|ppt|pptx');
+define('ALLOWED_TYPES_IMAGES',					'jpg|gif|jpeg|png');
+
+define('OAUTH_VK',								'https://oauth.vk.com/authorize?client_id=3539213&response_type=code&redirect_uri=');
+define('OAUTH_FACEBOOK',						'https://www.facebook.com/dialog/oauth?client_id=341255199337226&response_type=code&redirect_uri=');
