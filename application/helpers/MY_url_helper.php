@@ -49,6 +49,21 @@
 		return $getLink;
 	}
 	
+	function urlGETParameters(){
+		
+		$CI = & get_instance();
+		$get = $CI->input->get();
+		$getLink = '';
+		if($get !== FALSE):
+			$temp = array();
+			foreach($get as $key => $value):
+				$temp[] = $key.'='.$value;
+			endforeach;
+			$getLink = '?'.implode('&',$temp);
+		endif;
+		return $getLink;
+	}
+	
 	function baseURL($url = NULL){
 		
 		$CI = & get_instance();

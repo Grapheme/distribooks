@@ -15,6 +15,7 @@
 			<?php $this->load->view('guests_interface/forms/donation');?>
 		</div>
 		<?php $this->load->view('guests_interface/includes/recall-div');?>
+		<?php $this->load->view('guests_interface/includes/request-div');?>
 		<?php $this->load->view('guests_interface/includes/sn-tooltips');?>
 		<?php $this->load->view('guests_interface/includes/main-menu');?>
 		<?php $this->load->view('guests_interface/includes/auth');?>

@@ -7,6 +7,8 @@
 		<div class="slider style">&nbsp;</div>
 	<?php elseif($this->uri->segment(1) == 'translation'):?>
 		<div class="slider trans">&nbsp;</div>
+	<?php elseif($this->uri->segment(1) == 'distribution'):?>
+		<div class="slider dist">&nbsp;</div>
 	<?php else:?>
 		<div class="slider">&nbsp;</div>
 	<?php endif;?>
@@ -76,7 +78,9 @@
 					<img class="qr" src="<?=baseURL('img/qr.png');?>">
 					<a href="#" class="red button topb">Bookmark</a>
 					<div class="lang">
-						<a href="#" class="eng"></a><div class="med-bar"></div><a href="#" class="rus"></a>
+						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a>
+						<div class="med-bar"></div>
+						<a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a>
 						<div class="enter-div"><a href="#" class="sign-in">Sign in</a><a href="#" class="enter"></a></div>
 					</div>
 				</div>
@@ -103,14 +107,16 @@
 		<div class="container_5">
 			<div style="position: relative;"><a class="like-min" href="#"></a></div>
 			<div class="grid_1" style="margin-top: 0 !important;">
-				<a class="min-logo" href="index.html"></a>
+				<a class="min-logo" href="<?=site_url();?>"></a>
 				<div class="min-right">
 					<div class="min-div-left">
 						<a href="#" class="red button">Promotion -30%!</a><br>
 						<a href="#" class="blue button menu-open">Menu</a>
 					</div>
 					<div class="min-div-right">
-						<a href="#" class="eng"></a><div class="med-bar"></div><a href="#" class="rus"></a>	
+						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a>
+						<div class="med-bar"></div>
+						<a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a>
 						<div><a href="#" class="enter-text">Sign in</a>&nbsp;<a href="#" class="enter"></a></div>
 					</div>
 					<a href="#" class="blue button call basket"><img src="<?=baseURL('img/cart.png');?>">Shopping Cart&nbsp;<span>2000 р.</span></a>

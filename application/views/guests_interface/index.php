@@ -80,7 +80,7 @@
 					<a href="#" class="vid-name">Softman</a>
 					<a href="#" class="vid-play"></a>
 					<a href="#" class="vid" style="background-image: url('<?=baseURL('img/vid.png');?>');">
-						<img class="adult" src="img/adult.png">
+						<img class="adult" src="<?=baseURL('img/adult.png');?>">
 					</a>
 				</div>
 			<?php endfor;?>

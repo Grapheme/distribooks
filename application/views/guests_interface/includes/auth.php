@@ -1,6 +1,6 @@
 <div class="window-auth">
 	<div class="auth-top">
-		<img class="auth-top-img" src="img/auth-img.png">
+		<img class="auth-top-img" src="<?=baseURL('img/auth-img.png');?>">
 		<div class="auth-text">Вам необходимо зарегестрироваться для получения купленных вами книг на электронную почту и доступа к бонусам и скидкам</div>
 	</div>
 	<div class="clear"></div>

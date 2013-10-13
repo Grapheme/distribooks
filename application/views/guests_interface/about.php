@@ -34,7 +34,6 @@
 				</div>
 			</div>
 			<div class="grid_4">
-				
 				<div class="clear"></div>
 			</div>
 		</div>
