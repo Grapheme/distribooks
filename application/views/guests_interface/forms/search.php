@@ -1,18 +1,17 @@
 <form action="">
 	<div class="format-select">
 	<select>
-		<option value="1">Жанр</option>
-		<option value="2">2</option>
+		<option value="" selected="selected"><?=lang('top_menu_find_genre');?></option>
 	</select>
 	</div>
-	<div><input type="text" placeholder="автор"></div>
+	<div><input type="text" placeholder="<?=lang('top_menu_find_author');?>"></div>
 	<div>
-		<span>Аудио </span><input id="audio" type="checkbox" name="audio" checked="checked">
+		<span><?=lang('top_menu_find_audio');?> </span><input id="audio" type="checkbox" name="audio" checked="checked">
 		<label for="audio"></label>
 	</div>
 	<div>
-		<span>Текст </span><input id="text" type="checkbox" name="text" checked="checked">
+		<span><?=lang('top_menu_find_text');?> </span><input id="text" type="checkbox" name="text" checked="checked">
 		<label for="text"></label>
 	</div>
-	<div><input type="text" placeholder="формат"></div>
+	<div><input type="text" placeholder="<?=lang('top_menu_find_format');?>"></div>
 </form>

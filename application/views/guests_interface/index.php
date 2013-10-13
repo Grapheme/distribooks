@@ -64,7 +64,7 @@
 			<div class="container_5">
 				<div class="grid_1 news-div pos3-no">
 					<div class="news-cont">
-						<p class="title">News</p>
+						<p class="title"><?=lang('news_block');?></p>
 					<?php for($i=0;$i<2;$i++):?>
 						<div class="news">
 							<a href="#" class="news-title">Application</a>

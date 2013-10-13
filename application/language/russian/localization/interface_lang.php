@@ -2,10 +2,11 @@
 
 $lang['test'] = "Тестовое сообщение";
 
+$lang['index_page'] = "Главная";
 $lang['top_menu_catalog'] = "Каталог";
 $lang['top_menu_about'] = "О проекте";
 $lang['top_menu_donation'] = "Пожертвования";
-$lang['top_menu_promotion'] = "Продвижение";
+$lang['top_menu_promotion'] = "Скидка";
 $lang['top_menu_request_the_call'] = "Заказать звонок";
 $lang['top_menu_find'] = "Поиск";
 $lang['top_menu_find_genre'] = "Жанр";
@@ -14,7 +15,10 @@ $lang['top_menu_find_audio'] = "Аудио";
 $lang['top_menu_find_text'] = "Текст";
 $lang['top_menu_find_format'] = "Формат";
 $lang['top_menu_find_shopping_card'] = "Корзина";
-$lang['top_menu_find_sign_in'] = "Вход";
+$lang['top_menu_sign_in'] = "Вход";
+$lang['top_menu_bookmark'] = "В закладки";
+$lang['top_menu_publisher'] = "Интернет-издание";
+$lang['top_menu_main'] = "Меню";
 
 $lang['menu_editing'] = "Редактирование";
 $lang['menu_typography'] = "Оформление";
@@ -27,7 +31,6 @@ $lang['gift_pad_button'] = "Подарить";
 
 $lang['book_shop_buyor'] = "Купить";
 $lang['book_shop_tocart'] = "Move to cart";
-
 
 $lang['news_block'] = "Новости";
 
@@ -47,7 +50,7 @@ $lang['form_donation_summs'] = "Другая сумма";
 $lang['form_donate_another_text'] = "вы можете воспользоваться счетом в любом банке поддерживающем следующие платежные системы";
 
 $lang['form_recall_text'] = "Мы перезвоним в удобное для вас время";
-$lang['form_recall_name'] = "Представтесь";
+$lang['form_recall_name'] = "Представьтесь";
 $lang['form_recall_number'] = "Номер телефона";
 $lang['form_recall_button'] = "Отправить запрос";
 
@@ -58,9 +61,9 @@ $lang['basket_choice_price'] = "Выбрать";
 $lang['basket_total'] = "Всего";
 $lang['basket_buy_all'] = "Купить все";
 
-$lang['signin_auth_text'] = "Вам необходимо зарегестрироваться для получения купленных вами книг на электронную почту и доступа к бонусам и скидкам";
-$lang['signin_nickname'] = "Ник-нейм";
+$lang['signin_auth_text'] = "Вам необходимо зарегистрироваться для получения купленных вами книг на электронную почту и доступа к бонусам и скидкам";
+$lang['signin_nickname'] = "Никнейм";
 $lang['signin_number'] = "Номер телефона";
 $lang['signin_button'] = "Авторизоваться";
-$lang['signin_auth-soc'] = "Вы так же можете зарегистрироваться через любую доступную вам соц-сеть, указав почтовый адрес";
+$lang['signin_auth-soc'] = "Вы также можете зарегистрироваться через любую доступную вам соц-сеть, указав почтовый адрес";
 ?>

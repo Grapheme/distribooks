@@ -14,9 +14,9 @@
 			<div class="dashed"></div>
 			<nav>
 				<ul>
-					<li><a href="shop.html" class="footer-option">Catalog</a></li>
-					<li><a href="#" class="footer-option">About</a></li>
-					<li><a href="#" class="footer-option">Make donation</a></li>
+					<li><a href="<?=site_url('catalog');?>" class="footer-option">Catalog</a></li>
+					<li><a href="<?=site_url('about');?>" class="footer-option">About</a></li>
+					<li><a href="" class="footer-option no-clickable">Make donation</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -25,10 +25,10 @@
 			<div class="dashed"></div>
 			<nav>
 				<ul>
-					<li><a href="<?=baseURL('editing');?>" class="footer-option">Editing</a></li>
-					<li><a href="<?=baseURL('translation');?>" class="footer-option">Translation</a></li>
-					<li><a href="<?=baseURL('typography');?>" class="footer-option">Typography</a></li>
-					<li><a href="<?=baseURL('distribution');?>" class="footer-option">Distribution</a></li>
+					<li><a href="<?=site_url('editing');?>" class="footer-option">Editing</a></li>
+					<li><a href="<?=site_url('translation');?>" class="footer-option">Translation</a></li>
+					<li><a href="<?=site_url('typography');?>" class="footer-option">Typography</a></li>
+					<li><a href="<?=site_url('distribution');?>" class="footer-option">Distribution</a></li>
 				</ul>
 			</nav>
 		</div>

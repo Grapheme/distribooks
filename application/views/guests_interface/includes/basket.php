@@ -2,18 +2,17 @@
 	<a href="#" class="basket-close"></a>
 	<img src="<?=baseURL('img/basket-arrow.png');?>" class="basket-arrow">
 	<div class="basket-min">
-		<p class="basket-title">Каждая четвертая книга в подарок!</p>
+		<p class="basket-title"><?=lang('basket_title');?></p>
 		<div class="basket-item">
 			<a class="basket-rm" href="#"></a>
 			<div class="basket-img"><img src="<?=baseURL('img/book-big.png');?>"></div>
 			<p class="basket-item-name">Назавние Назавние Назавние Назавние</p>
 			<p class="basket-price">200 р.</p>
 			<div class="basket-one-buy">
-				<a href="#" class="buy">Buy</a>
+				<a href="#" class="buy"><?=lang('basket_buy');?></a>
 				<div class="basket-select">
 					<select name="FormatSelect" class="format-select">
-						<option value="0">Формат</option>
-						<option value="1"> </option>
+						<option selected="selected" value=""><?=lang('basket_format');?></option>
 					</select>
 				</div>
 			</div>
@@ -24,11 +23,10 @@
 			<p class="basket-item-name">Назавние Назавние Назавние Назавние</p>
 			<p class="basket-price">200 р.</p>
 			<div class="basket-one-buy">
-				<a href="#" class="buy">Buy</a>
+				<a href="#" class="buy"><?=lang('basket_buy');?></a>
 				<div class="basket-select">
 					<select>
-						<option value="1"> </option>
-						<option value="2"> </option>
+						<option selected="selected" value=""><?=lang('basket_format');?></option>
 					</select>
 				</div>
 			</div>
@@ -39,7 +37,7 @@
 			<p class="basket-item-name">Назавние Назавние Назавние Назавние</p>
 			<p class="basket-price">200 р.</p>
 			<div class="basket-one-buy">
-				<a href="#" class="buy">Buy</a>
+				<a href="#" class="buy"><?=lang('basket_buy');?></a>
 				<div class="basket-select">
 					<select>
 						<option value="1"> </option>
@@ -69,7 +67,7 @@
 			<p class="basket-item-name">Назавние Назавние Назавние Назавние</p>
 			<p class="basket-price"><a href="#" class="button red">Выбрать</a></p>
 			<div class="basket-one-buy">
-				<a href="#" class="buy">Buy</a>
+				<a href="#" class="buy"><?=lang('basket_buy');?></a>
 				<div class="basket-select">
 					<select>
 						<option value="1"> </option>
@@ -82,10 +80,10 @@
 		<div class="basket-line"></div>
 		<div class="basket-item">
 		<div style="float: right;">
-			<p class="basket-item-name all">Всего</p>
+			<p class="basket-item-name all"><?=lang('basket_total');?>:</p>
 			<p class="basket-price" style="border: 0;">2000 р.</p>
 			<div class="basket-one-buy">
-				<a href="cart.html" class="buy buy-all">Buy all</a>
+				<a href="cart.html" class="buy buy-all"><?=lang('basket_buy_all');?></a>
 			</div>
 		</div>
 		</div>
