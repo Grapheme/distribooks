@@ -22,3 +22,9 @@ $route[ADMIN_START_PAGE] = "admin_interface/controlPanel";
 $route[ADMIN_START_PAGE.'/pages'] = "admin_interface/pagesList";
 $route[ADMIN_START_PAGE.'/pages/:any/edit'] = "admin_interface/editPages";
 /*************************************************** GUEST INTRERFACE ***********************************************/
+$route['about'] = "guests_interface/about";
+$route['catalog'] = "guests_interface/catalog";
+$route['editing'] = "guests_interface/editing";
+$route['typography'] = "guests_interface/typography";
+$route['translation'] = "guests_interface/translation";
+$route['distribution'] = "guests_interface/distribution";

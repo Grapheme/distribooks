@@ -25,10 +25,10 @@
 			<div class="dashed"></div>
 			<nav>
 				<ul>
-					<li><a href="#" class="footer-option">Editing</a></li>
-					<li><a href="#" class="footer-option">Translation</a></li>
-					<li><a href="#" class="footer-option">Typography</a></li>
-					<li><a href="#" class="footer-option">Distribution</a></li>
+					<li><a href="<?=baseURL('editing');?>" class="footer-option">Editing</a></li>
+					<li><a href="<?=baseURL('translation');?>" class="footer-option">Translation</a></li>
+					<li><a href="<?=baseURL('typography');?>" class="footer-option">Typography</a></li>
+					<li><a href="<?=baseURL('distribution');?>" class="footer-option">Distribution</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -41,20 +41,20 @@
 		<a href="#" class="social-link" id="vk"></a>
 			</div>
 			<div class="footer-right">
-				<div><a href="mailto:welcome@distibbooks.com"><img src="img/white-mail.png">welcome@distibbooks.com</a></div>
-				<div><a href="skype:DistibBooks?call"><img src="img/white-skype.png">DistibBooks</a></div>
+				<div><a href="mailto:welcome@distibbooks.com"><img src="<?=baseURL('img/white-mail.png')?>">welcome@distibbooks.com</a></div>
+				<div><a href="skype:DistibBooks?call"><img src="<?=baseURL('img/white-skype.png')?>">DistibBooks</a></div>
 			</div>
 		</div>
 		<div class="grid_2 footer-nav">
 			<div class="footer-left">
-				<img src="img/qr.png"><br>
-				<img class="footer-adult pos3-no" src="img/adult.png">
+				<img src="<?=baseURL('img/qr.png')?>"><br>
+				<img class="footer-adult pos3-no" src="<?=baseURL('img/adult.png')?>">
 			</div>
 			<div class="footer-right">
-				<div><img class="footer-logo" src="img/min-logo.png"><p>&copy; Distibbooks.com<br>2013</p></div>
-				<div class="pos3-no"><a href="mailto:welcome@distibbooks.com"><img src="img/white-mail.png">welcome@distibbooks.com</a></div>
-				<div class="pos3-no"><a href="skype:DistibBooks?call"><img src="img/white-skype.png">DistibBooks</a></div>
-				<img class="footer-adult pos3" src="img/adult.png" style="float: left; margin: 0;">
+				<div><img class="footer-logo" src="<?=baseURL('img/min-logo.png')?>"><p>&copy; Distibbooks.com<br>2013</p></div>
+				<div class="pos3-no"><a href="mailto:welcome@distibbooks.com"><img src="<?=baseURL('img/white-mail.png')?>">welcome@distibbooks.com</a></div>
+				<div class="pos3-no"><a href="skype:DistibBooks?call"><img src="<?=baseURL('img/white-skype.png')?>">DistibBooks</a></div>
+				<img class="footer-adult pos3" src="<?=baseURL('img/adult.png')?>" style="float: left; margin: 0;">
 			</div>
 		</div>
 	</div>
