@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<div class="grid_4 top-shop-div">
-				<p class="top-shop-title">Лидеры продаж:</p>
+				<p class="top-shop-title"><?=lang('catalog_top_shop')?>:</p>
 			<?php for($i=0;$i<3;$i++):?>
 				<div class="top-shop">
 					<div class="shop-top">
@@ -52,8 +52,7 @@
 						</div>
 					</div>
 					<div class="buyor">
-						<a href="#" class="buy">Buy</a>
-						<p class="tocart"><span>or</span><a href="#">Move to cart</a></p>
+						<a href="#" class="buy"><?=lang('book_shop_buyor')?></a><p class="tocart"><span><?=lang('book_or')?></span><a href="#"><?=lang('book_shop_tocart')?></a></p>
 					</div>
 					<div class="shop-desc">
 						Действие нового романа "Метро 2034" разворачивается во вселенной, описанной в первой части дилогии. 
@@ -73,7 +72,7 @@
 				<div class="grid_1 gift shop">&nbsp;</div>
 				<div class="grid_1 pos1">&nbsp;</div>
 				<div class="grid_2 vidiv">
-					<a href="#" class="vid-like"><img src="<?=baseURL('img/shop-like.png');?>">Share</a>
+					<a href="#" class="vid-like"><img src="<?=baseURL('img/shop-like.png');?>"><?=lang('book_share')?></a>
 					<a href="#" class="vid-name">Softman</a>
 					<a href="#" class="vid-play"></a>
 					<a href="#" class="vid" style="background-image: url('<?=baseURL('img/vid.png');?>');">
@@ -81,7 +80,7 @@
 					</a>
 				</div>
 				<div class="grid_2 vidiv">
-					<a href="#" class="vid-like"><img src="<?=baseURL('img/shop-like.png');?>">Share</a>
+					<a href="#" class="vid-like"><img src="<?=baseURL('img/shop-like.png');?>"><?=lang('book_share')?></a>
 					<a href="#" class="vid-name">Softman</a>
 					<a href="#" class="vid-play"></a>
 					<a href="#" class="vid" style="background-image: url('<?=baseURL('img/vid.png');?>');">
@@ -97,7 +96,7 @@
 		<?php if(!empty($novelty)):?>
 			<div class="grid_1">&nbsp;</div>
 			<div class="grid_4 shop-new-div">
-				<p class="top-shop-title">Новинки:</p>
+				<p class="top-shop-title"><?=lang('catalog_novelty')?>:</p>
 			<?php for($i=0;$i<count($novelty);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count()-1))?' omega':'';?>">
 					<div class="shop-top">
@@ -121,7 +120,9 @@
 							<p class="price">450 RUB</p>
 						</div>
 					</div>
-					<div class="buyor"><a href="#" class="buy">Buy</a><p class="tocart"><span>or</span><a href="#">Move to cart</a></p></div>
+					<div class="buyor">
+						<a href="#" class="buy"><?=lang('book_shop_buyor')?></a><p class="tocart"><span><?=lang('book_or')?></span><a href="#"><?=lang('book_shop_tocart')?></a></p>
+					</div>
 				</div>
 			<?php endfor;?>
 				<div class="clear"></div>
@@ -130,7 +131,7 @@
 		<?php if(!empty($recommended)):?>
 			<div class="grid_1">&nbsp;</div>
 			<div class="grid_4 shop-new-div">
-				<p class="top-shop-title">Рекомендуемые:</p>
+				<p class="top-shop-title"><?=lang('catalog_recommended')?>:</p>
 			<?php for($i=0;$i<count($recommended);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count()-1))?' omega':'';?>">
 					<div class="shop-top">
@@ -154,7 +155,9 @@
 							<p class="price">450 RUB</p>
 						</div>
 					</div>
-					<div class="buyor"><a href="#" class="buy">Buy</a><p class="tocart"><span>or</span><a href="#">Move to cart</a></p></div>
+					<div class="buyor">
+						<a href="#" class="buy"><?=lang('book_shop_buyor')?></a><p class="tocart"><span><?=lang('book_or')?></span><a href="#"><?=lang('book_shop_tocart')?></a></p>
+					</div>
 				</div>
 			<?php endfor;?>
 				<div class="clear"></div>
@@ -163,8 +166,8 @@
 		<?php if(!empty($catalog)):?>
 			<div class="grid_1">&nbsp;</div>
 			<div class="grid_4 shop-new-div">
-				<p class="top-shop-title">Каталог:</p>
-				<p class="shop-sort">Сортировать по: <a href="#" class="sort-link">Цене</a> | <a href="#" class="sort-link">Названию</a> | <a href="#" class="sort-link">Рейтингу</a></p>
+				<p class="top-shop-title"><?=lang('catalog_catalog')?>:</p>
+				<p class="shop-sort"><?=lang('book_sort_by')?>: <a href="#" class="sort-link"><?=lang('book_sort_price')?></a> | <a href="#" class="sort-link"><?=lang('book_sort_title')?></a> | <a href="#" class="sort-link"><?=lang('book_sort_rating')?></a></p>
 			<?php for($i=0;$i<count($catalog);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count()-1))?' omega':'';?>">
 					<div class="shop-top">
@@ -188,7 +191,9 @@
 							<p class="price">450 RUB</p>
 						</div>
 					</div>
-					<div class="buyor"><a href="#" class="buy">Buy</a><p class="tocart"><span>or</span><a href="#">Move to cart</a></p></div>
+					<div class="buyor">
+						<a href="#" class="buy"><?=lang('book_shop_buyor')?></a><p class="tocart"><span><?=lang('book_or')?></span><a href="#"><?=lang('book_shop_tocart')?></a></p>
+					</div>
 				</div>
 			<?php endfor;?>
 				<div class="clear"></div>
@@ -201,9 +206,9 @@
 				<div style="position: relative;"><img src="<?=baseURL('img/shadow-y.png');?>" class="shadow-top"></div>
 				<div class="grid_1">&nbsp;</div>
 				<div class="grid_4">
-					<h2><span class="sale-title">Акция:</span></h2>
+					<h2><span class="sale-title"><?=lang('catalog_promotion')?>:</span></h2>
 					<img src="<?=baseURL('img/sale.png')?>" class="sale">
-					<div class="position: relative;"><a href="#" class="button red sale">Выбрать книги</a></div>
+					<div class="position: relative;"><a href="#" class="button red sale"><?=lang('catalog_choice_books')?></a></div>
 				</div>
 			</div>
 		</div>

@@ -54,7 +54,7 @@
 							<p class="price">450 RUB</p>
 						</div>
 					</div>
-					<div class="buyor"><a href="#" class="buy">Buy</a><p class="tocart"><span>or</span><a href="#">Move to cart</a></p></div>
+					<div class="buyor"><a href="#" class="buy"><?=lang('book_shop_buyor');?></a><p class="tocart"><span><?=lang('book_or');?></span><a href="#"><?=lang('book_shop_tocart');?></a></p></div>
 				</div>
 			<?php endfor;?>
 			</div>
@@ -76,7 +76,7 @@
 				</div>
 			<?php for($i=0;$i<2;$i++):?>
 				<div class="grid_2 vidiv">
-					<a href="#" class="vid-like"><img src="<?=baseURL('img/shop-like.png');?>">Share</a>
+					<a href="#" class="vid-like"><img src="<?=baseURL('img/shop-like.png');?>"><?=lang('book_share');?></a>
 					<a href="#" class="vid-name">Softman</a>
 					<a href="#" class="vid-play"></a>
 					<a href="#" class="vid" style="background-image: url('<?=baseURL('img/vid.png');?>');">

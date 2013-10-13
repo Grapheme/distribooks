@@ -5,7 +5,7 @@ $lang['test'] = "Тестовое сообщение";
 $lang['index_page'] = "Главная";
 $lang['top_menu_catalog'] = "Каталог";
 $lang['top_menu_about'] = "О проекте";
-$lang['top_menu_donation'] = "Пожертвования";
+$lang['top_menu_donation'] = "Поддержать проект";
 $lang['top_menu_promotion'] = "Скидка";
 $lang['top_menu_request_the_call'] = "Заказать звонок";
 $lang['top_menu_find'] = "Поиск";
@@ -30,14 +30,21 @@ $lang['gift_pad_text'] = "Подарить книгу удобно через н
 $lang['gift_pad_button'] = "Подарить";
 
 $lang['book_shop_buyor'] = "Купить";
-$lang['book_shop_tocart'] = "Move to cart";
+$lang['book_shop_tocart'] = "В корзину";
+$lang['book_share'] = "Поделиться";
+$lang['book_or'] = "или";
+$lang['book_sort_by'] = "Сортировать по";
+$lang['book_sort_price'] = "Цене";
+$lang['book_sort_title'] = "Названию";
+$lang['book_sort_rating'] = "Рейтингу";
+
 
 $lang['news_block'] = "Новости";
 
 $lang['footer_menu_main'] = "Меню";
 $lang['footer_menu_services'] = "Услуги";
 
-$lang['catalog_top-shop'] = "Лидеры продаж";
+$lang['catalog_top_shop'] = "Лидеры продаж";
 $lang['catalog_novelty'] = "Новинки";
 $lang['catalog_recommended'] = "Рекомендуемые";
 $lang['catalog_catalog'] = "Каталог";
@@ -50,6 +57,8 @@ $lang['form_donation_summs'] = "Другая сумма";
 $lang['form_donate_another_text'] = "вы можете воспользоваться счетом в любом банке поддерживающем следующие платежные системы";
 
 $lang['form_recall_text'] = "Мы перезвоним в удобное для вас время";
+$lang['form_recall_after_text'] = "Ваш запрос успешно обработан";
+$lang['form_recall_after_message'] = "Мы перезвоним в указанное вами время";
 $lang['form_recall_name'] = "Представьтесь";
 $lang['form_recall_number'] = "Номер телефона";
 $lang['form_recall_button'] = "Отправить запрос";
@@ -65,5 +74,26 @@ $lang['signin_auth_text'] = "Вам необходимо зарегистрир�
 $lang['signin_nickname'] = "Никнейм";
 $lang['signin_number'] = "Номер телефона";
 $lang['signin_button'] = "Авторизоваться";
-$lang['signin_auth-soc'] = "Вы также можете зарегистрироваться через любую доступную вам соц-сеть, указав почтовый адрес";
+$lang['signin_auth_soc'] = "Вы также можете зарегистрироваться через любую доступную вам соц-сеть, указав почтовый адрес";
+
+$lang['service_send_enquiry'] = "Отправить заявку";
+$lang['service_for_author'] = "Для автора и издателя";
+
+$lang['service_order_ending'] = "Заказать редактирование";
+$lang['service_do_ending'] = "Редактировать";
+
+$lang['service_order_distribution'] = "Заказать дистрибютора";
+$lang['service_begin_distribution'] = "Заняться дистрибюторством";
+
+$lang['service_request_translation'] = "Запрос на перевод";
+$lang['service_begin_translating'] = "Занятся переводом";
+
+$lang['service_order_clearance'] = "Заказать оформление";
+$lang['service_do_design'] = "Заняться дизайном";
+
+$lang['form_service_text'] = "Спасибо за предложение";
+$lang['form_service_name'] = "Представьтесь";
+$lang['form_service_number'] = "Номер телефона";
+$lang['form_service_message'] = "Текст письма";
+$lang['form_service_button'] = "Отправить заявку";
 ?>

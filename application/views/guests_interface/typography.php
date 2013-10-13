@@ -25,8 +25,8 @@
 			<div class="min-nav pos3">
 				<nav>
 					<ul>
-						<li><a href="<?=site_url('editing');?>" class="min-option" id="m1"><p>Editing</p><div class="triangle"></div></a></li>
-						<li><a href="<?=site_url('typography');?>" class="min-option" id="m2"><p>Typography</p><div class="triangle"></div></a></li>
+						<li><a href="<?=site_url('editing');?>" class="min-option" id="m1"><p><?=lang('menu_editing');?></p><div class="triangle"></div></a></li>
+						<li><a href="<?=site_url('typography');?>" class="min-option" id="m2"><p><?=lang('menu_typography');?></p><div class="triangle"></div></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -43,11 +43,11 @@
 				<div class="grid_2 information">
 					<div>
 						<img class="inf-img" src="<?=baseURL('img/style-left.png');?>" style="margin-bottom: 53px;">
-						<a href="#" class="apply-button">Отправить заявку</a>
+						<a href="#" class="apply-button no-clickable"><?=lang('service_send_enquiry');?></a>
 					</div>
 					<div>
-						<p class="title"><span>Order clearance</span></p>
-						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png');?>"></a><p>Для автора и издателя</p></div>
+						<p class="title"><span><?=lang('service_order_clearance');?></span></p>
+						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png');?>"></a><p><?=lang('service_for_author');?></p></div>
 						<p class="desc style">If you are the author of a book, at this web page you can quickly and easily apply for 
 						registration of your professional design work.</p>
 					</div>
@@ -55,11 +55,11 @@
 				<div class="grid_2 information">
 					<div>
 						<img class="inf-img" src="<?=baseURL('img/style-right.png');?>">
-						<a href="#" class="apply-button">Отправить заявку</a>
+						<a href="#" class="apply-button no-clickable"><?=lang('service_send_enquiry');?></a>
 					</div>
 					<div>
-						<p class="title"><span>To do design</span></p>
-						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png');?>"></a><p>Для автора и издателя</p></div>
+						<p class="title"><span><?=lang('service_do_design');?></span></p>
+						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png');?>"></a><p><?=lang('service_for_author');?></p></div>
 						<p class="desc style">If you are a professional designer / artist / photographer, have a profile design education 
 						and the desire to work in our creative studio, at this page of the website you can quickly and easily make a request 
 						to cooperate with us.</p>
@@ -94,8 +94,8 @@
 			<div class="min-nav pos3">
 				<nav>
 					<ul>
-						<li><a href="<?=site_url('translation');?>" class="min-option" id="m3"><p>Translation</p><div class="triangle"></div></a></li>
-						<li><a href="<?=site_url('distribution');?>" class="min-option" id="m4"><p>Distribution</p><div class="triangle"></div></a></li>
+						<li><a href="<?=site_url('translation');?>" class="min-option" id="m3"><p><?=lang('menu_translation');?></p><div class="triangle"></div></a></li>
+						<li><a href="<?=site_url('distribution');?>" class="min-option" id="m4"><p><?=lang('menu_distribution');?></p><div class="triangle"></div></a></li>
 					</ul>
 				</nav>
 			</div>

@@ -1,6 +1,6 @@
 <form>
-	<input type="text" placeholder="Представтесь">
+	<input type="text" placeholder="<?=lang('form_recall_name')?>">
 	<input type="text" placeholder="E-mail">
-	<input type="text" placeholder="Номер телефона">
-	<input type="button" class="recall-button" value="Отправить запрос">
+	<input type="text" placeholder="<?=lang('form_recall_number')?>">
+	<input type="button" class="recall-button" value="<?=lang('form_recall_button')?>">
 </form>

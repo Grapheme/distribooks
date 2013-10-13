@@ -26,7 +26,7 @@
 				<div class="min-nav pos3">
 					<nav>
 						<ul>
-							<li><a href="<?=site_url('editing');?>" class="min-option" id="m1"><p>Editing</p><div class="triangle"></div></a></li>
+							<li><a href="<?=site_url('editing');?>" class="min-option" id="m1"><p><?=lang('menu_editing');?></p><div class="triangle"></div></a></li>
 						</ul>
 					</nav>
 				</div>
@@ -44,10 +44,10 @@
 				<div class="grid_2 information">
 					<div>
 						<img class="inf-img" src="<?=baseURL('img/edit-left.png')?>" style="margin-bottom: 65px;">
-						<a href="#" class="apply-button">Отправить заявку</a>
+						<a href="#" class="apply-button no-clickable"><?=lang('service_send_enquiry');?></a>
 					</div>
 					<div>
-						<p class="title"><span>Order Editing</span></p>
+						<p class="title"><span><?=lang('service_order_ending');?></span></p>
 						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p>Для автора и издателя</p></div>
 						<p class="desc">If you are the author of a book, at this web page you can quickly and 
 						easily apply for professional editing and correcting your book.</p>
@@ -56,10 +56,10 @@
 				<div class="grid_2 information">
 					<div>
 						<img class="inf-img" src="<?=baseURL('img/edit-right.png')?>">
-						<a href="#" class="apply-button">Отправить заявку</a>
+						<a href="#" class="apply-button no-clickable"><?=lang('service_send_enquiry');?></a>
 					</div>
 					<div>
-						<p class="title"><span>Do editing</span></p>
+						<p class="title"><span><?=lang('service_do_ending');?></span></p>
 						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p>Для автора и издателя</p></div>
 						<p class="desc">If you are a professional editor / proofreader, have a profile degry in linguistics and a 
 						desire to work in our creative studio, at this page of the website you can quickly and easily make a request 
@@ -96,9 +96,9 @@
 			<div class="min-nav pos3">
 				<nav>
 					<ul>
-						<li><a href="<?=site_url('typography');?>" class="min-option" id="m2"><p>Typography</p><div class="triangle"></div></a></li>
-						<li><a href="<?=site_url('translation');?>" class="min-option" id="m3"><p>Translation</p><div class="triangle"></div></a></li>
-						<li><a href="<?=site_url('distribution');?>" class="min-option" id="m4"><p>Distribution</p><div class="triangle"></div></a></li>
+						<li><a href="<?=site_url('typography');?>" class="min-option" id="m2"><p><?=lang('menu_typography');?></p><div class="triangle"></div></a></li>
+						<li><a href="<?=site_url('translation');?>" class="min-option" id="m3"><p><?=lang('menu_translation');?></p><div class="triangle"></div></a></li>
+						<li><a href="<?=site_url('distribution');?>" class="min-option" id="m4"><p><?=lang('menu_distribution');?></p><div class="triangle"></div></a></li>
 					</ul>
 				</nav>
 			</div>

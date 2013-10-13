@@ -111,7 +111,7 @@
 						<a href="#" class="blue button menu-open no-clickable"><?=lang('top_menu_main');?></a>
 					</div>
 					<div class="min-div-right">
-						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a><div><a href="#" class="enter-text"><?=lang('top_menu_sign_in');?></a>&nbsp;<a href="#" class="enter"></a></div>
+						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a><div><a href="" class="enter-text no-clickable"><?=lang('top_menu_sign_in');?></a>&nbsp;<a href="#" class="enter"></a></div>
 					</div>
 					<a href="#" class="blue button call basket no-clickable"><img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span>2000 р.</span></a>
 				</div>

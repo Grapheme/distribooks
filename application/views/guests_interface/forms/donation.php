@@ -2,7 +2,7 @@
 	<a href="#" class="donate-close"></a>
 	<div class="donate-top">
 		<img class="donate-top-img" src="<?=baseURL('img/big-coins.png');?>">
-		<div class="donate-text">Спасибо<br> за помощь</div>
+		<div class="donate-text"><?=lang('form_donation_thank_you')?></div>
 	</div>
 	<div class="donate-div">
 		<div class="how-much" id="f">
@@ -40,8 +40,8 @@
 	</div>
 	<div class="clear"></div>
 	<div class="donate-another-div">
-		<input class="donate-another" type="text" placeholder="Другая сумма">
-		<p class="donate-another-text">вы можете воспользоваться счетом в любом банке поддерживающем следующие платежные системы:</p>
+		<input class="donate-another" type="text" placeholder="<?=lang('form_donation_summs')?>">
+		<p class="donate-another-text"><?=lang('form_donate_another_text')?>:</p>
 	</div>
 	<div class="donate-links">
 		<a href="#" class="donate-link" id="wm"></a>

@@ -25,9 +25,9 @@
 			<div class="min-nav pos3">
 				<nav>
 					<ul>
-						<li><a href="<?=site_url('editing');?>" class="min-option" id="m1"><p>Editing</p><div class="triangle"></div></a></li>
-						<li><a href="<?=site_url('typography');?>" class="min-option" id="m2"><p>Typography</p><div class="triangle"></div></a></li>
-						<li><a href="<?=site_url('translation');?>" class="min-option" id="m3"><p>Translation</p><div class="triangle"></div></a></li>
+						<li><a href="<?=site_url('editing');?>" class="min-option" id="m1"><p><?=lang('menu_editing');?></p><div class="triangle"></div></a></li>
+						<li><a href="<?=site_url('typography');?>" class="min-option" id="m2"><p><?=lang('menu_typography');?></p><div class="triangle"></div></a></li>
+						<li><a href="<?=site_url('translation');?>" class="min-option" id="m3"><p><?=lang('menu_translation');?></p><div class="triangle"></div></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -44,11 +44,11 @@
 				<div class="grid_2 information">
 					<div>
 						<img class="inf-img" src="<?=baseURL('img/trans-left.png')?>" style="margin-bottom: 24px;">
-						<a href="#" class="apply-button">Отправить заявку</a>
+						<a href="#" class="apply-button no-clickable"><?=lang('service_send_enquiry');?></a>
 					</div>
 					<div>
-						<p class="title"><span>Request a translation</span></p>
-						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p>Для автора и издателя</p></div>
+						<p class="title"><span><?=lang('service_request_translation');?></span></p>
+						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
 						<p class="desc">
 							If you are the author of a book, at this web page you can quickly and easily apply for a professional 
 							translation of your work, on any of the languages ​​of the world.
@@ -58,11 +58,11 @@
 				<div class="grid_2 information">
 					<div>
 						<img class="inf-img" src="<?=baseURL('img/trans-right.png')?>">
-						<a href="#" class="apply-button">Отправить заявку</a>
+						<a href="#" class="apply-button no-clickable"><?=lang('service_send_enquiry');?></a>
 					</div>
 					<div>
-						<p class="title"><span>To begin translating</span></p>
-						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p>Для автора и издателя</p></div>
+						<p class="title"><span><?=lang('service_begin_translating');?></span></p>
+						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
 						<p class="desc">
 							If you are a professional translator (mainly medium of a foreign language), have the literary skills, have a 
 							profile in linguistics and a desire to work in our creative studio, at this page of the website you can quickly 
@@ -97,7 +97,7 @@
 			<div class="min-nav pos3">
 				<nav>
 					<ul>
-						<li><a href="<?=site_url('distribution');?>" class="min-option" id="m4"><p>Distribution</p><div class="triangle"></div></a></li>
+						<li><a href="<?=site_url('distribution');?>" class="min-option" id="m4"><p><?=lang('menu_distribution');?></p><div class="triangle"></div></a></li>
 					</ul>
 				</nav>
 			</div>

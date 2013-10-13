@@ -39,11 +39,11 @@
 					<div class="grid_2 information">
 						<div>
 							<img class="inf-img" src="<?=baseURL('img/dist-left.png')?>" style="margin-bottom: 54px;">
-							<a href="#" class="apply-button">Отправить заявку</a>
+							<a href="#" class="apply-button no-clickable"><?=lang('service_send_enquiry');?></a>
 						</div>
 						<div>
-							<p class="title"><span>Order distribution</span></p>
-							<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p>Для автора и издателя</p></div>
+							<p class="title"><span><?=lang('service_order_distribution');?></span></p>
+							<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
 							<p class="desc">If you are the author of a book, at this web page you can quickly and easily apply for the 
 							organization of the process of national / international distribution of your books.</p>
 						</div>
@@ -51,11 +51,11 @@
 					<div class="grid_2 information">
 						<div>
 							<img class="inf-img" src="<?=baseURL('img/dist-right.png')?>" style="margin-bottom: 20px;">
-							<a href="#" class="apply-button">Отправить заявку</a>
+							<a href="#" class="apply-button no-clickable"><?=lang('service_send_enquiry');?></a>
 						</div>
 						<div>
-							<p class="title"><span>To begin translating</span></p>
-							<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p>Для автора и издателя</p></div>
+							<p class="title"><span><?=lang('service_begin_distribution');?></span></p>
+							<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
 							<p class="desc">If you own an online bookstore, or a representative of the marketplace, legally selling e-books 
 							and want to cooperate with our creative studio, at this web page you can quickly and easily make a request to 
 							cooperate with us.</p>
