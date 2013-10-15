@@ -114,7 +114,6 @@ class MY_Controller extends CI_Controller{
 		$this->session->set_userdata('profile',json_encode($this->profile));
 		return $responseText;
 	}
-	
 	/*************************************************************************************************************/
 	public function setCountryCityLibraries($ip_address = ''){
 		
@@ -578,7 +577,7 @@ class MY_Controller extends CI_Controller{
 	public function validationUploadImage(){
 		
 		$arguments = &func_get_args();
-		$fileName = (isset($arguments[0]['file_name']))?$arguments[0]['file_name']:NULL;
+		$fileName = (isset($arguments[0]['file_name']))?$arguments[0]['file_name']:$_FILES['file']['tmp_name'];
 		$minWidth = (isset($arguments[0]['min_width']))?$arguments[0]['min_width']:NULL;
 		$maxWidth = (isset($arguments[0]['max_width']))?$arguments[0]['max_width']:NULL;
 		$onlyWide = (isset($arguments[0]['only_wide']))?$arguments[0]['only_wide']:FALSE;
@@ -810,19 +809,20 @@ class MY_Controller extends CI_Controller{
 		return FALSE;
 	}
 
-	public function translite($string){
+	public function translite($string = ''){
 		
-		$rus = array("1","2","3","4","5","6","7","8","9","0","ё","й","ю","ь","ч","щ","ц","у","к","е","н","г","ш","з","х","ъ","ф","ы","в","а","п","р","о","л","д","ж","э","я","с","м","и","т","б","Ё","Й","Ю","Ч","Ь","Щ","Ц","У","К","Е","Н","Г","Ш","З","Х","Ъ","Ф","Ы","В","А","П","Р","О","Л","Д","Ж","Э","Я","С","М","И","Т","Б"," ");
-		$eng = array("1","2","3","4","5","6","7","8","9","0","yo","iy","yu","","ch","sh","c","u","k","e","n","g","sh","z","h","","f","y","v","a","p","r","o","l","d","j","е","ya","s","m","i","t","b","Yo","Iy","Yu","CH","","SH","C","U","K","E","N","G","SH","Z","H","","F","Y","V","A","P","R","O","L","D","J","E","YA","S","M","I","T","B","-");
-		$string = str_replace($rus,$eng,$string);
 		if(!empty($string)):
-			$string = preg_replace('/[^a-z0-9-\.]/','',strtolower($string));
-			$string = preg_replace('/[-]+/','-',$string);
-			$string = preg_replace('/[\.]+/','.',$string);
-			return $string;
-		else:
-			return FALSE;
+			$rus = array("1","2","3","4","5","6","7","8","9","0","ё","й","ю","ь","ч","щ","ц","у","к","е","н","г","ш","з","х","ъ","ф","ы","в","а","п","р","о","л","д","ж","э","я","с","м","и","т","б","Ё","Й","Ю","Ч","Ь","Щ","Ц","У","К","Е","Н","Г","Ш","З","Х","Ъ","Ф","Ы","В","А","П","Р","О","Л","Д","Ж","Э","Я","С","М","И","Т","Б"," ");
+			$eng = array("1","2","3","4","5","6","7","8","9","0","yo","iy","yu","","ch","sh","c","u","k","e","n","g","sh","z","h","","f","y","v","a","p","r","o","l","d","j","е","ya","s","m","i","t","b","Yo","Iy","Yu","CH","","SH","C","U","K","E","N","G","SH","Z","H","","F","Y","V","A","P","R","O","L","D","J","E","YA","S","M","I","T","B","-");
+			$string = str_replace($rus,$eng,$string);
+			if(!empty($string)):
+				$string = preg_replace('/[^a-z0-9-\.]/','',strtolower($string));
+				$string = preg_replace('/[-]+/','-',$string);
+				$string = preg_replace('/[\.]+/','.',$string);
+				return $string;
+			endif;
 		endif;
+		return 'undefined';
 	}
 
 	public function setActiveUsers($usersList,$field = 'id'){

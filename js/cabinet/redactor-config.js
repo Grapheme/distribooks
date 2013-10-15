@@ -1,7 +1,36 @@
 /*  Author: Grapheme Group
  *  http://grapheme.ru/
  */
- 
+
+var ImperaviRedactor = ImperaviRedactor || {};
+ImperaviRedactor.buttons = ['html','|','bold','italic','|','unorderedlist','orderedlist','|','alignleft','aligncenter','alignright','justify','|','image','file','video','link','|','fontcolor','|'];
+ImperaviRedactor.buttonsCustom = {
+	button_undo:{title: 'Назад',callback: function(buttonName,buttonDOM,buttonObject){this.execCommand('undo',false,false);}},
+	button_redo:{title: 'Вперед',callback: function(buttonName,buttonDOM,buttonObject){this.execCommand('redo', false, false);}}
+}
+ImperaviRedactor.config = {
+	buttons: ImperaviRedactor.buttons,
+	autoresize: false,
+	minHeight: true,
+	//buttonsAdd: ['button_undo','button_redo','|'],
+	buttonsCustom: ImperaviRedactor.buttonsCustom,
+	lang: 'ru',
+	plugins: ['fontsize','fullscreen'],
+	imageUpload: mt.getBaseURL('redactor/upload'),
+	imageGetJson: mt.getBaseURL('redactor/get-uploaded-images'),
+	imageUploadErrorCallback: function(response){alert(response.error);},
+	changeCallback: function(){
+		mt.inputChanged = true;
+		$(this.$element[0]).hideToolTip();
+	},
+	blurCallback: function(e){
+		$(this.$element[0]).html(this.get());
+		if($(this.$element[0]).hasClass('valid-required') && $(this.$element[0]).emptyValue()){
+			$(this.$element[0]).setValidationErrorStatus('Поле не заполнено');
+		}
+	}
+}
+
 if(!RedactorPlugins) var RedactorPlugins = {};
 RedactorPlugins.fontsize = {
 	init: function(){
@@ -154,57 +183,5 @@ $(function(){
 		fullscreen: 'Во весь экран',deleted: 'Зачеркнутый',anchor: 'Якорь',link_new_tab: 'Открывать в новой вкладке',underline: 'Подчеркнутый',
 		alignment: 'Выравнивание',filename: 'Название (необязательно)',edit: 'Ред.'
 	};
-	var buttons = ['html','|','bold','italic','|','unorderedlist','orderedlist','|','alignleft','aligncenter','alignright','justify','|','image','file','video','|','fontcolor','|'];
-	var buttonsCustom = {
-		button_undo:{title: 'Назад',callback: function(buttonName,buttonDOM,buttonObject){this.execCommand('undo',false,false);}},
-		button_redo:{title: 'Вперед',callback: function(buttonName,buttonDOM,buttonObject){this.execCommand('redo', false, false);}}
-	}
-	var mainConfig = {
-		buttons: buttons,
-		autoresize: false,
-		minHeight: true,
-		buttonsAdd: ['button_undo','button_redo','|'],
-		buttonsCustom: buttonsCustom,
-		lang: 'ru',
-		plugins: ['fontsize','fullscreen'],
-		imageUpload: mt.baseURL+'redactor/upload',
-		imageGetJson: mt.baseURL+'redactor/get-uploaded-images',
-		imageUploadErrorCallback: function(response){alert(response.error);},
-		changeCallback: function(){
-			mt.inputChanged = true;
-			$("textarea.redactor").hideToolTip();
-		},
-		blurCallback: function(e){
-			var redactor = $("textarea.redactor");
-			$(redactor).html(this.get());
-			if($(redactor).hasClass('valid-required') && $(redactor).emptyValue()){
-				$(redactor).setValidationErrorStatus('Поле не заполнено');
-			}
-		}
-	}
-	$("textarea.redactor").redactor(mainConfig);
-	
-	var LessonDescription = {
-		buttons: buttons,
-		autoresize: false,
-		minHeight: true,
-		buttonsCustom: buttonsCustom,
-		lang: 'ru',
-		plugins: ['fontsize','fullscreen'],
-		imageUpload: mt.baseURL+'redactor/upload',
-		imageGetJson: mt.baseURL+'redactor/get-uploaded-images',
-		imageUploadErrorCallback: function(response){alert(response.error);},
-		changeCallback: function(){
-			mt.inputChanged = true;
-			$("textarea.redactor-lesson-description").hideToolTip();
-		},
-		blurCallback: function(e){
-			var redactor = $("textarea.redactor-lesson-description");
-			$(redactor).html(this.get());
-			if($(redactor).hasClass('valid-required') && $(redactor).emptyValue()){
-				$(redactor).setValidationErrorStatus('Поле не заполнено');
-			}
-		}
-	};
-	$("textarea.redactor-lesson-description").redactor(LessonDescription);
+	$("textarea.redactor").redactor(ImperaviRedactor.config);
 });

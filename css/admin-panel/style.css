@@ -1,7 +1,8 @@
 body {
-	padding-top: 40px;
+	padding-top: 52px;
 	padding-bottom: 40px;
 	background-color: #f5f5f5;
+	font-family: "ff-meta-web-pro", "futura-pt", sans-serif;
 }
 .form-signin {
 	max-width: 300px;
@@ -39,3 +40,47 @@ div.loading { background: url('../../img/dots-white.gif') center 20px no-repeat 
 		padding-right: 5px;
 	}
 }
+
+.production-years .production-years-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.production-years .production-years-list li {
+    display: inline-block;
+    margin: 0 1em 0 0;
+}
+.production-years .production-years-list li a {
+    border-bottom: 1px dashed #4D4A48;
+    color: #4D4A48;
+    display: block;
+    font: 22px/27px "pt-serif",serif;
+    text-decoration: none;
+    transition: all 0.8s ease 0s;
+}
+.production-years .production-years-list li a:hover {
+    border-color: rgba(0, 0, 0, 0);
+    color: #333333;
+}
+
+.redactor-row4{
+	height:97px;
+}
+.redactor-row12{
+	height:257px;
+}
+.navbar-inner { padding: 0.5em 0; }
+.navbar .brand { margin: 0; }
+.breadcrumb { margin-top: 25px; padding: 0; }
+h2 { color: #444; font-size: 23px; margin: 1em 0 0.5em; text-shadow: 0 1px 0 #FFF; }
+.table th { padding-top: 0.75em !important; padding-bottom: 0.75em !important;  }
+.table th, .table td { padding-left: 0.75em; }
+label { font-weight: 600; color: #666; font-size: 13px; }
+.add-btn { position: relative; top: -6px; left: 4px; }
+.redactor_box { margin: 0.75em 0 1.75em; }
+.production-years { margin: 0 0 1.5em; }
+.production-years .production-years-list li a { font-family: arial, sans-serif; font-size: 18px; }
+
+.form-signin .form-signin-heading { margin: 0 0 1em; }
+input, textarea, button { font-family: "ff-meta-web-pro", "futura-pt", sans-serif; }
+.btn {  font-size: 1.1em; } 

@@ -4,7 +4,7 @@ class Accounts extends MY_Model{
 
 	protected $table = "accounts";
 	protected $primary_key = "id";
-	protected $fields = array("id","vkid","vk_access_token","facebookid","facebook_access_token","group","account","email","password","signdate","active","language","page_address");
+	protected $fields = array("*");
 
 	function __construct(){
 		

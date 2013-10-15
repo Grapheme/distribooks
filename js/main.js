@@ -5,15 +5,9 @@ $(document).ready(function() {
 		$(".window-auth").fadeIn("fast");
 	});
 	
-	$(".recall-button").click(function(){
-		$(".before-recall-div").css("display","none");
-		$(".after-recall-div").fadeIn();
-	});
 	
-	$(".apply-button").click(function() {
-		$(".dark-screen").fadeIn("fast");
-		$(".request-div").fadeIn("fast");
-	});
+	
+	
 	
 	
 	$(".donation").click(function() {

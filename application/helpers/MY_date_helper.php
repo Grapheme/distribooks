@@ -103,7 +103,7 @@
 		return preg_replace($pattern, $replacement,$field);
 	}
 	
-	function month_date_with_time($field){
+	function monthDateWithTime($field){
 		
 		$months = array("01"=>"января","02"=>"февраля","03"=>"марта","04"=>"апреля","05"=>"мая","06"=>"июня","07"=>"июля","08"=>"августа","09"=>"сентября","10"=>"октября","11"=>"ноября","12"=>"декабря");
 		$list = explode("-",$field);
@@ -171,10 +171,12 @@
 		
 	}
 	
-	function swap_dot_date_without_time($field){
+	function swapDotDateWithoutTime($field){
 			
-		$list = preg_split("/-/",$field);
-		$pattern = "/(\d+)(-)(\w+)(-)(\d+) (\d+)(:)(\d+)(:)(\d+)/i";
+		$list = explode("-",$field);
+		$list[2] = (int)$list[2];
+		$field = implode("-",$list);
+		$pattern = "/(\d+)(-)(\w+)(-)(\d+)/i";
 		$replacement = "\$5.$3.\$1";
 		return preg_replace($pattern, $replacement,$field);
 	}

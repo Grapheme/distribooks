@@ -262,9 +262,7 @@ class MY_Model extends CI_Model{
 		endif;
 		return NULL;
 	}
-	
 	/****************************************************************************************************************/
-	
 	function insertRecord($data = NULL){
 		
 		if(!is_null($data)):
@@ -321,6 +319,18 @@ class MY_Model extends CI_Model{
 		$query = $this->db->get($this->table);
 		$data = $query->result_array();
 		if($data[0]['max_number']) return $data[0]['max_number'];
+		return 1;
+	}
+	
+	function getNextSortable($where = NULL){
+		
+		$this->db->select_max('sort','max_number');
+		if(!is_null($where) && is_array($where)):
+			$this->db->where($where);
+		endif;
+		$query = $this->db->get($this->table);
+		$data = $query->result_array();
+		if($data[0]['max_number']) return (int)($data[0]['max_number']+1);
 		return 1;
 	}
 }

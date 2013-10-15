@@ -15,10 +15,11 @@
 			<?php $this->load->view('guests_interface/forms/donation');?>
 		</div>
 		<?php $this->load->view('guests_interface/includes/recall-div');?>
-		<?php $this->load->view('guests_interface/includes/request-div');?>
 		<?php $this->load->view('guests_interface/includes/sn-tooltips');?>
 		<?php $this->load->view('guests_interface/includes/main-menu');?>
 		<?php $this->load->view('guests_interface/includes/auth');?>
+		<?php $this->load->view('guests_interface/forms/request-order-editing');?>
+		<?php $this->load->view('guests_interface/forms/request-do-editing');?>
 		<div class="clear"></div>
 		<div class="container_5">
 			<div class="clear"></div>
@@ -44,11 +45,11 @@
 				<div class="grid_2 information">
 					<div>
 						<img class="inf-img" src="<?=baseURL('img/edit-left.png')?>" style="margin-bottom: 65px;">
-						<a href="#" class="apply-button no-clickable"><?=lang('service_send_enquiry');?></a>
+						<a href="#" class="apply-button apply-order-editing no-clickable"><?=lang('service_send_enquiry');?></a>
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_order_ending');?></span></p>
-						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p>Для автора и издателя</p></div>
+						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
 						<p class="desc">If you are the author of a book, at this web page you can quickly and 
 						easily apply for professional editing and correcting your book.</p>
 					</div>
@@ -56,11 +57,11 @@
 				<div class="grid_2 information">
 					<div>
 						<img class="inf-img" src="<?=baseURL('img/edit-right.png')?>">
-						<a href="#" class="apply-button no-clickable"><?=lang('service_send_enquiry');?></a>
+						<a href="#" class="apply-button apply-do-editing no-clickable"><?=lang('service_send_enquiry');?></a>
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_do_ending');?></span></p>
-						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p>Для автора и издателя</p></div>
+						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
 						<p class="desc">If you are a professional editor / proofreader, have a profile degry in linguistics and a 
 						desire to work in our creative studio, at this page of the website you can quickly and easily make a request 
 						to cooperate with us.</p>

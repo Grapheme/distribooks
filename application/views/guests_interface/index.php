@@ -62,18 +62,20 @@
 		<div class="clearfix"></div>
 		<div class="yellow">
 			<div class="container_5">
+			<?php if(!empty($news)):?>
 				<div class="grid_1 news-div pos3-no">
 					<div class="news-cont">
 						<p class="title"><?=lang('news_block');?></p>
-					<?php for($i=0;$i<2;$i++):?>
+					<?php for($i=0;$i<count($news);$i++):?>
 						<div class="news">
-							<a href="#" class="news-title">Application</a>
-							<a href="#" class="date">22.09.2013</a>
-							<p class="news-desc">Start of new generation application</p>
+							<a href="<?=$news[$i]['page_address'];?>" class="news-title"><?=$news[$i][$this->uri->language_string.'_title'];?></a>
+							<a href="" class="date no-clickable"><?=swapDotDateWithoutTime($news[$i]['date'])?></a>
+							<p class="news-desc"><?=$news[$i][$this->uri->language_string.'_small_anonce'];?></p>
 						</div>
 					<?php endfor;?>
 					</div>
 				</div>
+			<?php endif;?>
 			<?php for($i=0;$i<2;$i++):?>
 				<div class="grid_2 vidiv">
 					<a href="#" class="vid-like"><img src="<?=baseURL('img/shop-like.png');?>"><?=lang('book_share');?></a>

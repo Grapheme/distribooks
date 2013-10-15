@@ -20,7 +20,7 @@
 			<div class="bread">
 				<a href="<?=site_url();?>"><?=lang('index_page');?></a>
 			<?php foreach($breadcrumbs as $page_url => $page_title):?>
-				/ <a href="<?=site_url('catalog/'.$page_url);?>"><?=$page_title;?></a>
+				/ <a href="<?=site_url($page_url);?>"><?=$page_title;?></a>
 			<?php endforeach;?>
 			</div>
 		<?php endif;?>

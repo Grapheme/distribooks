@@ -2,6 +2,8 @@
 
 $lang['test'] = "Тестовое сообщение";
 
+$lang['news_block'] = "Новости";
+
 $lang['index_page'] = "Главная";
 $lang['top_menu_catalog'] = "Каталог";
 $lang['top_menu_about'] = "О проекте";
@@ -37,9 +39,6 @@ $lang['book_sort_by'] = "Сортировать по";
 $lang['book_sort_price'] = "Цене";
 $lang['book_sort_title'] = "Названию";
 $lang['book_sort_rating'] = "Рейтингу";
-
-
-$lang['news_block'] = "Новости";
 
 $lang['footer_menu_main'] = "Меню";
 $lang['footer_menu_services'] = "Услуги";

@@ -11,6 +11,9 @@
 			array('field'=>'email','label'=>'Логин','rules'=>'required|valid_email|trim'),
 			array('field'=>'password','label'=>'Пароль','rules'=>'required|min_length[6]|trim'),
 			array('field'=>'confirm','label'=>'Повторите пароль','rules'=>'required|min_length[6]|matches[password]|trim'),
+		),
+		'news' => array(
+			array('field'=>'page_address','label'=>'Адрес страницы','rules'=>'trim|alpha_dash')
 		)
 	);
 ?>

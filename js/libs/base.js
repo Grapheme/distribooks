@@ -3,25 +3,34 @@
  */
  
 var mt = mt || {};
+
 //CONFIGURATION
 mt.baseURL = window.location.protocol+'//'+window.location.hostname+'/';
 mt.currentURL = window.location.href;
-mt.inputChanged = false;
-mt.multyDelete = false;
-mt.funtionDelay = 120000; //в милисекундах
+mt.languageSegment = 1;
+mt.currentLanguage = 'ru'; //Установка языка для панели администрирования так как там не используется сегмент указывающий на язык
 mt.toltipPlacement = 'right'; // Возможные значения top | bottom | left | right | auto
 mt.toltipTrigger = 'manual'; // Возможные значения click | hover | focus | manual
 //END CONFIGURATION
-
-mt.getBaseURL = function(url){return mt.baseURL+url;}
-mt.isValidEmailAddress = function(emailAddress){
-	//return ( ! preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
-	var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-	if(emailAddress == ''){
-		return false;
+mt.getBaseURL = function(url){
+	return mt.baseURL+url;
+}
+mt.getLanguageURL = function(){
+	var segments = window.location.pathname.split('/');
+	if(segments[mt.languageSegment]){
+		return segments[mt.languageSegment];
 	}else{
-		return pattern.test(emailAddress);
+		return 'ru';
 	}
+};
+mt.getLangBaseURL = function(url){
+	return mt.baseURL+mt.getLanguageURL()+'/'+url;
+}
+//mt.currentLanguage = mt.getLanguageURL(); // для мультиязычных сайтов если используется в гостевом интерфейсе
+mt.isValidEmailAddress = function(emailAddress){
+	var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+	if(emailAddress != ''){return pattern.test(emailAddress);}
+	return true;
 };
 mt.isValidPhone = function(phoneNumber){
 	var pattern = new RegExp(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/i);
@@ -30,16 +39,6 @@ mt.isValidPhone = function(phoneNumber){
 	}else{
 		return pattern.test(phoneNumber);
 	}
-};
-mt.textLineFilter = function(string){return string.replace(/[&,=]/,' ');}
-mt.setJsonRequest = function(request,functionName){$.each(request,function(index,value){$("#"+index)[functionName](value);});}
-mt.formSerialize = function(objects){
-	var data = '';
-	$(objects).each(function(i,element){
-		var value = mt.textLineFilter($(element).val());
-		$(element).val(value);var name = $(element).attr('name');
-		if(data === ''){data = name+"="+value;}else{data = data+"&"+name+"="+value;}});
-	return data;
 };
 mt.matchesParameters = function(parameter1,parameter2){
 	var param1 = new String(parameter1);
@@ -51,133 +50,23 @@ mt.exist_email = function(emailInput){
 	var user_email = $(emailInput).val();
 	$(emailInput).hideToolTip();
 	if(user_email != ''){
-		if(!mt.isValidEmailAddress(user_email)){$(emailInput).showToolTip('Неверный Email');}
+		if(!mt.isValidEmailAddress(user_email)){$(emailInput).showToolTip(Localize[mt.currentLanguage]['valid_email']);}
 		else{
 			$.post(mt.baseURL+"valid/exist-email",{'parametr':user_email},
-				function(data){if(!data.status){$(emailInput).showToolTip('Email уже существует');}},"json");
+				function(data){if(!data.status){$(emailInput).showToolTip(Localize[mt.currentLanguage]['exist_email']);}},"json");
 		}
 	}
 };
 mt.redirect = function(path){window.location=path;}
-mt.minLength = function(string,Len){if(string != ''){if(string.length < Len){return false}}return true}
-mt.FieldsIsNotNumeric = function(formObject){
-	var result = {};var num = 0;
-	$(formObject).nextAll("input.digital").each(function(i,element){if(!$.isNumeric($(element).val())){result[num] = $(element).attr('id');num++;}});
-	$(formObject).nextAll("input.numeric-float").each(function(i,element){if(!$.isNumeric($(element).val())){result[num] = $(element).attr('id');num++;}});
-	if($.isEmptyObject(result)){return false;}else{return result;}
-}
-mt.noValidEmails = function(elements){
-	var user_email = ''; var errors = false;
-	$(elements).each(function(i,element){
-		user_email = $(element).val().trim();
-		if(!mt.isValidEmailAddress(user_email)){
-			$(element).setValidationErrorStatus('Неверный Email');
-			errors = true;
-		}
-	});
-	return errors;
-}
-mt.validation = function(formData,jqForm,options){
-	var errors = false;
-	$(jqForm).defaultValidationErrorStatus();
-	$(jqForm).find(".valid-required").each(function(i,element){
-		if($(this).emptyValue()){
-			$(this).setValidationErrorStatus('Поле не заполнено');
-			errors = true;
-		}
-	});
-	if($(jqForm).find(".valid-email").length > 0){
-		if(mt.noValidEmails($(jqForm).find("input.valid-email"))){errors = true;}
-	}
-	if($(jqForm).find(".valid-phone-number").length == 1){
-		var phoneInput = $(jqForm).find("input.valid-phone-number")
-		if(!mt.isValidPhone($(phoneInput).val().trim())){
-			if($(phoneInput).emptyValue() == false){$(phoneInput).setValidationErrorStatus('Неверный номер телефона');}
-			errors = true;
-		}
-	}
-	if($(jqForm).find("input[type='password']").length >= 2){
-		var newPassword = $(jqForm).find("input.input-new-password").val();
-		var confirmPassword = $(jqForm).find("input.input-confirm-password").val();
-		if(!mt.matchesParameters(newPassword,confirmPassword)){
-			$("input.input-confirm-password").setValidationErrorStatus('Пароли не совпадают');
-			errors = true;
-		}
-		if(!mt.minLength(newPassword,6)){
-			$("input.input-new-password").setValidationErrorStatus('Не меньше 6 символов');
-			errors = true;
-		}
-	}
-	if(errors){return false;}else{return true;}
-}
-mt.setExclamationTabPane = function(tabPane){
-	var exam = $("a[href='#"+$(tabPane).attr('id')+"']").find("i");
-	if($(exam).hasClass('icon-exclamation-sign') === false){$(exam).addClass('icon-exclamation-sign');}
-}
-mt.tabValidation = function(jForm){
-	var errors = false;
-	$("p.valid-messages").addClass('hidden');
-	$("i.icon-exclamation-sign").removeClass('icon-exclamation-sign');
-	$(jForm).find('div.tab-pane').each(function(i,element){
-		$(element).find(".valid-required").each(function(j,e){
-			if($(e).val().trim() == ''){
-				mt.setExclamationTabPane(element);
-				$(e).nextAll('p.valid-messages').removeClass('hidden');
-				errors = true;
-			}
-		});
-	});
-	if(errors == true){return false;}else{return true;}
-}
-mt.lessonValidation = function(tabPane){
-	var errors = false;
-	$(tabPane).find("p.valid-messages").addClass('hidden');
-	$(tabPane).find("span.span-lesson-number").removeClass('badge badge-important');
-	$("a[href='#"+$(tabPane).attr('id')+"']").find("i.icon-exclamation-sign").removeClass('icon-exclamation-sign');
-	if($("div.new-lesson-unit").length == 0){
-		mt.setExclamationTabPane(tabPane);
-		$("#addLessonProjectBtn").siblings('p.valid-messages').html('Отсутствуют уроки').removeClass('hidden');
-		errors = true;
-	}else{
-		$(tabPane).find(".valid-required").each(function(j,e){
-			if($(e).val().trim() == ''){
-				$("div.accordion-heading").find()
-				mt.setExclamationTabPane(tabPane);
-				$(e).parents('div.new-lesson-unit').find("span.span-lesson-number").addClass('badge badge-important');
-				$(e).siblings('p.valid-messages').removeClass('hidden');
-				errors = true;
-			}
-		});
-	}
-	if(errors == true){return false;}else{return true;}
-}
-mt.ajaxBeforeSubmit = function(formData,jqForm,options){
-	if($("div.msg-alert").exists() == true){
-		$("div.msg-alert").remove();
-	}
-	if(mt.validation(formData,jqForm,options) == false){
-		$("button.btn-loading").removeClass('loading').removeAttr('disabled');
-		return false;
-	}else{
-		return true;
-	}
-}
-mt.ajaxSuccessSubmit = function(responseText,statusText,xhr,jqForm){
-	$("button.btn-loading").removeClass('loading').removeAttr('disabled');
-}
 mt.deleteResource = function(_this){
-	if(mt.multyDelete === false){
-		if(confirm('Вы уверены, что хотите удалить?') == false){
-			return false;
-		}
+	if(confirm(Localize[mt.currentLanguage]['confirm']) == false){
+		return false;
 	}
 	var action = $(_this).parents('ul.resources-items').attr('data-action');
 	var resourceID = $(_this).attr('data-resource-id').trim();
 	$.ajax({
 		url: action,data: {'resourceID':resourceID},type: 'POST',dataType: 'json',
-		beforeSend: function(){
-			$(_this).html('<img class="wait-request" src="'+mt.baseURL+'img/loading.gif">');
-		},
+		beforeSend: function(){},
 		success: function(data,textStatus,xhr){
 			if(data.status){
 				$(_this).parents('li').remove();
@@ -190,20 +79,74 @@ mt.deleteResource = function(_this){
 		}
 	});
 }
-mt.getNotNullElements = function(massive){
-	
-	var newMassive = [];
-	massive.forEach(function(element,i,arr){
-		if(element != null){
-			newMassive.push(element);
+mt.minLength = function(string,Len){if(string != ''){if(string.length < Len){return false}}return true}
+mt.FieldsIsNotNumeric = function(formObject){
+	var result = {};var num = 0;
+	$(formObject).nextAll("input.digital").each(function(i,element){if(!$.isNumeric($(element).val())){result[num] = $(element).attr('id');num++;}});
+	$(formObject).nextAll("input.numeric-float").each(function(i,element){if(!$.isNumeric($(element).val())){result[num] = $(element).attr('id');num++;}});
+	if($.isEmptyObject(result)){return false;}else{return result;}
+}
+mt.noValidEmails = function(elements){
+	var user_email = ''; var errors = false;
+	$(elements).each(function(i,element){
+		user_email = $(element).val().trim();
+		if(!mt.isValidEmailAddress(user_email)){
+			$(element).setValidationErrorStatus(Localize[mt.currentLanguage]['valid_email']);
+			errors = true;
 		}
 	});
-	if(newMassive.length > 0){
-		return newMassive;
-	}else{
-		return null;
+	return errors;
+}
+mt.validation = function(jqForm){
+	var errors = false;
+	$(jqForm).defaultValidationErrorStatus();
+	$(jqForm).find(".valid-required").each(function(i,element){
+		if($(this).emptyValue()){
+			$(this).setValidationErrorStatus(Localize[mt.currentLanguage]['empty_field']);
+			errors = true;
+		}
+	});
+	if($(jqForm).find(".valid-email").length > 0){
+		if(mt.noValidEmails($(jqForm).find("input.valid-email"))){errors = true;}
 	}
+	if($(jqForm).find(".valid-phone-number").length == 1){
+		var phoneInput = $(jqForm).find("input.valid-phone-number")
+		if(!mt.isValidPhone($(phoneInput).val().trim())){
+			if($(phoneInput).emptyValue() == false){$(phoneInput).setValidationErrorStatus(Localize[mt.currentLanguage]['valid_phone']);}
+			errors = true;
+		}
+	}
+	if($(jqForm).find("input[type='password']").length >= 2){
+		var newPassword = $(jqForm).find("input.input-new-password").val();
+		var confirmPassword = $(jqForm).find("input.input-confirm-password").val();
+		if(!mt.matchesParameters(newPassword,confirmPassword)){
+			$("input.input-confirm-password").setValidationErrorStatus(Localize[mt.currentLanguage]['match_pass']);
+			errors = true;
+		}
+		if(!mt.minLength(newPassword,6)){
+			$("input.input-new-password").setValidationErrorStatus(Localize[mt.currentLanguage]['pass_length']);
+			errors = true;
+		}
+	}
+	if(errors){return false;}else{return true;}
+}
+mt.ajaxBeforeSubmit = function(formData,jqForm,options){
 	
+	if($("div.msg-alert").exists() == true){
+		$("div.msg-alert").remove();
+	}
+	if($("button.btn-temporary-loading").exists() == true){
+		$("button.btn-temporary-loading").remove();
+	}
+	if(mt.validation(jqForm) == false){
+		$(".btn-loading").removeClass('loading');
+		return false;
+	}else{
+		return true;
+	}
+}
+mt.ajaxSuccessSubmit = function(responseText,statusText,xhr,jqForm){
+	$(jqForm).find(".btn-loading").removeClass('loading');
 }
 $.fn.exists = function(){
 	if($(this).length > 0){
@@ -217,19 +160,10 @@ $.fn.ForceNumericOnly = function(){
 	return this.each(function(){
 		$(this).keydown(function(e){
 			var key = e.charCode || e.keyCode || 0;
-			return(key == 116 || key == 8 || key == 9 || key == 46 || (key >= 37 && key <= 40) || (key >= 48 && key <= 57) || (key >= 96 && key <= 105));
+			return(key == 8 || key == 9 || key == 46 || (key >= 37 && key <= 40) || (key >= 48 && key <= 57) || (key >= 96 && key <= 105));
 		});
 	});
 };
-$.fn.ForceBlurEmptyValue = function(){
-	return this.each(function(i,element){
-		$(element).blur(function(){
-			if($(element).emptyValue()){
-				$(this).setValidationErrorStatus('Поле не заполнено');
-			}
-		});
-	});
-}
 $.fn.setValidationErrorStatus = function(text){
 	$(this).attr('role','tooltip').showToolTip(text);
 }
@@ -264,10 +198,41 @@ $.fn.hideToolTip = function(){
 		}
 	});
 }
+$.fn.formSubmitInServer = function(){
+	var _form = this;
+	var options = {
+		target: null,dataType:'json',type:'post',
+		beforeSubmit: mt.ajaxBeforeSubmit,
+		success: function(response,status,xhr,jqForm){
+			mt.ajaxSuccessSubmit(response,status,xhr,jqForm);
+			if(response.status == true){
+				if(response.responseText != ''){
+					$("div.div-form-operation").after('<div class="msg-alert">'+response.responseText+'</div>');
+				}
+				if(response.redirect !== false){
+					mt.redirect(response.redirect);
+				}
+			}else{
+				$("div.div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
+			}
+		}
+	}
+	setTimeout(function(){$(_form).ajaxSubmit(options);},500);
+}
+$.fn.ForceBlurEmptyValue = function(){
+	return this.each(function(i,element){
+		$(element).blur(function(){
+			if($(element).emptyValue()){
+				$(this).setValidationErrorStatus('Поле не заполнено');
+			}
+		});
+	});
+}
 $(function(){
 	$(".no-clickable").click(function(event){event.preventDefault();event.stopPropagation();});
 	$(":input.unique-email").blur(function(){mt.exist_email(this);});
 	$("input.valid-numeric").ForceNumericOnly();
+	$("input[type='text']").blur(function(){var value = $(this).val().trim();$(this).val(value);});
 	$("input.valid-required").ForceBlurEmptyValue();
 	$(":input").keydown(function(){$(this).hideToolTip();})
 	$(":input").change(function(){$(this).hideToolTip();})

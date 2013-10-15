@@ -11,32 +11,145 @@ class Admin_ajax_interface extends MY_Controller{
 			show_404();
 		endif;
 	}
-	
-	public function registerAdmin(){
+	/********************************************** news ********************************************************/
+	public function insertNews(){
 		
-		if($this->postDataValidation('email') == TRUE):
-			if($this->accounts->search('email',$_POST['email']) == FALSE):
-				$this->load->helper('string');
-				$password = random_string('alnum',8);
-				$account = array("vkid"=>0,"facebookid"=>0,"group"=>1,"account"=>0,"email"=>$_POST['email'],'default_photo'=>1,'password'=>md5($password),'active'=>1,'temporary_code'=>'','code_life'=>0,'language'=>$this->language);
-				if($accountID = $this->insertItem(array('insert'=>$account,'model'=>'accounts'))):
-					ob_start();?>
-Здравствуйте <em>Администратор</em>,<br/>
-Вы зарегистрированы на сайте UNIVERSIALITY (<?=base_url();?>).<br/>
-Логин: <?=$_POST['email'];?><br/>
-Пароль: <?=$password;?><br/>
-				<?php $mailtext = ob_get_clean();
-					$this->sendMail($_POST['email'],'system@universiality.com','Universiality','Вы зарегистрированы на сайте UNIVERSIALITY',$mailtext);
-					$this->json_request['responseText'] = 'Пользователь зарегистрирован';
-					$this->json_request['status'] = TRUE;
+		if($this->postDataValidation('news') === TRUE):
+			if($newsID = $this->insertingNews($this->input->post())):
+				$this->json_request['responseText'] = 'Новость добавлена';
+				if(isset($_FILES['file']['tmp_name'])):
+					$validImage = $this->validationUploadImage(array('min_width'=>200,'max_size'=>1000000));
+					if($validImage['status'] == TRUE):
+						$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,210,298);
+						$photoPath = getcwd().'/download/news';
+						$photoUpload = $this->uploadSingleImage($photoPath);
+						if($photoUpload['status'] == TRUE):
+							$this->load->model('news');
+							$this->news->updateField($newsID,'image','download/news/'.$photoUpload['uploadData']['file_name']);
+							$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,105,149);
+							$thumbnailUpload = $this->uploadSingleImage($photoPath);
+							if($thumbnailUpload['status'] == TRUE):
+								$this->news->updateField($newsID,'thumbnail','download/news/'.$thumbnailUpload['uploadData']['file_name']);
+							endif;
+						endif;
+					else:
+						$this->json_request['responseText'] = $validImage['response'];
+					endif;
 				endif;
-			else:
-				$this->json_request['responseText'] = 'Email уже зарегистрирован';
+				$this->json_request['status'] = TRUE;
+				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/news');
 			endif;
 		else:
-			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>'Неверно заполнены поля'),TRUE);
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
 		endif;
 		echo json_encode($this->json_request);
+	}
+	
+	public function updateNews(){
+		
+		if($this->postDataValidation('news') === TRUE):
+			if($this->updatingNews($this->input->post())):
+				$this->json_request['status'] = TRUE;
+				$this->json_request['responseText'] = 'Новость cохранен';
+				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/news');
+				if($this->input->post('delete_image') !== FALSE):
+					$this->deteleNewsImage($this->input->post('news_id'));
+				else:
+					if(isset($_FILES['file']['tmp_name'])):
+						$validImage = $this->validationUploadImage(array('min_width'=>200,'max_size'=>1000000));
+						if($validImage['status'] == TRUE):
+							$this->deteleNewsImage($this->input->post('news_id'));
+							$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,210,298);
+							$photoPath = getcwd().'/download/news';
+							$photoUpload = $this->uploadSingleImage($photoPath);
+							if($photoUpload['status'] == TRUE):
+								$this->load->model('news');
+								$this->news->updateField($this->input->post('news_id'),'image','download/news/'.$photoUpload['uploadData']['file_name']);
+								$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,105,149);
+								$thumbnailUpload = $this->uploadSingleImage($photoPath);
+								if($thumbnailUpload['status'] == TRUE):
+									$this->news->updateField($this->input->post('news_id'),'thumbnail','download/news/'.$thumbnailUpload['uploadData']['file_name']);
+								endif;
+							endif;
+						else:
+							$this->json_request['status'] = FALSE;
+							$this->json_request['responseText'] = $validImage['response'];
+							$this->json_request['redirect'] = FALSE;
+						endif;
+					endif;
+				endif;
+			endif;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	public function removeNews(){
+		
+		if($this->input->post('id')):
+			$this->deteleNewsImage($this->input->post('id'));
+			$this->load->model('news');
+			$this->news->delete($this->input->post('id'));
+			$this->json_request['status'] = TRUE;
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	private function insertingNews($post){
+		
+		$newsData = array(
+			'ru_title'=>$post['ru_title'],'en_title'=>$post['en_title'],'ru_small_anonce'=>$post['ru_small_anonce'],'en_small_anonce'=>$post['en_small_anonce'],
+			'ru_anonce'=>$post['ru_anonce'],'en_anonce'=>$post['en_anonce'],'ru_text'=>$post['ru_text'],'en_text'=>$post['en_text'],
+			'date'=>preg_replace("/(\d+)\.(\w+)\.(\d+)/i","\$3-\$2-\$1",$post['date'])
+		);
+		$this->load->model('news');
+		$newsData['sort'] = $this->news->getNextSortable();
+		if($newsID = $this->insertItem(array('insert'=>$newsData,'model'=>'news'))):
+			$newsMeta = array(
+				'ru_page_title'=>$post['ru_page_title'],'ru_page_description'=>$post['ru_page_description'],'ru_page_h1'=>$post['ru_page_h1'],
+				'en_page_title'=>$post['en_page_title'],'en_page_description'=>$post['en_page_description'],'en_page_h1'=>$post['en_page_h1'],
+				'group'=>'news','item_id'=>$newsID,'page_address'=>$post['page_address']
+			);
+			if(empty($newsMeta['page_address'])):
+				$newsMeta['page_address'] = $this->translite($post['ru_title']);
+			endif;
+			$this->insertItem(array('insert'=>$newsMeta,'model'=>'meta_titles'));
+			return $newsID;
+		endif;
+		return FALSE;
+	}
+
+	private function updatingNews($post){
+		
+		$newsData = array(
+			'id'=>$post['news_id'],
+			'ru_title'=>$post['ru_title'],'en_title'=>$post['en_title'],'ru_small_anonce'=>$post['ru_small_anonce'],'en_small_anonce'=>$post['en_small_anonce'],
+			'ru_anonce'=>$post['ru_anonce'],'en_anonce'=>$post['en_anonce'],'ru_text'=>$post['ru_text'],'en_text'=>$post['en_text'],
+			'date'=>preg_replace("/(\d+)\.(\w+)\.(\d+)/i","\$3-\$2-\$1",$post['date']),'sort'=>$post['sort']
+		);
+		$this->updateItem(array('update'=>$newsData,'model'=>'news'));
+		$newsMeta = array(
+			'id'=>$post['meta_titles_id'],
+			'ru_page_title'=>$post['ru_page_title'],'ru_page_description'=>$post['ru_page_description'],'ru_page_h1'=>$post['ru_page_h1'],
+			'en_page_title'=>$post['en_page_title'],'en_page_description'=>$post['en_page_description'],'en_page_h1'=>$post['en_page_h1'],
+			'group'=>'news','item_id'=>$post['news_id'],'page_address'=>$post['page_address']
+		);
+		if(empty($newsMeta['page_address'])):
+			$newsMeta['page_address'] = $this->translite($post['ru_title']);
+		endif;
+		$this->updateItem(array('update'=>$newsMeta,'model'=>'meta_titles'));
+		return TRUE;
+	}
+
+	private function deteleNewsImage($newsID){
+		
+		$this->load->model('news');
+		$this->filedelete(getcwd().'/'.$this->news->value($newsID,'image'));
+		$this->filedelete(getcwd().'/'.$this->news->value($newsID,'thumbnail'));
+		$this->news->updateField($newsID,'image','');
+		$this->news->updateField($newsID,'thumbnail','');
+		return TRUE;
 	}
 	
 }
