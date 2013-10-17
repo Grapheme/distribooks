@@ -31,8 +31,6 @@ $route['request-do-distribution'] = "guest_ajax_interface/requestDoDistribution"
 $route[ADMIN_START_PAGE.'/news/insert'] = "admin_ajax_interface/insertNews";
 $route[ADMIN_START_PAGE.'/news/update'] = "admin_ajax_interface/updateNews";
 $route[ADMIN_START_PAGE.'/news/remove'] = "admin_ajax_interface/removeNews";
-
-
 /*************************************************** ADMIN INTRERFACE ***********************************************/
 $route[ADMIN_START_PAGE] = "admin_interface/controlPanel";
 $route[ADMIN_START_PAGE.'/news/add'] = "admin_interface/addNews";

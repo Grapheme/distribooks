@@ -18,6 +18,11 @@ class Guests_interface extends MY_Controller{
 		$this->load->model('meta_titles');
 	}
 	
+	public function page404(){
+		
+		echo '404';
+	}
+	
 	public function index(){
 		
 		$this->load->model('news');
@@ -49,8 +54,11 @@ class Guests_interface extends MY_Controller{
 						break;
 				endswitch;
 			endif;
-			echo $pageContent;
+			if(empty($pageContent) === FALSE):
+				echo $pageContent;
+			endif;
 		endif;
+		show_404();
 	}
 	
 	public function news(){

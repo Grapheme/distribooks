@@ -95,4 +95,7 @@ $lang['form_service_name'] = "Представьтесь";
 $lang['form_service_number'] = "Номер телефона";
 $lang['form_service_message'] = "Текст письма";
 $lang['form_service_button'] = "Отправить заявку";
+
+$lang['404_menu'] = "Меню";
+$lang['404_services'] = "Услуги";
 ?>

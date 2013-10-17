@@ -96,4 +96,7 @@ $lang['form_service_number'] = "Telephone number";
 $lang['form_service_message'] = "Text letter";
 $lang['form_service_button'] = "Send a request";
 
+$lang['404_menu'] = "Menu";
+$lang['404_services'] = "Services";
+
 ?>

@@ -18,8 +18,8 @@
 		<?php $this->load->view('guests_interface/includes/sn-tooltips');?>
 		<?php $this->load->view('guests_interface/includes/main-menu');?>
 		<?php $this->load->view('guests_interface/includes/auth');?>
+		<div class="clear"></div>
 		<div class="container_5">
-			<div class="clear"></div>
 			<div class="min-nav pos3">
 				<?php $this->load->view('guests_interface/includes/small-nav');?>
 			</div>
