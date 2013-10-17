@@ -26,7 +26,7 @@ mt.getLanguageURL = function(){
 mt.getLangBaseURL = function(url){
 	return mt.baseURL+mt.getLanguageURL()+'/'+url;
 }
-//mt.currentLanguage = mt.getLanguageURL(); // для мультиязычных сайтов если используется в гостевом интерфейсе
+mt.currentLanguage = mt.getLanguageURL(); // для мультиязычных сайтов если используется в гостевом интерфейсе
 mt.isValidEmailAddress = function(emailAddress){
 	var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
 	if(emailAddress != ''){return pattern.test(emailAddress);}
@@ -132,21 +132,19 @@ mt.validation = function(jqForm){
 }
 mt.ajaxBeforeSubmit = function(formData,jqForm,options){
 	
+	$(jqForm).find('.btn-loading').addClass('loading').attr('disabled','disabled');
 	if($("div.msg-alert").exists() == true){
 		$("div.msg-alert").remove();
 	}
-	if($("button.btn-temporary-loading").exists() == true){
-		$("button.btn-temporary-loading").remove();
-	}
 	if(mt.validation(jqForm) == false){
-		$(".btn-loading").removeClass('loading');
+		$(".btn-loading").removeClass('loading').removeAttr('disabled','disabled');
 		return false;
 	}else{
 		return true;
 	}
 }
 mt.ajaxSuccessSubmit = function(responseText,statusText,xhr,jqForm){
-	$(jqForm).find(".btn-loading").removeClass('loading');
+	$(jqForm).find(".btn-loading").removeClass('loading').removeAttr('disabled','disabled');
 }
 $.fn.exists = function(){
 	if($(this).length > 0){
@@ -233,7 +231,7 @@ $(function(){
 	$(":input.unique-email").blur(function(){mt.exist_email(this);});
 	$("input.valid-numeric").ForceNumericOnly();
 	$("input[type='text']").blur(function(){var value = $(this).val().trim();$(this).val(value);});
-	$("input.valid-required").ForceBlurEmptyValue();
+	$(".valid-required").ForceBlurEmptyValue();
 	$(":input").keydown(function(){$(this).hideToolTip();})
 	$(":input").change(function(){$(this).hideToolTip();})
 });

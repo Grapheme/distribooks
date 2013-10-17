@@ -14,8 +14,18 @@ $route['load-image/avatar/:num'] = "global_interface/loadimage";
 $route['sign-in/vk'] = "global_interface/signInVK";
 $route['sign-in/facebook'] = "global_interface/signInUpFacebook";
 /*************************************************/
-/*************************************************** AJAX INTRERFACE ***********************************************/
+/***************************************************GUEST AJAX INTRERFACE ***********************************************/
+$route['request-order-editing'] = "guest_ajax_interface/requestOrderEditing";
+$route['request-do-editing'] = "guest_ajax_interface/requestDoEditing";
 
+$route['request-order-clearance'] = "guest_ajax_interface/requestOrderClearance";
+$route['request-do-clearance'] = "guest_ajax_interface/requestDoClearance";
+
+$route['request-order-translation'] = "guest_ajax_interface/requestOrderTranslation";
+$route['request-do-translation'] = "guest_ajax_interface/requestDoTranslation";
+
+$route['request-order-distribution'] = "guest_ajax_interface/requestOrderDistribution";
+$route['request-do-distribution'] = "guest_ajax_interface/requestDoDistribution";
 /************************************************* ADMIN AJAX INTRERFACE *******************************************/
 /* ---------------- news ----------------- */
 $route[ADMIN_START_PAGE.'/news/insert'] = "admin_ajax_interface/insertNews";

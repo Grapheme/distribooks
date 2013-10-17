@@ -44,6 +44,9 @@ define('THUMBNAIL_PERCENT',						25);
 define('ADMIN_GROUP_VALUE',						1);
 define('USER_GROUP_VALUE',						2);
 
+define('TO_BASE_EMAIL',							'info@distribbooks.ru');
+define('FROM_BASE_EMAIL',						'noreply@distribbooks.ru');
+
 define('ALLOWED_TYPES_DOCUMENTS',				'doc|docx|xls|xlsx|txt|pdf|ppt|pptx');
 define('ALLOWED_TYPES_IMAGES',					'jpg|gif|jpeg|png');
 

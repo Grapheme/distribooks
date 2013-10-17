@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 	<?php $this->load->view('guests_interface/includes/head');?>
+	<link rel="stylesheet" href="<?=baseURL('css/tooltip.css');?>">
 </head>
 <body>
 	<div class="wrapper">

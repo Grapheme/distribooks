@@ -245,13 +245,13 @@ class MY_Controller extends CI_Controller{
 		$this->load->library('phpmailer');
 		$mail = new PHPMailer();
 //		$mail->SMTPDebug = 1;
-		$mail->IsSMTP();
+		/*$mail->IsSMTP();
 		$mail->SMTPAuth = true;
 		$mail->SMTPSecure = "tls";
-		$mail->Host = "smtp.yandex.ru";
+		$mail->Host = "smtp.gmail.com";
 		$mail->Port = 587;
-		$mail->Username = "system@universiality.com";
-		$mail->Password = "Rfgbnjkbq17";
+		$mail->Username = "konferum.ru@gmail.com";
+		$mail->Password = "hf5msdfl34";*/
 
 		$mail->AddReplyTo($from_mail,$from_name);
 		$mail->AddAddress($to);
@@ -260,19 +260,10 @@ class MY_Controller extends CI_Controller{
 		$mail->Subject = $subject;
 		$mail->AltBody = strip_tags($text,'<p>,<br>,<strong>');
 		$mail->MsgHTML($text);
+		if(!is_null($attach) && file_exists($attach)):
+			$mail->AddAttachment($attach);
+		endif;
 		return $mail->Send();
-		
-		/*$this->load->library('phpmailer');
-		$mail = new PHPMailer();
-		$mail->IsSendmail();
-		$mail->SetFrom($from_mail,$from_name);
-		$mail->AddReplyTo($from_mail,$from_name);
-		$mail->AddAddress($to);
-		$mail->Subject = $subject;
-		$mail->MsgHTML($text);
-		$mail->AltBody = strip_tags($text,'<p>,<br>');
-		//$mail->AddAttachment('images/phpmailer-mini.gif');
-		return $mail->Send();*/
 	}
 	
 	public function loadimage(){

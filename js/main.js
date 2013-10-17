@@ -4,13 +4,7 @@ $(document).ready(function() {
 		$(".dark-screen").fadeIn("fast");
 		$(".window-auth").fadeIn("fast");
 	});
-	
-	
-	
-	
-	
-	
-	$(".donation").click(function() {
+	$(".donation").click(function(){
 		$(".dark-screen").fadeIn("fast");
 		$(".window-donation").fadeIn("fast");
 	});
@@ -18,14 +12,14 @@ $(document).ready(function() {
 	$(".dark-screen").click(function() {
 		$(".dark-screen").fadeOut("fast");
 		$(".window-donation").fadeOut("fast");
-		$(".request-div").fadeOut("fast");
+		$(".request-div").fadeOut("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
 		$(".window-auth").fadeOut("fast");
 	});
 	
 	$(".donate-close").click(function() {
 		$(".dark-screen").fadeOut("fast");
 		$(".window-donation").fadeOut("fast");
-		$(".request-div").fadeOut("fast");
+		$(".request-div").fadeOut("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
 	});
 	
 	var recall = "close";
