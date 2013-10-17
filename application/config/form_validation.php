@@ -18,9 +18,18 @@
 			array('field'=>'phone','label'=>'Phone','rules'=>'required|trim|xss_clean'),
 			array('field'=>'message','label'=>'Message','rules'=>'required|trim|xss_clean'),
 		),
-		
 		'news' => array(
 			array('field'=>'page_address','label'=>'Адрес страницы','rules'=>'trim|alpha_dash')
+		),
+		'format_categoty' => array(
+			array('field'=>'id','label'=>'ID','rules'=>'required|trim|integer'),
+			array('field'=>'title','label'=>'Название','rules'=>'required|trim'),
+			array('field'=>'sort','label'=>'Порядковый номер','rules'=>'trim|integer')
+		),
+		'format' => array(
+			array('field'=>'title','label'=>'Название','rules'=>'required|trim'),
+			array('field'=>'category','label'=>'Категория','rules'=>'required|trim|integer'),
+			array('field'=>'sort','label'=>'Порядковый номер','rules'=>'trim|integer')
 		)
 	);
 ?>

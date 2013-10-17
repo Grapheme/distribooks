@@ -11,7 +11,130 @@ class Admin_ajax_interface extends MY_Controller{
 			show_404();
 		endif;
 	}
-	/********************************************** news ********************************************************/
+	/******************************************** formats ******************************************************/
+	public function updateFormatCategory(){
+		
+		if($this->postDataValidation('format_categoty') === TRUE):
+			if($this->updatingFormatCategory()):
+				$this->json_request['status'] = TRUE;
+				$this->json_request['responseText'] = 'Категория cохранена';
+				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/formats/categories');
+			endif;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	public function insertFormat(){
+		
+		if($this->postDataValidation('format') === TRUE):
+			if($formatID = $this->insertingFormat($this->input->post())):
+				$this->json_request['responseText'] = 'Формат добавлен';
+				if(isset($_FILES['file']['tmp_name'])):
+					$validImage = $this->validationUploadImage(array('min_width'=>120,'max_size'=>1000000));
+					if($validImage['status'] == TRUE):
+						$this->imageManupulation($_FILES['file']['tmp_name'],'width',TRUE,130,121);
+						$photoPath = getcwd().'/download/formats';
+						$photoUpload = $this->uploadSingleImage($photoPath);
+						if($photoUpload['status'] == TRUE):
+							$this->load->model('formats');
+							$this->formats->updateField($formatID,'image','download/formats/'.$photoUpload['uploadData']['file_name']);
+						endif;
+					else:
+						$this->json_request['responseText'] = $validImage['response'];
+					endif;
+				endif;
+				$this->json_request['status'] = TRUE;
+				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/formats?category='.$this->input->post('category'));
+			endif;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	public function updateFormat(){
+		
+		if($this->postDataValidation('format') === TRUE):
+			if($this->updatingFormat($this->input->post())):
+				$this->json_request['status'] = TRUE;
+				$this->json_request['responseText'] = 'Формат cохранен';
+				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/formats?category='.$this->input->post('category'));
+				if($this->input->post('delete_image') !== FALSE):
+					$this->deteleFormatImage($this->input->post('id'));
+				else:
+					if(isset($_FILES['file']['tmp_name'])):
+						$validImage = $this->validationUploadImage(array('min_width'=>120,'max_size'=>1000000));
+						if($validImage['status'] == TRUE):
+							$this->deteleFormatImage($this->input->post('id'));
+							$this->imageManupulation($_FILES['file']['tmp_name'],'width',TRUE,130,121);
+							$photoPath = getcwd().'/download/formats';
+							$photoUpload = $this->uploadSingleImage($photoPath);
+							if($photoUpload['status'] == TRUE):
+								$this->load->model('formats');
+								$this->formats->updateField($this->input->post('id'),'image','download/formats/'.$photoUpload['uploadData']['file_name']);
+							endif;
+						else:
+							$this->json_request['status'] = FALSE;
+							$this->json_request['responseText'] = $validImage['response'];
+							$this->json_request['redirect'] = FALSE;
+						endif;
+					endif;
+				endif;
+			endif;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	public function removeFormat(){
+		
+		if($this->input->post('id')):
+			$this->deteleFormatImage($this->input->post('id'));
+			$this->load->model('formats');
+			$this->formats->delete($this->input->post('id'));
+			$this->json_request['status'] = TRUE;
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	private function insertingFormat($post){
+		
+		if(isset($post['file'])):
+			unset($post['file']);
+		endif;
+		
+		return $this->insertItem(array('insert'=>$post,'model'=>'formats'));
+	}
+	
+	private function updatingFormat($post){
+		
+		if(isset($post['file'])):
+			unset($post['file']);
+		endif;
+		if(isset($post['delete_image'])):
+			unset($post['delete_image']);
+		endif;
+		$this->updateItem(array('update'=>$post,'model'=>'formats'));
+		return TRUE;
+	}
+
+	private function updatingFormatCategory(){
+		
+		$this->updateItem(array('update'=>$this->input->post(),'model'=>'formats_categories'));
+		return TRUE;
+	}
+
+	private function deteleFormatImage($formatID){
+		
+		$this->load->model('formats');
+		$this->filedelete(getcwd().'/'.$this->formats->value($formatID,'image'));
+		$this->formats->updateField($formatID,'image','');
+		return TRUE;
+	}
+	/********************************************* news ********************************************************/
 	public function insertNews(){
 		
 		if($this->postDataValidation('news') === TRUE):

@@ -19,7 +19,7 @@ uploadImage.singlePhotoOption = {
 	},
 	success: function(response,statusText,xhr,jqForm){
 		var percentVal = '100%';
-		$("button.btn-loading").removeClass('loading');
+		$("button.btn-loading").removeClass('loading').removeAttr('disabled');
 		$("div.bar").width(percentVal).html(percentVal);
 		if(response.status){
 			$("div.bar").parents('div.progress').removeClass('progress-info active').addClass('progress-success');

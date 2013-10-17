@@ -1,6 +1,6 @@
 <?=form_open_multipart(ADMIN_START_PAGE.'/news/update',array('class'=>'form-news')); ?>
-	<input type="hidden" name="news_id" value="<?=$news['id'];?>">
-	<input type="hidden" name="meta_titles_id" value="<?=$meta_titles['id'];?>">
+	<input type="hidden" name="news_id" value="<?=$news['id'];?>" />
+	<input type="hidden" name="meta_titles_id" value="<?=$meta_titles['id'];?>" />
 	<ul id="ProductTab" class="nav nav-tabs">
 		<li class="active"><a href="#ru" data-toggle="tab">Русский</a></li>
 		<li><a href="#en" data-toggle="tab">English</a></li>
@@ -64,7 +64,6 @@
 				<img class="img-rounded destination-photo" src="<?=base_url($news['thumbnail']);?>" title="">
 			</div>
 		<?php endif;?>
-		<label>Изображение:</label>
 		<input type="file" autocomplete="off" name="file" size="52">
 		<p class="help-block">Поддерживаются форматы: JPG,PNG,GIF</p>
 		<div id="div-upload-photo" class="bar-file-upload hidden">

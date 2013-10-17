@@ -31,11 +31,23 @@ $route['request-do-distribution'] = "guest_ajax_interface/requestDoDistribution"
 $route[ADMIN_START_PAGE.'/news/insert'] = "admin_ajax_interface/insertNews";
 $route[ADMIN_START_PAGE.'/news/update'] = "admin_ajax_interface/updateNews";
 $route[ADMIN_START_PAGE.'/news/remove'] = "admin_ajax_interface/removeNews";
-/*************************************************** ADMIN INTRERFACE ***********************************************/
+/* ---------------- formats ----------------- */
+$route[ADMIN_START_PAGE.'/formats/category/update'] = "admin_ajax_interface/updateFormatCategory";
+$route[ADMIN_START_PAGE.'/formats/insert'] = "admin_ajax_interface/insertFormat";
+$route[ADMIN_START_PAGE.'/formats/update'] = "admin_ajax_interface/updateFormat";
+$route[ADMIN_START_PAGE.'/formats/remove'] = "admin_ajax_interface/removeFormat";
+
+/************************************************** ADMIN INTRERFACE ***********************************************/
 $route[ADMIN_START_PAGE] = "admin_interface/controlPanel";
 $route[ADMIN_START_PAGE.'/news/add'] = "admin_interface/addNews";
 $route[ADMIN_START_PAGE.'/news/edit'] = "admin_interface/editNews";
 $route[ADMIN_START_PAGE.'/news(\/:any)*?'] = "admin_interface/news";
+
+$route[ADMIN_START_PAGE.'/formats/categories'] = "admin_interface/formatsСategories";
+$route[ADMIN_START_PAGE.'/formats/categories/edit'] = "admin_interface/formatsСategoriesEdit";
+$route[ADMIN_START_PAGE.'/formats'] = "admin_interface/formats";
+$route[ADMIN_START_PAGE.'/formats/add'] = "admin_interface/addFormat";
+$route[ADMIN_START_PAGE.'/formats/edit'] = "admin_interface/editFormat";
 /* ----------------------------------------------- Pages ---------------------------------------------------------- */
 $route[ADMIN_START_PAGE.'/pages'] = "admin_interface/pagesList";
 $route[ADMIN_START_PAGE.'/pages/:any/edit'] = "admin_interface/editPages";

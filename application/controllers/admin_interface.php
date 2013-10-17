@@ -42,6 +42,59 @@ class Admin_interface extends MY_Controller{
 		$pagevar['news']['date'] = swapDotDateWithoutTime($pagevar['news']['date']);
 		$this->load->view("admin_interface/news/edit",$pagevar);
 	}
-	
 	/******************************************** cabinet *******************************************************/
+	
+	/********************************************* formats ********************************************************/
+	public function formatsСategories(){
+		
+		$this->load->model('formats_categories');
+		$pagevar = array(
+			'categories' => $this->formats_categories->getAll()
+		);
+		$this->load->view("admin_interface/formats/categories",$pagevar);
+	}
+	
+	public function formatsСategoriesEdit(){
+		
+		$this->load->model('formats_categories');
+		$pagevar = array(
+			'category' => $this->formats_categories->getWhere($this->input->get('id'))
+		);
+		$this->load->view("admin_interface/formats/category-edit",$pagevar);
+	}
+	
+	public function formats(){
+		
+		$this->load->model(array('formats_categories','formats'));
+		$pagevar = array(
+			'categories' => $this->formats_categories->getAll(),
+			'formats' => array()
+		);
+		if($this->input->get('category') === FALSE || !is_numeric($this->input->get('category'))):
+			$pagevar['formats'] = $this->formats->getAll();
+		else:
+			$pagevar['formats'] = $this->formats->getWhere(NULL,array('category'=>$this->input->get('category')),TRUE);
+		endif;
+		$this->load->view("admin_interface/formats/list",$pagevar);
+	}
+	
+	public function addFormat(){
+		
+		$this->load->model('formats_categories');
+		$pagevar = array(
+			'categories' => $this->formats_categories->getAll()
+		);
+		$this->load->view("admin_interface/formats/add",$pagevar);
+	}
+	
+	public function editFormat(){
+		
+		$this->load->model(array('formats_categories','formats'));
+		$pagevar = array(
+			'categories' => $this->formats_categories->getAll(),
+			'format' => $this->formats->getWhere($this->input->get('id'))
+		);
+		$this->load->view("admin_interface/formats/edit",$pagevar);
+	}
+	/***********************************************************************************************************/
 }

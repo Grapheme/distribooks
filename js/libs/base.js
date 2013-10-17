@@ -17,7 +17,7 @@ mt.getBaseURL = function(url){
 }
 mt.getLanguageURL = function(){
 	var segments = window.location.pathname.split('/');
-	if(segments[mt.languageSegment]){
+	if(segments[mt.languageSegment] == 'ru'|| segments[mt.languageSegment] == 'en'){
 		return segments[mt.languageSegment];
 	}else{
 		return 'ru';
