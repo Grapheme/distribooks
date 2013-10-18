@@ -30,6 +30,10 @@
 			array('field'=>'title','label'=>'Название','rules'=>'required|trim'),
 			array('field'=>'category','label'=>'Категория','rules'=>'required|trim|integer'),
 			array('field'=>'sort','label'=>'Порядковый номер','rules'=>'trim|integer')
-		)
+		),
+		'author' =>array(
+			array('field'=>'ru_name','label'=>'Имя','rules'=>'required|trim|htmlspecialchars|xss_clean'),
+			array('field'=>'en_name','label'=>'Name','rules'=>'required|trim|htmlspecialchars|xss_clean'),
+		),
 	);
 ?>

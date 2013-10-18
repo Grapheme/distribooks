@@ -146,4 +146,15 @@ class Global_interface extends MY_Controller{
 		return FALSE;
 	}
 	/*************************************************************************************************************/
+	public function searchAuthor(){
+		
+		$json_request = json_encode(array());
+		$this->load->model('authors');
+		if($authors = $this->authors->searchAuthorsByChar($this->input->get('q'),RUSLAN)):
+			$json_request = json_encode($authors);
+		elseif($authors = $this->authors->searchAuthorsByChar($this->input->get('q'),ENGLAN)):
+			$json_request = json_encode($authors);
+		endif;
+		echo $json_request;
+	}
 }

@@ -995,6 +995,15 @@ class MY_Controller extends CI_Controller{
 		return  $retArray;
 	}
 	/* -------------------------------------------------------------------------------------------- */
-
+	
+	public function getAuthorsByIDs($authors){
+		
+		$authorsList = array();
+		if($authorsIDs = explode(',',$authors)):
+			$this->load->model('authors');
+			$authorsList = $this->authors->getAuthorsByIDs($authorsIDs);
+		endif;
+		return $authorsList;
+	}
 }
 ?>

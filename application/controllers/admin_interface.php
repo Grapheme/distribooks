@@ -96,5 +96,39 @@ class Admin_interface extends MY_Controller{
 		);
 		$this->load->view("admin_interface/formats/edit",$pagevar);
 	}
+
+	/******************************************** authors ********************************************************/
+	public function authorsList(){
+		
+		$this->load->model('authors');
+		$pagevar = array(
+			'authors' => array(),
+			'pages' => NULL
+		);
+		if($this->input->get('search') === FALSE || $this->input->get('search') == ''):
+			$pagevar['authors'] = $this->authors->limit(PER_PAGE_DEFAULT,$this->uri->segment(4),'ru_name,en_name');
+			$pagevar['pages'] = $this->pagination('admin-panel/authors',4,$this->authors->countAllResults(),PER_PAGE_DEFAULT);
+		else:
+			if($authors = $this->getAuthorsByIDs($this->input->get('search'))):
+				$authorsIDs = $this->getValuesInArray($authors,'id');
+				$pagevar['authors'] = $this->authors->getWhereIN(array('field'=>'id','where_in'=>$authorsIDs,'many_records'=>TRUE,'order_by'=>'ru_name,en_name'));
+			endif;
+		endif;
+		$this->load->view("admin_interface/authors/list",$pagevar);
+	}
+	
+	public function insertAuthor(){
+		
+		$this->load->view("admin_interface/authors/add");
+	}
+	
+	public function editAuthor(){
+		
+		$this->load->model('authors');
+		$pagevar = array(
+			'author' => $this->authors->getWhere($this->input->get('id'))
+		);
+		$this->load->view("admin_interface/authors/edit",$pagevar);
+	}
 	/***********************************************************************************************************/
 }

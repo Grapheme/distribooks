@@ -14,6 +14,7 @@ $route['load-image/avatar/:num'] = "global_interface/loadimage";
 $route['sign-in/vk'] = "global_interface/signInVK";
 $route['sign-in/facebook'] = "global_interface/signInUpFacebook";
 /*************************************************/
+$route['search-authors-list'] = "global_interface/searchAuthor";
 /***************************************************GUEST AJAX INTRERFACE ***********************************************/
 $route['request-order-editing'] = "guest_ajax_interface/requestOrderEditing";
 $route['request-do-editing'] = "guest_ajax_interface/requestDoEditing";
@@ -36,7 +37,10 @@ $route[ADMIN_START_PAGE.'/formats/category/update'] = "admin_ajax_interface/upda
 $route[ADMIN_START_PAGE.'/formats/insert'] = "admin_ajax_interface/insertFormat";
 $route[ADMIN_START_PAGE.'/formats/update'] = "admin_ajax_interface/updateFormat";
 $route[ADMIN_START_PAGE.'/formats/remove'] = "admin_ajax_interface/removeFormat";
-
+/****************** authors ********************/
+$route[ADMIN_START_PAGE.'/authors/insert'] = "admin_ajax_interface/insertAuthor";
+$route[ADMIN_START_PAGE.'/authors/update'] = "admin_ajax_interface/updateAuthor";
+$route[ADMIN_START_PAGE.'/authors/remove'] = "admin_ajax_interface/removeAuthor";
 /************************************************** ADMIN INTRERFACE ***********************************************/
 $route[ADMIN_START_PAGE] = "admin_interface/controlPanel";
 $route[ADMIN_START_PAGE.'/news/add'] = "admin_interface/addNews";
@@ -48,6 +52,10 @@ $route[ADMIN_START_PAGE.'/formats/categories/edit'] = "admin_interface/formatsС
 $route[ADMIN_START_PAGE.'/formats'] = "admin_interface/formats";
 $route[ADMIN_START_PAGE.'/formats/add'] = "admin_interface/addFormat";
 $route[ADMIN_START_PAGE.'/formats/edit'] = "admin_interface/editFormat";
+/* ----------------------------------------------- Authors ---------------------------------------------------------- */
+$route[ADMIN_START_PAGE.'/authors(\/:any)*?'] = "admin_interface/authorsList";
+$route[ADMIN_START_PAGE.'/authors/add'] = "admin_interface/insertAuthor";
+$route[ADMIN_START_PAGE.'/authors/edit'] = "admin_interface/editAuthor";
 /* ----------------------------------------------- Pages ---------------------------------------------------------- */
 $route[ADMIN_START_PAGE.'/pages'] = "admin_interface/pagesList";
 $route[ADMIN_START_PAGE.'/pages/:any/edit'] = "admin_interface/editPages";
