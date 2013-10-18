@@ -61,4 +61,6 @@ $route['typography'] = "guests_interface/typography";
 $route['translation'] = "guests_interface/translation";
 $route['distribution'] = "guests_interface/distribution";
 
+$route['formats'] = "guests_interface/formats";
+
 $route[':any'] = "guests_interface/redirectPage";

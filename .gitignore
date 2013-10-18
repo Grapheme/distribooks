@@ -1,2 +1,25 @@
-# Include your project-specific ignores in this file
-# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+.DS_Store
+application/cache/*
+!application/cache/index.html
+!application/cache/.htaccess
+
+application/logs/*
+!application/logs/index.html
+!application/logs/.htaccess
+
+download/*
+temporary/*
+
+*.clpprj
+*.project
+.settings/*
+
+*/config/development
+*/logs/log-*.php
+*/logs/!index.html
+*/cache/*
+*/cache/!index.html
+
+application/config/config.php
+application/config/database.php
+.htaccess

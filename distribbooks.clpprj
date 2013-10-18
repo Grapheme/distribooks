@@ -32,6 +32,9 @@
 			<error val="3;759;74;759;2502;1;"/>
 			<error val="1;3710;15;3710;2502;1;"/>
 		</errfile>
+		<errfile name="S:\home\distribbooks\www\application\views\html\select\format-category.php">
+			<error val="8;1;27;1;2002;1;"/>
+		</errfile>
 		<errfile name="S:\home\distribbooks\www\application\views\guests_interface\index.php">
 			<error val="42;36;49;36;2002;1;"/>
 			<error val="39;37;77;37;2002;1;"/>
@@ -170,86 +173,186 @@
 				<treenode node="table;PHP:Var Name;S:\home\distribbooks\www\application\models\accounts.php;f11;4;17;4;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="Admin_ajax_interface;PHP:Class Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f0;2;1;154;;;;vpos;;vMY_Controller;;c;;r;;d48,2;;b0,0;;m">
+			<treenode node="Admin_ajax_interface;PHP:Class Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f0;2;1;277;;;;vpos;;vMY_Controller;;c;;r;;d48,2;;b0,0;;m">
 				<treenode node="__construct;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f1;6;2;12;;;;vpos;;v;;r;;d23,6;;b0,0;;m">
 					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;9;11;9;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="deteleNewsImage;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f9;144;2;152;;;;vpos;;v;;r;;d42,144;;b3,0;;mnewsID;;p">
-					<treenode node="newsID;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f34;144;41;144;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="deteleFormatImage;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f9;129;2;135;;;;vpos;;v;;r;;d46,129;;b3,0;;mformatID;;p">
+					<treenode node="formatID;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f36;129;45;129;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;146;7;146;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="insertingNews;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f9;98;2;120;;;;vpos;;v;;r;;d38,98;;b3,0;;mpost;;p">
-					<treenode node="newsData;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;100;11;100;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="newsID;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;107;12;107;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="newsMeta;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f3;108;12;108;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="post;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f32;98;37;98;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;105;7;105;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;131;7;131;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="insertNews;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f8;14;2;45;;;;vpos;;v;;r;;d29,14;;b1,0;;m">
-					<treenode node="_FILES;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f13;19;20;19;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="deteleNewsImage;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f9;267;2;275;;;;vpos;;v;;r;;d42,267;;b3,0;;mnewsID;;p">
+					<treenode node="newsID;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f34;267;41;267;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="newsID;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;17;13;17;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;269;7;269;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="photoPath;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;23;16;23;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="insertFormat;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f8;28;2;54;;;;vpos;;v;;r;;d31,28;;b1,0;;m">
+					<treenode node="_FILES;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f13;33;20;33;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="photoUpload;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;24;18;24;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="formatID;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;31;15;31;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
+					<treenode node="photoPath;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;37;16;37;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="photoUpload;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;38;18;38;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;30;10;30;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="validImage;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;34;16;34;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="insertingFormat;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f9;102;2;109;;;;vpos;;v;;r;;d40,102;;b3,0;;mpost;;p">
+					<treenode node="post;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f34;102;39;102;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f9;108;14;108;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="insertingNews;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f9;221;2;243;;;;vpos;;v;;r;;d38,221;;b3,0;;mpost;;p">
+					<treenode node="newsData;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;223;11;223;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="newsID;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;230;12;230;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="newsMeta;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f3;231;12;231;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="post;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f32;221;37;221;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;228;7;228;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="insertNews;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f8;137;2;168;;;;vpos;;v;;r;;d29,137;;b1,0;;m">
+					<treenode node="_FILES;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f13;142;20;142;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="newsID;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;140;13;140;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="photoPath;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;146;16;146;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="photoUpload;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;147;18;147;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;139;10;139;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="thumbnailUpload;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f7;152;23;152;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="validImage;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;143;16;143;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="removeFormat;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f8;91;2;100;;;;vpos;;v;;r;;d31,91;;b1,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;93;10;93;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="removeNews;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f8;210;2;219;;;;vpos;;v;;r;;d29,210;;b1,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;212;10;212;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="updateFormat;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f8;56;2;89;;;;vpos;;v;;r;;d31,56;;b1,0;;m">
+					<treenode node="_FILES;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f14;66;21;66;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="photoPath;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f7;71;17;71;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="photoUpload;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f7;72;19;72;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;58;10;58;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="validImage;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;67;17;67;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="updateFormatCategory;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f8;14;2;26;;;;vpos;;v;;r;;d39,14;;b1,0;;m">
 					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;16;10;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="thumbnailUpload;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f7;29;23;29;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="updateNews;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f8;170;2;208;;;;vpos;;v;;r;;d29,170;;b1,0;;m">
+					<treenode node="_FILES;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f14;180;21;180;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="validImage;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;20;16;20;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="photoPath;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f7;185;17;185;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="photoUpload;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f7;186;19;186;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;172;10;172;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="thumbnailUpload;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f8;191;24;191;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="validImage;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;181;17;181;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="removeNews;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f8;87;2;96;;;;vpos;;v;;r;;d29,87;;b1,0;;m">
-					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;89;10;89;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="updatingFormat;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f9;111;2;121;;;;vpos;;v;;r;;d39,111;;b3,0;;mpost;;p">
+					<treenode node="post;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f33;111;38;111;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;119;7;119;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="updateNews;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f8;47;2;85;;;;vpos;;v;;r;;d29,47;;b1,0;;m">
-					<treenode node="_FILES;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f14;57;21;57;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="photoPath;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f7;62;17;62;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="photoUpload;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f7;63;19;63;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;49;10;49;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="thumbnailUpload;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f8;68;24;68;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="validImage;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f6;58;17;58;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="updatingFormatCategory;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f9;123;2;127;;;;vpos;;v;;r;;d42,123;;b3,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;125;7;125;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="updatingNews;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f9;122;2;142;;;;vpos;;v;;r;;d37,122;;b3,0;;mpost;;p">
-					<treenode node="newsData;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;124;11;124;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="updatingNews;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f9;245;2;265;;;;vpos;;v;;r;;d37,245;;b3,0;;mpost;;p">
+					<treenode node="newsData;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;247;11;247;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="newsMeta;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;131;11;131;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="newsMeta;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;254;11;254;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="post;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f31;122;36;122;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="post;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f31;245;36;245;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;130;7;130;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f2;253;7;253;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="json_request;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php;f5;4;18;4;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="Admin_interface;PHP:Class Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f0;2;1;46;;;;vpos;;vMY_Controller;;c;;r;;d43,2;;b0,0;;m">
+			<treenode node="Admin_interface;PHP:Class Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f0;2;1;99;;;;vpos;;vMY_Controller;;c;;r;;d43,2;;b0,0;;m">
 				<treenode node="__construct;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f1;4;2;11;;;;vpos;;v;;r;;d23,4;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f6;7;11;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="addFormat;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f8;80;2;87;;;;vpos;;v;;r;;d28,80;;b1,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;83;10;83;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;82;7;82;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
 				<treenode node="addNews;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f8;29;2;32;;;;vpos;;v;;r;;d26,29;;b1,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;31;7;31;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
 				<treenode node="controlPanel;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f8;14;2;17;;;;vpos;;v;;r;;d31,14;;b1,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;16;7;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="editFormat;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f8;89;2;97;;;;vpos;;v;;r;;d29,89;;b1,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;92;10;92;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;91;7;91;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
 				<treenode node="editNews;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f8;34;2;43;;;;vpos;;v;;r;;d27,34;;b1,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;37;10;37;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;36;7;36;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="formats;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f8;65;2;78;;;;vpos;;v;;r;;d26,65;;b1,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;68;10;68;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;67;7;67;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="formatsСategories;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f8;47;2;54;;;;vpos;;v;;r;;d36,47;;b1,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;50;10;50;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;49;7;49;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="formatsСategoriesEdit;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f8;56;2;63;;;;vpos;;v;;r;;d40,56;;b1,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;59;10;59;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;58;7;58;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
 				<treenode node="news;PHP:Function Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f8;19;2;27;;;;vpos;;v;;r;;d23,19;;b1,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;22;10;22;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\controllers\admin_interface.php;f2;21;7;21;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
 			</treenode>
 			<treenode node="Ajax_interface;PHP:Class Name;S:\home\distribbooks\www\application\controllers\user_ajax_interface.php;f0;2;1;271;;;;vpos;;vMY_Controller;;c;;r;;d42,2;;b0,0;;m">
@@ -7334,6 +7437,18 @@
 					</treenode>
 				</treenode>
 			</treenode>
+			<treenode node="Formats_categories;PHP:Class Name;S:\home\distribbooks\www\application\models\formats_categories.php;f0;2;1;14;;S:\home\distribbooks\www\application\models\Codelobster0.php;f0;2;1;14;;;;vpos;;vMY_Model;;c;;r;;d41,2;;b0,0;;m">
+				<treenode node="__construct;PHP:Function Name;S:\home\distribbooks\www\application\models\formats_categories.php;f1;9;2;12;;S:\home\distribbooks\www\application\models\Codelobster0.php;f1;9;2;12;;;;vpos;;v;;r;;d23,9;;b0,0;;m">
+				</treenode>
+				<treenode node="fields;PHP:Var Name;S:\home\distribbooks\www\application\models\formats_categories.php;f11;6;18;6;;S:\home\distribbooks\www\application\models\Codelobster0.php;f11;6;18;6;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
+				</treenode>
+				<treenode node="order_by;PHP:Var Name;S:\home\distribbooks\www\application\models\formats_categories.php;f11;7;20;7;;S:\home\distribbooks\www\application\models\Codelobster0.php;f11;7;20;7;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
+				</treenode>
+				<treenode node="primary_key;PHP:Var Name;S:\home\distribbooks\www\application\models\formats_categories.php;f11;5;23;5;;S:\home\distribbooks\www\application\models\Codelobster0.php;f11;5;23;5;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
+				</treenode>
+				<treenode node="table;PHP:Var Name;S:\home\distribbooks\www\application\models\formats_categories.php;f11;4;17;4;;S:\home\distribbooks\www\application\models\Codelobster0.php;f11;4;17;4;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
+				</treenode>
+			</treenode>
 			<treenode node="Global_interface;PHP:Class Name;S:\home\distribbooks\www\application\controllers\global_interface.php;f0;2;1;148;;;;vpos;;vMY_Controller;;c;;r;;d44,2;;b0,0;;m">
 				<treenode node="__construct;PHP:Function Name;S:\home\distribbooks\www\application\controllers\global_interface.php;f1;4;2;7;;;;vpos;;v;;r;;d23,4;;b0,0;;m">
 				</treenode>
@@ -8341,15 +8456,15 @@
 				</treenode>
 			</treenode>
 			<treenode node="News;PHP:Class Name;S:\home\distribbooks\www\application\models\news.php;f0;2;1;14;;;;vpos;;vMY_Model;;c;;r;;d27,2;;b0,0;;m">
-				<treenode node="__construct;PHP:Function Name;S:\home\distribbooks\www\application\models\news.php;f1;9;2;12;;;;vpos;;v;;r;;d23,9;;b0,0;;m">
+				<treenode node="__construct;PHP:Function Name;S:\home\distribbooks\www\application\models\news.php;f1;9;2;12;;S:\home\distribbooks\www\application\models\Codelobster0.php;f1;9;2;12;;;;vpos;;v;;r;;d23,9;;b0,0;;m">
 				</treenode>
-				<treenode node="fields;PHP:Var Name;S:\home\distribbooks\www\application\models\news.php;f11;6;18;6;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
+				<treenode node="fields;PHP:Var Name;S:\home\distribbooks\www\application\models\news.php;f11;6;18;6;;S:\home\distribbooks\www\application\models\Codelobster0.php;f11;6;18;6;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
 				</treenode>
-				<treenode node="order_by;PHP:Var Name;S:\home\distribbooks\www\application\models\news.php;f11;7;20;7;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
+				<treenode node="order_by;PHP:Var Name;S:\home\distribbooks\www\application\models\news.php;f11;7;20;7;;S:\home\distribbooks\www\application\models\Codelobster0.php;f11;7;20;7;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
 				</treenode>
-				<treenode node="primary_key;PHP:Var Name;S:\home\distribbooks\www\application\models\news.php;f11;5;23;5;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
+				<treenode node="primary_key;PHP:Var Name;S:\home\distribbooks\www\application\models\news.php;f11;5;23;5;;S:\home\distribbooks\www\application\models\Codelobster0.php;f11;5;23;5;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
 				</treenode>
-				<treenode node="table;PHP:Var Name;S:\home\distribbooks\www\application\models\news.php;f11;4;17;4;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
+				<treenode node="table;PHP:Var Name;S:\home\distribbooks\www\application\models\news.php;f11;4;17;4;;S:\home\distribbooks\www\application\models\Codelobster0.php;f11;4;17;4;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="PHPMailer;PHP:Class Name;S:\home\distribbooks\www\application\libraries\Phpmailer.php;f0;44;1;2920;;;;vpos;;v;;r;;d16,44;;b0,0;;m">
@@ -10486,6 +10601,10 @@
 			</treenode>
 			<treenode node="catalog;PHP:Var Name;S:\home\distribbooks\www\application\views\guests_interface\catalog.php;f18;165;26;165;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
+			<treenode node="categories;PHP:Var Name;S:\home\distribbooks\www\application\views\admin_interface\formats\categories.php;f19;22;30;22;;S:\home\distribbooks\www\application\views\html\select\Codelobster0.php;f25;3;36;3;;S:\home\distribbooks\www\application\views\html\select\format-category.php;f25;3;36;3;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			</treenode>
+			<treenode node="category;PHP:Var Name;S:\home\distribbooks\www\application\views\admin_interface\forms\formats\Codelobster0.php;f73;4;82;4;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			</treenode>
 			<treenode node="CFG;PHP:Var Name;S:\home\distribbooks\www\system\core\CodeIgniter.php;f1;137;5;137;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="CI;PHP:Var Name;S:\home\distribbooks\www\system\core\CodeIgniter.php;f1;307;4;307;;S:\home\distribbooks\www\application\views\headers\users.php;f1;1;4;1;;S:\home\distribbooks\www\application\errors\error_404.php;f6;0;9;0;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
@@ -10504,9 +10623,11 @@
 			</treenode>
 			<treenode node="foreign_characters;PHP:Var Name;S:\home\distribbooks\www\application\config\foreign_chars.php;f0;9;19;9;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
+			<treenode node="formats;PHP:Var Name;S:\home\distribbooks\www\application\views\admin_interface\formats\list.php;f19;26;27;26;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			</treenode>
 			<treenode node="heading;PHP:Var Name;S:\home\distribbooks\www\application\errors\error_general.php;f17;57;25;57;;S:\home\distribbooks\www\application\errors\error_db.php;f17;57;25;57;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="i;PHP:Var Name;S:\home\distribbooks\www\application\views\headers\users.php;f13;24;15;24;;S:\home\distribbooks\www\application\views\admin_interface\news\list.php;f15;35;17;35;;S:\home\distribbooks\www\application\views\guests_interface\catalog.php;f13;30;15;30;;S:\home\distribbooks\www\application\views\guests_interface\news.php;f13;28;15;28;;S:\home\distribbooks\www\application\views\guests_interface\index.php;f13;32;15;32;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="i;PHP:Var Name;S:\home\distribbooks\www\application\views\headers\users.php;f13;24;15;24;;S:\home\distribbooks\www\application\views\guests_interface\catalog.php;f13;30;15;30;;S:\home\distribbooks\www\application\views\guests_interface\news.php;f13;28;15;28;;S:\home\distribbooks\www\application\views\guests_interface\index.php;f13;32;15;32;;S:\home\distribbooks\www\application\views\admin_interface\formats\categories.php;f15;33;17;33;;S:\home\distribbooks\www\application\views\html\select\Codelobster0.php;f11;3;13;3;;S:\home\distribbooks\www\application\views\html\select\format-category.php;f11;3;13;3;;S:\home\distribbooks\www\application\views\admin_interface\news\list.php;f15;35;17;35;;S:\home\distribbooks\www\application\views\admin_interface\formats\list.php;f15;39;17;39;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="IN;PHP:Var Name;S:\home\distribbooks\www\system\core\CodeIgniter.php;f1;212;4;212;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -10528,7 +10649,7 @@
 			</treenode>
 			<treenode node="mobiles;PHP:Var Name;S:\home\distribbooks\www\application\config\user_agents.php;f0;74;8;74;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="news;PHP:Var Name;S:\home\distribbooks\www\application\views\admin_interface\news\list.php;f29;35;34;35;;S:\home\distribbooks\www\application\views\admin_interface\forms\news\update.php;f47;1;52;1;;S:\home\distribbooks\www\application\views\guests_interface\Codelobster0.php;f18;27;23;27;;S:\home\distribbooks\www\application\views\guests_interface\single-news.php;f18;27;23;27;;S:\home\distribbooks\www\application\views\guests_interface\news.php;f18;26;23;26;;S:\home\distribbooks\www\application\views\guests_interface\index.php;f19;64;24;64;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="news;PHP:Var Name;S:\home\distribbooks\www\application\views\guests_interface\Codelobster0.php;f18;27;23;27;;S:\home\distribbooks\www\application\views\guests_interface\single-news.php;f18;27;23;27;;S:\home\distribbooks\www\application\views\guests_interface\news.php;f18;26;23;26;;S:\home\distribbooks\www\application\views\guests_interface\index.php;f19;64;24;64;;S:\home\distribbooks\www\application\views\admin_interface\news\list.php;f29;35;34;35;;S:\home\distribbooks\www\application\views\admin_interface\forms\news\update.php;f47;1;52;1;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="notification;PHP:Var Name;S:\home\distribbooks\www\application\views\headers\users.php;f1;11;14;11;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -10576,7 +10697,7 @@
 			</treenode>
 			<treenode node="temporary_code;PHP:Var Name;S:\home\distribbooks\www\application\views\mails\forgot.php;f84;1;99;1;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\views\headers\users.php;f22;3;27;3;;S:\home\distribbooks\www\application\views\users_interface\Codelobster0.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\users_interface\includes\Codelobster0.php;f31;2;36;2;;S:\home\distribbooks\www\application\views\guests_interface\includes\left-nav.php;f61;2;66;2;;S:\home\distribbooks\www\application\views\general_interface\includes\header.php;f7;11;12;11;;S:\home\distribbooks\www\application\views\general_interface\signin.php;f6;3;11;3;;S:\home\distribbooks\www\application\views\admin_interface\news\list.php;f6;6;11;6;;S:\home\distribbooks\www\application\views\admin_interface\news\edit.php;f6;6;11;6;;S:\home\distribbooks\www\application\views\admin_interface\news\add.php;f6;6;11;6;;S:\home\distribbooks\www\application\views\admin_interface\cabinet\control-panel.php;f6;6;11;6;;S:\home\distribbooks\www\application\views\guests_interface\includes\recall-div.php;f9;11;14;11;;S:\home\distribbooks\www\application\views\guests_interface\catalog.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\Codelobster0.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\single-news.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\news.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\includes\head.php;f31;2;36;2;;S:\home\distribbooks\www\application\views\guests_interface\editing.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\typography.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\translation.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\distribution.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\index.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\about.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\includes\header.php;f10;3;15;3;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="this;PHP:Var Name;S:\home\distribbooks\www\application\views\headers\users.php;f22;3;27;3;;S:\home\distribbooks\www\application\views\users_interface\Codelobster0.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\users_interface\includes\Codelobster0.php;f31;2;36;2;;S:\home\distribbooks\www\application\views\guests_interface\includes\left-nav.php;f61;2;66;2;;S:\home\distribbooks\www\application\views\general_interface\includes\header.php;f7;11;12;11;;S:\home\distribbooks\www\application\views\general_interface\signin.php;f6;3;11;3;;S:\home\distribbooks\www\application\views\admin_interface\news\edit.php;f6;6;11;6;;S:\home\distribbooks\www\application\views\admin_interface\news\add.php;f6;6;11;6;;S:\home\distribbooks\www\application\views\admin_interface\cabinet\control-panel.php;f6;6;11;6;;S:\home\distribbooks\www\application\views\guests_interface\includes\recall-div.php;f9;11;14;11;;S:\home\distribbooks\www\application\views\guests_interface\catalog.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\Codelobster0.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\single-news.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\news.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\includes\head.php;f31;2;36;2;;S:\home\distribbooks\www\application\views\guests_interface\editing.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\typography.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\translation.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\distribution.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\index.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\about.php;f7;6;12;6;;S:\home\distribbooks\www\application\views\guests_interface\includes\header.php;f10;3;15;3;;S:\home\distribbooks\www\application\views\admin_interface\formats\categories.php;f6;6;11;6;;S:\home\distribbooks\www\application\views\admin_interface\formats\Codelobster0.php;f6;6;11;6;;S:\home\distribbooks\www\application\views\html\select\Codelobster0.php;f50;4;55;4;;S:\home\distribbooks\www\application\views\html\select\format-category.php;f50;4;55;4;;S:\home\distribbooks\www\application\views\admin_interface\news\list.php;f6;6;11;6;;S:\home\distribbooks\www\application\views\admin_interface\forms\formats\Codelobster0.php;f42;1;47;1;;S:\home\distribbooks\www\application\views\admin_interface\formats\add.php;f6;6;11;6;;S:\home\distribbooks\www\application\views\admin_interface\formats\edit.php;f6;6;11;6;;S:\home\distribbooks\www\application\views\admin_interface\formats\list.php;f6;6;11;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="UNI;PHP:Var Name;S:\home\distribbooks\www\system\core\CodeIgniter.php;f1;157;5;157;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -10632,7 +10753,89 @@
 				<treenode node="url;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f2;67;5;67;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="mainOptions;JS:Function Name;S:\home\distribbooks\www\js\cabinet\admin.js;f5;5;125;5;;S:\home\distribbooks\www\js\cabinet\guest.js;f5;5;125;5;;;;vpos;;v;;r;;d19,5;;b0,0;;m">
+			<treenode node="mainOptions;JS:Function Name;S:\home\distribbooks\www\js\cabinet\admin.js;f5;5;125;5;;;;vpos;;v;;r;;d19,5;;b0,0;;m">
+				<treenode node="beforeSubmit;JS:JS Var Name;S:\home\distribbooks\www\js\cabinet\admin.js;f33;5;45;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks\www\js\cabinet\admin.js;f97;5;105;5;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks\www\js\cabinet\admin.js;f47;5;49;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="success;JS:JS Var Name;S:\home\distribbooks\www\js\cabinet\admin.js;f67;5;74;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="target;JS:JS Var Name;S:\home\distribbooks\www\js\cabinet\admin.js;f20;5;26;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="type;JS:JS Var Name;S:\home\distribbooks\www\js\cabinet\admin.js;f113;5;117;5;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="uploadImage.singlePhotoOption;JS:Function Name;S:\home\distribbooks\www\js\libs\upload-image.js;f0;4;1;40;;;;vpos;;v;;r;;d32,4;;b0,0;;m">
+				<treenode node="beforeSubmit;JS:Function Name;S:\home\distribbooks\www\js\libs\upload-image.js;f1;6;2;14;;;;vpos;;v;;r;;d48,6;;b0,0;;mformData;;pjqForm;;poptions;;p">
+					<treenode node="formData;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f24;6;32;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="jqForm;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f33;6;39;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="mt;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f5;7;7;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="options;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f40;6;47;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="percentVal;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f8;9;18;9;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="success;JS:Function Name;S:\home\distribbooks\www\js\libs\upload-image.js;f1;19;2;39;;;;vpos;;v;;r;;d50,19;;b0,0;;mresponse;;pstatusText;;pxhr;;pjqForm;;p">
+					<treenode node="jqForm;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f43;19;49;19;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="mt;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f42;30;44;30;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="percentVal;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f6;20;16;20;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="response;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f19;19;27;19;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="statusText;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f28;19;38;19;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f39;19;42;19;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="uploadProgress;JS:Function Name;S:\home\distribbooks\www\js\libs\upload-image.js;f1;15;2;18;;;;vpos;;v;;r;;d63,15;;b0,0;;mevent;;pposition;;ptotal;;ppercentComplete;;p">
+					<treenode node="event;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f26;15;31;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="percentComplete;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f47;15;62;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="percentVal;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f6;16;16;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="position;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f32;15;40;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="total;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f41;15;46;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f29;5;37;5;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="target;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f1;5;7;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="type;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f15;5;19;5;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="ajaxBeforeSubmit;JS:Function Name;S:\home\distribbooks\www\js\libs\base.js;f3;132;1;144;;;;vpos;;v;;r;;d55,132;;b0,0;;mformData;;pjqForm;;poptions;;p">
+				<treenode node="formData;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f31;132;39;132;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="jqForm;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f40;132;46;132;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f4;138;6;138;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="options;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f47;132;54;132;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="ajaxSuccessSubmit;JS:Function Name;S:\home\distribbooks\www\js\libs\base.js;f3;145;1;147;;;;vpos;;v;;r;;d67,145;;b0,0;;mresponseText;;pstatusText;;pxhr;;pjqForm;;p">
+				<treenode node="jqForm;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f60;145;66;145;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="responseText;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f32;145;44;145;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="statusText;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f45;145;55;145;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f56;145;59;145;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="defaultValidationErrorStatus;JS:Function Name;S:\home\distribbooks\www\js\libs\base.js;f5;167;1;171;;;;vpos;;v;;r;;d46,167;;b0,0;;m">
+			</treenode>
+			<treenode node="mainOptions;JS:Function Name;S:\home\distribbooks\www\js\cabinet\guest.js;f5;5;125;5;;;;vpos;;v;;r;;d19,5;;b0,0;;m">
 				<treenode node="beforeSubmit;JS:JS Var Name;S:\home\distribbooks\www\js\cabinet\admin.js;f33;5;45;5;;S:\home\distribbooks\www\js\cabinet\guest.js;f33;5;45;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks\www\js\cabinet\admin.js;f97;5;105;5;;S:\home\distribbooks\www\js\cabinet\guest.js;f97;5;105;5;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
@@ -10654,26 +10857,6 @@
 				<treenode node="e;JS:JS Var Name;S:\home\distribbooks\www\js\datepicker\jquery.ui.datepicker.js;f3025;5;3026;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="prevObject;JS:JS Var Name;S:\home\distribbooks\www\js\datepicker\jquery.ui.datepicker.js;f3057;5;3067;5;;;;vposaddBack;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</treenode>
-			<treenode node="ajaxBeforeSubmit;JS:Function Name;S:\home\distribbooks\www\js\libs\base.js;f3;132;1;144;;;;vpos;;v;;r;;d55,132;;b0,0;;mformData;;pjqForm;;poptions;;p">
-				<treenode node="formData;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f31;132;39;132;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="jqForm;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f40;132;46;132;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f4;138;6;138;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="options;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f47;132;54;132;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</treenode>
-			<treenode node="ajaxSuccessSubmit;JS:Function Name;S:\home\distribbooks\www\js\libs\base.js;f3;145;1;147;;;;vpos;;v;;r;;d67,145;;b0,0;;mresponseText;;pstatusText;;pxhr;;pjqForm;;p">
-				<treenode node="jqForm;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f60;145;66;145;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="responseText;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f32;145;44;145;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="statusText;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f45;145;55;145;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks\www\js\libs\base.js;f56;145;59;145;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="carousel;JS:Function Name;S:\home\distribbooks\www\js\vendor\bootstrap.min.js;f4632;5;4913;5;;;;vpos;;v;;r;;d4652,5;;b0,0;;mn;;p">
@@ -10701,8 +10884,6 @@
 				</treenode>
 				<treenode node="t;JS:JS Var Name;S:\home\distribbooks\www\js\datepicker\jquery.ui.datepicker.js;f2836;6;2837;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-			</treenode>
-			<treenode node="defaultValidationErrorStatus;JS:Function Name;S:\home\distribbooks\www\js\libs\base.js;f5;167;1;171;;;;vpos;;v;;r;;d46,167;;b0,0;;m">
 			</treenode>
 			<treenode node="doc_support;JS:Function Name;S:\home\distribbooks\www\js\libs\single-upload-document.js;f4;16;173;16;;;;vpos;;v;;r;;d18,16;;b0,0;;m">
 				<treenode node="document;JS:JS Var Name;S:\home\distribbooks\www\js\libs\single-upload-document.js;f31;16;39;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
@@ -11261,52 +11442,6 @@
 			<treenode node="uploadDataDocument.interval;JS:Function Name;S:\home\distribbooks\www\js\libs\single-upload-document.js;f0;5;32;5;;;;vpos;;v;;r;;d30,5;;b0,0;;m">
 			</treenode>
 			<treenode node="uploadDataObject.interval;JS:Function Name;S:\home\distribbooks\www\js\libs\single-upload-image.js;f0;4;30;4;;;;vpos;;v;;r;;d28,4;;b0,0;;m">
-			</treenode>
-			<treenode node="uploadImage.singlePhotoOption;JS:Function Name;S:\home\distribbooks\www\js\libs\upload-image.js;f0;4;1;40;;;;vpos;;v;;r;;d32,4;;b0,0;;m">
-				<treenode node="beforeSubmit;JS:Function Name;S:\home\distribbooks\www\js\libs\upload-image.js;f1;6;2;14;;;;vpos;;v;;r;;d48,6;;b0,0;;mformData;;pjqForm;;poptions;;p">
-					<treenode node="formData;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f24;6;32;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="jqForm;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f33;6;39;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="mt;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f5;7;7;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="options;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f40;6;47;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="percentVal;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f8;9;18;9;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="success;JS:Function Name;S:\home\distribbooks\www\js\libs\upload-image.js;f1;19;2;39;;;;vpos;;v;;r;;d50,19;;b0,0;;mresponse;;pstatusText;;pxhr;;pjqForm;;p">
-					<treenode node="jqForm;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f43;19;49;19;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="mt;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f42;30;44;30;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="percentVal;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f6;20;16;20;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="response;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f19;19;27;19;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="statusText;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f28;19;38;19;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f39;19;42;19;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="uploadProgress;JS:Function Name;S:\home\distribbooks\www\js\libs\upload-image.js;f1;15;2;18;;;;vpos;;v;;r;;d63,15;;b0,0;;mevent;;pposition;;ptotal;;ppercentComplete;;p">
-					<treenode node="event;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f26;15;31;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="percentComplete;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f47;15;62;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="percentVal;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f6;16;16;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="position;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f32;15;40;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="total;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f41;15;46;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f29;5;37;5;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="target;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f1;5;7;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="type;JS:JS Var Name;S:\home\distribbooks\www\js\libs\upload-image.js;f15;5;19;5;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
 			</treenode>
 			<treenode node="affix;JS:Function Name;S:\home\distribbooks\www\js\vendor\bootstrap.min.js;f27994;5;28160;5;;;;vpos;;v;;r;;d28011,5;;b0,0;;mn;;p">
 				<treenode node="i;JS:JS Var Name;S:\home\distribbooks\www\js\vendor\bootstrap.min.js;f28054;5;28055;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
@@ -17058,7 +17193,7 @@
 			</treenode>
 			<treenode node="doc_tests;JS:JS Var Name;S:\home\distribbooks\www\js\libs\single-upload-document.js;f4;15;13;15;;;;vposdoc_tests;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="document;JS:JS Var Name;S:\home\distribbooks\www\static\js\vendor\modernizr-2.6.2.min.js;f14670;3;14678;3;;S:\home\distribbooks\www\static\js\main.js;f2;0;10;0;;S:\home\distribbooks\www\distribbooks\js\vendor\modernizr-2.6.2.min.js;f14670;3;14678;3;;S:\home\distribbooks\www\distribbooks\js\main.js;f2;0;10;0;;S:\home\distribbooks\www\js\vendor\modernizr-2.6.2.min.js;f14670;3;14678;3;;S:\home\distribbooks\www\js\libs\dropzone.js;f15;14;23;14;;S:\home\distribbooks\www\application\views\users_interface\Codelobster0.php;f33;604;41;604;;S:\home\distribbooks\www\application\views\guests_interface\includes\scripts.php;f25;1;33;1;;S:\home\distribbooks\www\static\translate.html;f33;556;41;556;;S:\home\distribbooks\www\js\vendor\bootstrap.min.js;f8297;5;8305;5;;S:\home\distribbooks\www\js\libs\single-upload-document.js;f23;14;31;14;;S:\home\distribbooks\www\js\datepicker\jquery.ui.datepicker.js;f3390;5;3398;5;;S:\home\distribbooks\www\js\main.js;f2;0;10;0;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="document;JS:JS Var Name;S:\home\distribbooks\www\static\js\vendor\modernizr-2.6.2.min.js;f14670;3;14678;3;;S:\home\distribbooks\www\static\js\main.js;f2;0;10;0;;S:\home\distribbooks\www\distribbooks\js\vendor\modernizr-2.6.2.min.js;f14670;3;14678;3;;S:\home\distribbooks\www\distribbooks\js\main.js;f2;0;10;0;;S:\home\distribbooks\www\js\vendor\modernizr-2.6.2.min.js;f14670;3;14678;3;;S:\home\distribbooks\www\js\libs\dropzone.js;f15;14;23;14;;S:\home\distribbooks\www\application\views\users_interface\Codelobster0.php;f33;604;41;604;;S:\home\distribbooks\www\application\views\guests_interface\includes\scripts.php;f25;1;33;1;;S:\home\distribbooks\www\static\translate.html;f33;556;41;556;;S:\home\distribbooks\www\js\vendor\bootstrap.min.js;f8297;5;8305;5;;S:\home\distribbooks\www\js\libs\single-upload-document.js;f23;14;31;14;;S:\home\distribbooks\www\js\datepicker\jquery.ui.datepicker.js;f3390;5;3398;5;;S:\home\distribbooks\www\js\main.js;f2;0;10;0;;S:\home\distribbooks\www\application\views\admin_interface\includes\scripts.php;f25;1;33;1;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="download;JS:JS Var Name;S:\home\distribbooks\www\js\cabinet\redactor-config.js;f2;180;10;180;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -17376,7 +17511,7 @@
 			</treenode>
 			<treenode node="mailto;JS:JS Var Name;S:\home\distribbooks\www\js\cabinet\redactor-config.js;f16;179;22;179;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="mainOptions;JS:JS Var Name;S:\home\distribbooks\www\js\libs\money.js;f5;9;16;9;;S:\home\distribbooks\www\js\cabinet\user.js;f5;5;16;5;;S:\home\distribbooks\www\js\cabinet\admin.js;f5;5;16;5;;S:\home\distribbooks\www\js\cabinet\guest.js;f5;5;16;5;;;;vposmainOptions;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="mainOptions;JS:JS Var Name;S:\home\distribbooks\www\js\libs\money.js;f5;9;16;9;;S:\home\distribbooks\www\js\cabinet\user.js;f5;5;16;5;;S:\home\distribbooks\www\js\cabinet\guest.js;f5;5;16;5;;S:\home\distribbooks\www\js\cabinet\admin.js;f5;5;16;5;;;;vposmainOptions;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="map;JS:JS Var Name;S:\home\distribbooks\www\static\js\vendor\jquery-1.9.0.min.js;f12902;0;12905;0;;S:\home\distribbooks\www\distribbooks\js\vendor\jquery-1.9.0.min.js;f12902;0;12905;0;;S:\home\distribbooks\www\js\vendor\jquery-1.9.0.min.js;f12902;0;12905;0;;S:\home\distribbooks\www\js\vendor\jquery-1.10.2.min.js;f2303;3;2306;3;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -17754,7 +17889,7 @@
 			</treenode>
 			<treenode node="web;JS:JS Var Name;S:\home\distribbooks\www\js\cabinet\redactor-config.js;f36;179;39;179;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="window;JS:JS Var Name;S:\home\distribbooks\www\static\js\vendor\modernizr-2.6.2.min.js;f1;3;7;3;;S:\home\distribbooks\www\static\js\vendor\jquery-1.9.0.min.js;f28847;2;28853;2;;S:\home\distribbooks\www\static\js\plugins.js;f19;11;25;11;;S:\home\distribbooks\www\distribbooks\js\vendor\modernizr-2.6.2.min.js;f1;3;7;3;;S:\home\distribbooks\www\distribbooks\js\vendor\jquery-1.9.0.min.js;f28847;2;28853;2;;S:\home\distribbooks\www\distribbooks\js\plugins.js;f19;11;25;11;;S:\home\distribbooks\www\js\vendor\modernizr-2.6.2.min.js;f1;3;7;3;;S:\home\distribbooks\www\js\vendor\jquery-1.9.0.min.js;f28847;2;28853;2;;S:\home\distribbooks\www\js\plugins.js;f19;11;25;11;;S:\home\distribbooks\www\js\vendor\jquery-1.10.2.min.js;f28890;5;28896;5;;S:\home\distribbooks\www\js\libs\bootstrap.js;f3356;6;3362;6;;S:\home\distribbooks\www\application\views\users_interface\Codelobster0.php;f16;604;22;604;;S:\home\distribbooks\www\application\views\guests_interface\includes\scripts.php;f8;1;14;1;;S:\home\distribbooks\www\js\vendor\jquery.form.js;f19;56;25;56;;S:\home\distribbooks\www\js\vendor\bootstrap.tooltips.js;f352;5;358;5;;S:\home\distribbooks\www\static\translate.html;f16;556;22;556;;S:\home\distribbooks\www\js\vendor\bootstrap.min.js;f352;5;358;5;;S:\home\distribbooks\www\js\libs\base.js;f13;7;19;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="window;JS:JS Var Name;S:\home\distribbooks\www\static\js\vendor\modernizr-2.6.2.min.js;f1;3;7;3;;S:\home\distribbooks\www\static\js\vendor\jquery-1.9.0.min.js;f28847;2;28853;2;;S:\home\distribbooks\www\static\js\plugins.js;f19;11;25;11;;S:\home\distribbooks\www\distribbooks\js\vendor\modernizr-2.6.2.min.js;f1;3;7;3;;S:\home\distribbooks\www\distribbooks\js\vendor\jquery-1.9.0.min.js;f28847;2;28853;2;;S:\home\distribbooks\www\distribbooks\js\plugins.js;f19;11;25;11;;S:\home\distribbooks\www\js\vendor\modernizr-2.6.2.min.js;f1;3;7;3;;S:\home\distribbooks\www\js\vendor\jquery-1.9.0.min.js;f28847;2;28853;2;;S:\home\distribbooks\www\js\plugins.js;f19;11;25;11;;S:\home\distribbooks\www\js\vendor\jquery-1.10.2.min.js;f28890;5;28896;5;;S:\home\distribbooks\www\js\libs\bootstrap.js;f3356;6;3362;6;;S:\home\distribbooks\www\application\views\users_interface\Codelobster0.php;f16;604;22;604;;S:\home\distribbooks\www\application\views\guests_interface\includes\scripts.php;f8;1;14;1;;S:\home\distribbooks\www\js\vendor\jquery.form.js;f19;56;25;56;;S:\home\distribbooks\www\js\vendor\bootstrap.tooltips.js;f352;5;358;5;;S:\home\distribbooks\www\static\translate.html;f16;556;22;556;;S:\home\distribbooks\www\js\vendor\bootstrap.min.js;f352;5;358;5;;S:\home\distribbooks\www\application\views\admin_interface\includes\scripts.php;f8;1;14;1;;S:\home\distribbooks\www\js\libs\base.js;f13;7;19;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="wn;JS:JS Var Name;S:\home\distribbooks\www\static\js\vendor\jquery-1.9.0.min.js;f8624;2;8626;2;;S:\home\distribbooks\www\distribbooks\js\vendor\jquery-1.9.0.min.js;f8624;2;8626;2;;S:\home\distribbooks\www\js\vendor\jquery-1.9.0.min.js;f8624;2;8626;2;;S:\home\distribbooks\www\js\vendor\jquery-1.10.2.min.js;f9128;5;9130;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -17994,7 +18129,7 @@
 		<file name="S:\home\distribbooks\www\js\vendor\jquery-1.10.2.min.js" crc="331065415"/>
 		<file name="S:\home\distribbooks\www\js\vendor\bootstrap.tooltips.js" crc="913488683"/>
 		<file name="S:\home\distribbooks\www\js\vendor\bootstrap.min.js" crc="-224422021"/>
-		<file name="S:\home\distribbooks\www\js\libs\upload-image.js" crc="1522341159"/>
+		<file name="S:\home\distribbooks\www\js\libs\upload-image.js" crc="-1511770144"/>
 		<file name="S:\home\distribbooks\www\js\libs\single-upload-image.js" crc="1490238047"/>
 		<file name="S:\home\distribbooks\www\js\libs\single-upload-document.js" crc="163961402"/>
 		<file name="S:\home\distribbooks\www\js\libs\openapi.js" crc="1640336556"/>
@@ -18004,10 +18139,11 @@
 		<file name="S:\home\distribbooks\www\js\libs\dropzone.js" crc="-729145411"/>
 		<file name="S:\home\distribbooks\www\js\libs\cookies.js" crc="508707534"/>
 		<file name="S:\home\distribbooks\www\js\libs\bootstrap.js" crc="-1835971090"/>
-		<file name="S:\home\distribbooks\www\js\libs\base.js" crc="32527878"/>
+		<file name="S:\home\distribbooks\www\js\libs\base.js" crc="1979121470"/>
 		<file name="S:\home\distribbooks\www\js\datepicker\jquery.ui.datepicker.js" crc="1383642652"/>
 		<file name="S:\home\distribbooks\www\js\datepicker\jquery.ui.datepicker-ru.js" crc="-1837043559"/>
 		<file name="S:\home\distribbooks\www\js\cabinet\user.js" crc="-48532363"/>
+		<file name="S:\home\distribbooks\www\js\cabinet\selects.js" crc="864285727"/>
 		<file name="S:\home\distribbooks\www\js\cabinet\redactor-config.js" crc="156509328"/>
 		<file name="S:\home\distribbooks\www\js\cabinet\guest.js" crc="-1613977408"/>
 		<file name="S:\home\distribbooks\www\js\cabinet\general.js" crc="-1191304363"/>
@@ -18036,6 +18172,7 @@
 		<file name="S:\home\distribbooks\www\application\views\mails\signup.php" crc="-1085235849"/>
 		<file name="S:\home\distribbooks\www\application\views\mails\forgot.php" crc="-1486494538"/>
 		<file name="S:\home\distribbooks\www\application\views\mails\after-activation-account.php" crc="-1115152395"/>
+		<file name="S:\home\distribbooks\www\application\views\html\select\format-category.php" crc="1557748515"/>
 		<file name="S:\home\distribbooks\www\application\views\html\zone-upload-file.php" crc="-365211686"/>
 		<file name="S:\home\distribbooks\www\application\views\html\zone-upload-documents.php" crc="-1937640032"/>
 		<file name="S:\home\distribbooks\www\application\views\html\validation-errors.php" crc="-1993174748"/>
@@ -18089,17 +18226,27 @@
 		<file name="S:\home\distribbooks\www\application\views\admin_interface\news\list.php" crc="1050637907"/>
 		<file name="S:\home\distribbooks\www\application\views\admin_interface\news\edit.php" crc="-1062050240"/>
 		<file name="S:\home\distribbooks\www\application\views\admin_interface\news\add.php" crc="676036904"/>
-		<file name="S:\home\distribbooks\www\application\views\admin_interface\includes\sidebar.php" crc="-225331442"/>
+		<file name="S:\home\distribbooks\www\application\views\admin_interface\includes\sidebar.php" crc="574974307"/>
 		<file name="S:\home\distribbooks\www\application\views\admin_interface\includes\scripts.php" crc="1199946039"/>
 		<file name="S:\home\distribbooks\www\application\views\admin_interface\includes\navbar.php" crc="420853303"/>
 		<file name="S:\home\distribbooks\www\application\views\admin_interface\includes\head.php" crc="-1832842812"/>
 		<file name="S:\home\distribbooks\www\application\views\admin_interface\includes\footer.php" crc="1205943210"/>
-		<file name="S:\home\distribbooks\www\application\views\admin_interface\forms\news\update.php" crc="2085148607"/>
+		<file name="S:\home\distribbooks\www\application\views\admin_interface\forms\news\update.php" crc="-1548750423"/>
 		<file name="S:\home\distribbooks\www\application\views\admin_interface\forms\news\insert.php" crc="-1732536225"/>
+		<file name="S:\home\distribbooks\www\application\views\admin_interface\forms\formats\update.php" crc="-139305226"/>
+		<file name="S:\home\distribbooks\www\application\views\admin_interface\forms\formats\insert.php" crc="720240039"/>
+		<file name="S:\home\distribbooks\www\application\views\admin_interface\forms\formats\category-edit.php" crc="770273371"/>
+		<file name="S:\home\distribbooks\www\application\views\admin_interface\formats\list.php" crc="1472049078"/>
+		<file name="S:\home\distribbooks\www\application\views\admin_interface\formats\edit.php" crc="-1801135433"/>
+		<file name="S:\home\distribbooks\www\application\views\admin_interface\formats\category-edit.php" crc="645912924"/>
+		<file name="S:\home\distribbooks\www\application\views\admin_interface\formats\categories.php" crc="464322628"/>
+		<file name="S:\home\distribbooks\www\application\views\admin_interface\formats\add.php" crc="-1756478816"/>
 		<file name="S:\home\distribbooks\www\application\views\admin_interface\cabinet\control-panel.php" crc="-1061041301"/>
 		<file name="S:\home\distribbooks\www\application\models\users_accounts.php" crc="-631035330"/>
 		<file name="S:\home\distribbooks\www\application\models\news.php" crc="-875942304"/>
 		<file name="S:\home\distribbooks\www\application\models\meta_titles.php" crc="879995985"/>
+		<file name="S:\home\distribbooks\www\application\models\formats_categories.php" crc="-322604557"/>
+		<file name="S:\home\distribbooks\www\application\models\formats.php" crc="-920003771"/>
 		<file name="S:\home\distribbooks\www\application\models\accounts.php" crc="1109703634"/>
 		<file name="S:\home\distribbooks\www\application\libraries\Plural_words.php" crc="641919300"/>
 		<file name="S:\home\distribbooks\www\application\libraries\Phpmailer.php" crc="-1768418980"/>
@@ -18147,16 +18294,16 @@
 		<file name="S:\home\distribbooks\www\application\controllers\guests_interface.php" crc="-47356953"/>
 		<file name="S:\home\distribbooks\www\application\controllers\guest_ajax_interface.php" crc="723849163"/>
 		<file name="S:\home\distribbooks\www\application\controllers\global_interface.php" crc="1808977762"/>
-		<file name="S:\home\distribbooks\www\application\controllers\admin_interface.php" crc="-358354645"/>
-		<file name="S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php" crc="-163951978"/>
+		<file name="S:\home\distribbooks\www\application\controllers\admin_interface.php" crc="-1172033114"/>
+		<file name="S:\home\distribbooks\www\application\controllers\admin_ajax_interface.php" crc="-167037065"/>
 		<file name="S:\home\distribbooks\www\application\config\user_agents.php" crc="-484381080"/>
 		<file name="S:\home\distribbooks\www\application\config\smileys.php" crc="-749249654"/>
-		<file name="S:\home\distribbooks\www\application\config\routes.php" crc="868264252"/>
+		<file name="S:\home\distribbooks\www\application\config\routes.php" crc="1798822138"/>
 		<file name="S:\home\distribbooks\www\application\config\profiler.php" crc="806934376"/>
 		<file name="S:\home\distribbooks\www\application\config\mimes.php" crc="767988074"/>
 		<file name="S:\home\distribbooks\www\application\config\migration.php" crc="1883168378"/>
 		<file name="S:\home\distribbooks\www\application\config\hooks.php" crc="1613917850"/>
-		<file name="S:\home\distribbooks\www\application\config\form_validation.php" crc="-1278733574"/>
+		<file name="S:\home\distribbooks\www\application\config\form_validation.php" crc="80381677"/>
 		<file name="S:\home\distribbooks\www\application\config\foreign_chars.php" crc="-1365329089"/>
 		<file name="S:\home\distribbooks\www\application\config\doctypes.php" crc="-228691857"/>
 		<file name="S:\home\distribbooks\www\application\config\database.php" crc="1200023076"/>

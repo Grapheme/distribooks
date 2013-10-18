@@ -38,7 +38,6 @@ class Guests_interface extends MY_Controller{
 	}
 	
 	/************************************************ pages ***********************************************************/
-	
 	public function redirectPage(){
 		
 		if($this->uri->segment(1) !== FALSE):
@@ -116,6 +115,17 @@ class Guests_interface extends MY_Controller{
 			'sliderExist' =>TRUE
 		);
 		$this->load->view("guests_interface/distribution",$pagevar);
+	}
+	
+	public function formats(){
+		
+		$this->load->model('formats');
+		$pagevar = array(
+			'page_content'=> array(),
+			'breadcrumbs' => array('formats'=>'FORMATS'),
+			'formats'=>$this->formats->getWhere(NULL,array('visible'=>1),TRUE)
+		);
+		$this->load->view("guests_interface/formats",$pagevar);
 	}
 	
 	/*********************************************** catalog ***********************************************************/
