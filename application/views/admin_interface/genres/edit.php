@@ -5,9 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 <?php $this->load->view("admin_interface/includes/head");?>
-<link rel="stylesheet" href="<?=site_url('css/admin-panel/redactor.css');?>" />
 </head>
 <body>
+<!--[if lt IE 7]>
+	<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
 	<?php $this->load->view("admin_interface/includes/navbar");?>
 	<div class="container">
 		<div class="row">
@@ -17,11 +19,11 @@
 			<div class="span9">
 				<ul class="breadcrumb">
 					<li><a href="<?=site_url(ADMIN_START_PAGE);?>">Панель управления</a> <span class="divider">/</span></li>
-					<li><a href="<?=site_url(ADMIN_START_PAGE.'/authors');?>">Авторы</a> <span class="divider">/</span></li>
-					<li class="active">Добавление</li>
+					<li><a href="<?=site_url(ADMIN_START_PAGE.'/genres');?>">Жанры</a> <span class="divider">/</span></li>
+					<li class="active">Редактирование</li>
 				</ul>
 				<div class="clear"></div>
-				<?php $this->load->view('admin_interface/forms/authors/insert');?>
+				<?php $this->load->view('admin_interface/forms/genres/update');?>
 			</div>
 		</div>
 	</div>

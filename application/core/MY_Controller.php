@@ -1005,5 +1005,15 @@ class MY_Controller extends CI_Controller{
 		endif;
 		return $authorsList;
 	}
+	
+	public function getGenresByIDs($genres){
+		
+		$genresList = array();
+		if($genresIDs = explode(',',$genres)):
+			$this->load->model('genres');
+			$genresList = $this->genres->getGenresByIDs($genresIDs);
+		endif;
+		return $genresList;
+	}
 }
 ?>

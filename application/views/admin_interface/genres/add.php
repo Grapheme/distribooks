@@ -17,11 +17,11 @@
 			<div class="span9">
 				<ul class="breadcrumb">
 					<li><a href="<?=site_url(ADMIN_START_PAGE);?>">Панель управления</a> <span class="divider">/</span></li>
-					<li><a href="<?=site_url(ADMIN_START_PAGE.'/authors');?>">Авторы</a> <span class="divider">/</span></li>
+					<li><a href="<?=site_url(ADMIN_START_PAGE.'/genres');?>">Жанры</a> <span class="divider">/</span></li>
 					<li class="active">Добавление</li>
 				</ul>
 				<div class="clear"></div>
-				<?php $this->load->view('admin_interface/forms/authors/insert');?>
+				<?php $this->load->view('admin_interface/forms/genres/insert');?>
 			</div>
 		</div>
 	</div>

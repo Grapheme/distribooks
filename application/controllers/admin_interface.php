@@ -130,5 +130,38 @@ class Admin_interface extends MY_Controller{
 		);
 		$this->load->view("admin_interface/authors/edit",$pagevar);
 	}
+	/******************************************** genres ********************************************************/
+	public function genresList(){
+		
+		$this->load->model('genres');
+		$pagevar = array(
+			'genres' => array(),
+			'pages' => NULL
+		);
+		if($this->input->get('search') === FALSE || $this->input->get('search') == ''):
+			$pagevar['genres'] = $this->genres->limit(PER_PAGE_DEFAULT,$this->uri->segment(4));
+			$pagevar['pages'] = $this->pagination('admin-panel/genres',4,$this->genres->countAllResults(),PER_PAGE_DEFAULT);
+		else:
+			if($genres = $this->getGenresByIDs($this->input->get('search'))):
+				$genresIDs = $this->getValuesInArray($genres,'id');
+				$pagevar['genres'] = $this->genres->getWhereIN(array('field'=>'id','where_in'=>$genresIDs,'many_records'=>TRUE));
+			endif;
+		endif;
+		$this->load->view("admin_interface/genres/list",$pagevar);
+	}
+	
+	public function insertGenre(){
+		
+		$this->load->view("admin_interface/genres/add");
+	}
+	
+	public function editGenre(){
+		
+		$this->load->model('genres');
+		$pagevar = array(
+			'genre' => $this->genres->getWhere($this->input->get('id'))
+		);
+		$this->load->view("admin_interface/genres/edit",$pagevar);
+	}
 	/***********************************************************************************************************/
 }

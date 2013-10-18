@@ -157,4 +157,16 @@ class Global_interface extends MY_Controller{
 		endif;
 		echo $json_request;
 	}
+	
+	public function searchGenre(){
+		
+		$json_request = json_encode(array());
+		$this->load->model('genres');
+		if($genres = $this->genres->searchGenresByChar($this->input->get('q'),RUSLAN)):
+			$json_request = json_encode($genres);
+		elseif($genres = $this->genres->searchGenresByChar($this->input->get('q'),ENGLAN)):
+			$json_request = json_encode($genres);
+		endif;
+		echo $json_request;
+	}
 }

@@ -278,7 +278,7 @@ class Admin_ajax_interface extends MY_Controller{
 	public function insertAuthor(){
 		
 		if($this->postDataValidation('author')):
-			if($this->ExecuteInsertingAuthor($this->input->post())):
+			if($this->insertingAuthor($this->input->post())):
 				$this->json_request['status'] = TRUE;
 				$this->json_request['responseText'] = 'Автор добавлен';
 				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/authors');
@@ -292,7 +292,7 @@ class Admin_ajax_interface extends MY_Controller{
 	public function updateAuthor(){
 		
 		if($this->postDataValidation('author')):
-			if($this->ExecuteUpdatingAuthor($this->input->post())):
+			if($this->updatingAuthor($this->input->post())):
 				$this->json_request['status'] = TRUE;
 				$this->json_request['responseText'] = 'Автор cохранен';
 				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/authors');
@@ -311,17 +311,64 @@ class Admin_ajax_interface extends MY_Controller{
 		echo json_encode($this->json_request);
 	}
 	
-	private function ExecuteInsertingAuthor($post){
+	private function insertingAuthor($post){
 		
 		return $this->insertItem(array('insert'=>$post,'model'=>'authors'));
 		return TRUE;
 	}
 	
-	private function ExecuteUpdatingAuthor($post){
+	private function updatingAuthor($post){
 		
 		$this->updateItem(array('update'=>$post,'model'=>'authors'));
 		return TRUE;
 	}
+	/******************************************* genres *******************************************************/
+	public function insertGenre(){
+		
+		if($this->postDataValidation('genre')):
+			if($this->insertingGenre($this->input->post())):
+				$this->json_request['status'] = TRUE;
+				$this->json_request['responseText'] = 'Жанр добавлен';
+				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/genres');
+			endif;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
 	
+	public function updateGenre(){
+		
+		if($this->postDataValidation('genre')):
+			if($this->updatingGenre($this->input->post())):
+				$this->json_request['status'] = TRUE;
+				$this->json_request['responseText'] = 'Жанр cохранен';
+				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/genres');
+			endif;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	public function removeGenre(){
+		
+		$this->load->model('genres');
+		$this->genres->delete($this->input->post('id'));
+		$this->json_request['status'] = TRUE;
+		echo json_encode($this->json_request);
+	}
+	
+	private function insertingGenre($post){
+		
+		return $this->insertItem(array('insert'=>$post,'model'=>'genres'));
+		return TRUE;
+	}
+	
+	private function updatingGenre($post){
+		
+		$this->updateItem(array('update'=>$post,'model'=>'genres'));
+		return TRUE;
+	}
 	
 }

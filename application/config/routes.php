@@ -15,6 +15,7 @@ $route['sign-in/vk'] = "global_interface/signInVK";
 $route['sign-in/facebook'] = "global_interface/signInUpFacebook";
 /*************************************************/
 $route['search-authors-list'] = "global_interface/searchAuthor";
+$route['search-genres-list'] = "global_interface/searchGenre";
 /***************************************************GUEST AJAX INTRERFACE ***********************************************/
 $route['request-order-editing'] = "guest_ajax_interface/requestOrderEditing";
 $route['request-do-editing'] = "guest_ajax_interface/requestDoEditing";
@@ -41,6 +42,10 @@ $route[ADMIN_START_PAGE.'/formats/remove'] = "admin_ajax_interface/removeFormat"
 $route[ADMIN_START_PAGE.'/authors/insert'] = "admin_ajax_interface/insertAuthor";
 $route[ADMIN_START_PAGE.'/authors/update'] = "admin_ajax_interface/updateAuthor";
 $route[ADMIN_START_PAGE.'/authors/remove'] = "admin_ajax_interface/removeAuthor";
+/****************** genres *********************/
+$route[ADMIN_START_PAGE.'/genres/insert'] = "admin_ajax_interface/insertGenre";
+$route[ADMIN_START_PAGE.'/genres/update'] = "admin_ajax_interface/updateGenre";
+$route[ADMIN_START_PAGE.'/genres/remove'] = "admin_ajax_interface/removeGenre";
 /************************************************** ADMIN INTRERFACE ***********************************************/
 $route[ADMIN_START_PAGE] = "admin_interface/controlPanel";
 $route[ADMIN_START_PAGE.'/news/add'] = "admin_interface/addNews";
@@ -56,6 +61,10 @@ $route[ADMIN_START_PAGE.'/formats/edit'] = "admin_interface/editFormat";
 $route[ADMIN_START_PAGE.'/authors(\/:any)*?'] = "admin_interface/authorsList";
 $route[ADMIN_START_PAGE.'/authors/add'] = "admin_interface/insertAuthor";
 $route[ADMIN_START_PAGE.'/authors/edit'] = "admin_interface/editAuthor";
+/* ----------------------------------------------- Genres ----------------------------------------------------------- */
+$route[ADMIN_START_PAGE.'/genres(\/:any)*?'] = "admin_interface/genresList";
+$route[ADMIN_START_PAGE.'/genres/add'] = "admin_interface/insertGenre";
+$route[ADMIN_START_PAGE.'/genres/edit'] = "admin_interface/editGenre";
 /* ----------------------------------------------- Pages ---------------------------------------------------------- */
 $route[ADMIN_START_PAGE.'/pages'] = "admin_interface/pagesList";
 $route[ADMIN_START_PAGE.'/pages/:any/edit'] = "admin_interface/editPages";

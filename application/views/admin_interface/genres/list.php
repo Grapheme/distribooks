@@ -19,30 +19,32 @@
 			<div class="span9">
 				<ul class="breadcrumb">
 					<li><a href="<?=site_url(ADMIN_START_PAGE);?>">Панель управления</a> <span class="divider">/</span></li>
-					<li class="active">Авторы</li>
+					<li class="active">Жанры</li>
 				</ul>
 				<div class="clear"></div>
 				<div class="inline">
-					<a href="<?=site_url(ADMIN_START_PAGE.'/authors/add')?>" class="btn btn-info">Добавить автора</a>
+					<a href="<?=site_url(ADMIN_START_PAGE.'/genres/add')?>" class="btn btn-info">Добавить жанр</a>
 				</div>
-				<h2>Авторы</h2>
-				<?php $this->load->view('html/multy-search-form',array('form_action'=>uri_string(),'search_action'=>'search-authors-list')); ?>
+				<h2>Жанры</h2>
+				<?php $this->load->view('html/multy-search-form',array('form_action'=>uri_string(),'search_action'=>'search-genres-list')); ?>
 				<?=$pages;?>
-				<table class="table table-bordered table-striped table-hover table-condensed" data-action="<?=site_url(ADMIN_START_PAGE.'/authors/remove');?>">
+				<table class="table table-bordered table-striped table-hover table-condensed" data-action="<?=site_url(ADMIN_START_PAGE.'/genres/remove');?>">
 					<thead>
 						<tr>
 							<th class="span2"></th>
-							<th class="span6">Имя автора</th>
+							<th class="span5">Название</th>
+							<th class="span1">№ п.п.</th>
 						</tr>
 					</thead>
 					<tbody>
-					<?php for($i=0;$i<count($authors);$i++):?>
+					<?php for($i=0;$i<count($genres);$i++):?>
 						<tr>
 							<td>
-								<a <?=($this->input->get('search') != '' && count($authors) > 1)?'target="_blank"':''?> href="<?=site_url(ADMIN_START_PAGE.'/authors/edit?id='.$authors[$i]['id'])?>" class="btn btn-link" ><i class="icon-pencil"></i></a>
-								<button data-item="<?=$authors[$i]['id'];?>" class="btn btn-link remove-item"><i class="icon-remove"></i></button>
+								<a <?=($this->input->get('search') != '' && count($genres) > 1)?'target="_blank"':''?> href="<?=site_url(ADMIN_START_PAGE.'/genres/edit?id='.$genres[$i]['id'])?>" class="btn btn-link" ><i class="icon-pencil"></i></a>
+								<button data-item="<?=$genres[$i]['id'];?>" class="btn btn-link remove-item"><i class="icon-remove"></i></button>
 							</td>
-							<td><?=$authors[$i]['ru_name'].' ('.$authors[$i]['en_name'].')';?></td>
+							<td><?=$genres[$i]['ru_title'].' ('.$genres[$i]['en_title'].')';?></td>
+							<td><?=$genres[$i]['sort'];?></td>
 						</tr>
 					<?php endfor;?>
 					</tbody>

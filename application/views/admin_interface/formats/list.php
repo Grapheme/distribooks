@@ -31,7 +31,6 @@
 						<tr>
 							<th class="span2"></th>
 							<th class="span2">Название</th>
-							<th class="span5">Описание</th>
 							<th class="span1">№ п.п.</th>
 						</tr>
 					</thead>

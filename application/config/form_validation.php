@@ -35,5 +35,10 @@
 			array('field'=>'ru_name','label'=>'Имя','rules'=>'required|trim|htmlspecialchars|xss_clean'),
 			array('field'=>'en_name','label'=>'Name','rules'=>'required|trim|htmlspecialchars|xss_clean'),
 		),
+		'genre' =>array(
+			array('field'=>'ru_title','label'=>'Название','rules'=>'required|trim|htmlspecialchars|xss_clean'),
+			array('field'=>'en_title','label'=>'Title','rules'=>'required|trim|htmlspecialchars|xss_clean'),
+			array('field'=>'sort','label'=>'Порядковый номер','rules'=>'trim|integer')
+		),
 	);
 ?>
