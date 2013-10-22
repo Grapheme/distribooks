@@ -49,6 +49,7 @@ define('FROM_BASE_EMAIL',						'noreply@distribbooks.ru');
 
 define('ALLOWED_TYPES_DOCUMENTS',				'doc|docx|xls|xlsx|txt|pdf|ppt|pptx');
 define('ALLOWED_TYPES_IMAGES',					'jpg|gif|jpeg|png');
+define('ALLOWED_TYPES_BOOKS',					'*');
 
 define('OAUTH_VK',								'https://oauth.vk.com/authorize?client_id=3539213&response_type=code&redirect_uri=');
 define('OAUTH_FACEBOOK',						'https://www.facebook.com/dialog/oauth?client_id=341255199337226&response_type=code&redirect_uri=');

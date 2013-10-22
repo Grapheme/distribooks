@@ -7,7 +7,7 @@ class Admin_ajax_interface extends MY_Controller{
 	function __construct(){
 		
 		parent::__construct();
-		if(!$this->input->is_ajax_request() || $this->account['group'] != ADMIN_GROUP_VALUE):
+		if($this->account['group'] != ADMIN_GROUP_VALUE):
 			show_404();
 		endif;
 	}
@@ -456,6 +456,56 @@ class Admin_ajax_interface extends MY_Controller{
 		$this->books->delete($this->input->post('id'));
 		$this->matching->delete(NULL,array('book'=>$this->input->post('id')));
 		$this->json_request['status'] = TRUE;
+		echo json_encode($this->json_request);
+	}
+	
+	public function uploadBook(){
+		
+		if(!$this->input->get_request_header('X-file-name',TRUE)):
+			show_404();
+		endif;
+		$this->json_request['resource_id'] = 0; $this->json_request['resource_title'] = ''; $this->json_request['format'] = '';
+		$this->load->model(array('books','formats'));
+		if($book = $this->books->getWhere($this->input->get('id'))):
+			$resultUpload = $this->uploadSingleDocument(getcwd().'/catalog');
+			if($resultUpload['status'] == TRUE):
+				$resource = $resultUpload['uploadData'];
+				if(!$resource['format_id'] = $this->formats->search('title',$resource['file_ext'])):
+					$resource['format_id'] = 0;
+				endif;
+				$resources = json_decode($book['files'],TRUE);
+				$resource['number'] = count($resources)+1;
+				$resources[] = $resource;
+				$this->books->updateField($this->input->get('id'),'files',json_encode($resources));
+				$this->json_request['resource_title'] = $resultUpload['uploadData']['file_name'].', '.$resultUpload['uploadData']['file_size'].' кбайт';
+				$this->load->helper('string');
+				$this->json_request['responsePhotoSrc'] = '<img class="" src="'.site_url('book-format/'.$resource['format_id']).'" alt="" />';
+				$this->json_request['responsePhotoSrc'] .= '<a href="#" data-resource-id="'.$resource['number'].'" class="delete-resource-item">&times;</a>';
+				$this->json_request['status'] = TRUE;
+			else:
+				$this->json_request['responseText'] = $resultUpload['message'];
+			endif;
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	public function removeBookFile(){
+		
+		$this->json_request['resource_id'] = 0; $this->json_request['resource_title'] = ''; $this->json_request['format'] = '';
+		$this->load->model(array('books','formats'));
+		if($book = $this->books->getWhere($this->input->get('book'))):
+			$resources = json_decode($book['files'],TRUE);
+			$resource = array();
+			for($i=0;$i<count($resources);$i++):
+				if($resources[$i]['number'] != $this->input->post('resourceID')):
+					$resource[] = $resources[$i];
+				else:
+					$this->filedelete($resources[$i]['full_path']);
+				endif;
+			endfor;
+			$this->books->updateField($this->input->get('book'),'files',json_encode($resource));
+			$this->json_request['status'] = TRUE;
+		endif;
 		echo json_encode($this->json_request);
 	}
 	

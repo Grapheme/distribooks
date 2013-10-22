@@ -45,6 +45,7 @@
 						<tr>
 							<td>
 								<a <?=($this->input->get('search') != '' && count($books) > 1)?'target="_blank"':''?> href="<?=site_url(ADMIN_START_PAGE.'/books/edit?id='.$books[$i]['id'])?>" class="btn btn-link" ><i class="icon-pencil"></i></a>
+								<a <?=($this->input->get('search') != '' && count($books) > 1)?'target="_blank"':''?> href="<?=site_url(ADMIN_START_PAGE.'/books/upload?mode=files&id='.$books[$i]['id'])?>" title="Книги" class="btn btn-link" ><i class="icon-book"></i></a>
 								<button data-item="<?=$books[$i]['id'];?>" class="btn btn-link remove-item"><i class="icon-remove"></i></button>
 							</td>
 							<td>

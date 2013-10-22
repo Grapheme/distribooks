@@ -345,38 +345,20 @@ class MY_Controller extends CI_Controller{
 	
 	public function showDocumentIco(){
 		
-		$resource = NULL;
-		$access = FALSE;
-		if($this->input->get('resource_id') != FALSE && is_numeric($this->input->get('resource_id'))):
-			switch($this->uri->segment(1)):
-				case 'project-lesson':
-					$this->load->model('project_lesson_resources');
-					if($record = $this->project_lesson_resources->getWhere($this->input->get('resource_id'))):
-						if($this->isMyCourse($record['course'])):
-							$access = TRUE;
-						elseif($this->account['group'] == ADMIN_GROUP_VALUE):
-							$access = TRUE;
-						elseif($result = $this->isMySubscribeInCourses(array($record))):
-							if(isset($result[0]['mysubscribe']) && $result[0]['mysubscribe'] === TRUE):
-								$access = TRUE;
-							endif;
-						endif;
-					endif;
-					break;
-			endswitch;
-			if($access === TRUE && !is_null($record) && !empty($record)):
-				$FileData = json_decode($record['comment'],TRUE);
+		$ico = NULL;
+		if($this->uri->segment(2)):
+			$this->load->model('formats');
+			if($record = $this->formats->getWhere($this->uri->segment(2))):
+				if(!empty($record['image'])):
+					$ico = file_get_contents(getcwd().'/'.$record['image']);
+				endif;
 			endif;
 		endif;
-		if(is_null($resource)):
-			if(isset($this->acceptedDocTypes[$FileData['file_type']])):
-				$resource = file_get_contents($this->acceptedDocTypes[$FileData['file_type']]);
-			else:
-				$resource = file_get_contents(base_url('img/icons/no-icon-thumbnail.png'));
-			endif;
+		if(is_null($ico)):
+			$ico = file_get_contents(getcwd().'/img/unknown.png');
 		endif;
 		header('Content-type: image/jpeg');
-		echo $resource;
+		echo $ico;
 	}
 	
 	public function imageManupulation($userfile,$dim = 'width',$ratio = TRUE,$width = 60,$height = 60){
@@ -660,10 +642,10 @@ class MY_Controller extends CI_Controller{
 				$this->load->helper('string');
 				$config = array();
 				$config['upload_path'] = $uploadPath.'/';
-				$config['allowed_types'] = ALLOWED_TYPES_DOCUMENTS;
+				$config['allowed_types'] = ALLOWED_TYPES_BOOKS;
 				$config['remove_spaces'] = TRUE;
 				$config['overwrite'] = TRUE;
-				$config['max_size'] = 5120;
+				$config['max_size'] = 50000;
 				if(is_null($file_name)):
 					$config['file_name'] = random_string('nozero',12).'.'.substr(strrchr($_FILES['file']['name'], '.'),1);
 				else:

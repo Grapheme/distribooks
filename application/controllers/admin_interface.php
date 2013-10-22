@@ -43,7 +43,6 @@ class Admin_interface extends MY_Controller{
 		$this->load->view("admin_interface/news/edit",$pagevar);
 	}
 	/******************************************** cabinet *******************************************************/
-	
 	/********************************************* formats ********************************************************/
 	public function formatsСategories(){
 		
@@ -139,12 +138,12 @@ class Admin_interface extends MY_Controller{
 			'pages' => NULL
 		);
 		if($this->input->get('search') === FALSE || $this->input->get('search') == ''):
-			if($this->input->get('render') === FALSE || !is_numeric($this->input->get('render'))):
+			if($this->input->get('genre') === FALSE || !is_numeric($this->input->get('genre'))):
 				$pagevar['genres'] = $this->genres->limit(PER_PAGE_DEFAULT,$this->uri->segment(4));
 				$pagevar['pages'] = $this->pagination('admin-panel/genres',4,$this->genres->countAllResults(),PER_PAGE_DEFAULT);
 			else:
-				$pagevar['genres'] = $this->genres->limit(PER_PAGE_DEFAULT,$this->uri->segment(4),NULL,array('gender'=>$this->input->get('render')));
-				$pagevar['pages'] = $this->pagination('admin-panel/genres',4,$this->genres->countAllResults(array('gender'=>$this->input->get('render'))),PER_PAGE_DEFAULT);
+				$pagevar['genres'] = $this->genres->limit(PER_PAGE_DEFAULT,$this->uri->segment(4),NULL,array('gender'=>$this->input->get('genre')));
+				$pagevar['pages'] = $this->pagination('admin-panel/genres',4,$this->genres->countAllResults(array('gender'=>$this->input->get('genre'))),PER_PAGE_DEFAULT);
 			endif;
 		else:
 			if($genres = $this->getGenresByIDs($this->input->get('search'))):
@@ -178,8 +177,13 @@ class Admin_interface extends MY_Controller{
 			'pages' => NULL
 		);
 		if($this->input->get('search') === FALSE || $this->input->get('search') == ''):
-			$pagevar['books'] = $this->books->limit(PER_PAGE_DEFAULT,$this->uri->segment(4));
-			$pagevar['pages'] = $this->pagination('admin-panel/books',4,$this->books->countAllResults(),PER_PAGE_DEFAULT);
+			if($this->input->get('genre') === FALSE || !is_numeric($this->input->get('genre'))):
+				$pagevar['books'] = $this->books->limit(PER_PAGE_DEFAULT,$this->uri->segment(4));
+				$pagevar['pages'] = $this->pagination('admin-panel/books',4,$this->books->countAllResults(),PER_PAGE_DEFAULT);
+			else:
+				$pagevar['books'] = $this->books->limit(PER_PAGE_DEFAULT,$this->uri->segment(4),NULL,array('genre'=>$this->input->get('genre')));
+				$pagevar['pages'] = $this->pagination('admin-panel/books',4,$this->books->countAllResults(array('genre'=>$this->input->get('genre'))),PER_PAGE_DEFAULT);
+			endif;
 		else:
 			if($books = $this->getBooksByIDs($this->input->get('search'))):
 				$booksIDs = $this->getValuesInArray($books,'id');
@@ -214,6 +218,16 @@ class Admin_interface extends MY_Controller{
 		$pagevar['authors'] = $this->getAuthorsByIDs($pagevar['book']['authors']);
 		$pagevar['book']['keywords'] = $this->getBookKeyWords($pagevar['book']['id']);
 		$this->load->view("admin_interface/books/edit",$pagevar);
+	}
+	
+	public function uploadBooks(){
+		
+		$this->load->model(array('books','formats'));
+		$pagevar = array(
+			'book' => $this->books->getWhere($this->input->get('id')),
+			'formats' => $this->formats->getAll()
+		);
+		$this->load->view("admin_interface/books/upload",$pagevar);
 	}
 	/***********************************************************************************************************/
 }

@@ -8,7 +8,7 @@ $route['login-in'] = "global_interface/loginIn";
 $route['log-off'] = "global_interface/logoff";
 $route['redactor/upload'] = "global_interface/redactorUploadImage";
 $route['redactor/get-uploaded-images'] = "global_interface/redactorUploadedImages";
-$route['publications/view-document/:any'] = "global_interface/showDocumentIco";
+$route['book-format/:num'] = "global_interface/showDocumentIco";
 $route['load-image/avatar/:num'] = "global_interface/loadimage";
 /********** sing in by social network *************/
 $route['sign-in/vk'] = "global_interface/signInVK";
@@ -51,6 +51,8 @@ $route[ADMIN_START_PAGE.'/genres/remove'] = "admin_ajax_interface/removeGenre";
 $route[ADMIN_START_PAGE.'/books/insert'] = "admin_ajax_interface/insertBook";
 $route[ADMIN_START_PAGE.'/books/update'] = "admin_ajax_interface/updateBook";
 $route[ADMIN_START_PAGE.'/books/remove'] = "admin_ajax_interface/removeBook";
+$route[ADMIN_START_PAGE.'/books/uploading'] = "admin_ajax_interface/uploadBook";
+$route[ADMIN_START_PAGE.'/books/remove/book'] = "admin_ajax_interface/removeBookFile";
 /************************************************** ADMIN INTRERFACE ***********************************************/
 $route[ADMIN_START_PAGE] = "admin_interface/controlPanel";
 $route[ADMIN_START_PAGE.'/news/add'] = "admin_interface/addNews";
@@ -74,6 +76,7 @@ $route[ADMIN_START_PAGE.'/genres/edit'] = "admin_interface/editGenre";
 $route[ADMIN_START_PAGE.'/books(\/:any)*?'] = "admin_interface/booksList";
 $route[ADMIN_START_PAGE.'/books/add'] = "admin_interface/insertBook";
 $route[ADMIN_START_PAGE.'/books/edit'] = "admin_interface/editBook";
+$route[ADMIN_START_PAGE.'/books/upload'] = "admin_interface/uploadBooks";
 /* ----------------------------------------------- Pages ---------------------------------------------------------- */
 $route[ADMIN_START_PAGE.'/pages'] = "admin_interface/pagesList";
 $route[ADMIN_START_PAGE.'/pages/:any/edit'] = "admin_interface/editPages";
