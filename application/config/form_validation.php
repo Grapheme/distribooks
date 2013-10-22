@@ -44,5 +44,11 @@
 			array('field'=>'ru_title','label'=>'Название','rules'=>'required|trim|htmlspecialchars|xss_clean'),
 			array('field'=>'en_title','label'=>'Title','rules'=>'required|trim|htmlspecialchars|xss_clean'),
 		),
+		'book_caption' =>array(
+			array('field'=>'sort','label'=>'Порядковый номер','rules'=>'trim|integer|xss_clean'),
+			array('field'=>'number','label'=>'Номер книги','rules'=>'required|trim|integer|xss_clean'),
+			array('field'=>'caption','label'=>'Подпись книги','rules'=>'trim|htmlspecialchars|xss_clean'),
+			array('field'=>'format','label'=>'Формат','rules'=>'required|trim|integer|xss_clean'),
+		),
 	);
 ?>

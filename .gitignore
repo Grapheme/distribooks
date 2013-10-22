@@ -9,6 +9,7 @@ application/logs/*
 
 download/*
 temporary/*
+catalog/*
 
 *.clpprj
 *.project

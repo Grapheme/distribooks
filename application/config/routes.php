@@ -53,6 +53,7 @@ $route[ADMIN_START_PAGE.'/books/update'] = "admin_ajax_interface/updateBook";
 $route[ADMIN_START_PAGE.'/books/remove'] = "admin_ajax_interface/removeBook";
 $route[ADMIN_START_PAGE.'/books/uploading'] = "admin_ajax_interface/uploadBook";
 $route[ADMIN_START_PAGE.'/books/remove/book'] = "admin_ajax_interface/removeBookFile";
+$route[ADMIN_START_PAGE.'/books/caption'] = "admin_ajax_interface/captionBook";
 /************************************************** ADMIN INTRERFACE ***********************************************/
 $route[ADMIN_START_PAGE] = "admin_interface/controlPanel";
 $route[ADMIN_START_PAGE.'/news/add'] = "admin_interface/addNews";

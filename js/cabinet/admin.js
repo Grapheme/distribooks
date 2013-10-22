@@ -43,4 +43,29 @@ $(function(){
 			error: function(xhr,textStatus,errorThrown){}
 		});
 	});
+	$("button.btn-book-caption").click(function(){
+		var _this = this;
+		var number = $(this).attr('data-item');
+		var caption = $(this).siblings('input.book-caption').val().trim();
+		var sort = $(this).siblings('input.book-sort').val().trim();
+		var format = $(this).siblings('select.book-format').val().trim();
+		var action = $(this).parents('ul.book-items').attr('data-action');
+		$.ajax({
+			url: action,type: 'POST',dataType: 'json',
+			data:{'number':number,'caption':caption,'sort':sort,'format':format},
+			beforeSend: function(){$(_this).addClass('loading');},
+			success: function(response,textStatus,xhr){
+				$(_this).removeClass('loading');
+				if(response.status){
+					$(_this).html('OK').removeClass('btn-info').addClass('btn-success');
+				}else{
+					$(_this).html('NOT').removeClass('btn-info').addClass('btn-danger');
+				}
+			},
+			error: function(xhr,textStatus,errorThrown){
+				$(_this).removeClass('loading');
+				$(_this).html('ERR').removeClass('btn-info').addClass('btn-danger');
+			}
+		});
+	});
 });

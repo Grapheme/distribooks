@@ -474,7 +474,8 @@ class Admin_ajax_interface extends MY_Controller{
 					$resource['format_id'] = 0;
 				endif;
 				$resources = json_decode($book['files'],TRUE);
-				$resource['number'] = count($resources)+1;
+				$resource['sort'] = $resource['number'] = count($resources)+1;
+				$resource['caption'] = '';
 				$resources[] = $resource;
 				$this->books->updateField($this->input->get('id'),'files',json_encode($resources));
 				$this->json_request['resource_title'] = $resultUpload['uploadData']['file_name'].', '.$resultUpload['uploadData']['file_size'].' кбайт';
@@ -507,6 +508,29 @@ class Admin_ajax_interface extends MY_Controller{
 			$this->json_request['status'] = TRUE;
 		endif;
 		echo json_encode($this->json_request);
+	}
+	
+	public function captionBook(){
+		
+		$json_request = array('status'=>FALSE);
+		if($this->postDataValidation('book_caption')):
+			$this->load->model('books');
+			if($book = $this->books->getWhere($this->input->get('book'))):
+				$resources = json_decode($book['files'],TRUE);
+				for($i=0;$i<count($resources);$i++):
+					if($resources[$i]['number'] == $this->input->post('number')):
+						$resources[$i]['caption'] = $this->input->post('caption');
+						$resources[$i]['sort'] = $this->input->post('sort');
+						$resources[$i]['format_id'] = $this->input->post('format');
+					endif;
+				endfor;
+				$this->books->updateField($this->input->get('book'),'files',json_encode($resources));
+				$json_request['status'] = TRUE;
+			endif;
+		else:
+			$json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($json_request);
 	}
 	
 	private function insertingBook($post){
