@@ -99,4 +99,12 @@ $lang['form_service_button'] = "Send a request";
 $lang['404_menu'] = "Menu";
 $lang['404_services'] = "Services";
 
+$lang['book_age_limit'] = "Age limit";
+$lang['book_genre'] = "Genre";
+$lang['book_tags'] = "Tags";
+$lang['book_copyright'] = "Copyright";
+$lang['book_date_released'] = "Date released";
+$lang['book_size'] = "Size";
+$lang['book_isbn'] = "ISBN";
+$lang['book_formats'] = "Available formats";
 ?>

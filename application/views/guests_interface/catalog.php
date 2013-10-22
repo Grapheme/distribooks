@@ -28,18 +28,22 @@
 			</div>
 			<div class="grid_4 top-shop-div">
 				<p class="top-shop-title"><?=lang('catalog_top_shop')?>:</p>
-			<?php for($i=0;$i<3;$i++):?>
+			<?php for($i=0;$i<count($bestsellers);$i++):?>
 				<div class="top-shop">
 					<div class="shop-top">
 						<div class="shop-img">
 							<a href="#" class="shopi" id="play" src=""></a>
 							<a href="#" class="shopi" id="a"></a>
 							<a href="#" class="shopi" id="like" data-tooltip="2323"></a>
-							<div class="shop-img-cont big"><img src="<?=baseURL('img/book-big.png');?>"></div>
+							<div class="shop-img-cont big"><img src="<?=baseURL($bestsellers[$i]['thumbnail']);?>"></div>
 						</div>
 						<div class="shop-about">
-							<a href="#" class="title">Softman</a>
-							<p class="author">Author Show</p>
+							<a href="<?=$bestsellers[$i]['page_address']?>" class="title"><?=$bestsellers[$i][$this->uri->language_string.'_title'];?></a>
+							<p class="author">
+							<?php for($j=0;$j<count($bestsellers[$i]['authors']);$j++):?>
+								<?=$bestsellers[$i]['authors'][$j][$this->uri->language_string.'_name'];?><?php if(isset($bestsellers[$i]['authors'][$j+1])):?>, <?php endif;?>
+							<?php endfor;?>
+							</p>
 							<div class="rating-shop">
 								<img src="<?=baseURL('img/star.png');?>">
 								<img src="<?=baseURL('img/star.png');?>">
@@ -47,18 +51,15 @@
 								<img src="<?=baseURL('img/star-none.png');?>">
 								<img src="<?=baseURL('img/star-none.png');?>">
 							</div>
-							<a href="#" class="genre">Comedy</a>
-							<p class="price">780 RUB</p>
+							<a href="#" class="genre"><?=$bestsellers[$i]['genre_title'];?></a>
+							<p class="price"><?=$bestsellers[$i]['price']?> <?=$currency[$bestsellers[$i]['currency']-1]['title'];?></p>
 						</div>
 					</div>
 					<div class="buyor">
 						<a href="#" class="buy"><?=lang('book_shop_buyor')?></a><p class="tocart"><span><?=lang('book_or')?></span><a href="#"><?=lang('book_shop_tocart')?></a></p>
 					</div>
 					<div class="shop-desc">
-						Действие нового романа "Метро 2034" разворачивается во вселенной, описанной в первой части дилогии. 
-						Весь мир разрушен ядерной войной. Остатки человечества коротают последние дни в бункерах и бомбоубежищах, 
-						самое большое из которых - Московский Метрополитен... Все те, кто оказался в нем, когда на столицу падали 
-						боеголовки ракет, спаслись.
+						<?=$bestsellers[$i][$this->uri->language_string.'_anonce']?>
 					</div>
 				</div>
 			<?php endfor;?>
@@ -71,6 +72,7 @@
 				<div style="position: relative;"><img src="<?=baseURL('img/shadow-top.png');?>" class="shadow-top"></div>
 				<div class="grid_1 gift shop">&nbsp;</div>
 				<div class="grid_1 pos1">&nbsp;</div>
+				<?php for($i=0;$i<count($trailers);$i++):?>
 				<div class="grid_2 vidiv">
 					<a href="#" class="vid-like"><img src="<?=baseURL('img/shop-like.png');?>"><?=lang('book_share')?></a>
 					<a href="#" class="vid-name">Softman</a>
@@ -79,14 +81,7 @@
 						<img class="adult" src="<?=baseURL('img/adult.png');?>">
 					</a>
 				</div>
-				<div class="grid_2 vidiv">
-					<a href="#" class="vid-like"><img src="<?=baseURL('img/shop-like.png');?>"><?=lang('book_share')?></a>
-					<a href="#" class="vid-name">Softman</a>
-					<a href="#" class="vid-play"></a>
-					<a href="#" class="vid" style="background-image: url('<?=baseURL('img/vid.png');?>');">
-						<img class="adult" src="<?=baseURL('img/adult.png');?>">
-					</a>
-				</div>
+				<?php endfor;?>
 			</div>
 		</div>
 		<div class="container_5">
@@ -98,17 +93,21 @@
 			<div class="grid_4 shop-new-div">
 				<p class="top-shop-title"><?=lang('catalog_novelty')?>:</p>
 			<?php for($i=0;$i<count($novelty);$i++):?>
-				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count()-1))?' omega':'';?>">
+				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($novelty)-1))?' omega':'';?>">
 					<div class="shop-top">
 						<div class="shop-img">
 							<a href="#" class="shopi" id="play" src=""></a>
 							<a href="#" class="shopi" id="a" src="<?=baseURL('img/shop-a.png');?>"></a>
 							<a href="#" class="shopi" id="like" src="<?=baseURL('img/shop-like.png');?>"></a>
-							<div class="shop-img-cont"><img src="<?=baseURL('img/book-big.png');?>"></div>
+							<div class="shop-img-cont"><img src="<?=baseURL($novelty[$i]['thumbnail']);?>"></div>
 						</div>
 						<div class="shop-about">
-							<a href="#" class="title">Softman</a>
-							<p class="author">Author Birman</p>
+							<a href="<?=$novelty[$i]['page_address']?>" class="title"><?=$novelty[$i][$this->uri->language_string.'_title'];?></a>
+							<p class="author">
+							<?php for($j=0;$j<count($novelty[$i]['authors']);$j++):?>
+								<?=$novelty[$i]['authors'][$j][$this->uri->language_string.'_name'];?><?php if(isset($novelty[$i]['authors'][$j+1])):?>, <?php endif;?>
+							<?php endfor;?>
+							</p>
 							<div class="rating-shop">
 								<img src="<?=baseURL('img/star.png');?>">
 								<img src="<?=baseURL('img/star.png');?>">
@@ -116,8 +115,8 @@
 								<img src="<?=baseURL('img/star-none.png');?>">
 								<img src="<?=baseURL('img/star-none.png');?>">
 							</div>
-							<a href="#" class="genre">Drama</a>
-							<p class="price">450 RUB</p>
+							<a href="#" class="genre"><?=$novelty[$i]['genre_title'];?></a>
+							<p class="price"><?=$novelty[$i]['price']?> <?=$currency[$novelty[$i]['currency']-1]['title'];?></p>
 						</div>
 					</div>
 					<div class="buyor">
@@ -133,17 +132,21 @@
 			<div class="grid_4 shop-new-div">
 				<p class="top-shop-title"><?=lang('catalog_recommended')?>:</p>
 			<?php for($i=0;$i<count($recommended);$i++):?>
-				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count()-1))?' omega':'';?>">
+				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($recommended)-1))?' omega':'';?>">
 					<div class="shop-top">
 						<div class="shop-img">
 							<a href="#" class="shopi" id="play" src=""></a>
 							<a href="#" class="shopi" id="a" src="<?=baseURL('img/shop-a.png');?>"></a>
 							<a href="#" class="shopi" id="like" src="<?=baseURL('img/shop-like.png');?>"></a>
-							<div class="shop-img-cont"><img src="<?=baseURL('img/book-big.png');?>"></div>
+							<div class="shop-img-cont"><img src="<?=baseURL($recommended[$i]['thumbnail']);?>"></div>
 						</div>
 						<div class="shop-about">
-							<a href="#" class="title">Softman</a>
-							<p class="author">Author Birman</p>
+							<a href="<?=$recommended[$i]['page_address']?>" class="title"><?=$recommended[$i][$this->uri->language_string.'_title'];?></a>
+							<p class="author">
+							<?php for($j=0;$j<count($recommended[$i]['authors']);$j++):?>
+								<?=$recommended[$i]['authors'][$j][$this->uri->language_string.'_name'];?><?php if(isset($recommended[$i]['authors'][$j+1])):?>, <?php endif;?>
+							<?php endfor;?>
+							</p>
 							<div class="rating-shop">
 								<img src="<?=baseURL('img/star.png');?>">
 								<img src="<?=baseURL('img/star.png');?>">
@@ -151,8 +154,8 @@
 								<img src="<?=baseURL('img/star-none.png');?>">
 								<img src="<?=baseURL('img/star-none.png');?>">
 							</div>
-							<a href="#" class="genre">Drama</a>
-							<p class="price">450 RUB</p>
+							<a href="#" class="genre"><?=$recommended[$i]['genre_title'];?></a>
+							<p class="price"><?=$recommended[$i]['price']?> <?=$currency[$recommended[$i]['currency']-1]['title'];?></p>
 						</div>
 					</div>
 					<div class="buyor">
@@ -169,17 +172,21 @@
 				<p class="top-shop-title"><?=lang('catalog_catalog')?>:</p>
 				<p class="shop-sort"><?=lang('book_sort_by')?>: <a href="#" class="sort-link"><?=lang('book_sort_price')?></a> | <a href="#" class="sort-link"><?=lang('book_sort_title')?></a> | <a href="#" class="sort-link"><?=lang('book_sort_rating')?></a></p>
 			<?php for($i=0;$i<count($catalog);$i++):?>
-				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count()-1))?' omega':'';?>">
+				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($catalog)-1))?' omega':'';?>">
 					<div class="shop-top">
 						<div class="shop-img">
 							<a href="#" class="shopi" id="play" src=""></a>
 							<a href="#" class="shopi" id="a" src="<?=baseURL('img/shop-a.png');?>"></a>
 							<a href="#" class="shopi" id="like" src="<?=baseURL('img/shop-like.png');?>"></a>
-							<div class="shop-img-cont"><img src="<?=baseURL('img/book-big.png');?>"></div>
+							<div class="shop-img-cont"><img src="<?=baseURL($catalog[$i]['thumbnail']);?>"></div>
 						</div>
 						<div class="shop-about">
-							<a href="#" class="title">Softman</a>
-							<p class="author">Author Birman</p>
+							<a href="<?=$catalog[$i]['page_address']?>" class="title"><?=$catalog[$i][$this->uri->language_string.'_title'];?></a>
+							<p class="author">
+							<?php for($j=0;$j<count($catalog[$i]['authors']);$j++):?>
+								<?=$catalog[$i]['authors'][$j][$this->uri->language_string.'_name'];?><?php if(isset($catalog[$i]['authors'][$j+1])):?>, <?php endif;?>
+							<?php endfor;?>
+							</p>
 							<div class="rating-shop">
 								<img src="<?=baseURL('img/star.png');?>">
 								<img src="<?=baseURL('img/star.png');?>">
@@ -187,8 +194,8 @@
 								<img src="<?=baseURL('img/star-none.png');?>">
 								<img src="<?=baseURL('img/star-none.png');?>">
 							</div>
-							<a href="#" class="genre">Drama</a>
-							<p class="price">450 RUB</p>
+							<a href="#" class="genre"><?=$catalog[$i]['genre_title'];?></a>
+							<p class="price"><?=$catalog[$i]['price']?> <?=$currency[$catalog[$i]['currency']-1]['title'];?></p>
 						</div>
 					</div>
 					<div class="buyor">

@@ -51,6 +51,21 @@ class Guests_interface extends MY_Controller{
 						$pagevar['breadcrumbs'] = array('news'=>lang('news_block'),$page['page_address']=>$pagevar['news'][$this->uri->language_string.'_title']);
 						$pageContent = $this->load->view('guests_interface/single-news',$pagevar,TRUE);
 						break;
+					case 'books':
+						$this->load->model(array('books_card','currency','age_limit','genres'));
+						$pagevar['book'] = $this->books_card->getWhere($page['item_id']);
+						$pagevar['authors'] = $this->getAuthorsByIDs($pagevar['book']['authors']);
+						$pagevar['currency'] = $this->currency->getAll();
+						$pagevar['age_limit'] = $this->age_limit->getAll();
+						$pagevar['book']['genre_title'] = $this->genres->value($pagevar['book']['genre'],$this->uri->language_string.'_title');
+						
+						if($keywords = $this->getBookKeyWords($page['item_id'])):
+							$pagevar['keywords'] = explode(',',$keywords);
+						endif;
+						
+						$pagevar['breadcrumbs'] = array('catalog'=>lang('catalog_catalog'),$page['page_address']=>$pagevar['book'][$this->uri->language_string.'_title']);
+						$pageContent = $this->load->view('guests_interface/single-book',$pagevar,TRUE);
+						break;
 				endswitch;
 			endif;
 			if(empty($pageContent) === FALSE):
@@ -132,16 +147,52 @@ class Guests_interface extends MY_Controller{
 	
 	public function catalog(){
 		
+		$this->load->model(array('books_card','currency'));
 		$pagevar = array(
-			'page_content'=>array(),
-			'breadcrumbs' =>array('fantastic'=>'Фантастика'),
-			'novelty' =>array(),
-			'recommended' =>array(),
-			'catalog' =>array()
+			'page_content'=> array(),
+			'breadcrumbs' => array('catalog'=>lang('catalog_catalog')),
+			'bestsellers' => $this->books_card->limit(5,$this->uri->segment(4)),
+			'trailers' => $this->books_card->limit(5,$this->uri->segment(4)),
+			'novelty' => $this->books_card->limit(5,$this->uri->segment(4)),
+			'recommended' => $this->books_card->limit(5,$this->uri->segment(4)),
+			'catalog' => $this->books_card->limit(PER_PAGE_DEFAULT,$this->uri->segment(4)),
+			'pages' => $this->pagination('catalog',4,$this->books_card->countAllResults(),PER_PAGE_DEFAULT),
+			'currency' => $this->currency->getAll()
 		);
+		for($i=0;$i<count($pagevar['catalog']);$i++):
+			$pagevar['catalog'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['catalog'][$i]['authors']);
+		endfor;
+		for($i=0;$i<count($pagevar['bestsellers']);$i++):
+			$pagevar['bestsellers'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['bestsellers'][$i]['authors']);
+		endfor;
+		for($i=0;$i<count($pagevar['novelty']);$i++):
+			$pagevar['novelty'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['novelty'][$i]['authors']);
+		endfor;
+		for($i=0;$i<count($pagevar['recommended']);$i++):
+			$pagevar['recommended'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['recommended'][$i]['authors']);
+		endfor;
+		$pagevar['catalog'] = $this->BooksGenre($pagevar['catalog']);
+		$pagevar['bestsellers'] = $this->BooksGenre($pagevar['bestsellers']);
+		$pagevar['novelty'] = $this->BooksGenre($pagevar['novelty']);
+		$pagevar['recommended'] = $this->BooksGenre($pagevar['recommended']);
 		$this->load->view("guests_interface/catalog",$pagevar);
 	}
-
+	
+	private function BooksGenre($books){
+		
+		$this->load->model('genres');
+		$genres = $this->genres->getAll();
+		for($i=0;$i<count($books);$i++):
+			$books[$i]['genre_title'] = '';
+			for($j=0;$j<count($genres);$j++):
+				if($books[$i]['genre'] == $genres[$j]['id']):
+					$books[$i]['genre_title'] = $genres[$j][$this->uri->language_string.'_title'];
+				endif;
+			endfor;
+		endfor;
+		return $books;
+	}
+	
 	private function setPageAddress($elements,$group){
 		
 		$metaTitles = $this->meta_titles->getWhere(NULL,array('group'=>$group),TRUE);

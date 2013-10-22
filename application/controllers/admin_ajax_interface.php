@@ -537,8 +537,8 @@ class Admin_ajax_interface extends MY_Controller{
 
 		$bookData = array(
 			'ru_title'=>$post['ru_title'],'en_title'=>$post['en_title'],'ru_anonce'=>$post['ru_anonce'],'en_anonce'=>$post['en_anonce'],
-			'ru_text'=>$post['ru_text'],'en_text'=>$post['en_text'],'date_released'=>$post['date_released'],'size'=>$post['size'],
-			'isbn'=>$post['isbn'],'age_limit'=>$post['age_limit'],'genre'=>$post['genre'],
+			'ru_text'=>$post['ru_text'],'en_text'=>$post['en_text'],'date_released'=>$post['date_released'],'ru_size'=>$post['ru_size'],
+			'isbn'=>$post['isbn'],'age_limit'=>$post['age_limit'],'genre'=>$post['genre'],'en_size'=>$post['en_size'],
 			'currency'=>$post['currency'],'price'=>$post['price'],'price_action'=>$post['price_action'],'authors'=>$post['authors'],
 			'ru_copyright'=>$post['ru_copyright'],'en_copyright'=>$post['en_copyright'],
 			'trailers'=>json_encode($post['trailers']),'audio_recording'=>json_encode($post['audio_recording'])
@@ -568,8 +568,8 @@ class Admin_ajax_interface extends MY_Controller{
 		$bookData = array(
 			'id'=>$post['book_id'],
 			'ru_title'=>$post['ru_title'],'en_title'=>$post['en_title'],'ru_anonce'=>$post['ru_anonce'],'en_anonce'=>$post['en_anonce'],
-			'ru_text'=>$post['ru_text'],'en_text'=>$post['en_text'],'date_released'=>$post['date_released'],'size'=>$post['size'],
-			'isbn'=>$post['isbn'],'age_limit'=>$post['age_limit'],'genre'=>$post['genre'],
+			'ru_text'=>$post['ru_text'],'en_text'=>$post['en_text'],'date_released'=>$post['date_released'],'ru_size'=>$post['ru_size'],
+			'isbn'=>$post['isbn'],'age_limit'=>$post['age_limit'],'genre'=>$post['genre'],'en_size'=>$post['en_size'],
 			'currency'=>$post['currency'],'price'=>$post['price'],'price_action'=>$post['price_action'],'authors'=>$post['authors'],
 			'ru_copyright'=>$post['ru_copyright'],'en_copyright'=>$post['en_copyright'],'sort'=>$post['sort'],
 			'trailers'=>json_encode($post['trailers']),'audio_recording'=>json_encode($post['audio_recording'])

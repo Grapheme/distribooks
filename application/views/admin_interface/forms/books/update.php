@@ -28,6 +28,8 @@
 				<textarea style="height: 200px;" class="redactor" name="ru_text"><?=$book['ru_text'];?></textarea>
 				<label>Правообладатель:</label>
 				<input type="text" name="ru_copyright" class="span4" value="<?=$book['ru_copyright'];?>" />
+				<label>Объем: </label>
+				<input type="text" name="ru_size" class="span3" value="<?=$book['ru_size'];?>"/>
 			</div>
 		</div>
 		<div class="tab-pane fade" id="en">
@@ -50,6 +52,8 @@
 				<textarea style="height: 200px;" class="redactor" name="en_text"><?=$book['en_text'];?></textarea>
 				<label>Copyright:</label>
 				<input type="text" name="en_copyright" class="span4" value="<?=$book['en_copyright'];?>" />
+				<label>Size: </label>
+				<input type="text" name="en_size" class="span3" value="<?=$book['en_size'];?>"/>
 			</div>
 		</div>
 		<div class="tab-pane fade" id="video">
@@ -123,8 +127,6 @@
 		</select>
 		<label>Дата выхода: </label>
 		<input type="text" name="date_released" class="span3" value="<?=$book['date_released'];?>"/>
-		<label>Объем: </label>
-		<input type="text" name="size" class="span3" value="<?=$book['size'];?>"/>
 		<label>ISBN: </label>
 		<input type="text" name="isbn" class="span3" value="<?=$book['isbn'];?>"/>
 	</div>

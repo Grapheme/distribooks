@@ -98,4 +98,13 @@ $lang['form_service_button'] = "Отправить заявку";
 
 $lang['404_menu'] = "Меню";
 $lang['404_services'] = "Услуги";
+
+$lang['book_age_limit'] = "Возрастное ограничение";
+$lang['book_genre'] = "Жанр";
+$lang['book_tags'] = "Теги";
+$lang['book_copyright'] = "Правообладатель";
+$lang['book_date_released'] = "Дата выхода";
+$lang['book_size'] = "Объем";
+$lang['book_isbn'] = "ISBN";
+$lang['book_formats'] = "Доступна в форматах";
 ?>

@@ -26,6 +26,8 @@
 				<textarea style="height: 200px;" class="redactor" name="ru_text"></textarea>
 				<label>Правообладатель:</label>
 				<input type="text" name="ru_copyright" class="span4" value="" />
+				<label>Объем: </label>
+				<input type="text" name="ru_size" class="span3" value=""/>
 			</div>
 		</div>
 		<div class="tab-pane fade" id="en">
@@ -48,6 +50,8 @@
 				<textarea style="height: 200px;" class="redactor" name="en_text"></textarea>
 				<label>Copyright:</label>
 				<input type="text" name="en_copyright" class="span4" value="" />
+				<label>Size: </label>
+				<input type="text" name="en_size" class="span3" value=""/>
 			</div>
 		</div>
 		<div class="tab-pane fade" id="video">
@@ -101,8 +105,6 @@
 		</select>
 		<label>Дата выхода: </label>
 		<input type="text" name="date_released" class="span3" value=""/>
-		<label>Объем: </label>
-		<input type="text" name="size" class="span3" value=""/>
 		<label>ISBN: </label>
 		<input type="text" name="isbn" class="span3" value=""/>
 	</div>
