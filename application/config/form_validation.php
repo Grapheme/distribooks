@@ -40,5 +40,9 @@
 			array('field'=>'en_title','label'=>'Title','rules'=>'required|trim|htmlspecialchars|xss_clean'),
 			array('field'=>'sort','label'=>'Порядковый номер','rules'=>'trim|integer')
 		),
+		'books' =>array(
+			array('field'=>'ru_title','label'=>'Название','rules'=>'required|trim|htmlspecialchars|xss_clean'),
+			array('field'=>'en_title','label'=>'Title','rules'=>'required|trim|htmlspecialchars|xss_clean'),
+		),
 	);
 ?>

@@ -10,4 +10,11 @@ $(function(){
 		}
 		mt.redirect(url);
 	});
+	$(".select-genres").change(function(){
+		var url = mt.currentURL.replace(/\?(.+)?/,'');
+		if($(this).emptyValue() == false){
+			url = url+'?genre='+$(this).val();
+		}
+		mt.redirect(url);
+	});
 });

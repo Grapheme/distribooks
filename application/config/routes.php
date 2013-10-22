@@ -16,6 +16,7 @@ $route['sign-in/facebook'] = "global_interface/signInUpFacebook";
 /*************************************************/
 $route['search-authors-list'] = "global_interface/searchAuthor";
 $route['search-genres-list'] = "global_interface/searchGenre";
+$route['search-books-list'] = "global_interface/searchBook";
 /***************************************************GUEST AJAX INTRERFACE ***********************************************/
 $route['request-order-editing'] = "guest_ajax_interface/requestOrderEditing";
 $route['request-do-editing'] = "guest_ajax_interface/requestDoEditing";
@@ -46,6 +47,10 @@ $route[ADMIN_START_PAGE.'/authors/remove'] = "admin_ajax_interface/removeAuthor"
 $route[ADMIN_START_PAGE.'/genres/insert'] = "admin_ajax_interface/insertGenre";
 $route[ADMIN_START_PAGE.'/genres/update'] = "admin_ajax_interface/updateGenre";
 $route[ADMIN_START_PAGE.'/genres/remove'] = "admin_ajax_interface/removeGenre";
+/****************** books *********************/
+$route[ADMIN_START_PAGE.'/books/insert'] = "admin_ajax_interface/insertBook";
+$route[ADMIN_START_PAGE.'/books/update'] = "admin_ajax_interface/updateBook";
+$route[ADMIN_START_PAGE.'/books/remove'] = "admin_ajax_interface/removeBook";
 /************************************************** ADMIN INTRERFACE ***********************************************/
 $route[ADMIN_START_PAGE] = "admin_interface/controlPanel";
 $route[ADMIN_START_PAGE.'/news/add'] = "admin_interface/addNews";
@@ -65,6 +70,10 @@ $route[ADMIN_START_PAGE.'/authors/edit'] = "admin_interface/editAuthor";
 $route[ADMIN_START_PAGE.'/genres(\/:any)*?'] = "admin_interface/genresList";
 $route[ADMIN_START_PAGE.'/genres/add'] = "admin_interface/insertGenre";
 $route[ADMIN_START_PAGE.'/genres/edit'] = "admin_interface/editGenre";
+/* ----------------------------------------------- Books ----------------------------------------------------------- */
+$route[ADMIN_START_PAGE.'/books(\/:any)*?'] = "admin_interface/booksList";
+$route[ADMIN_START_PAGE.'/books/add'] = "admin_interface/insertBook";
+$route[ADMIN_START_PAGE.'/books/edit'] = "admin_interface/editBook";
 /* ----------------------------------------------- Pages ---------------------------------------------------------- */
 $route[ADMIN_START_PAGE.'/pages'] = "admin_interface/pagesList";
 $route[ADMIN_START_PAGE.'/pages/:any/edit'] = "admin_interface/editPages";

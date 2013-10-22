@@ -23,7 +23,6 @@
 				<label>Фильтр по категории</label>
 				<?php $this->load->view('html/select/format-category');?>
 				<a href="<?=site_url(ADMIN_START_PAGE.'/formats/add'.getUrlLink())?>" class="btn">Добавить формат</a>
-				<div class="result-request"></div>
 			<?php if(!empty($formats)):?>
 				<h2>Форматы</h2>
 				<table class="table table-bordered table-striped table-hover table-condensed" data-action="<?=site_url(ADMIN_START_PAGE.'/formats/remove')?>">

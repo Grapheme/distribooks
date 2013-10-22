@@ -169,4 +169,16 @@ class Global_interface extends MY_Controller{
 		endif;
 		echo $json_request;
 	}
+	
+	public function searchBook(){
+		
+		$json_request = json_encode(array());
+		$this->load->model('books');
+		if($books = $this->books->searchBooksByChar($this->input->get('q'),RUSLAN)):
+			$json_request = json_encode($books);
+		elseif($books = $this->genres->searchBooksByChar($this->input->get('q'),ENGLAN)):
+			$json_request = json_encode($books);
+		endif;
+		echo $json_request;
+	}
 }

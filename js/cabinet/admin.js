@@ -8,6 +8,14 @@ $(function(){
 	$(".show-meta").click(function(){
 		$(this).siblings('.meta-block').toggleClass('hidden');
 	});
+	$(".add-media-content").click(function(){
+		$(this).siblings('textarea:last').clone().insertBefore(this);
+	});
+	$(".remove-media-content").click(function(){
+		if($(this).siblings('textarea').length > 1){
+			$(this).siblings('textarea:last').remove();
+		}
+	});
 	
 	$("button.btn-submit").click(function(){
 		var _form = $(this).parents('form');

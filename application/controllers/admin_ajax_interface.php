@@ -212,8 +212,9 @@ class Admin_ajax_interface extends MY_Controller{
 		
 		if($this->input->post('id')):
 			$this->deteleNewsImage($this->input->post('id'));
-			$this->load->model('news');
+			$this->load->model(array('news','meta_titles'));
 			$this->news->delete($this->input->post('id'));
+			$this->meta_titles->delete(NULL,array('group'=>'books','item_id'=>$this->input->post('id')));
 			$this->json_request['status'] = TRUE;
 		endif;
 		echo json_encode($this->json_request);
@@ -369,6 +370,198 @@ class Admin_ajax_interface extends MY_Controller{
 		
 		$this->updateItem(array('update'=>$post,'model'=>'genres'));
 		return TRUE;
+	}
+	/******************************************* books *******************************************************/
+	public function insertBook(){
+		
+		if($this->postDataValidation('books')):
+			if($this->validationPageAddress($this->input->post('page_address'))):
+				if($bookID = $this->insertingBook($this->input->post())):
+					$this->json_request['responseText'] = 'Книга добавлена';
+					if(isset($_FILES['file']['tmp_name'])):
+						$validImage = $this->validationUploadImage(array('min_width'=>300,'max_size'=>1000000));
+						if($validImage['status'] == TRUE):
+							$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,304,431);
+							$photoPath = getcwd().'/download/books';
+							$photoUpload = $this->uploadSingleImage($photoPath);
+							if($photoUpload['status'] == TRUE):
+								$this->load->model('books');
+								$this->books->updateField($bookID,'image','download/books/'.$photoUpload['uploadData']['file_name']);
+								$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,99,141);
+								$thumbnailUpload = $this->uploadSingleImage($photoPath);
+								if($thumbnailUpload['status'] == TRUE):
+									$this->books->updateField($bookID,'thumbnail','download/books/'.$thumbnailUpload['uploadData']['file_name']);
+								endif;
+							endif;
+						else:
+							$this->json_request['responseText'] = $validImage['response'];
+						endif;
+					endif;
+					$this->json_request['status'] = TRUE;
+					$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/books?genre='.$this->input->post('genre'));
+				endif;
+			else:
+				$this->json_request['responseText'] = 'Адрес страницы уже занят';
+			endif;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	public function updateBook(){
+		
+		if($this->postDataValidation('books')):
+			if($this->updatingBook($this->input->post())):
+				$this->json_request['status'] = TRUE;
+				$this->json_request['responseText'] = 'Книга cохранена';
+				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/books?genre='.$this->input->post('genre'));
+				if($this->input->post('delete_image') !== FALSE):
+					$this->deteleBooksImage($this->input->post('book_id'));
+				else:
+					if(isset($_FILES['file']['tmp_name'])):
+						$validImage = $this->validationUploadImage(array('min_width'=>300,'max_size'=>1000000));
+						if($validImage['status'] == TRUE):
+							$this->deteleBooksImage($this->input->post('book_id'));
+							$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,304,431);
+							$photoPath = getcwd().'/download/books';
+							$photoUpload = $this->uploadSingleImage($photoPath);
+							if($photoUpload['status'] == TRUE):
+								$this->load->model('books');
+								$this->books->updateField($this->input->post('book_id'),'image','download/books/'.$photoUpload['uploadData']['file_name']);
+								$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,105,149);
+								$thumbnailUpload = $this->uploadSingleImage($photoPath);
+								if($thumbnailUpload['status'] == TRUE):
+									$this->books->updateField($this->input->post('book_id'),'thumbnail','download/books/'.$thumbnailUpload['uploadData']['file_name']);
+								endif;
+							endif;
+						else:
+							$this->json_request['status'] = FALSE;
+							$this->json_request['responseText'] = $validImage['response'];
+							$this->json_request['redirect'] = FALSE;
+						endif;
+					endif;
+				endif;
+			endif;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	public function removeBook(){
+		
+		$this->load->model(array('books','matching','meta_titles'));
+		$this->deteleBooksImage($this->input->post('id'));
+		$this->books->delete($this->input->post('id'));
+		$this->matching->delete(NULL,array('book'=>$this->input->post('id')));
+		$this->json_request['status'] = TRUE;
+		echo json_encode($this->json_request);
+	}
+	
+	private function insertingBook($post){
+
+		$bookData = array(
+			'ru_title'=>$post['ru_title'],'en_title'=>$post['en_title'],'ru_anonce'=>$post['ru_anonce'],'en_anonce'=>$post['en_anonce'],
+			'ru_text'=>$post['ru_text'],'en_text'=>$post['en_text'],'date_released'=>$post['date_released'],'size'=>$post['size'],
+			'isbn'=>$post['isbn'],'age_limit'=>$post['age_limit'],'genre'=>$post['genre'],
+			'currency'=>$post['currency'],'price'=>$post['price'],'price_action'=>$post['price_action'],'authors'=>$post['authors'],
+			'ru_copyright'=>$post['ru_copyright'],'en_copyright'=>$post['en_copyright'],
+			'trailers'=>json_encode($post['trailers']),'audio_recording'=>json_encode($post['audio_recording'])
+		);
+		$this->load->model('books');
+		$bookData['sort'] = $this->books->getNextSortable();
+		if($bookID = $this->insertItem(array('insert'=>$bookData,'model'=>'books'))):
+			if(!empty($post['keywords'])):
+				$this->setKeyWords($bookID,$post['keywords']);
+			endif;
+			$bookMeta = array(
+				'ru_page_title'=>$post['ru_page_title'],'ru_page_description'=>$post['ru_page_description'],'ru_page_h1'=>$post['ru_page_h1'],
+				'en_page_title'=>$post['en_page_title'],'en_page_description'=>$post['en_page_description'],'en_page_h1'=>$post['en_page_h1'],
+				'group'=>'books','item_id'=>$bookID,'page_address'=>$post['page_address']
+			);
+			if(empty($bookMeta['page_address'])):
+				$bookMeta['page_address'] = $this->translite($post['ru_title']);
+			endif;
+			$this->insertItem(array('insert'=>$bookMeta,'model'=>'meta_titles'));
+			return $bookID;
+		endif;
+		return FALSE;
+	}
+	
+	private function updatingBook($post){
+		
+		$bookData = array(
+			'id'=>$post['book_id'],
+			'ru_title'=>$post['ru_title'],'en_title'=>$post['en_title'],'ru_anonce'=>$post['ru_anonce'],'en_anonce'=>$post['en_anonce'],
+			'ru_text'=>$post['ru_text'],'en_text'=>$post['en_text'],'date_released'=>$post['date_released'],'size'=>$post['size'],
+			'isbn'=>$post['isbn'],'age_limit'=>$post['age_limit'],'genre'=>$post['genre'],
+			'currency'=>$post['currency'],'price'=>$post['price'],'price_action'=>$post['price_action'],'authors'=>$post['authors'],
+			'ru_copyright'=>$post['ru_copyright'],'en_copyright'=>$post['en_copyright'],'sort'=>$post['sort'],
+			'trailers'=>json_encode($post['trailers']),'audio_recording'=>json_encode($post['audio_recording'])
+		);
+		$this->updateItem(array('update'=>$bookData,'model'=>'books'));
+		$this->deleteKeyWords($post['book_id']);
+		if(!empty($post['keywords'])):
+			$this->setKeyWords($post['book_id'],$post['keywords']);
+		endif;
+		$bookMeta = array(
+			'id'=>$post['meta_titles_id'],'page_address'=>$post['page_address'],
+			'ru_page_title'=>$post['ru_page_title'],'ru_page_description'=>$post['ru_page_description'],'ru_page_h1'=>$post['ru_page_h1'],
+			'en_page_title'=>$post['en_page_title'],'en_page_description'=>$post['en_page_description'],'en_page_h1'=>$post['en_page_h1'],
+		);
+		if(empty($bookMeta['page_address'])):
+			$bookMeta['page_address'] = $this->translite($post['ru_title']);
+		endif;
+		$this->updateItem(array('update'=>$bookMeta,'model'=>'meta_titles'));
+		return TRUE;
+	}
+
+	private function deteleBooksImage($bookID){
+		
+		$this->load->model('books');
+		$this->filedelete(getcwd().'/'.$this->books->value($bookID,'image'));
+		$this->filedelete(getcwd().'/'.$this->books->value($bookID,'thumbnail'));
+		$this->books->updateField($bookID,'image','');
+		$this->books->updateField($bookID,'thumbnail','');
+		return TRUE;
+	}
+	/****************************************** keywords ******************************************************/
+	private function setKeyWords($bookID,$keywords){
+		
+		if($KeyWordsList = explode(',',$keywords)):
+			$this->load->model(array('keywords','matching'));
+			for($i=0;$i<count($KeyWordsList);$i++):
+				if(!empty($KeyWordsList[$i])):
+					$insert_word = array('word'=>trim($KeyWordsList[$i]),'word_hash'=>md5(trim($KeyWordsList[$i])));
+					if(!$wordID = $this->keywords->search('word_hash',$insert_word['word_hash'])):
+						if($wordID = $this->insertItem(array('insert'=>$insert_word,'model'=>'keywords'))):
+							$insert_match = array('word'=>$wordID,'book'=>$bookID);
+							$matchID = $this->insertItem(array('insert'=>$insert_match,'model'=>'matching'));
+						endif;
+					elseif(!$this->matching->getWhere(NULL,array('word'=>$wordID,'book'=>$bookID))):
+						$insert_match = array('word'=>$wordID,'book'=>$bookID);
+						$matchID = $this->insertItem(array('insert'=>$insert_match,'model'=>'matching'));
+					endif;
+				endif;
+			endfor;
+		endif;
+	}
+	
+	private function deleteKeyWords($bookID){
+		
+		$this->load->model('matching');
+		$this->matching->delete(NULL,array('book'=>$bookID));
+	}
+
+	private function validationPageAddress($page_address,$group = 'book'){
+		
+		$this->load->model('meta_titles');
+		if($this->meta_titles->getWhere(NULL,array('group'=>$group,'page_address'=>$page_address))):
+			return FALSE;
+		else:
+			return TRUE;
+		endif;
 	}
 	
 }

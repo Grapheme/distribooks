@@ -1016,16 +1016,6 @@ class MY_Controller extends CI_Controller{
 		return $genresList;
 	}
 	
-	public function getBooksByIDs($books){
-		
-		$genresList = array();
-		if($booksIDs = explode(',',$books)):
-			$this->load->model('books');
-			$genresList = $this->books->getBooksByIDs($booksIDs);
-		endif;
-		return $genresList;
-	}
-	
 	public function getBookKeyWords($bookID){
 		
 		$this->load->model('keywords');

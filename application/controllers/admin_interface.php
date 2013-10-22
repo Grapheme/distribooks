@@ -139,8 +139,13 @@ class Admin_interface extends MY_Controller{
 			'pages' => NULL
 		);
 		if($this->input->get('search') === FALSE || $this->input->get('search') == ''):
-			$pagevar['genres'] = $this->genres->limit(PER_PAGE_DEFAULT,$this->uri->segment(4));
-			$pagevar['pages'] = $this->pagination('admin-panel/genres',4,$this->genres->countAllResults(),PER_PAGE_DEFAULT);
+			if($this->input->get('render') === FALSE || !is_numeric($this->input->get('render'))):
+				$pagevar['genres'] = $this->genres->limit(PER_PAGE_DEFAULT,$this->uri->segment(4));
+				$pagevar['pages'] = $this->pagination('admin-panel/genres',4,$this->genres->countAllResults(),PER_PAGE_DEFAULT);
+			else:
+				$pagevar['genres'] = $this->genres->limit(PER_PAGE_DEFAULT,$this->uri->segment(4),NULL,array('gender'=>$this->input->get('render')));
+				$pagevar['pages'] = $this->pagination('admin-panel/genres',4,$this->genres->countAllResults(array('gender'=>$this->input->get('render'))),PER_PAGE_DEFAULT);
+			endif;
 		else:
 			if($genres = $this->getGenresByIDs($this->input->get('search'))):
 				$genresIDs = $this->getValuesInArray($genres,'id');
@@ -162,6 +167,53 @@ class Admin_interface extends MY_Controller{
 			'genre' => $this->genres->getWhere($this->input->get('id'))
 		);
 		$this->load->view("admin_interface/genres/edit",$pagevar);
+	}
+	/******************************************** books ********************************************************/
+	public function booksList(){
+		
+		$this->load->model(array('books','genres'));
+		$pagevar = array(
+			'books' => array(),
+			'genres' => $this->genres->getAll(),
+			'pages' => NULL
+		);
+		if($this->input->get('search') === FALSE || $this->input->get('search') == ''):
+			$pagevar['books'] = $this->books->limit(PER_PAGE_DEFAULT,$this->uri->segment(4));
+			$pagevar['pages'] = $this->pagination('admin-panel/books',4,$this->books->countAllResults(),PER_PAGE_DEFAULT);
+		else:
+			if($books = $this->getBooksByIDs($this->input->get('search'))):
+				$booksIDs = $this->getValuesInArray($books,'id');
+				$pagevar['books'] = $this->books->getWhereIN(array('field'=>'id','where_in'=>$booksIDs,'many_records'=>TRUE));
+			endif;
+		endif;
+		$this->load->view("admin_interface/books/list",$pagevar);
+	}
+	
+	public function insertBook(){
+		
+		$this->load->model(array('genres','age_limit','currency'));
+		$pagevar = array(
+			'genres' => $this->genres->getAll(),
+			'age_limit' => $this->age_limit->getAll(),
+			'currency' => $this->currency->getAll(),
+		);
+		$this->load->view("admin_interface/books/add",$pagevar);
+	}
+	
+	public function editBook(){
+		
+		$this->load->model(array('genres','age_limit','currency','books','meta_titles'));
+		$pagevar = array(
+			'book' => $this->books->getWhere($this->input->get('id')),
+			'meta_titles' => $this->meta_titles->getWhere(NULL,array('group'=>'books','item_id'=>$this->input->get('id'))),
+			'genres' => $this->genres->getAll(),
+			'age_limit' => $this->age_limit->getAll(),
+			'currency' => $this->currency->getAll(),
+			'authors' => array()
+		);
+		$pagevar['authors'] = $this->getAuthorsByIDs($pagevar['book']['authors']);
+		$pagevar['book']['keywords'] = $this->getBookKeyWords($pagevar['book']['id']);
+		$this->load->view("admin_interface/books/edit",$pagevar);
 	}
 	/***********************************************************************************************************/
 }
