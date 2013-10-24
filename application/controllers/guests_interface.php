@@ -58,11 +58,10 @@ class Guests_interface extends MY_Controller{
 						$pagevar['currency'] = $this->currency->getAll();
 						$pagevar['age_limit'] = $this->age_limit->getAll();
 						$pagevar['book']['genre_title'] = $this->genres->value($pagevar['book']['genre'],$this->uri->language_string.'_title');
-						
+						$pagevar['keywords'] = array();
 						if($keywords = $this->getBookKeyWords($page['item_id'])):
 							$pagevar['keywords'] = explode(',',$keywords);
 						endif;
-						
 						$pagevar['breadcrumbs'] = array('catalog'=>lang('catalog_catalog'),$page['page_address']=>$pagevar['book'][$this->uri->language_string.'_title']);
 						$pageContent = $this->load->view('guests_interface/single-book',$pagevar,TRUE);
 						break;
@@ -151,14 +150,40 @@ class Guests_interface extends MY_Controller{
 		$pagevar = array(
 			'page_content'=> array(),
 			'breadcrumbs' => array('catalog'=>lang('catalog_catalog')),
-			'bestsellers' => $this->books_card->limit(5,$this->uri->segment(4)),
-			'trailers' => $this->books_card->limit(5,$this->uri->segment(4)),
-			'novelty' => $this->books_card->limit(5,$this->uri->segment(4)),
-			'recommended' => $this->books_card->limit(5,$this->uri->segment(4)),
-			'catalog' => $this->books_card->limit(PER_PAGE_DEFAULT,$this->uri->segment(4)),
-			'pages' => $this->pagination('catalog',4,$this->books_card->countAllResults(),PER_PAGE_DEFAULT),
+			'bestsellers' => $this->books_card->limit(6),
+			'trailers' => array('1','2'),
+			'novelty' => $this->books_card->limit(6),
+			'recommended' => $this->books_card->limit(6),
+			'catalog' => array(),
+			'pages' => NULL,
 			'currency' => $this->currency->getAll()
 		);
+		
+		$sort = FALSE;$tags = FALSE;
+		if($this->input->get('tag') !== FALSE && $this->input->get('tag') != ''):
+			$tags = TRUE;
+		endif;
+		if($this->input->get('sort') !== FALSE && in_array($this->input->get('sort'),array('price',$this->uri->language_string.'_title','rating')) !== FALSE):
+			$sort = TRUE;
+		endif;
+		if($sort === FALSE && $tags === FALSE):
+			$this->offset = (int)$this->uri->segment(3);
+			$pagevar['catalog'] = $this->books_card->limit(PER_PAGE_DEFAULT,$this->offset);
+			$pagevar['pages'] = $this->pagination('catalog',3,$this->books_card->countAllResults(),PER_PAGE_DEFAULT);
+		else:
+			$this->offset = (int)$this->input->get('offset');
+			if($tags === TRUE):
+				//$pagevar['catalog'] = $this->books_card->limit(PER_PAGE_DEFAULT,$this->offset,NULL,);
+				//$pagevar['pages'] = $this->pagination('catalog',3,$this->books_card->countAllResults(),PER_PAGE_DEFAULT);
+			endif;
+			if($sort === TRUE):
+				$pagevar['catalog'] = $this->books_card->limit(PER_PAGE_DEFAULT,$this->offset,$this->input->get('sort'));
+				$pagevar['pages'] = $this->pagination('catalog'.urlGETParameters('offset'),3,$this->books_card->countAllResults(),PER_PAGE_DEFAULT,TRUE);
+			endif;
+		endif;
+		
+//		print_r($pagevar['catalog']);exit;
+		
 		for($i=0;$i<count($pagevar['catalog']);$i++):
 			$pagevar['catalog'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['catalog'][$i]['authors']);
 		endfor;

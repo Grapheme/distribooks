@@ -49,7 +49,7 @@
 		return $getLink;
 	}
 	
-	function urlGETParameters(){
+	function urlGETParameters($notParameter = FALSE){
 		
 		$CI = & get_instance();
 		$get = $CI->input->get();
@@ -57,7 +57,11 @@
 		if($get !== FALSE):
 			$temp = array();
 			foreach($get as $key => $value):
-				$temp[] = $key.'='.$value;
+				if($notParameter == TRUE && $key == $notParameter):
+					continue;
+				else:
+					$temp[] = $key.'='.$value;
+				endif;
 			endforeach;
 			$getLink = '?'.implode('&',$temp);
 		endif;

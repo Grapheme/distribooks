@@ -100,6 +100,7 @@ $lang['404_menu'] = "Menu";
 $lang['404_services'] = "Services";
 
 $lang['book_age_limit'] = "Age limit";
+$lang['book_ballot'] = "Ballot";
 $lang['book_genre'] = "Genre";
 $lang['book_tags'] = "Tags";
 $lang['book_copyright'] = "Copyright";

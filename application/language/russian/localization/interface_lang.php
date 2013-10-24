@@ -100,6 +100,7 @@ $lang['404_menu'] = "Меню";
 $lang['404_services'] = "Услуги";
 
 $lang['book_age_limit'] = "Возрастное ограничение";
+$lang['book_ballot'] = "Голосовать";
 $lang['book_genre'] = "Жанр";
 $lang['book_tags'] = "Теги";
 $lang['book_copyright'] = "Правообладатель";

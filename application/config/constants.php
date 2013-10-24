@@ -24,7 +24,7 @@ define('NO_IMAGE_THUMBNAIL',					getcwd().'/img/icons/no-photo-thumbnail.png');
 define('NO_AVATAR',								getcwd().'/img/icons/no-avatar.png');
 define('NO_AVATAR_THUMBNAIL',					getcwd().'/img/icons/no-avatar-thumbnail.png');
 
-define('PER_PAGE_DEFAULT',						10);
+define('PER_PAGE_DEFAULT',						12);
 
 define('TOOLTIP_FIELD_BLANK',					'data-trigger="manual" data-placement="right" role="tooltip" data-original-title="Поле не заполнено"');
 define('TOOLTIP_FIELD_IMAGE_UPLOAD',			'data-trigger="hover" data-placement="top" role="tooltip" data-original-title="Нажмите для загрузки фотографии"');

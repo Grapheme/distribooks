@@ -4135,4 +4135,12 @@ input[type="checkbox"].cart-check:checked + label
 
 .clearfix {
   zoom: 1;
-}}
+}
+
+.pagination { text-align: center; }
+.pagination-list { list-style-type: none; margin: 2em 0 4em; }
+.pagination-list-item { display: inline-block; margin: 0 .15em; }
+.pagination-list-item a { text-decoration: none; color: #2671a0; }
+.pagination-list-item a:hover { text-decoration: underline; }
+.pagination-list-item.active { font-weight: 700; }
+.pagination-list-item.active a:hover { text-decoration: none; cursor: default; }

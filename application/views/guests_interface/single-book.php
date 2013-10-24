@@ -42,7 +42,7 @@
 							<?php endfor;?>
 							</p>
 							<div class="rating">
-								Голосовать
+								<?=lang('book_ballot')?>
 								<div>
 									<img src="<?=baseURL('img/star.png');?>">
 									<img src="<?=baseURL('img/star.png');?>">
