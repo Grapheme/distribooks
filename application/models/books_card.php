@@ -35,6 +35,16 @@ class Books_card extends MY_Model{
 		return NULL;
 	}
 	
+	function countResultsByKeyWord($where = NULL){
+		
+		$this->db->select($this->_fields());
+		$this->db->from($this->table);
+		$this->db->join('matching','books_card.id = matching.book');
+		$this->db->where('matching.word',$where['word_id']);
+		$this->db->group_by('books_card.'.$this->primary_key);
+		return $this->db->count_all_results();
+	}
+	
 	function getBooksByAuthor($limit = NULL,$offset = NULL,$orderby = NULL,$where = NULL){
 		
 		if(is_null($orderby)):
@@ -43,7 +53,7 @@ class Books_card extends MY_Model{
 		$this->db->select($this->_fields());
 		$this->db->order_by($orderby);
 		$this->db->from($this->table);
-		$this->db->where('(publications.authors = \''.$where['author'].'\' OR publications.authors LIKE \'%'.','.$where['author'].'\' OR publications.authors LIKE \'%,'.$where['author'].',%\' OR publications.authors LIKE \''.$where['author'].',%\')',NULL);
+		$this->db->where('(books_card.authors = \''.$where['author'].'\' OR books_card.authors LIKE \'%'.','.$where['author'].'\' OR books_card.authors LIKE \'%,'.$where['author'].',%\' OR books_card.authors LIKE \''.$where['author'].',%\')',NULL);
 		if(is_numeric($limit) && is_numeric($offset)):
 			$this->db->limit($limit,$offset);
 		elseif(is_numeric($limit)):
@@ -56,5 +66,11 @@ class Books_card extends MY_Model{
 		endif;
 		return NULL;
 	}
-	
+
+	function countResultsByAuthor($where = NULL){
+		
+		$this->db->select($this->_fields());
+		$this->db->where('(books_card.authors = \''.$where['author'].'\' OR books_card.authors LIKE \'%'.','.$where['author'].'\' OR books_card.authors LIKE \'%,'.$where['author'].',%\' OR books_card.authors LIKE \''.$where['author'].',%\')',NULL);
+		return $this->db->count_all_results($this->table);
+	}
 }

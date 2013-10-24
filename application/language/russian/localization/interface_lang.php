@@ -111,4 +111,5 @@ $lang['book_formats'] = "Доступна в форматах";
 
 $lang['catalog_tag_genre'] = "Все книги категории";
 $lang['catalog_tag_keyword'] = "Все книги по ключевому слову";
+$lang['catalog_tag_author'] = "Все книги по автору";
 ?>

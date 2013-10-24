@@ -32,6 +32,7 @@
 					<p class="top-shop-title"><?=lang('catalog_catalog')?>: 
 						<?=(isset($tag_genre))?lang('catalog_tag_genre').' "'.$tag_genre.'"':''?>
 						<?=(isset($tag_keyword))?lang('catalog_tag_keyword').' "'.$tag_keyword.'"':''?>
+						<?=(isset($tag_author))?lang('catalog_tag_author').' "'.$tag_author.'"':''?>
 					</p>
 				<?php
 					$getSuffix = '';
@@ -40,6 +41,9 @@
 					endif;
 					if($this->input->get('keyword') !== FALSE && $this->input->get('keyword') != ''):
 						$getSuffix = '&keyword='.$this->input->get('keyword');
+					endif;
+					if($this->input->get('author') !== FALSE && $this->input->get('author') != ''):
+						$getSuffix = '&author='.$this->input->get('author');
 					endif;
 					$arrowPos = 0;
 					$arrow = '&darr;';
@@ -70,7 +74,7 @@
 								<a href="<?=site_url($catalog[$i]['page_address']);?>" class="title"><?=$catalog[$i][$this->uri->language_string.'_title'];?></a>
 								<p class="author">
 								<?php for($j=0;$j<count($catalog[$i]['authors']);$j++):?>
-									<?=$catalog[$i]['authors'][$j][$this->uri->language_string.'_name'];?><?php if(isset($catalog[$i]['authors'][$j+1])):?>, <?php endif;?>
+									<a href="<?=site_url('catalog?author='.$catalog[$i]['authors'][$j]['id'])?>"><?=$catalog[$i]['authors'][$j][$this->uri->language_string.'_name'];?></a><?php if(isset($catalog[$i]['authors'][$j+1])):?>, <?php endif;?>
 								<?php endfor;?>
 								</p>
 								<div class="rating-shop">
@@ -92,10 +96,11 @@
 					<div class="clear"></div>
 				<?php endif?>
 				<?php endfor;?>
+					<div class="clear"></div>
 					<?=$pages;?>
 				</div>
 			<?php endif;?>
-				<div class="clear"></div>
+				
 			</div>
 		</div>
 		<div class="clear"></div>
