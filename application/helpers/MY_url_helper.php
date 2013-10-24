@@ -49,7 +49,7 @@
 		return $getLink;
 	}
 	
-	function urlGETParameters($notParameter = FALSE){
+	function urlGETParameters($notParameter = FALSE,$prefix = '?'){
 		
 		$CI = & get_instance();
 		$get = $CI->input->get();
@@ -63,7 +63,7 @@
 					$temp[] = $key.'='.$value;
 				endif;
 			endforeach;
-			$getLink = '?'.implode('&',$temp);
+			$getLink = $prefix.implode('&',$temp);
 		endif;
 		return $getLink;
 	}

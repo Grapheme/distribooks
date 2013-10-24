@@ -108,4 +108,6 @@ $lang['book_date_released'] = "Date released";
 $lang['book_size'] = "Size";
 $lang['book_isbn'] = "ISBN";
 $lang['book_formats'] = "Available formats";
+
+$lang['catalog_tag_genre'] = "All the books category";
 ?>

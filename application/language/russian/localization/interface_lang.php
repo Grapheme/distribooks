@@ -108,4 +108,6 @@ $lang['book_date_released'] = "Дата выхода";
 $lang['book_size'] = "Объем";
 $lang['book_isbn'] = "ISBN";
 $lang['book_formats'] = "Доступна в форматах";
+
+$lang['catalog_tag_genre'] = "Все книги категории";
 ?>

@@ -29,11 +29,27 @@
 			<div class="grid_4 top-shop-div">
 			<?php if(!empty($catalog)):?>
 				<div class="grid_4 shop-new-div">
-					<p class="top-shop-title"><?=lang('catalog_catalog')?>:</p>
+					<p class="top-shop-title"><?=lang('catalog_catalog')?>: <?=(isset($tag_genre))?lang('catalog_tag_genre').' "'.$tag_genre.'"':''?></p>
+				<?php
+					$getSuffix = '';
+					if($this->input->get('genre') !== FALSE && is_numeric($this->input->get('genre'))):
+						$getSuffix = '&genre='.$this->input->get('genre');
+					endif;
+					$arrowPos = 0;
+					$arrow = '&darr;';
+					switch($this->input->get('sort')):
+						case 'price': $arrowPos = 1; break;
+						case $this->uri->language_string.'_title': $arrowPos = 2; break;
+						case 'rating': $arrowPos = 3; break;
+					endswitch;
+					if($this->input->get('directing') == 'desc'):
+						$arrow = '&uarr;';
+					endif;
+				?>
 				<?php if($this->input->get('directing') === FALSE || $this->input->get('directing') == 'desc'):?>
-					<p class="shop-sort"><?=lang('book_sort_by')?>: <a href="<?=site_url('catalog?sort=price&directing=asc')?>" class="sort-link"><?=lang('book_sort_price')?></a> | <a href="<?=site_url('catalog?sort='.$this->uri->language_string.'_title&directing=asc')?>" class="sort-link"><?=lang('book_sort_title')?></a> | <a href="<?=site_url('catalog?sort=rating&directing=asc')?>" class="sort-link"><?=lang('book_sort_rating')?></a></p>
+					<p class="shop-sort"><?=lang('book_sort_by')?>: <a href="<?=site_url('catalog?sort=price&directing=asc'.$getSuffix)?>" class="sort-link"><?=lang('book_sort_price')?></a> <?=($arrowPos == 1)?$arrow:'';?> | <a href="<?=site_url('catalog?sort='.$this->uri->language_string.'_title&directing=asc'.$getSuffix)?>" class="sort-link"><?=lang('book_sort_title')?></a> <?=($arrowPos == 2)?$arrow:'';?> | <a href="<?=site_url('catalog?sort=rating&directing=asc'.$getSuffix)?>" class="sort-link"><?=lang('book_sort_rating')?></a> <?=($arrowPos == 3)?$arrow:'';?></p>
 				<?php else:?>
-					<p class="shop-sort"><?=lang('book_sort_by')?>: <a href="<?=site_url('catalog?sort=price&directing=desc')?>" class="sort-link"><?=lang('book_sort_price')?></a> | <a href="<?=site_url('catalog?sort='.$this->uri->language_string.'_title&directing=desc')?>" class="sort-link"><?=lang('book_sort_title')?></a> | <a href="<?=site_url('catalog?sort=rating&directing=desc')?>" class="sort-link"><?=lang('book_sort_rating')?></a></p>
+					<p class="shop-sort"><?=lang('book_sort_by')?>: <a href="<?=site_url('catalog?sort=price&directing=desc'.$getSuffix)?>" class="sort-link"><?=lang('book_sort_price')?></a> <?=($arrowPos == 1)?$arrow:'';?> | <a href="<?=site_url('catalog?sort='.$this->uri->language_string.'_title&directing=desc'.$getSuffix)?>" class="sort-link"><?=lang('book_sort_title')?></a> <?=($arrowPos == 2)?$arrow:'';?> | <a href="<?=site_url('catalog?sort=rating&directing=desc'.$getSuffix)?>" class="sort-link"><?=lang('book_sort_rating')?></a> <?=($arrowPos == 3)?$arrow:'';?></p>
 				<?php endif;?>
 				<?php for($i=0;$i<count($catalog);$i++):?>
 					<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($catalog)-1))?' omega':'';?>">
@@ -58,7 +74,7 @@
 									<img src="<?=baseURL('img/star-none.png');?>">
 									<img src="<?=baseURL('img/star-none.png');?>">
 								</div>
-								<a href="#" class="genre"><?=$catalog[$i]['genre_title'];?></a>
+								<a href="<?=site_url('catalog?genre='.$catalog[$i]['genre']);?>" class="genre"><?=$catalog[$i]['genre_title'];?></a>
 								<p class="price"><?=$catalog[$i]['price']?> <?=$currency[$catalog[$i]['currency']-1]['title'];?></p>
 							</div>
 						</div>
