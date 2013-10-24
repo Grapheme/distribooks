@@ -31,7 +31,7 @@
 						<div class="shop-img">
 							<a href="#" class="shopi big" id="play"></a>
 							<a href="#" class="shopi big" id="a"></a>
-							<a href="#" class="shopi big" id="adult"></a>
+							<a href="#" class="shopi big" id="adult"><img src="<?=baseURL($age_limit['image']);?>"></a>
 							<div class="shop-img-cont one"><img src="<?=baseURL($book['image']);?>"></div>
 						</div>
 						<div class="shop-about big">
@@ -58,9 +58,9 @@
 							<div class="pos3-no">
 							<div class="about-product">
 								<a class="share-product" href="#"><img src="<?=baseURL('img/big-like.png')?>"><span><?=lang('book_share')?></span></a>
-								<p class="about-p"><?=lang('book_age_limit')?>: <span>16+</span></p>
-								<p class="about-p"><?=lang('book_genre')?>: <a href="#"><?=$book['genre_title'];?></a></p>
-								<p class="about-p"><?=lang('book_tags')?>: <?php for($i=0;$i<count($keywords);$i++):?><a href="<?=site_url('catalog?filter=1&word='.md5(trim($keywords[$i])))?>"><?=$keywords[$i];?></a><?php if(isset($keywords[$i+1])):?>,<?php endif;?><?php endfor;?></p>
+								<p class="about-p"><?=lang('book_age_limit')?>: <span><?=$age_limit['title'];?></span></p>
+								<p class="about-p"><?=lang('book_genre')?>: <a href="<?=site_url('catalog?genre='.$book['genre']);?>"><?=$book['genre_title'];?></a></p>
+								<p class="about-p"><?=lang('book_tags')?>: <?php for($i=0;$i<count($keywords);$i++):?><a href="<?=site_url('catalog?keyword='.md5(trim($keywords[$i])))?>"><?=$keywords[$i];?></a><?php if(isset($keywords[$i+1])):?>,<?php endif;?><?php endfor;?></p>
 								<p class="about-p"><?=lang('book_copyright')?>: <span><?=$book[$this->uri->language_string.'_copyright'];?></span></p>
 								<p class="about-p"><?=lang('book_date_released')?>: <span><?=$book['date_released'];?></span></p>
 								<p class="about-p"><?=lang('book_size')?>: <span><?=$book[$this->uri->language_string.'_size'];?></span></p>
@@ -87,8 +87,8 @@
 					<div class="about-product">
 						<a class="share-product" href="#"><img src="<?=baseURL('img/big-like.png')?>"><span><?=lang('book_share')?></span></a>
 						<p class="about-p"><?=lang('book_age_limit')?>: <span>16+</span></p>
-						<p class="about-p"><?=lang('book_genre')?>: <a href="#"><?=$book['genre_title'];?></a></p>
-						<p class="about-p"><?=lang('book_tags')?>: <?php for($i=0;$i<count($keywords);$i++):?><a href="<?=site_url('catalog?filter=1&word='.md5(trim($keywords[$i])))?>"><?=$keywords[$i];?></a><?php if(isset($keywords[$i+1])):?>,<?php endif;?><?php endfor;?></p>
+						<p class="about-p"><?=lang('book_genre')?>: <a href="<?=site_url('catalog?genre='.$book['genre']);?>"><?=$book['genre_title'];?></a></p>
+						<p class="about-p"><?=lang('book_tags')?>: <?php for($i=0;$i<count($keywords);$i++):?><a href="<?=site_url('catalog?keyword='.md5(trim($keywords[$i])))?>"><?=$keywords[$i];?></a><?php if(isset($keywords[$i+1])):?>,<?php endif;?><?php endfor;?></p>
 						<p class="about-p"><?=lang('book_copyright')?>: <span><?=$book[$this->uri->language_string.'_copyright'];?></span></p>
 						<p class="about-p"><?=lang('book_date_released')?>: <span><?=$book['date_released'];?></span></p>
 						<p class="about-p"><?=lang('book_size')?>: <span><?=$book[$this->uri->language_string.'_size'];?></span></p>

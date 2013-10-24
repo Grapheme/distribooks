@@ -110,4 +110,5 @@ $lang['book_isbn'] = "ISBN";
 $lang['book_formats'] = "Available formats";
 
 $lang['catalog_tag_genre'] = "All the books category";
+$lang['catalog_tag_keyword'] = "All the books keyword";
 ?>

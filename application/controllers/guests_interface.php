@@ -56,7 +56,7 @@ class Guests_interface extends MY_Controller{
 						$pagevar['book'] = $this->books_card->getWhere($page['item_id']);
 						$pagevar['authors'] = $this->getAuthorsByIDs($pagevar['book']['authors']);
 						$pagevar['currency'] = $this->currency->getAll();
-						$pagevar['age_limit'] = $this->age_limit->getAll();
+						$pagevar['age_limit'] = $this->age_limit->getWhere($pagevar['book']['age_limit']);
 						$pagevar['book']['genre_title'] = $this->genres->value($pagevar['book']['genre'],$this->uri->language_string.'_title');
 						$pagevar['keywords'] = array();
 						if($keywords = $this->getBookKeyWords($page['item_id'])):
@@ -69,6 +69,7 @@ class Guests_interface extends MY_Controller{
 			endif;
 			if(empty($pageContent) === FALSE):
 				echo $pageContent;
+				return TRUE;
 			endif;
 		endif;
 		show_404();
@@ -159,8 +160,7 @@ class Guests_interface extends MY_Controller{
 			'currency' => $this->currency->getAll()
 		);
 		
-		$sortBy = NULL;
-		$tags = $genre = FALSE;
+		$sortBy = NULL; $tags = $genre = $keyword = $author = FALSE;
 		if($this->input->get('tag') !== FALSE && $this->input->get('tag') != ''):
 			$tags = TRUE;
 		endif;
@@ -172,7 +172,11 @@ class Guests_interface extends MY_Controller{
 		if($this->input->get('genre') !== FALSE && is_numeric($this->input->get('genre')) === TRUE):
 			$genre = TRUE;
 		endif;
-		if(is_null($sortBy) && $tags === FALSE && $genre === FALSE):
+		if($this->input->get('keyword') !== FALSE):
+			$keyword = TRUE;
+		endif;
+		
+		if(is_null($sortBy) && $tags === FALSE && $genre === FALSE && $keyword === FALSE):
 			$this->offset = (int)$this->uri->segment(3);
 			$pagevar['catalog'] = $this->books_card->limit(PER_PAGE_DEFAULT,$this->offset);
 			$pagevar['pages'] = $this->pagination('catalog',3,$this->books_card->countAllResults(),PER_PAGE_DEFAULT);
@@ -184,9 +188,17 @@ class Guests_interface extends MY_Controller{
 				$this->load->model('genres');
 				$pagevar['tag_genre'] = $this->genres->value($this->input->get('genre'),$this->uri->language_string.'_title');
 			endif;
-			if($tags === TRUE):
-				//$pagevar['catalog'] = $this->books_card->limit(PER_PAGE_DEFAULT,$this->offset,NULL,);
-				//$pagevar['pages'] = $this->pagination('catalog',3,$this->books_card->countAllResults(),PER_PAGE_DEFAULT);
+			if($keyword === TRUE):
+				$this->load->model('keywords');
+				if($wordID = $this->keywords->search('word_hash',$this->input->get('keyword'))):
+					$pagevar['catalog'] = $this->books_card->getBooksByKeyWord(PER_PAGE_DEFAULT,$this->offset,$sortBy,array('word_id'=>$wordID));
+					$pagevar['pages'] = $this->pagination('catalog'.urlGETParameters('offset'),3,$this->books_card->countAllResults(array('genre'=>$this->input->get('genre'))),PER_PAGE_DEFAULT,TRUE);
+					$pagevar['tag_keyword'] = $this->keywords->value($wordID,'word');
+				endif;
+				/*$pagevar['catalog'] = $this->books_card->limit(PER_PAGE_DEFAULT,$this->offset,$sortBy,array('genre'=>$this->input->get('genre')));
+				$pagevar['pages'] = $this->pagination('catalog'.urlGETParameters('offset'),3,$this->books_card->countAllResults(array('genre'=>$this->input->get('genre'))),PER_PAGE_DEFAULT,TRUE);
+				$this->load->model('genres');
+				$pagevar['tag_genre'] = $this->genres->value($this->input->get('genre'),$this->uri->language_string.'_title');*/
 			endif;
 		endif;
 		

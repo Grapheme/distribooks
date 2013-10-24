@@ -29,11 +29,17 @@
 			<div class="grid_4 top-shop-div">
 			<?php if(!empty($catalog)):?>
 				<div class="grid_4 shop-new-div">
-					<p class="top-shop-title"><?=lang('catalog_catalog')?>: <?=(isset($tag_genre))?lang('catalog_tag_genre').' "'.$tag_genre.'"':''?></p>
+					<p class="top-shop-title"><?=lang('catalog_catalog')?>: 
+						<?=(isset($tag_genre))?lang('catalog_tag_genre').' "'.$tag_genre.'"':''?>
+						<?=(isset($tag_keyword))?lang('catalog_tag_keyword').' "'.$tag_keyword.'"':''?>
+					</p>
 				<?php
 					$getSuffix = '';
 					if($this->input->get('genre') !== FALSE && is_numeric($this->input->get('genre'))):
 						$getSuffix = '&genre='.$this->input->get('genre');
+					endif;
+					if($this->input->get('keyword') !== FALSE && $this->input->get('keyword') != ''):
+						$getSuffix = '&keyword='.$this->input->get('keyword');
 					endif;
 					$arrowPos = 0;
 					$arrow = '&darr;';
