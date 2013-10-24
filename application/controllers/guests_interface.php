@@ -25,14 +25,19 @@ class Guests_interface extends MY_Controller{
 	
 	public function index(){
 		
-		$this->load->model('news');
+		$this->load->model(array('news','books_card','currency'));
 		
 		$pagevar = array(
 			'page_content'=> array(),
 			'sliderExist' =>TRUE,
-			'news' => $this->news->limit(3)
+			'news' => $this->news->limit(3),
+			'novelty' => $this->books_card->limit(4),
+			'currency' => $this->currency->getAll()
 		);
-		
+		for($i=0;$i<count($pagevar['novelty']);$i++):
+			$pagevar['novelty'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['novelty'][$i]['authors']);
+		endfor;
+		$pagevar['novelty'] = $this->BooksGenre($pagevar['novelty']);
 		$pagevar['news'] = $this->setPageAddress($pagevar['news'],'news');
 		$this->load->view("guests_interface/index",$pagevar);
 	}

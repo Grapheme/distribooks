@@ -142,7 +142,7 @@
 							<a href="<?=site_url($bestsellers[$i]['page_address'])?>" class="title"><?=$bestsellers[$i][$this->uri->language_string.'_title'];?></a>
 							<p class="author">
 							<?php for($j=0;$j<count($bestsellers[$i]['authors']);$j++):?>
-								<?=$bestsellers[$i]['authors'][$j][$this->uri->language_string.'_name'];?><?php if(isset($bestsellers[$i]['authors'][$j+1])):?>, <?php endif;?>
+								<a href="<?=site_url('catalog?author='.$bestsellers[$i]['authors'][$j]['id'])?>"><?=$bestsellers[$i]['authors'][$j][$this->uri->language_string.'_name'];?></a><?php if(isset($bestsellers[$i]['authors'][$j+1])):?>, <?php endif;?>
 							<?php endfor;?>
 							</p>
 							<div class="rating-shop">
@@ -152,7 +152,7 @@
 								<img src="<?=baseURL('img/star-none.png');?>">
 								<img src="<?=baseURL('img/star-none.png');?>">
 							</div>
-							<a href="#" class="genre"><?=$bestsellers[$i]['genre_title'];?></a>
+							<a href="<?=site_url('catalog?genre='.$bestsellers[$i]['genre']);?>" class="genre"><?=$bestsellers[$i]['genre_title'];?></a>
 							<p class="price"><?=$bestsellers[$i]['price']?> <?=$currency[$bestsellers[$i]['currency']-1]['title'];?></p>
 						</div>
 					</div>
@@ -183,7 +183,7 @@
 							<a href="<?=site_url($novelty[$i]['page_address'])?>" class="title"><?=$novelty[$i][$this->uri->language_string.'_title'];?></a>
 							<p class="author">
 							<?php for($j=0;$j<count($novelty[$i]['authors']);$j++):?>
-								<?=$novelty[$i]['authors'][$j][$this->uri->language_string.'_name'];?><?php if(isset($novelty[$i]['authors'][$j+1])):?>, <?php endif;?>
+								<a href="<?=site_url('catalog?author='.$novelty[$i]['authors'][$j]['id'])?>"><?=$novelty[$i]['authors'][$j][$this->uri->language_string.'_name'];?></a><?php if(isset($novelty[$i]['authors'][$j+1])):?>, <?php endif;?>
 							<?php endfor;?>
 							</p>
 							<div class="rating-shop">
@@ -193,7 +193,7 @@
 								<img src="<?=baseURL('img/star-none.png');?>">
 								<img src="<?=baseURL('img/star-none.png');?>">
 							</div>
-							<a href="#" class="genre"><?=$novelty[$i]['genre_title'];?></a>
+							<a href="<?=site_url('catalog?genre='.$novelty[$i]['genre']);?>" class="genre"><?=$novelty[$i]['genre_title'];?></a>
 							<p class="price"><?=$novelty[$i]['price']?> <?=$currency[$novelty[$i]['currency']-1]['title'];?></p>
 						</div>
 					</div>
@@ -222,7 +222,7 @@
 							<a href="<?=site_url($recommended[$i]['page_address'])?>" class="title"><?=$recommended[$i][$this->uri->language_string.'_title'];?></a>
 							<p class="author">
 							<?php for($j=0;$j<count($recommended[$i]['authors']);$j++):?>
-								<?=$recommended[$i]['authors'][$j][$this->uri->language_string.'_name'];?><?php if(isset($recommended[$i]['authors'][$j+1])):?>, <?php endif;?>
+								<a href="<?=site_url('catalog?author='.$recommended[$i]['authors'][$j]['id'])?>"><?=$recommended[$i]['authors'][$j][$this->uri->language_string.'_name'];?></a><?php if(isset($recommended[$i]['authors'][$j+1])):?>, <?php endif;?>
 							<?php endfor;?>
 							</p>
 							<div class="rating-shop">
@@ -232,7 +232,7 @@
 								<img src="<?=baseURL('img/star-none.png');?>">
 								<img src="<?=baseURL('img/star-none.png');?>">
 							</div>
-							<a href="#" class="genre"><?=$recommended[$i]['genre_title'];?></a>
+							<a href="<?=site_url('catalog?genre='.$novelty[$i]['genre']);?>" class="genre"><?=$novelty[$i]['genre_title'];?></a>
 							<p class="price"><?=$recommended[$i]['price']?> <?=$currency[$recommended[$i]['currency']-1]['title'];?></p>
 						</div>
 					</div>
