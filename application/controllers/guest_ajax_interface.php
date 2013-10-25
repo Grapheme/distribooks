@@ -69,13 +69,13 @@ class Guest_ajax_interface extends MY_Controller{
 	public function requestDoClearance(){
 		
 		if($this->postDataValidation('editing')):
-			$mailtext = $this->load->view('mails/services/do-clearance',array('post'=>$this->input->post()),TRUE);
 			$file = NULL;
 			if(isset($_FILES['file']) && $_FILES['file']['error'] == 0):
 				if(move_uploaded_file($_FILES['file']['tmp_name'],getcwd().'/'.TEMPORARY.'/'.$_FILES['file']['name'])):
 					$file = getcwd().'/'.TEMPORARY.'/'.$_FILES['file']['name'];
 				endif;
 			endif;
+			$mailtext = $this->load->view('mails/services/do-clearance',array('post'=>$this->input->post()),TRUE);
 			$this->sendMail(TO_BASE_EMAIL,FROM_BASE_EMAIL,'Distribboks','Новый заказ на офомление',$mailtext,$file);
 			$this->json_request['status'] = TRUE;
 		else:

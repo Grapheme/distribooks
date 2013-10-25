@@ -26,7 +26,6 @@ class Guests_interface extends MY_Controller{
 	public function index(){
 		
 		$this->load->model(array('news','books_card','currency'));
-		
 		$pagevar = array(
 			'page_content'=> array(),
 			'sliderExist' =>TRUE,

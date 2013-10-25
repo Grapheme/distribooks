@@ -71,8 +71,10 @@ $lang['basket_buy_all'] = "Купить все";
 
 $lang['signin_auth_text'] = "Вам необходимо зарегистрироваться для получения купленных вами книг на электронную почту и доступа к бонусам и скидкам";
 $lang['signin_nickname'] = "Никнейм";
+$lang['signin_password'] = "Пароль";
 $lang['signin_number'] = "Номер телефона";
 $lang['signin_button'] = "Авторизоваться";
+$lang['signup_button'] = "Зарегистрироваться";
 $lang['signin_auth_soc'] = "Вы также можете зарегистрироваться через любую доступную вам соц-сеть, указав почтовый адрес";
 
 $lang['service_send_enquiry'] = "Отправить заявку";
@@ -112,4 +114,6 @@ $lang['book_formats'] = "Доступна в форматах";
 $lang['catalog_tag_genre'] = "Все книги категории";
 $lang['catalog_tag_keyword'] = "Все книги по ключевому слову";
 $lang['catalog_tag_author'] = "Все книги по автору";
+
+$lang['user_cabinet'] = "Мои книги";
 ?>

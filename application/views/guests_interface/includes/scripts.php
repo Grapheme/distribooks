@@ -6,6 +6,7 @@
 <script type="text/javascript" src="<?=baseURL('js/libs/localize.js');?>"></script>
 <script type="text/javascript" src="<?=baseURL('js/libs/base.js');?>"></script>
 <script type="text/javascript" src="<?=baseURL('js/cabinet/guest.js');?>"></script>
+<script type="text/javascript" src="<?=baseURL('js/cabinet/general.js');?>"></script>
 
 <script src="<?=baseURL('js/plugins.js');?>"></script>
 <script src="<?=baseURL('js/main.js');?>"></script>

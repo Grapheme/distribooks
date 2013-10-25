@@ -21,13 +21,8 @@ class MY_Controller extends CI_Controller{
 		if($sessionLogon):
 			$this->account = json_decode($this->session->userdata('account'),TRUE);
 			if($this->account):
-				$this->load->model('users_accounts');
 				if($this->session->userdata('profile') == FALSE):
-					$profile = FALSE;
-					switch($this->account['group']):
-						case ADMIN_GROUP_VALUE: $profile = $this->accounts->getWhere($this->account['id']); break;
-						case USER_GROUP_VALUE: $profile = $this->users_accounts->getWhere($this->account['id']); break;
-					endswitch;
+					$profile = $this->accounts->getWhere($this->account['id']);
 					if($profile && ($sessionLogon == md5($profile['email']))):
 						$this->profile = $profile;
 						$this->session->set_userdata('profile',json_encode($this->profile));
@@ -35,7 +30,8 @@ class MY_Controller extends CI_Controller{
 					endif;
 				else:
 					$this->profile = json_decode($this->session->userdata('profile'),TRUE);
-					$this->profile['balance'] = $this->users_accounts->value($this->account['id'],'balance');
+					$this->profile['balance'] = 0;
+//					$this->profile['balance'] = $this->accounts->value($this->account['id'],'balance');
 					$this->loginstatus = TRUE;
 				endif;
 			endif;
@@ -105,8 +101,7 @@ class MY_Controller extends CI_Controller{
 				$this->profile = $this->accounts->getWhere($account['id']);
 				$responseText = $this->load->view("headers/admin",NULL,TRUE); break;
 			case USER_GROUP_VALUE:
-				$this->load->model('users_accounts');
-				$this->profile = $this->users_accounts->getWhere($account['id']);
+				$this->profile = $this->accounts->getWhere($account['id']);
 				$this->account['id'] = $account['id'];
 				$responseText = $this->load->view("headers/users",NULL,TRUE); break;
 		endswitch;
@@ -250,7 +245,7 @@ class MY_Controller extends CI_Controller{
 		
 		$this->load->library('phpmailer');
 		$mail = new PHPMailer();
-//		$mail->SMTPDebug = 1;
+/*		$mail->SMTPDebug = 1;
 		$mail->IsSMTP();
 		$mail->SMTPAuth = true;
 		$mail->SMTPSecure = "tls";
@@ -258,7 +253,7 @@ class MY_Controller extends CI_Controller{
 		$mail->Port = 587;
 		$mail->Username = "konferum.ru@gmail.com";
 		$mail->Password = "hf5msdfl34";
-
+*/
 		$mail->AddReplyTo($from_mail,$from_name);
 		$mail->AddAddress($to);
 		$mail->SetFrom($from_mail,$from_name);

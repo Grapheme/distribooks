@@ -15,7 +15,7 @@ class Accounts extends MY_Model{
 		
 		if(!is_null($login) || !is_null($password)):
 			$this->db->select($this->_fields());
-			$this->db->where('email',$login);
+			$this->db->where('login',$login);
 			$this->db->where('password',md5($password));
 			$query = $this->db->get($this->table,1);
 			$data = $query->result_array();
@@ -39,5 +39,5 @@ class Accounts extends MY_Model{
 		endif;
 		return FALSE;
 	}
-
+	
 }

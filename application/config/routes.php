@@ -11,6 +11,8 @@ $route['redactor/get-uploaded-images'] = "global_interface/redactorUploadedImage
 $route['book-format/:num'] = "global_interface/showDocumentIco";
 $route['load-image/avatar/:num'] = "global_interface/loadimage";
 /********** sing in by social network *************/
+$route['sign-in/manual'] = "global_interface/loginIn";
+$route['sign-up/manual'] = "global_interface/signUpManual";
 $route['sign-in/vk'] = "global_interface/signInVK";
 $route['sign-in/facebook'] = "global_interface/signInUpFacebook";
 /*************************************************/
@@ -29,6 +31,8 @@ $route['request-do-translation'] = "guest_ajax_interface/requestDoTranslation";
 
 $route['request-order-distribution'] = "guest_ajax_interface/requestOrderDistribution";
 $route['request-do-distribution'] = "guest_ajax_interface/requestDoDistribution";
+/**************************************************** USER INTRERFACE **********************************************/
+$route['cabinet'] = "users_interface/cabinet";
 /************************************************* ADMIN AJAX INTRERFACE *******************************************/
 /* ---------------- news ----------------- */
 $route[ADMIN_START_PAGE.'/news/insert'] = "admin_ajax_interface/insertNews";

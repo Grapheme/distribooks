@@ -71,8 +71,10 @@ $lang['basket_buy_all'] = "All buy";
 
 $lang['signin_auth_text'] = "You need to sign up for the books you bought on e-mail and access to bonuses and rebates";
 $lang['signin_nickname'] = "Nickname";
+$lang['signin_password'] = "Password";
 $lang['signin_number'] = "Telephone number";
 $lang['signin_button'] = "Authorize";
+$lang['signup_button'] = "Singup";
 $lang['signin_auth_soc'] = "You can also register through any available to you social network, specifying the e-mail address";
 
 $lang['service_send_enquiry'] = "Send enquiry";
@@ -112,4 +114,6 @@ $lang['book_formats'] = "Available formats";
 $lang['catalog_tag_genre'] = "All the books category";
 $lang['catalog_tag_keyword'] = "All the books keyword";
 $lang['catalog_tag_author'] = "All the books by author";
+
+$lang['user_cabinet'] = "My books";
 ?>

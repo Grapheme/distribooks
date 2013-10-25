@@ -5,3 +5,4 @@
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="<?=baseURL('css/normalize.css');?>">
 <link rel="stylesheet" href="<?=baseURL('css/main.css');?>">
+<link rel="stylesheet" href="<?=baseURL('css/tooltip.css');?>">

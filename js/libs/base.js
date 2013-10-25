@@ -9,8 +9,9 @@ mt.baseURL = window.location.protocol+'//'+window.location.hostname+'/';
 mt.currentURL = window.location.href;
 mt.languageSegment = 1;
 mt.currentLanguage = 'ru'; //Установка языка для панели администрирования так как там не используется сегмент указывающий на язык
-mt.toltipPlacement = 'right'; // Возможные значения top | bottom | left | right | auto
-mt.toltipTrigger = 'manual'; // Возможные значения click | hover | focus | manual
+mt.tooltipPlacementDefault = 'right'; // Возможные значения top | bottom | left | right | auto
+mt.tooltipPlacement = mt.tooltipPlacementDefault;
+mt.tooltipTrigger = 'manual'; // Возможные значения click | hover | focus | manual
 //END CONFIGURATION
 mt.getBaseURL = function(url){
 	return mt.baseURL+url;
@@ -163,7 +164,14 @@ $.fn.ForceNumericOnly = function(){
 	});
 };
 $.fn.setValidationErrorStatus = function(text){
+	if($(this).hasClass('tooltip-place')){
+		var tooltipPlace = mt.tooltipPlacement;
+		mt.tooltipPlacement = $(this).attr('data-tooltip-place');
+	}else{
+		mt.tooltipPlacement = mt.tooltipPlacementDefault;
+	}
 	$(this).attr('role','tooltip').showToolTip(text);
+	
 }
 $.fn.defaultValidationErrorStatus = function(){
 	$(this).find(":input[role='tooltip']").hideToolTip();
@@ -174,7 +182,7 @@ $.fn.showToolTip = function(ToolTipText){
 	if(ToolTipText == ''){
 		ToolTipText = 'Поле не заполнено';
 	}
-	var config = {placement:mt.toltipPlacement,trigger:mt.toltipTrigger,title:ToolTipText}
+	var config = {placement:mt.tooltipPlacement,trigger:mt.tooltipTrigger,title:ToolTipText}
 	var style = "background: none repeat scroll 0 0 transparent;display: block;height: 2px;opacity: 0;position: absolute;right: 0;top: 32px;width: 2px;";
 	return this.each(
 		function(){
@@ -205,13 +213,13 @@ $.fn.formSubmitInServer = function(){
 			mt.ajaxSuccessSubmit(response,status,xhr,jqForm);
 			if(response.status == true){
 				if(response.responseText != ''){
-					$("div.div-form-operation").after('<div class="msg-alert">'+response.responseText+'</div>');
+					$(_form).find("div.div-form-operation").after('<div class="msg-alert">'+response.responseText+'</div>');
 				}
 				if(response.redirect !== false){
 					mt.redirect(response.redirect);
 				}
 			}else{
-				$("div.div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
+				$(_form).find("div.div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
 			}
 		}
 	}
