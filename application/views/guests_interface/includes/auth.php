@@ -14,8 +14,8 @@
 		</form>
 	</div>
 	<div class="auth-right">
-		<a href="#" class="auth-soc" id="vk"></a>
-		<a href="#" class="auth-soc" id="fb"></a>
+		<a href="<?=OAUTH_VK.site_url('sign-in/vk');?>" class="auth-soc" id="vk"></a>
+		<a href="<?=OAUTH_FACEBOOK.site_url('sign-in/facebook');?>" class="auth-soc" id="fb"></a>
 		<form action="<?=baseURL($this->uri->language_string.'/sign-up/manual');?>" method="POST">
 			<input type="text" name="email" placeholder="E-mail" class="auth-soc-email valid-required valid-email">
 			<p><?=lang('signin_auth_soc')?></p>

@@ -33,7 +33,7 @@ define('TOOLTIP_BUTTON_DELETE',					'data-trigger="hover" data-placement="bottom
 define('TEMPORARY',								getcwd().'/temporary/');
 
 define('ADMIN_START_PAGE',						'admin-panel');
-define('USER_START_PAGE',						'user');
+define('USER_START_PAGE',						'cabinet');
 
 define('BASE_WIDTH',							960);
 define('BASE_HEIGHT',							450);
@@ -51,5 +51,5 @@ define('ALLOWED_TYPES_DOCUMENTS',				'doc|docx|xls|xlsx|txt|pdf|ppt|pptx');
 define('ALLOWED_TYPES_IMAGES',					'jpg|gif|jpeg|png');
 define('ALLOWED_TYPES_BOOKS',					'*');
 
-define('OAUTH_VK',								'https://oauth.vk.com/authorize?client_id=3539213&response_type=code&redirect_uri=');
-define('OAUTH_FACEBOOK',						'https://www.facebook.com/dialog/oauth?client_id=341255199337226&response_type=code&redirect_uri=');
+define('OAUTH_VK',								'https://oauth.vk.com/authorize?client_id=3955363&response_type=code&redirect_uri=');
+define('OAUTH_FACEBOOK',						'https://www.facebook.com/dialog/oauth?client_id=652720394760055&response_type=code&redirect_uri=');

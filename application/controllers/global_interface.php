@@ -26,8 +26,8 @@ class Global_interface extends MY_Controller{
 					$this->setLoginSession($user['id']);
 					if($user['group'] == ADMIN_GROUP_VALUE):
 						$json_request['redirect'] = site_url(ADMIN_START_PAGE);
-					elseif($user['group'] == USER_GROUP_VALUE && isset($_SERVER['HTTP_REFERER'])):
-						$json_request['redirect'] = $_SERVER['HTTP_REFERER'];
+					elseif($user['group'] == USER_GROUP_VALUE):
+						$json_request['redirect'] = site_url(USER_START_PAGE);
 					endif;
 					$json_request['status'] = TRUE;
 				else:
@@ -129,16 +129,16 @@ class Global_interface extends MY_Controller{
 				if($userID = $this->accounts->search('vkid',$VKontakteAccountInformation['uid'])):
 					$this->signInAccount($userID);
 					$this->accounts->updateField($userID,'vk_access_token',$vkontakte['access_token']);
+					redirect('cabinet');
 				else:
 					if($userID = $this->registerUserByVK($VKontakteAccountInformation)):
 						$this->signInAccount($userID);
+						redirect('cabinet');
 					endif;
 				endif;
-			else:
-				show_error('Ошибка при авторизации. Попробуйте позже');
 			endif;
 		endif;
-		redirect($this->session->userdata('current_page').'#comments-form');
+		redirect();
 	}
 	
 	public function signInUpFacebook(){
@@ -149,16 +149,16 @@ class Global_interface extends MY_Controller{
 				if($userID = $this->accounts->search('facebookid',$faceBookAccountInformation['id'])):
 					$this->signInAccount($userID);
 					$this->accounts->updateField($userID,'facebook_access_token',$accessToken);
+					redirect('cabinet');
 				else:
 					if($userID = $this->registerUserByFaceBook($faceBookAccountInformation)):
 						$this->signInAccount($userID);
+						redirect('cabinet');
 					endif;
 				endif;
-			else:
-				show_error('Ошибка при авторизации. Попробуйте позже');
 			endif;
 		endif;
-		redirect($this->session->userdata('current_page').'#comments-form');
+		redirect();
 	}
 	
 	private function signInAccount($userID){
@@ -172,10 +172,11 @@ class Global_interface extends MY_Controller{
 	/*************************************************************************************************************/
 	private function registerUserManual($post){
 		
-		$insert = array('group'=>2,'email'=>$post['email'],'active'=>1,'language'=>1);
+		$insert = array('group'=>2,'email'=>$post['email'],'active'=>1);
 		if($accountID = $this->accounts->insertRecord($insert)):
 			$this->load->helper('string');
 			$password = random_string('alnum',12);
+			$this->accounts->updateField($accountID,'login','id'.$accountID);
 			$this->accounts->updateField($accountID,'password',md5($password));
 			$mailtext = $this->load->view('mails/signup',array('login'=>'id'.$accountID,'password'=>$password),TRUE);
 			$this->sendMail($post['email'],FROM_BASE_EMAIL,'Distribboks','Регистрация на distribbooks.ru',$mailtext);
@@ -184,68 +185,30 @@ class Global_interface extends MY_Controller{
 		return FALSE;
 	}
 	
-	private function registerUserByVK($accountID,$userID){
+	private function registerUserByVK($signUpVK){
 		
-		if($this->session->userdata('signinvk') !== FALSE):
-			$signUpVK = json_decode($this->session->userdata('signinvk'),TRUE);
-			if(isset($signUpVK['uid']) && $signUpVK['uid']):
-				if(isset($signUpVK['photo_big']) && !empty($signUpVK['photo_big'])):
-					$photo = file_get_contents($signUpVK['photo_big']);
-					$this->accounts->updateField($accountID,'photo',$photo);
-				endif;
-				if(isset($signUpVK['photo']) && !empty($signUpVK['photo'])):
-					$thumbnail = file_get_contents($signUpVK['photo']);
-					$this->accounts->updateField($accountID,'thumbnail',$thumbnail);
-				endif;
-				if(isset($signUpVK['sex']) && !empty($signUpVK['sex'])):
-					$this->users->updateField($userID,'gender',$signUpVK['sex']);
-				endif;
-				if(isset($signUpVK['bdate']) && !empty($signUpVK['bdate'])):
-					$age = preg_replace("/(\d+)\.(\w+)\.(\d+)/i","\$3-\$2-\$1",$signUpVK['bdate']);
-					if($age != FALSE && !empty($age)):
-						$this->users->updateField($userID,'age',$age);
-					endif;
-				endif;
-				$this->resetSNAccountID('vk',$signUpVK['uid']);
-				$this->accounts->updateField($accountID,'vkid',$signUpVK['uid']);
-				$this->accounts->updateField($accountID,'vk_access_token',$signUpVK['access_token']);
-				$this->setLinkVK($signUpVK['screen_name'],$accountID);
-				return TRUE;
+		if(isset($signUpVK['uid']) && $signUpVK['uid']):
+			$insert = array("group"=>2,"vkid"=>$signUpVK['uid'],"vk_access_token"=>$signUpVK['access_token'],'email'=>'','active'=>1);
+			if($accountID = $this->accounts->insertRecord($insert)):
+				$this->load->helper('string');
+				$this->accounts->updateField($accountID,'login','id'.$accountID);
+				$this->accounts->updateField($accountID,'password',md5(random_string('alnum',12)));
 			endif;
+			return $accountID;
 		endif;
 		return FALSE;
 	}
 	
-	private function registerUserByFaceBook($accountID,$userID){
+	private function registerUserByFaceBook($signUpFB){
 		
-		if($this->session->userdata('signinfb') !== FALSE):
-			$signUpFB = json_decode($this->session->userdata('signinfb'),TRUE);
-			if(isset($signUpFB['id']) && $signUpFB['id']):
-				if(isset($signUpFB['picture']['data']['url']) && !empty($signUpFB['picture']['data']['url'])):
-					$photo = file_get_contents($signUpFB['picture']['data']['url']);
-					$this->accounts->updateField($accountID,'photo',$photo);
-					$this->accounts->updateField($accountID,'thumbnail',$this->getImageContent($photo,array('dim'=>'width','ratio'=>TRUE,'width'=>60,'height'=>60)));
-				endif;
-				if(isset($signUpFB['gender']) && !empty($signUpFB['gender'])):
-					if($signUpFB['gender'] == 'male'):
-						$signUpFB['sex'] = 1;
-					else:
-						$signUpFB['sex'] = 2;
-					endif;
-					$this->users->updateField($userID,'gender',$signUpFB['sex']);
-				endif;
-				if(isset($signUpFB['birthday']) && !empty($signUpFB['birthday'])):
-					$age = preg_replace("/(\d+)\/(\w+)\/(\d+)/i","\$3-\$1-\$2",$signUpFB['birthday']);
-					if($age != FALSE && !empty($age)):
-						$this->users->updateField($userID,'age',$age);
-					endif;
-				endif;
-				$this->resetSNAccountID('facebook',$signUpFB['id']);
-				$this->accounts->updateField($accountID,'facebookid',$signUpFB['id']);
-				$this->accounts->updateField($accountID,'facebook_access_token',$signUpFB['access_token']);
-				$this->setLinkFacebook($signUpFB['link'],$accountID);
-				return TRUE;
+		if(isset($signUpFB['id']) && $signUpFB['id']):
+			$insert = array("group"=>2,"facebookid"=>$signUpFB['id'],"facebook_access_token"=>$signUpFB['access_token'],'email'=>'','active'=>1);
+			if($accountID = $this->accounts->insertRecord($insert)):
+				$this->load->helper('string');
+				$this->accounts->updateField($accountID,'login','id'.$accountID);
+				$this->accounts->updateField($accountID,'password',md5(random_string('alnum',12)));
 			endif;
+			return $accountID;
 		endif;
 		return FALSE;
 	}

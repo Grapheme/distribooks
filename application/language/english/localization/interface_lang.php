@@ -1,10 +1,8 @@
 <?php
 
-$lang['test'] = "Тестовое сообщение";
-
 $lang['news_block'] = "News";
 
-$lang['index_page'] = "Главная";
+$lang['index_page'] = "Home";
 $lang['top_menu_catalog'] = "Catalog";
 $lang['top_menu_about'] = "About";
 $lang['top_menu_donation'] = "Make donation";
@@ -18,6 +16,8 @@ $lang['top_menu_find_text'] = "Text";
 $lang['top_menu_find_format'] = "Format";
 $lang['top_menu_find_shopping_card'] = "Shopping card";
 $lang['top_menu_sign_in'] = "Sing in";
+$lang['top_menu_admin_panel'] = "Admin panel";
+$lang['top_menu_user_cabinet'] = "My cabinet";
 $lang['top_menu_bookmark'] = "Bookmark";
 $lang['top_menu_publisher'] = "Online Publisher";
 $lang['top_menu_main'] = "Menu";

@@ -10,6 +10,12 @@ class Users_interface extends MY_Controller{
 		if(!$this->loginstatus || ($this->account['group'] != USER_GROUP_VALUE)):
 			redirect('');
 		endif;
+		if($this->uri->language_string === FALSE):
+			$this->config->set_item('base_url',baseURL($this->baseLanguageURL.'/cabinet'));
+			redirect();
+		else:
+			$this->config->set_item('base_url',baseURL($this->uri->language_string.'/'));
+		endif;
 		$this->load->helper('language');
 		$this->lang->load('localization/interface',$this->languages[$this->uri->language_string]);
 		$this->load->model('meta_titles');

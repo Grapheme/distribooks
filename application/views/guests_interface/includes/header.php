@@ -78,7 +78,14 @@
 					<img class="qr" src="<?=baseURL('img/qr.png');?>">
 					<a href="#" class="red button topb no-clickable"><?=lang('top_menu_bookmark');?></a>
 					<div class="lang">
-						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a><div class="enter-div"><a href="#" class="sign-in no-clickable"><?=lang('top_menu_sign_in');?></a><a href="#" class="enter"></a></div>
+						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a>
+					<?php if($this->loginstatus === FALSE):?>
+						<?php $this->load->view('headers/guest');?>
+					<?php elseif($this->account['group'] == ADMIN_GROUP_VALUE):?>
+						<?php $this->load->view('headers/admin');?>
+					<?php elseif($this->account['group'] == USER_GROUP_VALUE):?>
+						<?php $this->load->view('headers/users');?>
+					<?php endif;?>
 					</div>
 				</div>
 			</div>

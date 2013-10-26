@@ -133,7 +133,7 @@ class MY_Controller extends CI_Controller{
 	/*************************************************************************************************************/
 	public function getVKontakteAccessToken($code,$redirect){
 		
-		$url = "https://oauth.vk.com/access_token?client_id=3539213&client_secret=6juI1xBlfDgTpen0EdyS&code=".$code."&redirect_uri=".$redirect;
+		$url = "https://oauth.vk.com/access_token?client_id=3955363&client_secret=T08z8CWN82QxY5pl4S1r&code=".$code."&redirect_uri=".$redirect;
 		$VKontakteResponse = json_decode($this->getCurlLink($url),TRUE);
 		if(isset($VKontakteResponse['access_token'])):
 			return $VKontakteResponse;
@@ -155,7 +155,7 @@ class MY_Controller extends CI_Controller{
 	
 	public function getFaceBookAccessToken($code,$redirect){
 		
-		$url = "https://graph.facebook.com/oauth/access_token?client_id=341255199337226&client_secret=81dffd355fc48f7e41a487a9f3841e3e&code=".$code."&redirect_uri=".$redirect;
+		$url = "https://graph.facebook.com/oauth/access_token?client_id=652720394760055&client_secret=85181c616f569ab39edb2e9a9ceffbd8&code=".$code."&redirect_uri=".$redirect;
 		$FaceBookResultString = $this->getCurlLink($url);
 		$FaceBookResultArray = explode('&',$FaceBookResultString);
 		$accessToken = explode('=',$FaceBookResultArray[0]);
