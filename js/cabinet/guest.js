@@ -28,6 +28,19 @@ $(function(){
 		$(_form).ajaxSubmit(options);
 		return false;
 	});
+	
+	$(".sign-in-link").click(function(){
+		if($(this).hasClass('buy')){
+			var largeExpDate = new Date();
+			largeExpDate.setTime(largeExpDate.getTime()+(24*3600*1000));
+			cookies.setCookie('buy_book',$(this).attr('data-book-id'),largeExpDate,'/')
+		}else{
+			cookies.deleteCookie('buy_book','/');
+		}
+		$(".dark-screen").fadeIn("fast");
+		$(".window-auth").fadeIn("fast");
+	});
+	
 	function showRequestDivForm(element){
 		$(".dark-screen").fadeIn("fast");
 		$(element).fadeIn("fast");

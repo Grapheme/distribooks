@@ -3,6 +3,7 @@
 
 <script type="text/javascript" src="<?=baseURL('js/vendor/bootstrap.tooltips.js');?>"></script>
 <script type="text/javascript" src="<?=baseURL('js/vendor/jquery.form.js');?>"></script>
+<script type="text/javascript" src="<?=baseURL('js/libs/cookies.js');?>"></script>
 <script type="text/javascript" src="<?=baseURL('js/libs/localize.js');?>"></script>
 <script type="text/javascript" src="<?=baseURL('js/libs/base.js');?>"></script>
 <script type="text/javascript" src="<?=baseURL('js/cabinet/guest.js');?>"></script>

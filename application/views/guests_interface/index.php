@@ -58,7 +58,7 @@
 							<p class="price"><?=$novelty[$i]['price']?> <?=$currency[$novelty[$i]['currency']-1]['title'];?></p>
 						</div>
 					</div>
-					<?php $this->load->view('guests_interface/html/buyor');?>
+					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$novelty[$i]['id']));?>
 				</div>
 			<?php endfor;?>
 			</div>

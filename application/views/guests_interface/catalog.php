@@ -88,7 +88,7 @@
 								<p class="price"><?=$catalog[$i]['price']?> <?=$currency[$catalog[$i]['currency']-1]['title'];?></p>
 							</div>
 						</div>
-						<?php $this->load->view('guests_interface/html/buyor');?>
+						<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$catalog[$i]['id']));?>
 					</div>
 				<?php if(($i+1)%3 == 0):?>
 					<div class="clear"></div>
@@ -154,7 +154,7 @@
 							<p class="price"><?=$bestsellers[$i]['price']?> <?=$currency[$bestsellers[$i]['currency']-1]['title'];?></p>
 						</div>
 					</div>
-					<?php $this->load->view('guests_interface/html/buyor');?>
+					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$bestsellers[$i]['id']));?>
 					<div class="shop-desc">
 						<?=$bestsellers[$i][$this->uri->language_string.'_anonce']?>
 					</div>
@@ -193,7 +193,7 @@
 							<p class="price"><?=$novelty[$i]['price']?> <?=$currency[$novelty[$i]['currency']-1]['title'];?></p>
 						</div>
 					</div>
-					<?php $this->load->view('guests_interface/html/buyor');?>
+					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$novelty[$i]['id']));?>
 				</div>
 			<?php endfor;?>
 				<div class="clear"></div>
@@ -230,7 +230,7 @@
 							<p class="price"><?=$recommended[$i]['price']?> <?=$currency[$recommended[$i]['currency']-1]['title'];?></p>
 						</div>
 					</div>
-					<?php $this->load->view('guests_interface/html/buyor');?>
+					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$recommended[$i]['id']));?>
 				</div>
 			<?php endfor;?>
 				<div class="clear"></div>
