@@ -5,19 +5,23 @@
 	</div>
 	<div class="clear"></div>
 	<div class="auth-left">
-		<form action="">
-			<input type="text" name="name" placeholder="<?=lang('signin_nickname')?>">
-			<input type="text" name="email" placeholder="E-mail">
-			<input type="text" name="phone" placeholder="<?=lang('signin_number')?>">
-			<input type="button" value="<?=lang('signin_button')?>" class="auth-button">
+		<form action="<?=baseURL($this->uri->language_string.'/sign-in/manual');?>" method="POST">
+			<input type="text" class="valid-required tooltip-place" data-tooltip-place="right" name="login" placeholder="<?=lang('signin_nickname')?>">
+			<input type="password" class="valid-required tooltip-place" data-tooltip-place="right" name="password" placeholder="<?=lang('signin_password')?>">
+			<div class="div-form-operation">
+				<button type="button" class="auth-button btn-sign-submit btn-loading"><?=lang('signin_button')?></button>
+			</div>
 		</form>
 	</div>
 	<div class="auth-right">
-		<a href="#" class="auth-soc" id="tw"></a>
-		<a href="#" class="auth-soc" id="vk"></a>
-		<a href="#" class="auth-soc" id="fb"></a>
-		<a href="#" class="auth-soc" id="ok"></a>
-		<input type="text" name="email-soc" placeholder="E-mail" class="auth-soc-email">
-		<p><?=lang('signin_auth_soc')?></p>
+		<a href="<?=OAUTH_VK.site_url('sign-in/vk');?>" class="auth-soc" id="vk"></a>
+		<a href="<?=OAUTH_FACEBOOK.site_url('sign-in/facebook');?>" class="auth-soc" id="fb"></a>
+		<form action="<?=baseURL($this->uri->language_string.'/sign-up/manual');?>" method="POST">
+			<input type="text" name="email" placeholder="E-mail" class="auth-soc-email valid-required valid-email">
+			<p><?=lang('signin_auth_soc')?></p>
+			<div class="div-form-operation">
+				<button type="button" class="auth-button btn-sign-submit btn-loading"><?=lang('signup_button')?></button>
+			</div>
+		</form>
 	</div>
 </div>

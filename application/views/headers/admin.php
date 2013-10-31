@@ -1,4 +1,4 @@
-<ul>
-	<li><a href="<?=site_url(ADMIN_START_PAGE);?>">Панель управления</a></li>
-	<li><?=anchor('log-off','Выйти',array('class'=>'exit'));?></li>
-</ul>
+<div class="enter-div">
+	<a href="<?=baseURL('admin-panel')?>"><?=lang('top_menu_admin_panel');?></a>
+	<a href="<?=site_url('log-off');?>" class="enter"></a>
+</div>

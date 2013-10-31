@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-$config['base_url'] 			= "http://localhost/dbooks/";
+$config['base_url'] 			= "http://distribbooks.ru/";
 $config['index_page'] 			= '';
 $config['uri_protocol']			= 'AUTO';
 $config['url_suffix'] 			= '';

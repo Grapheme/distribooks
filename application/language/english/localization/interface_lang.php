@@ -1,10 +1,8 @@
 <?php
 
-$lang['test'] = "Тестовое сообщение";
-
 $lang['news_block'] = "News";
 
-$lang['index_page'] = "Главная";
+$lang['index_page'] = "Home";
 $lang['top_menu_catalog'] = "Catalog";
 $lang['top_menu_about'] = "About";
 $lang['top_menu_donation'] = "Make donation";
@@ -18,6 +16,8 @@ $lang['top_menu_find_text'] = "Text";
 $lang['top_menu_find_format'] = "Format";
 $lang['top_menu_find_shopping_card'] = "Shopping card";
 $lang['top_menu_sign_in'] = "Sing in";
+$lang['top_menu_admin_panel'] = "Admin panel";
+$lang['top_menu_user_cabinet'] = "My cabinet";
 $lang['top_menu_bookmark'] = "Bookmark";
 $lang['top_menu_publisher'] = "Online Publisher";
 $lang['top_menu_main'] = "Menu";
@@ -71,8 +71,10 @@ $lang['basket_buy_all'] = "All buy";
 
 $lang['signin_auth_text'] = "You need to sign up for the books you bought on e-mail and access to bonuses and rebates";
 $lang['signin_nickname'] = "Nickname";
+$lang['signin_password'] = "Password";
 $lang['signin_number'] = "Telephone number";
 $lang['signin_button'] = "Authorize";
+$lang['signup_button'] = "Singup";
 $lang['signin_auth_soc'] = "You can also register through any available to you social network, specifying the e-mail address";
 
 $lang['service_send_enquiry'] = "Send enquiry";
@@ -112,4 +114,6 @@ $lang['book_formats'] = "Available formats";
 $lang['catalog_tag_genre'] = "All the books category";
 $lang['catalog_tag_keyword'] = "All the books keyword";
 $lang['catalog_tag_author'] = "All the books by author";
+
+$lang['user_cabinet'] = "My books";
 ?>

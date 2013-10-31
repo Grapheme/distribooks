@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	$(".enter-div a").click(function(){
+	$(".enter-div a.sign-in").click(function(){
 		$(".dark-screen").fadeIn("fast");
 		$(".window-auth").fadeIn("fast");
 	});

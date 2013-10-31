@@ -5,6 +5,8 @@ class Global_interface extends MY_Controller{
 	function __construct(){
 
 		parent::__construct();
+		$this->load->helper('language');
+		$this->lang->load('localization/global',$this->languages[$this->uri->language_string]);
 	}
 	
 	public function signIN(){
@@ -24,15 +26,37 @@ class Global_interface extends MY_Controller{
 					$this->setLoginSession($user['id']);
 					if($user['group'] == ADMIN_GROUP_VALUE):
 						$json_request['redirect'] = site_url(ADMIN_START_PAGE);
-					elseif($user['group'] == USER_GROUP_VALUE && isset($_SERVER['HTTP_REFERER'])):
-						$json_request['redirect'] = $_SERVER['HTTP_REFERER'];
+					elseif($user['group'] == USER_GROUP_VALUE):
+						$json_request['redirect'] = site_url(USER_START_PAGE);
 					endif;
 					$json_request['status'] = TRUE;
 				else:
-					$json_request['responseText'] = 'Аккаунт не активирован';
+					$json_request['responseText'] = lang('account_not_active');
 				endif;
 			else:
-				$json_request['responseText'] = 'Неверный логин или пароль';
+				$json_request['responseText'] = lang('auth_in_invalid');
+			endif;
+		else:
+			$json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>'Неверно заполнены поля'),TRUE);
+		endif;
+		echo json_encode($json_request);
+	}
+	
+	public function signUpManual(){
+		
+		if(!$this->input->is_ajax_request() && $this->loginstatus === FALSE):
+			show_error('В доступе отказано');
+		endif;
+		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
+		if($this->postDataValidation('signup') == TRUE):
+			if($this->accounts->search('email',$this->input->post('email')) === FALSE):
+				if($userID = $this->registerUserManual($this->input->post())):
+					$this->signInAccount($userID);
+					$json_request['redirect'] = 'cabinet';
+					$json_request['status'] = TRUE;
+				endif;
+			else:
+				$json_request['responseText'] = lang('email_exists');
 			endif;
 		else:
 			$json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>'Неверно заполнены поля'),TRUE);
@@ -105,16 +129,16 @@ class Global_interface extends MY_Controller{
 				if($userID = $this->accounts->search('vkid',$VKontakteAccountInformation['uid'])):
 					$this->signInAccount($userID);
 					$this->accounts->updateField($userID,'vk_access_token',$vkontakte['access_token']);
+					redirect('cabinet');
 				else:
 					if($userID = $this->registerUserByVK($VKontakteAccountInformation)):
 						$this->signInAccount($userID);
+						redirect('cabinet');
 					endif;
 				endif;
-			else:
-				show_error('Ошибка при авторизации. Попробуйте позже');
 			endif;
 		endif;
-		redirect($this->session->userdata('current_page').'#comments-form');
+		redirect();
 	}
 	
 	public function signInUpFacebook(){
@@ -125,16 +149,16 @@ class Global_interface extends MY_Controller{
 				if($userID = $this->accounts->search('facebookid',$faceBookAccountInformation['id'])):
 					$this->signInAccount($userID);
 					$this->accounts->updateField($userID,'facebook_access_token',$accessToken);
+					redirect('cabinet');
 				else:
 					if($userID = $this->registerUserByFaceBook($faceBookAccountInformation)):
 						$this->signInAccount($userID);
+						redirect('cabinet');
 					endif;
 				endif;
-			else:
-				show_error('Ошибка при авторизации. Попробуйте позже');
 			endif;
 		endif;
-		redirect($this->session->userdata('current_page').'#comments-form');
+		redirect();
 	}
 	
 	private function signInAccount($userID){
@@ -142,6 +166,49 @@ class Global_interface extends MY_Controller{
 		if($user = $this->accounts->getWhere($userID,array('active'=>1))):
 			$this->setLoginSession($user['id']);
 			return TRUE;
+		endif;
+		return FALSE;
+	}
+	/*************************************************************************************************************/
+	private function registerUserManual($post){
+		
+		$insert = array('group'=>2,'email'=>$post['email'],'active'=>1);
+		if($accountID = $this->accounts->insertRecord($insert)):
+			$this->load->helper('string');
+			$password = random_string('alnum',12);
+			$this->accounts->updateField($accountID,'login','id'.$accountID);
+			$this->accounts->updateField($accountID,'password',md5($password));
+			$mailtext = $this->load->view('mails/signup',array('login'=>'id'.$accountID,'password'=>$password),TRUE);
+			$this->sendMail($post['email'],FROM_BASE_EMAIL,'Distribboks','Регистрация на distribbooks.ru',$mailtext);
+			return $accountID;
+		endif;
+		return FALSE;
+	}
+	
+	private function registerUserByVK($signUpVK){
+		
+		if(isset($signUpVK['uid']) && $signUpVK['uid']):
+			$insert = array("group"=>2,"vkid"=>$signUpVK['uid'],"vk_access_token"=>$signUpVK['access_token'],'email'=>'','active'=>1);
+			if($accountID = $this->accounts->insertRecord($insert)):
+				$this->load->helper('string');
+				$this->accounts->updateField($accountID,'login','id'.$accountID);
+				$this->accounts->updateField($accountID,'password',md5(random_string('alnum',12)));
+			endif;
+			return $accountID;
+		endif;
+		return FALSE;
+	}
+	
+	private function registerUserByFaceBook($signUpFB){
+		
+		if(isset($signUpFB['id']) && $signUpFB['id']):
+			$insert = array("group"=>2,"facebookid"=>$signUpFB['id'],"facebook_access_token"=>$signUpFB['access_token'],'email'=>'','active'=>1);
+			if($accountID = $this->accounts->insertRecord($insert)):
+				$this->load->helper('string');
+				$this->accounts->updateField($accountID,'login','id'.$accountID);
+				$this->accounts->updateField($accountID,'password',md5(random_string('alnum',12)));
+			endif;
+			return $accountID;
 		endif;
 		return FALSE;
 	}

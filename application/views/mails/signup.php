@@ -1,8 +1,10 @@
-<p>Привет, <em><?=$profile['name'].' '.$profile['surname'];?></em>.</p>
-<p>Добро пожаловать в Universiality, универсальную платформу для онлайн обучения.
-Пройди по <?=anchor('registering/activation-code/'.$activate_code,'ссылке',array('target'=>'_blank'));?>,
-чтобы активировать аккаунт и начать пользоваться сервисом по полной программе. Ссылка действует 24 числа, поэтому лучше не откладывай активацию.</p>
+<p>Вы зарагистрированы на сайте Distribbooks.ru</p>
+<p>
+	Доступ к личному кабинету через:<br/>
+	Логин: <?=$login;?><br/>
+	Пароль: <?=$password;?><br/>
+</p>
 
 <br/><br/>
 --
-Администрация <?=anchor('','Universiality',array('target'=>'_blank'));?>.
+Администрация <?=anchor('','Distribbooks',array('target'=>'_blank'));?>.
