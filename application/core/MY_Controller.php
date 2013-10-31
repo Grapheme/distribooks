@@ -1,7 +1,7 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 class MY_Controller extends CI_Controller{
-	
+
 	var $account = array('id'=>0,'group'=>0);
 	var $profile = '';
 	var $loginstatus = FALSE;
@@ -16,11 +16,8 @@ class MY_Controller extends CI_Controller{
 		
 		parent::__construct();
 		$this->baseURL = base_url();
-		
-		$sessionLogon = $this->session->userdata('logon');
-		if($sessionLogon):
-			$this->account = json_decode($this->session->userdata('account'),TRUE);
-			if($this->account):
+		if($sessionLogon = $this->session->userdata('logon')):
+			if($this->account = json_decode($this->session->userdata('account'),TRUE)):
 				if($this->session->userdata('profile') == FALSE):
 					$profile = $this->accounts->getWhere($this->account['id']);
 					if($profile && ($sessionLogon == md5($profile['email']))):
@@ -66,8 +63,6 @@ class MY_Controller extends CI_Controller{
 		
 		if($this->session->userdata('signinvk') || $this->session->userdata('signinfb')):
 			$this->session->unset_userdata(array('signinvk' => '','signinfb' => ''));
-		elseif($this->session->userdata('current_step') !== FALSE):
-			$this->session->unset_userdata(array('newCourseID'=>'','newProjectID'=>'','current_step'=>'','step'=>''));
 		endif;
 		if($redirect == TRUE):
 			redirect('');
@@ -84,51 +79,6 @@ class MY_Controller extends CI_Controller{
 			return TRUE;
 		endif;
 		return FALSE;
-	}
-	
-	public function clearTemporaryCode($accountID){
-		
-		if(!empty($this->profile['password'])):
-			$this->accounts->updateField($accountID,'temporary_code','');
-			$this->accounts->updateField($accountID,'code_life','0');
-		endif;
-	}
-	
-	public function getAccountLoginBlock($account){
-		
-		switch($account['group']):
-			case ADMIN_GROUP_VALUE:
-				$this->profile = $this->accounts->getWhere($account['id']);
-				$responseText = $this->load->view("headers/admin",NULL,TRUE); break;
-			case USER_GROUP_VALUE:
-				$this->profile = $this->accounts->getWhere($account['id']);
-				$this->account['id'] = $account['id'];
-				$responseText = $this->load->view("headers/users",NULL,TRUE); break;
-		endswitch;
-		$this->loginstatus = TRUE;
-		$this->session->set_userdata('profile',json_encode($this->profile));
-		return $responseText;
-	}
-	/*************************************************************************************************************/
-	public function setCountryCityLibraries($ip_address = ''){
-		
-		if(empty($ip_address)):
-			$ip_address = $this->input->ip_address();
-		endif;
-		$this->load->library('sxgeo');
-		$this->sxgeo->init('sxgeocity',SXGEO_FILE);
-		$countryID = $cityID = 0;
-		if($SxGeo = $this->sxgeo->getCity($ip_address)):
-			$this->load->model(array('countries','cities'));
-			if(!$countryID = $this->countries->search('hash',md5($SxGeo['country']))):
-				$countryID = $this->insertItem(array('insert'=>array('title'=>$SxGeo['country'],'code'=>$SxGeo['country'],'hash'=>md5($SxGeo['country'])),'model'=>'countries'));
-			endif;
-			if(!$cityID = $this->cities->search('hash',md5($SxGeo['city']))):
-				$cityID = $this->insertItem(array('insert'=>array('title'=>$SxGeo['city'],'country'=>$countryID,'hash'=>md5($SxGeo['city'])),'translit'=>$this->translite($SxGeo['city']),'model'=>'cities'));
-			endif;
-		endif;
-		return array('country'=>$countryID,'city'=>$cityID);
-		
 	}
 	/*************************************************************************************************************/
 	public function getVKontakteAccessToken($code,$redirect){
@@ -463,34 +413,6 @@ class MY_Controller extends CI_Controller{
 		return FALSE;
 	}
 	
-	public function CropAvatar(){
-		
-		$arguments = &func_get_args();
-		$fileName = (isset($arguments[0]['filepath']))?$arguments[0]['filepath']:NULL;
-		$x = (isset($arguments[0]['x_axis']))?$arguments[0]['x_axis']:0;
-		$y = (isset($arguments[0]['y_axis']))?$arguments[0]['y_axis']:0;
-		$w = (isset($arguments[0]['width']))?$arguments[0]['width']:960;
-		$h = (isset($arguments[0]['height']))?$arguments[0]['height']:580;
-		$copy = (isset($arguments[0]['copy']))?TRUE:FALSE;
-		
-		if(!is_null($fileName) && is_file($fileName)):
-			$this->load->library('images');
-			$newFile = FALSE;
-			if($copy === TRUE):
-				$this->load->helper('string');
-				$newFile = getcwd().'/temporary/'.random_string('alnum',12).'.tmp';
-			endif;
-			if($this->images->cropingImage($fileName,$x,$y,$w,$h,$newFile)):
-				if($copy === TRUE):
-					return $newFile;
-				else:
-					return TRUE;
-				endif;
-			endif;
-		endif;
-		return FALSE;
-	}
-	
 	public function getImageContent($content = NULL,$manupulation = NULL){
 		
 		if(!is_null($content)):
@@ -505,47 +427,6 @@ class MY_Controller extends CI_Controller{
 		else:
 			return '';
 		endif;
-	}
-	
-	public function uploadServerFiles($documents,$parameters){
-		
-		$errorMessage = '';
-		if(!isset($parameters['upload_path']) || empty($parameters['upload_path'])):
-			$parameters['upload_path'] = getcwd().'/diskspace/user'.$this->account['id'].'/';
-		else:
-			$parameters['upload_path'] = getcwd().'/diskspace/user'.$this->account['id'].'/'.$parameters['upload_path'];
-		endif;
-		$resources = array();
-		for($file=0;$file<count($documents['resources']['name']);$file++):
-			if($documents['resources']['error'][$file] != 4):
-				$files['userfile']['name'] = $documents['resources']['name'][$file];
-				$files['userfile']['type'] = $documents['resources']['type'][$file];
-				$files['userfile']['tmp_name'] = $documents['resources']['tmp_name'][$file];
-				$files['userfile']['error'] = $documents['resources']['error'][$file];
-				$files['userfile']['size'] = $documents['resources']['size'][$file];
-				$resultUpload = $this->uploadFile(array('document'=>$files,'upload_path'=>$parameters['upload_path']));
-				if($resultUpload['status'] == TRUE):
-					$errorMessage .= $resultUpload['message'];
-					$resources[$file]['name'] = $resultUpload['uploadData']['file_name'];
-					$resources[$file]['size'] = $resultUpload['uploadData']['file_size'];
-					$resources[$file]['type'] = substr($resultUpload['uploadData']['file_ext'],1);
-				endif;
-			endif;
-		endfor;
-		if(!empty($resources) && (isset($parameters['create_zip']) && $parameters['create_zip'] == TRUE)):
-			$resultCreateZip = $this->createZIP(array('zip_path'=>$parameters['upload_path'],'resources'=>$resources));
-			if($resultCreateZip['status'] == FALSE):
-				$errorMessage .= $resultCreateZip['message'];
-				break;
-			else:
-				if(isset($parameters['model']) && isset($parameters['recordID'])):
-					$this->load->model($parameters['model']);
-					$this->$parameters['model']->updateField($parameters['recordID'],'resources',json_encode($resources));
-					$this->$parameters['model']->updateField($parameters['recordID'],'zip',$resultCreateZip['file_path'].'/'.$resultCreateZip['file_name']);
-				endif;
-			endif;
-		endif;
-		return $errorMessage;
 	}
 	
 	public function validationUploadImage(){
@@ -660,68 +541,6 @@ class MY_Controller extends CI_Controller{
 					$uploadStatus['status'] = TRUE;
 				endif;
 			endif;
-		endif;
-		return $uploadStatus;
-	}
-	
-	public function dropUploadFile(){
-	
-		$arguments = &func_get_args();
-		$uploadPath = (isset($arguments[0]['upload_path']))?$arguments[0]['upload_path']:NULL;
-		if(is_null($uploadPath) || ($this->createDir($uploadPath) == FALSE)):
-			$uploadPath = NULL;
-		endif;
-		$uploadStatus = array('status'=>FALSE,'message'=>'','uploadData'=>array());
-		if(!is_null($uploadPath)):
-			$this->load->helper('string');
-			$fileName = preg_replace('/.+(.)(\.)+/',random_string('nozero',12)."\$2",$this->input->get_request_header('X-file-name',TRUE));
-			file_put_contents($uploadPath.$fileName,file_get_contents('php://input'));
-			if(is_file($uploadPath.$fileName)):
-				$uploadStatus['uploadData']['file_name'] = $fileName;
-				$uploadStatus['uploadData']['file_size'] = filesize($uploadPath.$fileName);
-				$uploadStatus['status'] = TRUE;
-			else:
-				$uploadStatus['message'] = $this->load->view('html/print-error',array('alert_header'=>'Загрузка файлов','message'=>'Отсутствует файл для загрузки'),TRUE);
-			endif;
-		else:
-			$uploadStatus['message'] = $this->load->view('html/print-error',array('alert_header'=>'Загрузка файлов','message'=>'Отсутствует каталог загрузки'),TRUE);
-		endif;
-		return $uploadStatus;
-	}
-	
-	public function uploadFile(){
-		
-		$arguments = &func_get_args();
-		$uploadPath = (isset($arguments[0]['upload_path']))?$arguments[0]['upload_path']:NULL;
-		if(is_null($uploadPath) || ($this->createDir($uploadPath) == FALSE)):
-			$uploadPath = NULL;
-		endif;
-		$document = (isset($arguments[0]['document']))?$arguments[0]['document']:NULL;
-		$uploadStatus = array('status'=>FALSE,'message'=>'','uploadData'=>array());
-		if(!is_null($uploadPath)):
-			if(!is_null($document) && is_array($document)):
-				$_FILES = $document;
-				$this->load->library('upload');
-				$this->load->helper('string');
-				$config = array();
-				$config['upload_path'] = $uploadPath.'/';
-				$config['allowed_types'] = (isset($arguments[0]['allowed_types']))?$arguments[0]['allowed_types']:ALLOWED_TYPES_DOCUMENTS.'|'.ALLOWED_TYPES_IMAGES;
-				$config['remove_spaces'] = TRUE;
-				$config['overwrite'] = (isset($arguments[0]['overwrite']))?$arguments[0]['overwrite']:TRUE;
-				$config['max_size'] = (isset($arguments[0]['max_size']))?$arguments[0]['max_size']:5120;
-				$config['file_name'] = random_string('nozero',12).'.'.substr(strrchr($_FILES['userfile']['name'], '.'),1);
-				$this->upload->initialize($config);
-				if(!$this->upload->do_upload()):
-					$uploadStatus['message'] = $this->load->view('html/print-error',array('alert_header'=>'Файл: '.$_FILES['userfile']['name'],'message'=>$this->upload->display_errors()),TRUE);
-				else:
-					$uploadStatus['uploadData'] = $this->upload->data();
-					$uploadStatus['status'] = TRUE;
-				endif;
-			else:
-				$uploadStatus['message'] = $this->load->view('html/print-error',array('alert_header'=>'Загрузка файлов','message'=>'Отсутствует файл для загрузки'),TRUE);
-			endif;
-		else:
-			$uploadStatus['message'] = $this->load->view('html/print-error',array('alert_header'=>'Загрузка файлов','message'=>'Отсутствует каталог загрузки'),TRUE);
 		endif;
 		return $uploadStatus;
 	}
@@ -1020,5 +839,18 @@ class MY_Controller extends CI_Controller{
 		endif;
 		return '';
 	}
+
+	public function buyBook($bookID){
+		
+		$this->load->model(array('books','signed_books'));
+		if($this->books->getWhere($bookID)):
+			if(!$this->signed_books->getWhere(NULL,array('book'=>$bookID,'account'=>$this->account['id']))):
+				return $signedID = $this->insertItem(array('insert'=>array('book'=>$bookID,'account'=>$this->account['id']),'model'=>'signed_books'));
+				return $signedID = $this->insertItem(array('insert'=>array('book'=>$bookID,'account'=>$this->account['id']),'model'=>'signed_books'));
+			endif;
+		endif;
+		return FALSE;
+	}
+	
 }
 ?>

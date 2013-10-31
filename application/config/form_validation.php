@@ -46,5 +46,8 @@
 			array('field'=>'caption','label'=>'Подпись книги','rules'=>'trim|htmlspecialchars|xss_clean'),
 			array('field'=>'format','label'=>'Формат','rules'=>'required|trim|integer|xss_clean'),
 		),
+		'buy_book' =>array(
+			array('field'=>'book','label'=>'Номер книги','rules'=>'required|trim|integer')
+		),
 	);
 ?>

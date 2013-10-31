@@ -23,7 +23,9 @@ class Global_interface extends MY_Controller{
 		if($this->postDataValidation('signin') == TRUE):
 			if($user = $this->accounts->authentication($this->input->post('login'),$this->input->post('password'))):
 				if($user['active']):
-					$this->setLoginSession($user['id']);
+					if($this->setLoginSession($user['id'])):
+						$this->buyBookInLogIn();
+					endif;
 					if($user['group'] == ADMIN_GROUP_VALUE):
 						$json_request['redirect'] = site_url(ADMIN_START_PAGE);
 					elseif($user['group'] == USER_GROUP_VALUE):
@@ -120,6 +122,22 @@ class Global_interface extends MY_Controller{
 			echo json_encode($fullList);
 		endif;
 	}
+	
+	private function buyBookInLogIn(){
+		
+		$this->load->helper('cookie');
+		if($this->input->cookie('buy_book') !== FALSE):
+			$this->account = json_decode($this->session->userdata('account'),TRUE);
+			if($this->account['group'] == USER_GROUP_VALUE):
+				//Переход на страницу оплаты
+				if($signedID = $this->buyBook($this->input->cookie('buy_book'))):
+					delete_cookie('buy_book');
+					return $signedID;
+				endif;
+			endif;
+		endif;
+		return FALSE;
+	}
 	/********** sing in by social network *************/
 	public function signInVK(){
 				
@@ -164,7 +182,9 @@ class Global_interface extends MY_Controller{
 	private function signInAccount($userID){
 		
 		if($user = $this->accounts->getWhere($userID,array('active'=>1))):
-			$this->setLoginSession($user['id']);
+			if($this->setLoginSession($user['id'])):
+				$this->buyBookInLogIn();
+			endif;
 			return TRUE;
 		endif;
 		return FALSE;

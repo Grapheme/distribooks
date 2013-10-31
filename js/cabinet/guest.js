@@ -40,6 +40,20 @@ $(function(){
 		$(".dark-screen").fadeIn("fast");
 		$(".window-auth").fadeIn("fast");
 	});
+	$(".buy-link").click(function(){
+		var book = $(this).attr('data-book-id');
+		$.ajax({
+			url: mt.getBaseURL('buy-book'),
+			type: 'POST',dataType: 'json',data:{'book':book},
+			beforeSend: function(){},
+			success: function(response,textStatus,xhr){
+				if(response.status){
+					mt.redirect(response.responseText);
+				}
+			},
+			error: function(xhr,textStatus,errorThrown){}
+		});
+	});
 	
 	function showRequestDivForm(element){
 		$(".dark-screen").fadeIn("fast");

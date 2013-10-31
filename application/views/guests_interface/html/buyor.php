@@ -1,8 +1,4 @@
 <div class="buyor">
-	<?php if($this->loginstatus === FALSE):?>
-		<a data-book-id="<?=$book_id;?>" href="" class="buy sign-in-link no-clickable"><?=lang('book_shop_buyor')?></a>
-	<?php else:?>
-		<a href="" class="buy no-clickable"><?=lang('book_shop_buyor')?></a>
-	<?php endif?>
+	<a data-book-id="<?=$book_id;?>" href="" class="buy <?=($this->loginstatus === FALSE)?'sign-in-link':'buy-link';?> no-clickable"><?=lang('book_shop_buyor')?></a>
 	<p class="tocart"><span><?=lang('book_or')?></span><a href="#"><?=lang('book_shop_tocart')?></a></p>
 </div>
