@@ -8,7 +8,7 @@ php_value max_execution_time 500
 php_value max_input_time 500
 
 RewriteEngine On
-RewriteBase /
+RewriteBase /dbooks
 RewriteCond $1 !^(index\.php|images|robots\.txt|public)
 RewriteCond %{REQUEST_URI} !\.(css│js│jpg│gif)$
 RewriteCond %{REQUEST_FILENAME} !-f

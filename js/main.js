@@ -4,6 +4,10 @@ $(document).ready(function() {
 		$(".dark-screen").fadeIn("fast");
 		$(".window-auth").fadeIn("fast");
 	});
+	$(".enter-text").click(function(){
+		$(".dark-screen").fadeIn("fast");
+		$(".window-auth").fadeIn("fast");
+	});
 	$(".donation").click(function(){
 		$(".dark-screen").fadeIn("fast");
 		$(".window-donation").fadeIn("fast");
@@ -100,7 +104,7 @@ $(document).ready(function() {
 	$(".box-1").hover(
   		function () {
   			if(slide!='1') {
-    		$(".slider").css({'background-image': "url('../img/slider-1.png')"});}
+    		$(".slider").removeClass('style').removeClass('dist').removeClass('trans').addClass('edit');}
   		},
   		function () {
     		slide = '1';
@@ -109,7 +113,7 @@ $(document).ready(function() {
 	$(".box-2").hover(
   		function () {
     		if(slide!='2') {
-    		$(".slider").css({'background-image': "url('../img/style-pic.png')"});}
+    		$(".slider").removeClass('style').removeClass('dist').removeClass('edit').addClass('trans');}
   		},
   		function () {
     		slide = '2';
@@ -118,7 +122,7 @@ $(document).ready(function() {
 	$(".box-3").hover(
   		function () {
     		if(slide!='3') {
-    		$(".slider").css({'background-image': "url('../img/trans-pic.png')"});}
+    		$(".slider").removeClass('dist').removeClass('trans').removeClass('edit').addClass('style');}
   		},
   		function () {
     		slide = '3';
@@ -127,7 +131,7 @@ $(document).ready(function() {
 	$(".box-4").hover(
   		function () {
     		if(slide!='4') {
-    		$(".slider").css({'background-image': "url('../img/dist-pic.png')"});}
+    		$(".slider").removeClass('style').removeClass('trans').removeClass('edit').addClass('dist');}
   		},
   		function () {
     		slide = '4';

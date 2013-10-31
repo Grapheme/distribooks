@@ -230,7 +230,7 @@ textarea {
 	min-width: 960px;
 	width: 100%;
 	height: 768px;
-	background-image: url('../img/slider-1.png');
+	background-image: url('../download/sliders/edit.jpg');
 	background-repeat: no-repeat;
 	background-size: 1920px 768px;
 	background-position: center top;
@@ -240,22 +240,21 @@ textarea {
 }
 
 .slider.edit {
-	margin-top: 200px;
+	
 }
 
 .slider.trans {
-	background-image: url('../img/trans-pic.png');
-	margin-top: 200px;
+	background-image: url('../download/sliders/trans.jpg');
+	
 }
 
 .slider.style {
-	background-image: url('../img/style-pic.png');
-	margin-top: 200px;
+	background-image: url('../download/sliders/style.jpg');
+	
 }
 
 .slider.dist {
-	background-image: url('../img/dist-pic.png');
-	margin-top: 200px;
+	background-image: url('../download/sliders/dist.jpg');
 }
 
 .slide-container {
@@ -302,7 +301,7 @@ textarea {
 	line-height: 35px;
 	border-radius: 4px;
 	height: 35px;
-	padding: 0 4em;
+	padding: 0 2.8em;
 }
 
 .search {
@@ -384,7 +383,7 @@ ul, li {
 
 .bottom-menu li {
 	float: right;
-	margin: 0 0 0 0.2em;red
+	margin: 0 0 0 12px;
 }
 
 .qr {
@@ -1643,7 +1642,7 @@ input[type="radio"]:checked + label
 }
 
 .shop-top .title {
-	display: block;
+	display: inline-block;
 	color: #0080b6;
 	font-size: 12px;
 	width: 98px;
@@ -3206,6 +3205,27 @@ input[type="checkbox"].cart-check:checked + label
 }
 
 @media screen and (max-width: 767px) {
+
+	.auth-left {
+		margin-left: 55px;
+	}
+	
+	.auth-right p {
+		margin-bottom: 30px;
+	}
+
+	.window-donation, .window-auth {
+	    background: none repeat scroll 0 0 #88B41F;
+	    border-radius: 5px 5px 5px 5px;
+	    display: none;
+	    left: 50%;
+	    margin-left: -250px;
+	    overflow: hidden;
+	    position: fixed;
+	    top: 15%;
+	    width: 470px;
+	    z-index: 9999;
+	}
 	
 	.basket-select {
 		margin-left: 0 !important;
