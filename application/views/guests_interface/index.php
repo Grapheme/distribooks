@@ -58,7 +58,7 @@
 							<p class="price"><?=$novelty[$i]['price']?> <?=$currency[$novelty[$i]['currency']-1]['title'];?></p>
 						</div>
 					</div>
-					<div class="buyor"><a href="#" class="buy"><?=lang('book_shop_buyor');?></a><p class="tocart"><span><?=lang('book_or');?></span><a href="#"><?=lang('book_shop_tocart');?></a></p></div>
+					<?php $this->load->view('guests_interface/html/buyor');?>
 				</div>
 			<?php endfor;?>
 			</div>
