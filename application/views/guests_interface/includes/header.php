@@ -78,7 +78,7 @@
 					<img class="qr" src="<?=baseURL('img/qr.png');?>">
 					<a href="#" class="red button topb no-clickable"><?=lang('top_menu_bookmark');?></a>
 					<div class="lang">
-						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a>
+						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng<?=($this->uri->language_string == ENGLAN)?' active-lang':''?>"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus<?=($this->uri->language_string == RUSLAN)?' active-lang':''?>"></a>
 					<?php if($this->loginstatus === FALSE):?>
 						<?php $this->load->view('headers/guest');?>
 					<?php elseif($this->account['group'] == ADMIN_GROUP_VALUE):?>

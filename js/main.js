@@ -1,9 +1,5 @@
-$(document).ready(function() {
+$(document).ready(function(){
 	
-	$(".enter-div a.sign-in").click(function(){
-		$(".dark-screen").fadeIn("fast");
-		$(".window-auth").fadeIn("fast");
-	});
 	$(".enter-text").click(function(){
 		$(".dark-screen").fadeIn("fast");
 		$(".window-auth").fadeIn("fast");

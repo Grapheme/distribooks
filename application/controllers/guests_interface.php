@@ -187,6 +187,10 @@ class Guests_interface extends MY_Controller{
 			$this->offset = (int)$this->uri->segment(3);
 			$pagevar['catalog'] = $this->books_card->limit(PER_PAGE_DEFAULT,$this->offset);
 			$pagevar['pages'] = $this->pagination('catalog',3,$this->books_card->countAllResults(),PER_PAGE_DEFAULT);
+		elseif(!is_null($sortBy) && $tags === FALSE && $genre === FALSE && $keyword === FALSE && $author === FALSE):
+			$this->offset = (int)$this->input->get('offset');
+			$pagevar['catalog'] = $this->books_card->limit(PER_PAGE_DEFAULT,$this->offset,$sortBy);
+			$pagevar['pages'] = $this->pagination('catalog'.urlGETParameters('offset'),3,$this->books_card->countAllResults(),PER_PAGE_DEFAULT,TRUE);
 		else:
 			$this->offset = (int)$this->input->get('offset');
 			if($genre === TRUE):
@@ -211,7 +215,7 @@ class Guests_interface extends MY_Controller{
 			endif;
 		endif;
 		
-		/*print_r($pagevar['catalog']);exit;*/
+//		print_r($pagevar['catalog']);exit;
 		
 		for($i=0;$i<count($pagevar['catalog']);$i++):
 			$pagevar['catalog'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['catalog'][$i]['authors']);

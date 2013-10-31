@@ -6,3 +6,5 @@
 <link rel="stylesheet" href="<?=baseURL('css/normalize.css');?>">
 <link rel="stylesheet" href="<?=baseURL('css/main.css');?>">
 <link rel="stylesheet" href="<?=baseURL('css/tooltip.css');?>">
+<!--<script type="text/javascript" src="//use.typekit.net/tuk3ffo.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>-->

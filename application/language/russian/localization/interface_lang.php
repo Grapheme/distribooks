@@ -111,9 +111,9 @@ $lang['book_size'] = "Объем";
 $lang['book_isbn'] = "ISBN";
 $lang['book_formats'] = "Доступна в форматах";
 
-$lang['catalog_tag_genre'] = "Все книги категории";
-$lang['catalog_tag_keyword'] = "Все книги по ключевому слову";
-$lang['catalog_tag_author'] = "Все книги по автору";
+$lang['catalog_tag_genre'] = "Все книги жанра";
+$lang['catalog_tag_keyword'] = "Все книги с тегом";
+$lang['catalog_tag_author'] = "Все книги автора";
 
 $lang['user_cabinet'] = "Мои книги";
 ?>
