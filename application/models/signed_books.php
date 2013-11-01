@@ -11,4 +11,18 @@ class Signed_books extends MY_Model{
 		
 		parent::__construct();
 	}
+	
+	function getMyBooks($limit,$offset){
+		
+		$this->db->select('books_card.*');
+		$this->db->from('signed_books');
+		$this->db->join('books_card','signed_books.book = books_card.id');
+		$this->db->where('signed_books.account',$this->account['id']);
+		$this->db->limit($limit,$offset);
+		$query = $this->db->get();
+		if($data = $query->result_array()):
+			return $data;
+		endif;
+		return NULL;
+	}
 }

@@ -37,6 +37,7 @@ class Guests_interface extends MY_Controller{
 			$pagevar['novelty'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['novelty'][$i]['authors']);
 		endfor;
 		$pagevar['novelty'] = $this->BooksGenre($pagevar['novelty']);
+		$pagevar['novelty'] = $this->mySignedBooks($pagevar['novelty']);
 		$pagevar['news'] = $this->setPageAddress($pagevar['news'],'news');
 		$this->load->view("guests_interface/index",$pagevar);
 	}
@@ -58,10 +59,12 @@ class Guests_interface extends MY_Controller{
 					case 'books':
 						$this->load->model(array('books_card','currency','age_limit','genres'));
 						$pagevar['book'] = $this->books_card->getWhere($page['item_id']);
+						$signedBook = $this->mySignedBooks(array($pagevar['book']));
+						$pagevar['book'] = $signedBook[0];
+						$pagevar['book']['genre_title'] = $this->genres->value($pagevar['book']['genre'],$this->uri->language_string.'_title');
 						$pagevar['authors'] = $this->getAuthorsByIDs($pagevar['book']['authors']);
 						$pagevar['currency'] = $this->currency->getAll();
 						$pagevar['age_limit'] = $this->age_limit->getWhere($pagevar['book']['age_limit']);
-						$pagevar['book']['genre_title'] = $this->genres->value($pagevar['book']['genre'],$this->uri->language_string.'_title');
 						$pagevar['keywords'] = array();
 						if($keywords = $this->getBookKeyWords($page['item_id'])):
 							$pagevar['keywords'] = explode(',',$keywords);
@@ -214,9 +217,6 @@ class Guests_interface extends MY_Controller{
 				$pagevar['tag_author'] = $this->authors->value($this->input->get('author'),$this->uri->language_string.'_name');
 			endif;
 		endif;
-		
-//		print_r($pagevar['catalog']);exit;
-		
 		for($i=0;$i<count($pagevar['catalog']);$i++):
 			$pagevar['catalog'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['catalog'][$i]['authors']);
 		endfor;
@@ -233,35 +233,13 @@ class Guests_interface extends MY_Controller{
 		$pagevar['bestsellers'] = $this->BooksGenre($pagevar['bestsellers']);
 		$pagevar['novelty'] = $this->BooksGenre($pagevar['novelty']);
 		$pagevar['recommended'] = $this->BooksGenre($pagevar['recommended']);
+		
+		$pagevar['catalog'] = $this->mySignedBooks($pagevar['catalog']);
+		$pagevar['bestsellers'] = $this->mySignedBooks($pagevar['bestsellers']);
+		$pagevar['novelty'] = $this->mySignedBooks($pagevar['novelty']);
+		$pagevar['recommended'] = $this->mySignedBooks($pagevar['recommended']);
+		
 		$this->load->view("guests_interface/catalog",$pagevar);
 	}
 	
-	private function BooksGenre($books){
-		
-		$this->load->model('genres');
-		$genres = $this->genres->getAll();
-		for($i=0;$i<count($books);$i++):
-			$books[$i]['genre_title'] = '';
-			for($j=0;$j<count($genres);$j++):
-				if($books[$i]['genre'] == $genres[$j]['id']):
-					$books[$i]['genre_title'] = $genres[$j][$this->uri->language_string.'_title'];
-				endif;
-			endfor;
-		endfor;
-		return $books;
-	}
-	
-	private function setPageAddress($elements,$group){
-		
-		$metaTitles = $this->meta_titles->getWhere(NULL,array('group'=>$group),TRUE);
-		for($i=0;$i<count($elements);$i++):
-			$elements[$i]['page_address'] = FALSE;
-			for($j=0;$j<count($metaTitles);$j++):
-				if($metaTitles[$j]['item_id'] == $elements[$i]['id']):
-					$elements[$i]['page_address'] = $metaTitles[$j]['page_address'];
-				endif;
-			endfor;
-		endfor;
-		return $elements;
-	}
 }

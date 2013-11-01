@@ -52,7 +52,7 @@
 								</div>
 							</div>
 							<p class="price-big"><?=$book['price']?> <?=$currency[$book['currency']-1]['title'];?></p>
-							<?php $this->load->view('guests_interface/html/buyor');?>
+							<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$book['id'],'mySignedBook'=>$book['signed_book']));?>
 							<div class="pos3-no">
 								<div class="about-product">
 									<a class="share-product" href="#"><img src="<?=baseURL('img/big-like.png')?>"><span><?=lang('book_share')?></span></a>

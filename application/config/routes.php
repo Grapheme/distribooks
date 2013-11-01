@@ -33,7 +33,8 @@ $route['request-order-distribution'] = "guest_ajax_interface/requestOrderDistrib
 $route['request-do-distribution'] = "guest_ajax_interface/requestDoDistribution";
 /**************************************************** USER INTRERFACE **********************************************/
 $route['cabinet'] = "users_interface/cabinet";
-$route['buy-book'] = "users_ajax_interface/buyBook";
+$route['cabinet/my-books(\/:any)*?'] = "users_interface/cabinet";
+$route['buy-book'] = "user_ajax_interface/singleBuyBook";
 /************************************************* ADMIN AJAX INTRERFACE *******************************************/
 /* ---------------- news ----------------- */
 $route[ADMIN_START_PAGE.'/news/insert'] = "admin_ajax_interface/insertNews";

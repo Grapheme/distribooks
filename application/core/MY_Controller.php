@@ -846,10 +846,53 @@ class MY_Controller extends CI_Controller{
 		if($this->books->getWhere($bookID)):
 			if(!$this->signed_books->getWhere(NULL,array('book'=>$bookID,'account'=>$this->account['id']))):
 				return $signedID = $this->insertItem(array('insert'=>array('book'=>$bookID,'account'=>$this->account['id']),'model'=>'signed_books'));
-				return $signedID = $this->insertItem(array('insert'=>array('book'=>$bookID,'account'=>$this->account['id']),'model'=>'signed_books'));
 			endif;
 		endif;
 		return FALSE;
+	}
+	
+	public function mySignedBooks($books){
+		
+		$this->load->model('signed_books');
+		$mySignedBooks = $this->signed_books->getWhere(NULL,array('account'=>$this->account['id']),TRUE);
+		for($i=0;$i<count($books);$i++):
+			$books[$i]['signed_book'] = FALSE;
+			for($j=0;$j<count($mySignedBooks);$j++):
+				if($books[$i]['id'] == $mySignedBooks[$j]['book']):
+					$books[$i]['signed_book'] = TRUE;
+				endif;
+			endfor;
+		endfor;
+		return $books;
+	}
+
+	public function setPageAddress($elements,$group){
+		
+		$metaTitles = $this->meta_titles->getWhere(NULL,array('group'=>$group),TRUE);
+		for($i=0;$i<count($elements);$i++):
+			$elements[$i]['page_address'] = FALSE;
+			for($j=0;$j<count($metaTitles);$j++):
+				if($metaTitles[$j]['item_id'] == $elements[$i]['id']):
+					$elements[$i]['page_address'] = $metaTitles[$j]['page_address'];
+				endif;
+			endfor;
+		endfor;
+		return $elements;
+	}
+
+	public function BooksGenre($books){
+		
+		$this->load->model('genres');
+		$genres = $this->genres->getAll();
+		for($i=0;$i<count($books);$i++):
+			$books[$i]['genre_title'] = '';
+			for($j=0;$j<count($genres);$j++):
+				if($books[$i]['genre'] == $genres[$j]['id']):
+					$books[$i]['genre_title'] = $genres[$j][$this->uri->language_string.'_title'];
+				endif;
+			endfor;
+		endfor;
+		return $books;
 	}
 	
 }

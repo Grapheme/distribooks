@@ -22,28 +22,44 @@
 		<div class="container_5">
 			<div class="grid_1 left-boxes shop">
 				<?php $this->load->view('guests_interface/includes/left-nav');?>
-				<?php $this->load->view('guests_interface/includes/gift-pad',array('style'=>' style="position: absolute; border: 1px solid #fff;"'));?>
 			</div>
-		<?php if(!empty($news)):?>
-			<div class="grid_4 news-one">
-			<?php for($i=0;$i<count($news);$i++):?>
-				<div style="overflow: hidden;">
-					<div class="news-one-div all">
-						<a href="<?=$news[$i]['page_address'];?>"><img src="<?=baseURL($news[$i]['thumbnail']);?>"></a>
-					</div>
-					<div class="news-text all">
-						<a href="<?=$news[$i]['page_address'];?>" class="news-one-title"><?=$news[$i][$this->uri->language_string.'_title'];?></a>
-						<p class="news-all-text">
-							<?=$news[$i][$this->uri->language_string.'_anonce'];?>
-						</p>
-						<a class="news-date all no-clickable" href=""><?=swapDotDateWithoutTime($news[$i]['date']);?></a>
-						<a class="share-product all" href="#"><img src="<?=baseURL('img/big-like.png');?>"><span><?=lang('book_share')?></span></a>
+			<div class="grid_4 top-shop-div">
+		<?php if(!empty($books)):?>
+			<?php for($i=0;$i<count($books);$i++):?>
+				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($books)-1))?' omega':'';?>">
+					<div class="shop-top">
+						<div class="shop-img">
+							<a href="#" class="shopi" id="play" src=""></a>
+							<a href="#" class="shopi" id="a" src="<?=baseURL('img/shop-a.png');?>"></a>
+							<a href="#" class="shopi" id="like" src="<?=baseURL('img/shop-like.png');?>"></a>
+							<div class="shop-img-cont"><img src="<?=baseURL($books[$i]['thumbnail']);?>"></div>
+						</div>
+						<div class="shop-about">
+							<a href="<?=site_url($books[$i]['page_address']);?>" class="title"><?=$books[$i][$this->uri->language_string.'_title'];?></a>
+							<p class="author">
+							<?php for($j=0;$j<count($books[$i]['authors']);$j++):?>
+								<a href="<?=site_url('catalog?author='.$books[$i]['authors'][$j]['id'])?>"><?=$books[$i]['authors'][$j][$this->uri->language_string.'_name'];?></a><?php if(isset($books[$i]['authors'][$j+1])):?>, <?php endif;?>
+							<?php endfor;?>
+							</p>
+							<div class="rating-shop">
+								<img src="<?=baseURL('img/star.png');?>">
+								<img src="<?=baseURL('img/star.png');?>">
+								<img src="<?=baseURL('img/star.png');?>">
+								<img src="<?=baseURL('img/star-none.png');?>">
+								<img src="<?=baseURL('img/star-none.png');?>">
+							</div>
+							<a href="<?=site_url('catalog?genre='.$books[$i]['genre']);?>" class="genre"><?=$books[$i]['genre_title'];?></a>
+						</div>
 					</div>
 				</div>
+				<?php if(($i+1)%3 == 0):?>
+				<div class="clear"></div>
+				<?php endif?>
 			<?php endfor;?>
-			</div>
+			<div class="clear"></div>
 			<?=$pages;?>
 		<?php endif;?>
+			</div>
 		</div>
 		<div class="clear"></div>
 		<div class="container_5">
@@ -52,7 +68,6 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<?php $this->load->view('guests_interface/html/yelow-block');?>
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>

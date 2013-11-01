@@ -43,12 +43,12 @@ $(function(){
 	$(".buy-link").click(function(){
 		var book = $(this).attr('data-book-id');
 		$.ajax({
-			url: mt.getBaseURL('buy-book'),
+			url: mt.getLangBaseURL('buy-book'),
 			type: 'POST',dataType: 'json',data:{'book':book},
 			beforeSend: function(){},
 			success: function(response,textStatus,xhr){
 				if(response.status){
-					mt.redirect(response.responseText);
+					mt.redirect(response.redirect);
 				}
 			},
 			error: function(xhr,textStatus,errorThrown){}

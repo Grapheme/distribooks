@@ -111,9 +111,9 @@ $lang['book_size'] = "Size";
 $lang['book_isbn'] = "ISBN";
 $lang['book_formats'] = "Available formats";
 
-$lang['catalog_tag_genre'] = "All the books category";
-$lang['catalog_tag_keyword'] = "All the books keyword";
-$lang['catalog_tag_author'] = "All the books by author";
+$lang['catalog_tag_genre'] = "All books of the genre";
+$lang['catalog_tag_keyword'] = "All books tagged as";
+$lang['catalog_tag_author'] = "All books by";
 
 $lang['user_cabinet'] = "My books";
 ?>
