@@ -30,7 +30,6 @@
 					<div class="shop-top">
 						<div class="shop-img">
 							<?php $this->load->view('guests_interface/html/book-properties',array('book'=>$book,'big_icons'=>TRUE));?>
-							
 							<a href="#" class="shopi big"><img src="<?=baseURL($age_limit['image']);?>"></a>
 							<div class="shop-img-cont one"><img src="<?=baseURL($book['image']);?>"></div>
 						</div>

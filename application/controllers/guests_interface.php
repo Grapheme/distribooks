@@ -66,7 +66,6 @@ class Guests_interface extends MY_Controller{
 						$pagevar['currency'] = $this->currency->getAll();
 						$pagevar['age_limit'] = $this->age_limit->getWhere($pagevar['book']['age_limit']);
 						$pagevar['formats'] = $this->getBookFormats($pagevar['book']['files']);
-						
 						$pagevar['keywords'] = array();
 						if($keywords = $this->getBookKeyWords($page['item_id'])):
 							$pagevar['keywords'] = explode(',',$keywords);

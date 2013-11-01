@@ -110,6 +110,7 @@ $lang['book_date_released'] = "Date released";
 $lang['book_size'] = "Size";
 $lang['book_isbn'] = "ISBN";
 $lang['book_formats'] = "Available formats";
+$lang['book_formats_failed'] = "Downloading files is temporarily unavailable";
 
 $lang['catalog_tag_genre'] = "All books of the genre";
 $lang['catalog_tag_keyword'] = "All books tagged as";

@@ -1,17 +1,24 @@
 <div class="formats">
-<?php if(!empty($formats)):?>
+<?php if(!empty($formats['categories_ids'])):?>
 	<p class="formats-title"><?=lang('book_formats')?>:</p>
-	<p class="format">Удобные:</p>
-	<a class="format-link" href="#">fb2</a>, <a class="format-link" href="#">ePub</a>
-	<p class="format">Для компьютера:</p>
-	<a class="format-link" href="#">txt.zip</a>, <a class="format-link" href="#">rtf</a>, <a class="format-link" href="#">pdf A4</a>, <a class="format-link" href="#">html.zip</a>
-	<p class="format">Для ридеров:</p>
-	<a class="format-link" href="#">pdf A6</a>, <a class="format-link" href="#">mobi (Kindle)</a>
-	<p class="format">Для телефона:</p>
-	<a class="format-link" href="#">txt</a>, <a class="format-link" href="#">java</a>
-	<p class="format">Другие:</p>
-	<a class="format-link" href="#">lrf</a>, <a class="format-link" href="#">rb</a>, <a class="format-link" href="#">isilo3</a>, <a class="format-link" href="#">lit</a>, <a class="format-link" href="#">doc.prc</a>
+	<?php for($i=0;$i<count($formats['categories_ids']);$i++):?>
+		<?php if(isset($formats['categories_titles'][$formats['categories_ids'][$i]])):?>
+			<p class="format"><?=$formats['categories_titles'][$formats['categories_ids'][$i]][$this->uri->language_string.'_title'];?>:</p>
+		<?php endif;?>
+		<?php for($j=0;$j<count($formats['formats']);$j++):?>
+			<?php if($formats['categories_ids'][$i] == $formats['formats'][$j]['category_id']):?>
+				<?php 
+					$download_link = '#'; $download_class = ' no-clickable';
+					if($book['signed_book'] === TRUE):
+						$download_link = site_url('download-book?book='.$book['id'].'&format='.$formats['formats'][$j]['format_id']);
+						$download_class = '';
+					endif;
+				?>
+					<a class="format-link<?=$download_class;?>" href="<?=$download_link;?>"><?=$formats['formats'][$j]['title']?></a><?php if(isset($formats['formats'][$j+1]['category_id']) && $formats['formats'][$j+1]['category_id'] == $formats['categories_ids'][$i]):?>,<?php endif;?>
+			<?php endif;?>
+		<?php endfor;?>
+	<?php endfor;?>
 <?php else:?>
-	<p>Загрузка файлов временно недоступна</p>
+	<p class="formats-title"><?=lang('book_formats_failed')?></p>
 <?php endif;?>
 </div>

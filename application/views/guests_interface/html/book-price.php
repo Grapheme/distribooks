@@ -9,6 +9,4 @@
 			<p class="price">Бесплатно</p>
 		<?php endif;?>
 	<?php endif;?>
-<?php else:?>
-	<p class="price">Приобретена</p>
 <?php endif;?>

@@ -34,6 +34,7 @@ $route['request-do-distribution'] = "guest_ajax_interface/requestDoDistribution"
 /**************************************************** USER INTRERFACE **********************************************/
 $route['cabinet'] = "users_interface/cabinet";
 $route['cabinet/my-books(\/:any)*?'] = "users_interface/cabinet";
+$route['download-book'] = "users_interface/downloadBookFile";
 $route['buy-book'] = "user_ajax_interface/singleBuyBook";
 /************************************************* ADMIN AJAX INTRERFACE *******************************************/
 /* ---------------- news ----------------- */

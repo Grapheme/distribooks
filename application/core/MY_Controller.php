@@ -865,7 +865,18 @@ class MY_Controller extends CI_Controller{
 		endfor;
 		return $books;
 	}
-
+	
+	public function validSignedBook($bookID){
+		
+		$this->load->model(array('signed_books','books'));
+		if($this->signed_books->getWhere(NULL,array('book'=>$bookID,'account'=>$this->account['id']))):
+			if($book = $this->books->getWhere($bookID)):
+				return $book;
+			endif;
+		endif;
+		return FALSE;
+	}
+	
 	public function setPageAddress($elements,$group){
 		
 		$metaTitles = $this->meta_titles->getWhere(NULL,array('group'=>$group),TRUE);
@@ -897,13 +908,29 @@ class MY_Controller extends CI_Controller{
 	
 	public function getBookFormats($book_files){
 		
-		$formats = array();
-		if(!empty($getBookFormats)):
-			
-			print_r($getBookFormats);exit;
-		
+		$BookFormats = array('categories_ids'=>array(),'categories_titles'=>array(),'formats'=>array());
+		if(!empty($book_files)):
+			if($jsonformats = json_decode($book_files,TRUE)):
+				if(isset($jsonformats[0]) && !empty($jsonformats[0])):
+					if($formatsList = $this->getValuesInArray($jsonformats,'format_id')):
+						$this->load->model('formats_categories');
+						if($BookFormats['formats'] = $this->formats_categories->getCategoryByFormatsIDs($formatsList)):
+							$BookFormats['categories_ids'] = $this->reIndexArray(array_unique($this->getValuesInArray($BookFormats['formats'],'category_id')));
+							for($i=0;$i<count($BookFormats['categories_ids']);$i++):
+								for($j=0;$j<count($BookFormats['formats']);$j++):
+									if($BookFormats['formats'][$j]['category_id'] == $BookFormats['categories_ids'][$i]):
+										$BookFormats['categories_titles'][$BookFormats['categories_ids'][$i]]['ru_title'] = $BookFormats['formats'][$j]['ru_title'];
+										$BookFormats['categories_titles'][$BookFormats['categories_ids'][$i]]['en_title'] = $BookFormats['formats'][$j]['en_title'];
+									endif;
+								endfor;
+							endfor;
+						endif;
+					endif;
+				endif;
+			endif;
 		endif;
-		return $formats;
+		return $BookFormats;
 	}
+	
 }
 ?>
