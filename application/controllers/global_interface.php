@@ -5,6 +5,10 @@ class Global_interface extends MY_Controller{
 	function __construct(){
 
 		parent::__construct();
+		
+		if($this->uri->language_string === FALSE):
+			$this->uri->language_string = BASE_LANG;
+		endif;
 		$this->load->helper('language');
 		$this->lang->load('localization/global',$this->languages[$this->uri->language_string]);
 	}

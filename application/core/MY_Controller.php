@@ -895,5 +895,15 @@ class MY_Controller extends CI_Controller{
 		return $books;
 	}
 	
+	public function getBookFormats($book_files){
+		
+		$formats = array();
+		if(!empty($getBookFormats)):
+			
+			print_r($getBookFormats);exit;
+		
+		endif;
+		return $formats;
+	}
 }
 ?>

@@ -15,6 +15,8 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 define('PATH_SMILEYS',							getcwd().'/img/smileys');
 
+define('BASE_LANG',								'ru');
+
 define('ENGLAN',								'en');
 define('RUSLAN',								'ru');
 

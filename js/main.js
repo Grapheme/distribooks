@@ -68,32 +68,22 @@ $(document).ready(function(){
 	
 	var timer;
 	
-	$(".shopi#like,.share-product,.like").mousemove(function () {
+	$(".shopi#like,.share-product,.like").mousemove(function(){
 		var data_tooltip = $(this).attr("data-tooltip");
-        var position_left = $(this).offset().left;
-        var position_top = $(this).offset().top;
-        
-        $(".tooltip").css({ 
-                         "top" : position_top +20,
-                        "left" : position_left 
-                     })
-                     .show();
-    });
-    $(".shopi#like,.tooltip,.share-product,.like").mouseleave(function () {
-    	timer = setTimeout(close_tooltip, 500);
-    });
-    
-    $(".shopi#like,.tooltip,.share-product,.like").mousemove(function () {
-    	clearTimeout(timer);
-    });
-    
-    function close_tooltip() {
-    	 $(".tooltip").hide()
-                     .css({
-                         "top" : 0,
-                        "left" : 0
-                     });
-    }
+		var position_left = $(this).offset().left;
+		var position_top = $(this).offset().top;
+		$(".sn-tooltip").css({"top":position_top+20,"left":position_left}).show();
+	});
+	$(".shopi#like,.sn-tooltip,.share-product,.like").mouseleave(function () {
+		timer = setTimeout(close_tooltip, 500);
+	});
+	$(".shopi#like,.sn-tooltip,.share-product,.like").mousemove(function () {
+		clearTimeout(timer);
+	});
+	
+	function close_tooltip(){
+		$(".sn-tooltip").hide().css({"top":0,"left":0});
+	}
 	
 	var slide = "1";
 	

@@ -32,32 +32,7 @@
 				</div>
 			<?php for($i=0;$i<count($novelty);$i++):?>
 				<div class="grid_1 omega">
-					<div class="shop-top">
-						<div class="shop-img">
-							<a href="#" class="shopi" id="play" src=""></a>
-							<a href="#" class="shopi" id="a" src="<?=baseURL('img/shop-a.png');?>"></a>
-							<a href="#" class="shopi" id="like" src="<?=baseURL('img/shop-like.png');?>"></a>
-							<div class="shop-img-cont"><img src="<?=baseURL($novelty[$i]['thumbnail']);?>"></div>
-						</div>
-						<div class="shop-about">
-							<a href="<?=site_url($novelty[$i]['page_address'])?>" class="title"><?=$novelty[$i][$this->uri->language_string.'_title'];?></a>
-							<p class="author">
-							<?php for($j=0;$j<count($novelty[$i]['authors']);$j++):?>
-								<a href="<?=site_url('catalog?author='.$novelty[$i]['authors'][$j]['id'])?>"><?=$novelty[$i]['authors'][$j][$this->uri->language_string.'_name'];?></a><?php if(isset($novelty[$i]['authors'][$j+1])):?>, <?php endif;?>
-							<?php endfor;?>
-							</p>
-							<div class="rating-shop">
-								<img src="<?=baseURL('img/star.png');?>">
-								<img src="<?=baseURL('img/star.png');?>">
-								<img src="<?=baseURL('img/star.png');?>">
-								<img src="<?=baseURL('img/star-none.png');?>">
-								<img src="<?=baseURL('img/star-none.png');?>">
-							</div>
-							<a href="<?=site_url('catalog?genre='.$novelty[$i]['genre']);?>" class="genre"><?=$novelty[$i]['genre_title'];?></a>
-							<p class="price old"><?=$novelty[$i]['price_action']?> <?=$currency[$novelty[$i]['currency']-1]['title'];?></p>
-							<p class="price"><?=$novelty[$i]['price']?> <?=$currency[$novelty[$i]['currency']-1]['title'];?></p>
-						</div>
-					</div>
+					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$novelty[$i],'currency'=>$currency));?>
 					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$novelty[$i]['id'],'mySignedBook'=>$novelty[$i]['signed_book']));?>
 				</div>
 			<?php endfor;?>
