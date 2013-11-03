@@ -134,7 +134,6 @@ class MY_Controller extends CI_Controller{
 			$this->accounts->updateField($SNAccountID,$SN.'_access_token','');
 		endif;
 	}
-	
 	/*************************************************************************************************************/
 	public function pagination($url,$uri_segment,$total_rows,$per_page,$get_string = FALSE){
 		
@@ -583,6 +582,15 @@ class MY_Controller extends CI_Controller{
 		endif;
 		return $zipStatus;
 	}
+	
+	public function getFileExt($fileName = '',$start_char = 1){
+		
+		if(!empty($fileName)):
+			return substr(strrchr($fileName,'.'),$start_char);
+		else:
+			return '';
+		endif;
+	}
 
 	public function filedelete($file = NULL){
 		
@@ -909,28 +917,36 @@ class MY_Controller extends CI_Controller{
 	public function getBookFormats($book_files){
 		
 		$BookFormats = array('categories_ids'=>array(),'categories_titles'=>array(),'formats'=>array());
-		if(!empty($book_files)):
-			if($jsonformats = json_decode($book_files,TRUE)):
-				if(isset($jsonformats[0]) && !empty($jsonformats[0])):
-					if($formatsList = $this->getValuesInArray($jsonformats,'format_id')):
-						$this->load->model('formats_categories');
-						if($BookFormats['formats'] = $this->formats_categories->getCategoryByFormatsIDs($formatsList)):
-							$BookFormats['categories_ids'] = $this->reIndexArray(array_unique($this->getValuesInArray($BookFormats['formats'],'category_id')));
-							for($i=0;$i<count($BookFormats['categories_ids']);$i++):
-								for($j=0;$j<count($BookFormats['formats']);$j++):
-									if($BookFormats['formats'][$j]['category_id'] == $BookFormats['categories_ids'][$i]):
-										$BookFormats['categories_titles'][$BookFormats['categories_ids'][$i]]['ru_title'] = $BookFormats['formats'][$j]['ru_title'];
-										$BookFormats['categories_titles'][$BookFormats['categories_ids'][$i]]['en_title'] = $BookFormats['formats'][$j]['en_title'];
-									endif;
-								endfor;
-							endfor;
+		if($formatsList = $this->getBookFormatsList($book_files)):
+			$this->load->model('formats_categories');
+			if($BookFormats['formats'] = $this->formats_categories->getCategoryByFormatsIDs($formatsList)):
+				$BookFormats['categories_ids'] = $this->reIndexArray(array_unique($this->getValuesInArray($BookFormats['formats'],'category_id')));
+				for($i=0;$i<count($BookFormats['categories_ids']);$i++):
+					for($j=0;$j<count($BookFormats['formats']);$j++):
+						if($BookFormats['formats'][$j]['category_id'] == $BookFormats['categories_ids'][$i]):
+							$BookFormats['categories_titles'][$BookFormats['categories_ids'][$i]]['ru_title'] = $BookFormats['formats'][$j]['ru_title'];
+							$BookFormats['categories_titles'][$BookFormats['categories_ids'][$i]]['en_title'] = $BookFormats['formats'][$j]['en_title'];
 						endif;
-					endif;
-				endif;
+					endfor;
+				endfor;
 			endif;
 		endif;
 		return $BookFormats;
 	}
 	
+	public function getBookFormatsList($book_files){
+		
+		if(!empty($book_files)):
+			if($jsonformats = json_decode($book_files,TRUE)):
+				if(isset($jsonformats[0]) && !empty($jsonformats[0])):
+					if($formatsList = $this->getValuesInArray($jsonformats,'format_id')):
+						return $formatsList;
+					endif;
+				endif;
+			endif;
+		else:
+			return FALSE;
+		endif;
+	}
 }
 ?>
