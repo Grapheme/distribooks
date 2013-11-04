@@ -1786,7 +1786,7 @@ input[type="radio"]:checked + label
 	background-size: 100% 100%;
 }
 
-.tocart {
+.tocart,.incart {
 	margin-top: 0;
 	margin-bottom: 0;
 	margin-left: 5px;
@@ -4167,3 +4167,9 @@ input[type="checkbox"].cart-check:checked + label
 .pagination-list-item a:hover { text-decoration: underline; }
 .pagination-list-item.active { font-weight: 700; }
 .pagination-list-item.active a:hover { text-decoration: none; cursor: default; }
+
+.loading{
+	background: url("../img/dots-white.gif") no-repeat scroll center center !important;
+	border: 0 none !important;
+	text-indent: -9999px;
+}

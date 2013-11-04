@@ -5,8 +5,7 @@ class MY_Controller extends CI_Controller{
 	var $account = array('id'=>0,'group'=>0);
 	var $profile = '';
 	var $loginstatus = FALSE;
-	var $language = 1;
-	var $acceptedDocTypes = array();
+	var $account_basket = array('basket_books'=>array(),'basket_total_price'=>0,'free_book'=>4);
 	
 	var $baseURL = '';
 	var $baseLanguageURL = RUSLAN;
@@ -27,36 +26,10 @@ class MY_Controller extends CI_Controller{
 					endif;
 				else:
 					$this->profile = json_decode($this->session->userdata('profile'),TRUE);
-					$this->profile['balance'] = 0;
-//					$this->profile['balance'] = $this->accounts->value($this->account['id'],'balance');
 					$this->loginstatus = TRUE;
 				endif;
 			endif;
 		endif;
-		$this->acceptedDocTypes = array(
-			'text/plain' => base_url('img/icons/txt.png'),
-			'application/pdf' => base_url('img/icons/pdf.png'),
-			'application/x-zip-compressed' => base_url('img/icons/zip.png'),
-			'application/msword' => base_url('img/icons/doc.png'),
-			'application/vnd.openxmlformats-officedocument.wordprocessingml.document' => base_url('img/icons/doc.png'),
-			'application/vnd.ms-excel' => base_url('img/icons/doc.png'),
-			'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' => base_url('img/icons/doc.png'),
-			'application/vnd.ms-powerpoint' => base_url('img/icons/doc.png'),
-			'application/vnd.openxmlformats-officedocument.presentationml.presentation' => base_url('img/icons/doc.png'),
-			
-			'image/png' => base_url('img/icons/pic.png'),
-			'image/jpeg'=> base_url('img/icons/pic.png'),
-			'image/gif'=> base_url('img/icons/pic.png'),
-			
-			'audio/mpeg' => base_url('img/icons/sound.png'),
-			'audio/ogg'=> base_url('img/icons/sound.png'),
-			'audio/webm'=> base_url('img/icons/sound.png'),
-			
-			'video/avi' => base_url('img/icons/video.png'),
-			'video/mpeg' => base_url('img/icons/video.png'),
-			'video/mp4'=> base_url('img/icons/video.png'),
-			'video/webm'=> base_url('img/icons/video.png'),
-		);
 	}
 	
 	public function clearSession($redirect = TRUE){
@@ -79,6 +52,37 @@ class MY_Controller extends CI_Controller{
 			return TRUE;
 		endif;
 		return FALSE;
+	}
+
+	public function getAccountBasketBooks(){
+		
+		$basket_exist = FALSE; $booksIDs = array();
+		if($this->input->cookie('basket_books') !== FALSE):
+			if($booksIDs = json_decode($this->input->cookie('basket_books'),TRUE)):
+				$basket_exist = TRUE;
+			endif;
+		endif;
+		if($this->loginstatus === TRUE && $basket_exist === FALSE):
+			$basket = $this->accounts->value($this->account['id'],'basket');
+			if(!empty($basket)):
+				if($booksIDs = json_decode($this->input->cookie('basket_books'),TRUE)):
+					set_cookie('account_basket',$basket,time()+86500,'','/');
+				endif;
+			endif;
+		endif;
+		if($this->input->cookie('free_book_number') === FALSE):
+			$this->load->model('configuration');
+			set_cookie('free_book_number', $this->configuration->getFreeBookNumber(),time()+86500,'','/');
+		endif;
+		if($basket_exist === TRUE && !empty($booksIDs)):
+			$basketTotalPrice = $this->getBooksPrice($booksIDs);
+			set_cookie('basket_total_price',$basketTotalPrice,time()+86500,'','/');
+			$this->account_basket['basket_books'] = $booksIDs;
+			$this->account_basket['basket_total_price'] = $basketTotalPrice;
+			return $booksIDs;
+		else:
+			return FALSE;
+		endif;
 	}
 	/*************************************************************************************************************/
 	public function getVKontakteAccessToken($code,$redirect){
@@ -805,7 +809,40 @@ class MY_Controller extends CI_Controller{
 		return  $retArray;
 	}
 	/* -------------------------------------------------------------------------------------------- */
+	public function createBasket(){
+		
+		$this->load->helper('cookie');
+		$basket = $this->accounts->value($this->account['id'],'basket');
+		if(empty($basket)):
+			$basket = '[""]';
+		endif;
+		set_cookie('basket_books',$basket,time()+86500,'','/');
+	}
 	
+	public function validBasket(){
+		
+		$this->load->helper('cookie');
+		if($this->input->cookie('basket_books') !== FALSE):
+			return TRUE;
+		else:
+			return FALSE;
+		endif;
+	}
+	
+	public function setBasket(){
+		
+		$this->load->helper('cookie');
+		if($this->input->cookie('basket_books') !== FALSE):
+			$this->accounts->updateField($this->account['id'],'basket',$this->input->cookie('basket_books'));
+		else:
+			$basket = $this->accounts->value($this->account['id'],'basket');
+			if(!empty($basket)):
+				set_cookie('basket_books',$basket,time()+86500,'','/');
+			endif;
+		endif;
+		return TRUE;
+	}
+	/* -------------------------------------------------------------------------------------------- */
 	public function getAuthorsByIDs($authors){
 		
 		$authorsList = array();
@@ -871,6 +908,23 @@ class MY_Controller extends CI_Controller{
 				endif;
 			endfor;
 		endfor;
+		return $books;
+	}
+	
+	public function booksInBasket($books){
+		
+		for($i=0;$i<count($books);$i++):
+			$books[$i]['book_in_basket'] = FALSE;
+		endfor;
+		if($booksIDs = $this->getAccountBasketBooks()):
+			for($i=0;$i<count($books);$i++):
+				for($j=0;$j<count($booksIDs);$j++):
+					if($books[$i]['id'] == $booksIDs[$j]):
+						$books[$i]['book_in_basket'] = TRUE;
+					endif;
+				endfor;
+			endfor;
+		endif;
 		return $books;
 	}
 	
@@ -947,6 +1001,61 @@ class MY_Controller extends CI_Controller{
 		else:
 			return FALSE;
 		endif;
+	}
+
+	public function createBasketBlock($BookID = FALSE){
+		
+		$productBasket = '';
+		if($BookID === FALSE):
+			
+		else:
+			$this->load->model('books_card');
+			if($book = $this->books_card->getWhere($BookID)):
+				$productBasket = $this->load->view('guests_interface/html/basket/basket-item',array('book'=>$book),TRUE);
+			endif;
+		endif;
+		return $productBasket;
+	}
+
+	public function getBasketTotalPrice(){
+		
+		if($this->loginstatus === FALSE):
+			if($this->input->cookie('basket_books') !== FALSE):
+				if($booksIDs = json_decode($this->input->cookie('basket_books'),TRUE)):
+					return $this->getBooksPrice($booksIDs);
+				endif;
+			endif;
+		elseif($this->account['group'] == USER_GROUP_VALUE):
+			
+		endif;
+		return NULL;
+	}
+	
+	public function getBooksInBasket(){
+		
+		$this->load->model('books_card');
+		if(!empty($this->account_basket['basket_books'])):
+			if($books = $this->books_card->getBooksByIDs($this->account_basket['basket_books'])):
+				return $books;
+			endif;
+		endif;
+		return NULL;
+	}
+	
+	private function getBooksPrice($booksIDs){
+		
+		$this->load->model('books');
+		$summa = 0;
+		if($books = $this->books->getBooksByIDs($booksIDs)):
+			for($i=0;$i<count($books);$i++):
+				if($books[$i]['price_action'] > 0):
+					$summa+=$books[$i]['price_action'];
+				else:
+					$summa+=$books[$i]['price'];
+				endif;
+			endfor;
+		endif;
+		return getPriceInCurrency($summa);
 	}
 }
 ?>

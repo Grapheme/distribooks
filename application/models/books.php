@@ -38,7 +38,18 @@ class Books extends MY_Model{
 	
 	function getBooksByIDs($IDs){
 
-		$this->db->select('id,ru_title AS name,ru_title,en_title');
+		$this->db->select('id,ru_title AS name,ru_title,en_title,price,price_action,currency');
+		$this->db->where_in('id',$IDs);
+		$query = $this->db->get($this->table);
+		if($data = $query->result_array()):
+			return $data;
+		endif;
+		return NULL;
+	}
+	
+	function getPrice($IDs){
+		
+		$this->db->select_sum('');
 		$this->db->where_in('id',$IDs);
 		$query = $this->db->get($this->table);
 		if($data = $query->result_array()):

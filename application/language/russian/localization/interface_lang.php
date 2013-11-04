@@ -39,6 +39,7 @@ $lang['book_sort_by'] = "Сортировать по";
 $lang['book_sort_price'] = "Цене";
 $lang['book_sort_title'] = "Названию";
 $lang['book_sort_rating'] = "Рейтингу";
+$lang['book_in_basket'] = "В корзине";
 
 $lang['footer_menu_main'] = "Меню";
 $lang['footer_menu_services'] = "Услуги";

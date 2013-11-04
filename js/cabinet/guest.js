@@ -1,6 +1,8 @@
 /*  Author: Grapheme Group
  *  http://grapheme.ru/
  */
+var largeExpDate = new Date();
+largeExpDate.setTime(largeExpDate.getTime()+(24*3600*1000));
 
 $(function(){
 	var mainOptions = {target: null,beforeSubmit: mt.ajaxBeforeSubmit,success: mt.ajaxSuccessSubmit,dataType:'json',type:'post'};
@@ -28,12 +30,9 @@ $(function(){
 		$(_form).ajaxSubmit(options);
 		return false;
 	});
-	
 	$(".sign-in-link").click(function(){
 		if($(this).hasClass('buy')){
-			var largeExpDate = new Date();
-			largeExpDate.setTime(largeExpDate.getTime()+(24*3600*1000));
-			cookies.setCookie('buy_book',$(this).attr('data-book-id'),largeExpDate,'/')
+			cookies.setCookie('buy_book',$(this).parents('.buyor').attr('data-book-id'),largeExpDate,'/');
 		}else{
 			cookies.deleteCookie('buy_book','/');
 		}
@@ -54,11 +53,92 @@ $(function(){
 			error: function(xhr,textStatus,errorThrown){}
 		});
 	});
-	
+	$(".basket-link").click(function(){
+		var bookID = $(this).parents('.buyor').attr('data-book-id').trim();
+		var pathname = location.pathname;
+		var basket_books = [];
+		if(cookies.getCookie('basket_books') !== null){
+			basket_books = JSON.parse(cookies.getCookie('basket_books'));
+		}
+		if(basket_books.indexOf(bookID) == -1){
+			basket_books.push(bookID);
+			cookies.setCookie('basket_books',JSON.stringify(basket_books),largeExpDate,'/');
+			addToBasketBlock(this);
+		}
+	});
+	$(".basket-link-auth").click(function(){
+		
+	});
 	function showRequestDivForm(element){
 		$(".dark-screen").fadeIn("fast");
 		$(element).fadeIn("fast");
 		$(".after-recall-div").hide();
 		$(".before-recall-div").removeClass('hidden');
+	}
+	function removeBookInBasket(_this){
+		
+		var bookID = $(_this).parents('.basket-item').attr('data-book-id').trim();
+		if(cookies.getCookie('basket_books') !== null){
+			basket_books = JSON.parse(cookies.getCookie('basket_books'));
+			if(basket_books.indexOf(bookID) != -1){
+				delete basket_books[basket_books.indexOf(bookID)];
+				var newBasketBooks = mt.getNotNullElements(basket_books);
+				if(newBasketBooks !== null){
+					var cookieValue = JSON.stringify(newBasketBooks);
+					cookies.setCookie('basket_books',cookieValue,largeExpDate,'/');
+				}else{
+					cookies.deleteCookie('basket_books','/');
+					$(".basket-show-link").click().addClass('hidden');
+				}
+				removeToBasketBlock(bookID);
+			}
+		}
+	}
+	function addToBasketBlock(_this){
+		$.ajax({
+			url: mt.getLangBaseURL('add-book-in-basket'),
+			type: 'POST',dataType: 'json',data:{'book':$(_this).parents('.buyor').attr('data-book-id').trim()},
+			beforeSend: function(){},
+			success: function(response,textStatus,xhr){
+				if(response.status){
+					$("div.basket-items-list").append(response.responseProduct);
+					$(".basket-total-price").html(response.booksTotalPrice);
+					cookies.setCookie('basket_total_price',response.booksTotalPrice,largeExpDate,'/');
+					$("a.basket-show-link").removeClass('hidden');
+					$('body,html').animate({scrollTop: 0},200);
+					$(_this).parents('p.tocart').addClass('hidden').after('<p class="incart"><span>'+Localize[mt.currentLanguage]['book_in_basket']+'</span></p>');
+					$("div.basket-items-list").find(".remove-book-in-basket:last").on('click',function(event){event.preventDefault();event.stopPropagation();removeBookInBasket(this);});
+				}
+			},
+			error: function(xhr,textStatus,errorThrown){}
+		})
+	}
+	function removeToBasketBlock(bookID){
+		$.ajax({
+			url: mt.getLangBaseURL('remove-book-in-basket'),
+			type: 'POST',dataType: 'json',data:{'book':bookID},
+			beforeSend: function(){
+				$('div.basket-book-item[data-book-id="'+bookID+'"]').children().addClass('hidden');
+				$('div.basket-book-item[data-book-id="'+bookID+'"]').addClass('loading');
+			},
+			success: function(response,textStatus,xhr){
+				if(response.status){
+					$('div.basket-book-item[data-book-id="'+bookID+'"]').remove();
+					$('div.buyor[data-book-id="'+bookID+'"]').find(".incart").remove();
+					$('div.buyor[data-book-id="'+bookID+'"]').find(".tocart").removeClass('hidden');
+					if(response.booksTotalPrice == null){
+						cookies.deleteCookie('basket_total_price','/');
+					}else{
+						$(".basket-total-price").html(response.booksTotalPrice);
+						cookies.setCookie('basket_total_price',response.booksTotalPrice,largeExpDate,'/');
+					}
+					
+				}
+			},
+			error: function(xhr,textStatus,errorThrown){
+				$('div.basket-book-item[data-book-id="'+bookID+'"]').children().removeClass('hidden');
+				$('div.buyor[data-book-id="'+bookID+'"]').addClass('loading');
+			}
+		})
 	}
 });

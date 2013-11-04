@@ -147,6 +147,12 @@ mt.ajaxBeforeSubmit = function(formData,jqForm,options){
 mt.ajaxSuccessSubmit = function(responseText,statusText,xhr,jqForm){
 	$(jqForm).find(".btn-loading").removeClass('loading').removeAttr('disabled','disabled');
 }
+mt.getNotNullElements = function(massive){
+	var newMassive = [];
+	massive.forEach(function(element,i,arr){if(element != null){newMassive.push(element);}});
+	if(newMassive.length > 0){return newMassive;}else{return null;}
+	
+}
 $.fn.exists = function(){
 	if($(this).length > 0){
 		return true;

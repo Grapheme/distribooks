@@ -538,7 +538,8 @@ class Admin_ajax_interface extends MY_Controller{
 	}
 	
 	private function insertingBook($post){
-
+		
+		$post['currency'] = 1;
 		$bookData = array(
 			'ru_title'=>$post['ru_title'],'en_title'=>$post['en_title'],'ru_anonce'=>$post['ru_anonce'],'en_anonce'=>$post['en_anonce'],
 			'ru_text'=>$post['ru_text'],'en_text'=>$post['en_text'],'date_released'=>$post['date_released'],'ru_size'=>$post['ru_size'],
@@ -569,6 +570,7 @@ class Admin_ajax_interface extends MY_Controller{
 	
 	private function updatingBook($post){
 		
+		$post['currency'] = 1;
 		$bookData = array(
 			'id'=>$post['book_id'],
 			'ru_title'=>$post['ru_title'],'en_title'=>$post['en_title'],'ru_anonce'=>$post['ru_anonce'],'en_anonce'=>$post['en_anonce'],

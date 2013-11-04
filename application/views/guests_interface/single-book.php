@@ -42,7 +42,7 @@
 							</p>
 							<?php $this->load->view('guests_interface/html/book-rating')?>
 							<?php $this->load->view('guests_interface/html/book-price');?>
-							<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$book['id'],'mySignedBook'=>$book['signed_book']));?>
+							<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$book['id'],'mySignedBook'=>$book['signed_book'],'in_basket'=>$book['book_in_basket']));?>
 							<div class="pos3-no">
 								<?php $this->load->view('guests_interface/html/about-product')?>
 								<?php $this->load->view('guests_interface/html/book-formats',array('formats'=>$formats,'book'=>$book));?>

@@ -26,4 +26,32 @@ class User_ajax_interface extends MY_Controller{
 		endif;
 		echo json_encode($this->json_request);
 	}
+	
+	public function addBookInBasket(){
+		
+		$json_request = array('responseProduct'=>'','booksTotalPrice'=>0);
+		if($this->postDataValidation('buy_book')):
+			$this->load->helper('language');
+			$this->json_request['status'] = TRUE;
+			$this->json_request['responseProduct'] = $this->createBasketBlock($this->input->post('book'));
+			$this->json_request['booksTotalPrice'] = $this->getBasketTotalPrice();
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	public function removeBookInBasket(){
+		
+		$json_request = array('booksTotalPrice'=>0);
+		if($this->postDataValidation('buy_book')):
+			$this->load->helper('language');
+			$this->json_request['status'] = TRUE;
+			$this->json_request['booksTotalPrice'] = $this->getBasketTotalPrice();
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
 }

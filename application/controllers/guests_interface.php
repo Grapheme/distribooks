@@ -14,8 +14,10 @@ class Guests_interface extends MY_Controller{
 			$this->config->set_item('base_url',baseURL($this->uri->language_string.'/'));
 		endif;
 		$this->load->helper('language');
+		$this->load->helper('cookie');
 		$this->lang->load('localization/interface',$this->languages[$this->uri->language_string]);
 		$this->load->model('meta_titles');
+		$this->getAccountBasketBooks();
 	}
 	
 	public function page404(){
@@ -31,17 +33,18 @@ class Guests_interface extends MY_Controller{
 			'sliderExist' =>TRUE,
 			'news' => $this->news->limit(3),
 			'novelty' => $this->books_card->limit(4),
-			'currency' => $this->currency->getAll()
+			'currency' => $this->currency->getAll(),
+			'basket_list' => $this->getBooksInBasket()
 		);
 		for($i=0;$i<count($pagevar['novelty']);$i++):
 			$pagevar['novelty'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['novelty'][$i]['authors']);
 		endfor;
 		$pagevar['novelty'] = $this->BooksGenre($pagevar['novelty']);
 		$pagevar['novelty'] = $this->mySignedBooks($pagevar['novelty']);
+		$pagevar['novelty'] = $this->booksInBasket($pagevar['novelty']);
 		$pagevar['news'] = $this->setPageAddress($pagevar['news'],'news');
 		$this->load->view("guests_interface/index",$pagevar);
 	}
-	
 	/************************************************ pages ***********************************************************/
 	public function redirectPage(){
 		
@@ -60,6 +63,7 @@ class Guests_interface extends MY_Controller{
 						$this->load->model(array('books_card','currency','age_limit','genres'));
 						$pagevar['book'] = $this->books_card->getWhere($page['item_id']);
 						$signedBook = $this->mySignedBooks(array($pagevar['book']));
+						$signedBook = $this->booksInBasket($signedBook);
 						$pagevar['book'] = $signedBook[0];
 						$pagevar['book']['genre_title'] = $this->genres->value($pagevar['book']['genre'],$this->uri->language_string.'_title');
 						$pagevar['authors'] = $this->getAuthorsByIDs($pagevar['book']['authors']);
@@ -150,9 +154,15 @@ class Guests_interface extends MY_Controller{
 		);
 		$this->load->view("guests_interface/formats",$pagevar);
 	}
-	
+	/*********************************************** basket ***********************************************************/
+	public function basket(){
+		
+		$pagevar = array(
+		
+		);
+		$this->load->view("guests_interface/basket",$pagevar);
+	}
 	/*********************************************** catalog ***********************************************************/
-	
 	public function catalog(){
 		
 		$this->load->model(array('books_card','currency'));
@@ -167,7 +177,6 @@ class Guests_interface extends MY_Controller{
 			'pages' => NULL,
 			'currency' => $this->currency->getAll()
 		);
-		
 		$sortBy = NULL; $tags = $genre = $keyword = $author = FALSE;
 		if($this->input->get('tag') !== FALSE && $this->input->get('tag') != ''):
 			$tags = TRUE;
@@ -186,7 +195,6 @@ class Guests_interface extends MY_Controller{
 		if($this->input->get('author') !== FALSE && is_numeric($this->input->get('author')) === TRUE):
 			$author = TRUE;
 		endif;
-		
 		if(is_null($sortBy) && $tags === FALSE && $genre === FALSE && $keyword === FALSE && $author === FALSE):
 			$this->offset = (int)$this->uri->segment(3);
 			$pagevar['catalog'] = $this->books_card->limit(PER_PAGE_DEFAULT,$this->offset);
@@ -236,10 +244,13 @@ class Guests_interface extends MY_Controller{
 		$pagevar['recommended'] = $this->BooksGenre($pagevar['recommended']);
 		
 		$pagevar['catalog'] = $this->mySignedBooks($pagevar['catalog']);
+		$pagevar['catalog'] = $this->booksInBasket($pagevar['catalog']);
 		$pagevar['bestsellers'] = $this->mySignedBooks($pagevar['bestsellers']);
+		$pagevar['bestsellers'] = $this->booksInBasket($pagevar['bestsellers']);
 		$pagevar['novelty'] = $this->mySignedBooks($pagevar['novelty']);
+		$pagevar['novelty'] = $this->booksInBasket($pagevar['novelty']);
 		$pagevar['recommended'] = $this->mySignedBooks($pagevar['recommended']);
-		
+		$pagevar['recommended'] = $this->booksInBasket($pagevar['recommended']);
 		$this->load->view("guests_interface/catalog",$pagevar);
 	}
 	
