@@ -63,7 +63,7 @@
 				<?php endif;?>
 				<?php for($i=0;$i<count($catalog);$i++):?>
 					<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($catalog)-1))?' omega':'';?>">
-						<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$catalog[$i],'currency'=>$currency));?>
+						<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$catalog[$i]));?>
 						<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$catalog[$i]['id'],'mySignedBook'=>$catalog[$i]['signed_book'],'in_basket'=>$catalog[$i]['book_in_basket']));?>
 					</div>
 				<?php if(($i+1)%3 == 0):?>
@@ -105,7 +105,7 @@
 				<p class="top-shop-title"><?=lang('catalog_top_shop')?>:</p>
 			<?php for($i=0;$i<count($bestsellers);$i++):?>
 				<div class="top-shop">
-					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$bestsellers[$i],'currency'=>$currency));?>
+					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$bestsellers[$i]));?>
 					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$bestsellers[$i]['id'],'mySignedBook'=>$bestsellers[$i]['signed_book'],'in_basket'=>$bestsellers[$i]['book_in_basket']));?>
 					<div class="shop-desc">
 						<?=$bestsellers[$i][$this->uri->language_string.'_anonce']?>
@@ -120,7 +120,7 @@
 				<p class="top-shop-title"><?=lang('catalog_novelty')?>:</p>
 			<?php for($i=0;$i<count($novelty);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($novelty)-1))?' omega':'';?>">
-					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$novelty[$i],'currency'=>$currency));?>
+					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$novelty[$i]));?>
 					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$novelty[$i]['id'],'mySignedBook'=>$novelty[$i]['signed_book'],'in_basket'=>$novelty[$i]['book_in_basket']));?>
 				</div>
 			<?php endfor;?>
@@ -133,7 +133,7 @@
 				<p class="top-shop-title"><?=lang('catalog_recommended')?>:</p>
 			<?php for($i=0;$i<count($recommended);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($recommended)-1))?' omega':'';?>">
-					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$recommended[$i],'currency'=>$currency));?>
+					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$recommended[$i]));?>
 					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$recommended[$i]['id'],'mySignedBook'=>$recommended[$i]['signed_book'],'in_basket'=>$recommended[$i]['book_in_basket']));?>
 				</div>
 			<?php endfor;?>

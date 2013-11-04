@@ -1,5 +1,5 @@
 <div class="basket-item basket-sale">
-	<a class="basket-rm" href="#"></a>
+	<a class="basket-rm remove-book-in-basket no-clickable" href="#"></a>
 	<div class="basket-img"><img src="<?=baseURL('img/book-big.png');?>"></div>
 	<p class="basket-item-name">Назавние Назавние Назавние Назавние</p>
 	<p class="basket-price"></p>

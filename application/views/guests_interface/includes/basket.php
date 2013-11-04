@@ -1,16 +1,21 @@
+<?php 
+	$HTMLbasketList = '';
+	for($i=0;$i<count($basket_list);$i++):
+		$HTMLbasketList .= $this->load->view('guests_interface/html/basket/basket-item',array('book'=>$basket_list[$i]),TRUE);
+	endfor;
+//	if($i-1 == $this->input->cookie('free_book_number')):
+		$HTMLbasketList .= $this->load->view('guests_interface/html/basket/basket-item-sale-full',NULL,TRUE);
+		$HTMLbasketList .= $this->load->view('guests_interface/html/basket/basket-item-sale-empty',NULL,TRUE);
+//	elseif($i == $this->input->cookie('free_book_number')):
+		
+//	endif;
+?>
 <div class="basket-min-div">
 	<a href="" class="basket-close no-clickable"></a>
 	<img src="<?=baseURL('img/basket-arrow.png');?>" class="basket-arrow">
 	<div class="basket-min">
 		<p class="basket-title"><?=lang('basket_title');?></p>
-		<div class="basket-items-list">
-<?php 
-	//$this->
-	for($i=0;$i<count($this->account_basket['basket_books']);$i++):
-		
-	endfor;
-?>
-		</div>
+		<div class="basket-items-list"><?=$HTMLbasketList;?></div>
 		<div class="basket-line"></div>
 		<div class="basket-item">
 			<div style="float: right;">

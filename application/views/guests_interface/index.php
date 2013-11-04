@@ -32,7 +32,7 @@
 				</div>
 			<?php for($i=0;$i<count($novelty);$i++):?>
 				<div class="grid_1 omega">
-					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$novelty[$i],'currency'=>$currency));?>
+					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$novelty[$i]));?>
 					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$novelty[$i]['id'],'mySignedBook'=>$novelty[$i]['signed_book'],'in_basket'=>$novelty[$i]['book_in_basket']));?>
 				</div>
 			<?php endfor;?>

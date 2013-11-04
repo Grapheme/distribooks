@@ -69,6 +69,7 @@ $(function(){
 	$(".basket-link-auth").click(function(){
 		
 	});
+	$(".remove-book-in-basket").click(function(){removeBookInBasket(this);})
 	function showRequestDivForm(element){
 		$(".dark-screen").fadeIn("fast");
 		$(element).fadeIn("fast");

@@ -27,15 +27,17 @@ class Guests_interface extends MY_Controller{
 	
 	public function index(){
 		
-		$this->load->model(array('news','books_card','currency'));
+		$this->load->model(array('news','books_card'));
 		$pagevar = array(
 			'page_content'=> array(),
 			'sliderExist' =>TRUE,
 			'news' => $this->news->limit(3),
 			'novelty' => $this->books_card->limit(4),
-			'currency' => $this->currency->getAll(),
 			'basket_list' => $this->getBooksInBasket()
 		);
+		
+//		print_r($pagevar['basket_list']);exit;
+		
 		for($i=0;$i<count($pagevar['novelty']);$i++):
 			$pagevar['novelty'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['novelty'][$i]['authors']);
 		endfor;
@@ -51,7 +53,8 @@ class Guests_interface extends MY_Controller{
 		if($this->uri->segment(1) !== FALSE):
 			$pageContent = '';
 			if($page = $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1)))):
-				$pagevar = array('meta_titles'=>$page);
+				$pagevar = array('meta_titles'=>$page,'basket_list'=>$this->getBooksInBasket());
+				
 				switch($page['group']):
 					case 'news':
 						$this->load->model('news');
@@ -60,14 +63,13 @@ class Guests_interface extends MY_Controller{
 						$pageContent = $this->load->view('guests_interface/single-news',$pagevar,TRUE);
 						break;
 					case 'books':
-						$this->load->model(array('books_card','currency','age_limit','genres'));
+						$this->load->model(array('books_card','age_limit','genres'));
 						$pagevar['book'] = $this->books_card->getWhere($page['item_id']);
 						$signedBook = $this->mySignedBooks(array($pagevar['book']));
 						$signedBook = $this->booksInBasket($signedBook);
 						$pagevar['book'] = $signedBook[0];
 						$pagevar['book']['genre_title'] = $this->genres->value($pagevar['book']['genre'],$this->uri->language_string.'_title');
 						$pagevar['authors'] = $this->getAuthorsByIDs($pagevar['book']['authors']);
-						$pagevar['currency'] = $this->currency->getAll();
 						$pagevar['age_limit'] = $this->age_limit->getWhere($pagevar['book']['age_limit']);
 						$pagevar['formats'] = $this->getBookFormats($pagevar['book']['files']);
 						$pagevar['keywords'] = array();
@@ -94,7 +96,8 @@ class Guests_interface extends MY_Controller{
 			'meta_titles' => $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
 			'news' => $this->news->limit(PER_PAGE_DEFAULT,(int)$this->uri->segment(3)),
 			'pages'=> $this->pagination('news',3,$this->news->countAllResults(),PER_PAGE_DEFAULT),
-			'breadcrumbs' => array('news'=>lang('news_block'))
+			'breadcrumbs' => array('news'=>lang('news_block')),
+			'basket_list' => $this->getBooksInBasket()
 		);
 		$pagevar['news'] = $this->setPageAddress($pagevar['news'],'news');
 		$this->load->view("guests_interface/news",$pagevar);
@@ -103,7 +106,8 @@ class Guests_interface extends MY_Controller{
 	public function about(){
 		
 		$pagevar = array(
-			'page_content'=>array()
+			'page_content'=>array(),
+			'basket_list' => $this->getBooksInBasket()
 		);
 		$this->load->view("guests_interface/about",$pagevar);
 	}
@@ -112,7 +116,8 @@ class Guests_interface extends MY_Controller{
 		
 		$pagevar = array(
 			'page_content'=>array(),
-			'sliderExist' =>TRUE
+			'sliderExist' =>TRUE,
+			'basket_list' => $this->getBooksInBasket()
 		);
 		$this->load->view("guests_interface/editing",$pagevar);
 	}
@@ -121,7 +126,8 @@ class Guests_interface extends MY_Controller{
 		
 		$pagevar = array(
 			'page_content'=>array(),
-			'sliderExist' =>TRUE
+			'sliderExist' =>TRUE,
+			'basket_list' => $this->getBooksInBasket()
 		);
 		$this->load->view("guests_interface/typography",$pagevar);
 	}
@@ -130,7 +136,8 @@ class Guests_interface extends MY_Controller{
 		
 		$pagevar = array(
 			'page_content'=>array(),
-			'sliderExist' =>TRUE
+			'sliderExist' =>TRUE,
+			'basket_list' => $this->getBooksInBasket()
 		);
 		$this->load->view("guests_interface/translation",$pagevar);
 	}
@@ -139,7 +146,8 @@ class Guests_interface extends MY_Controller{
 		
 		$pagevar = array(
 			'page_content'=>array(),
-			'sliderExist' =>TRUE
+			'sliderExist' =>TRUE,
+			'basket_list' => $this->getBooksInBasket()
 		);
 		$this->load->view("guests_interface/distribution",$pagevar);
 	}
@@ -150,7 +158,8 @@ class Guests_interface extends MY_Controller{
 		$pagevar = array(
 			'page_content'=> array(),
 			'breadcrumbs' => array('formats'=>'FORMATS'),
-			'formats'=>$this->formats->getWhere(NULL,array('visible'=>1),TRUE)
+			'formats'=>$this->formats->getWhere(NULL,array('visible'=>1),TRUE),
+			'basket_list' => $this->getBooksInBasket()
 		);
 		$this->load->view("guests_interface/formats",$pagevar);
 	}
@@ -165,7 +174,7 @@ class Guests_interface extends MY_Controller{
 	/*********************************************** catalog ***********************************************************/
 	public function catalog(){
 		
-		$this->load->model(array('books_card','currency'));
+		$this->load->model('books_card');
 		$pagevar = array(
 			'page_content'=> array(),
 			'breadcrumbs' => array('catalog'=>lang('catalog_catalog')),
@@ -175,7 +184,7 @@ class Guests_interface extends MY_Controller{
 			'recommended' => $this->books_card->limit(6),
 			'catalog' => array(),
 			'pages' => NULL,
-			'currency' => $this->currency->getAll()
+			'basket_list' => $this->getBooksInBasket()
 		);
 		$sortBy = NULL; $tags = $genre = $keyword = $author = FALSE;
 		if($this->input->get('tag') !== FALSE && $this->input->get('tag') != ''):
