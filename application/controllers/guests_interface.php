@@ -13,8 +13,6 @@ class Guests_interface extends MY_Controller{
 		else:
 			$this->config->set_item('base_url',baseURL($this->uri->language_string.'/'));
 		endif;
-		$this->load->helper('language');
-		$this->load->helper('cookie');
 		$this->lang->load('localization/interface',$this->languages[$this->uri->language_string]);
 		$this->load->model('meta_titles');
 		$this->getAccountBasketBooks();
@@ -35,9 +33,6 @@ class Guests_interface extends MY_Controller{
 			'novelty' => $this->books_card->limit(4),
 			'basket_list' => $this->getBooksInBasket()
 		);
-		
-//		print_r($pagevar['basket_list']);exit;
-		
 		for($i=0;$i<count($pagevar['novelty']);$i++):
 			$pagevar['novelty'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['novelty'][$i]['authors']);
 		endfor;

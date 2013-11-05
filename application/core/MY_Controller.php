@@ -5,7 +5,8 @@ class MY_Controller extends CI_Controller{
 	var $account = array('id'=>0,'group'=>0);
 	var $profile = '';
 	var $loginstatus = FALSE;
-	var $account_basket = array('basket_books'=>array(),'basket_total_price'=>0,'free_book'=>4);
+	var $account_basket = array('basket_books'=>array(),'basket_total_price'=>0);
+	var $project_config = array('dollar_rate'=>32.00,'free_book'=>4,'count_free_book'=>1,'action_price'=>10000,'action_percent'=>10);
 	
 	var $baseURL = '';
 	var $baseLanguageURL = RUSLAN;
@@ -30,6 +31,7 @@ class MY_Controller extends CI_Controller{
 				endif;
 			endif;
 		endif;
+		$this->setProjectConfig();
 	}
 	
 	public function clearSession($redirect = TRUE){
@@ -57,22 +59,17 @@ class MY_Controller extends CI_Controller{
 	public function getAccountBasketBooks(){
 		
 		$basket_exist = FALSE; $booksIDs = array();
-		if($this->input->cookie('basket_books') !== FALSE):
-			if($booksIDs = json_decode($this->input->cookie('basket_books'),TRUE)):
-				$basket_exist = TRUE;
-			endif;
+		
+		if($booksIDs = $this->getValuesBasketBooksCookie()):
+			$basket_exist = TRUE;
 		endif;
 		if($this->loginstatus === TRUE && $basket_exist === FALSE):
 			$basket = $this->accounts->value($this->account['id'],'basket');
 			if(!empty($basket)):
-				if($booksIDs = json_decode($this->input->cookie('basket_books'),TRUE)):
+				if($booksIDs = json_decode($basket,TRUE)):
 					set_cookie('account_basket',$basket,time()+86500,'','/');
 				endif;
 			endif;
-		endif;
-		if($this->input->cookie('free_book_number') === FALSE):
-			$this->load->model('configuration');
-			set_cookie('free_book_number', $this->configuration->getFreeBookNumber(),time()+86500,'','/');
 		endif;
 		if($basket_exist === TRUE && !empty($booksIDs)):
 			$basketTotalPrice = $this->getBooksPrice($booksIDs);
@@ -83,6 +80,22 @@ class MY_Controller extends CI_Controller{
 		else:
 			return FALSE;
 		endif;
+	}
+
+	public function setProjectConfig(){
+		
+		if($this->input->cookie('project_config') !== FALSE):
+			if($project_config = json_decode($this->input->cookie('project_config'),TRUE)):
+				$this->project_config = $project_config;
+			endif;
+		else:
+			$this->load->model('configuration');
+			if($project_config = $this->configuration->getWhere(1)):
+				$this->project_config = $project_config;
+				set_cookie('project_config',json_encode($project_config),time()+86500,'','/');
+			endif;
+		endif;
+		return TRUE;
 	}
 	/*************************************************************************************************************/
 	public function getVKontakteAccessToken($code,$redirect){
@@ -811,7 +824,6 @@ class MY_Controller extends CI_Controller{
 	/* -------------------------------------------------------------------------------------------- */
 	public function createBasket(){
 		
-		$this->load->helper('cookie');
 		$basket = $this->accounts->value($this->account['id'],'basket');
 		if(empty($basket)):
 			$basket = '[""]';
@@ -821,7 +833,6 @@ class MY_Controller extends CI_Controller{
 	
 	public function validBasket(){
 		
-		$this->load->helper('cookie');
 		if($this->input->cookie('basket_books') !== FALSE):
 			return TRUE;
 		else:
@@ -831,7 +842,6 @@ class MY_Controller extends CI_Controller{
 	
 	public function setBasket(){
 		
-		$this->load->helper('cookie');
 		if($this->input->cookie('basket_books') !== FALSE):
 			$this->accounts->updateField($this->account['id'],'basket',$this->input->cookie('basket_books'));
 		else:
@@ -1003,27 +1013,51 @@ class MY_Controller extends CI_Controller{
 		endif;
 	}
 
-	public function createBasketBlock($BookID = FALSE){
+	public function createBasketBlock($BookID){
 		
 		$productBasket = '';
-		if($BookID === FALSE):
-			
-		else:
-			$this->load->model('books_card');
-			if($book = $this->books_card->getWhere($BookID)):
-				$productBasket = $this->load->view('guests_interface/html/basket/basket-item',array('book'=>$book),TRUE);
-			endif;
+		$this->load->model('books_card');
+		if($book = $this->books_card->getWhere($BookID)):
+			$productBasket = $this->load->view('guests_interface/html/basket/basket-item',array('book'=>$book),TRUE);
 		endif;
 		return $productBasket;
 	}
-
+	
+	public function createBasketBlockEmptyAction(){
+		$productBasket = '';
+		for($i=0;$i<$this->project_config['count_free_book'];$i++):
+			$productBasket .= $this->load->view('guests_interface/html/basket/basket-item-sale-empty',NULL,TRUE);
+		endfor;
+		return $productBasket;
+	}
+	
+	public function createBasketBlockAction($BookID){
+		
+		$productBasket = '';
+		$this->load->model('books_card');
+		if($book = $this->books_card->getWhere($BookID)):
+			$productBasket .= $this->load->view('guests_interface/html/basket/basket-item-sale-full',array('book'=>$book),TRUE);
+		endif;
+		return $productBasket;
+	}
+	
+	public function removeBasketBlocks(){
+		
+		$this->load->model('books_card');
+		if($booksIDs = $this->getValuesBasketBooksCookie()):
+			$booksBasketCount = count($booksIDs);
+			if($booksBasketCount%$this->project_config['free_book'] != 0):
+				return $this->project_config['count_free_book'];
+			endif;
+		endif;
+		return FALSE;
+	}
+	
 	public function getBasketTotalPrice(){
 		
 		if($this->loginstatus === FALSE):
-			if($this->input->cookie('basket_books') !== FALSE):
-				if($booksIDs = json_decode($this->input->cookie('basket_books'),TRUE)):
-					return $this->getBooksPrice($booksIDs);
-				endif;
+			if($booksIDs = $this->getValuesBasketBooksCookie()):
+				return $this->getBooksPrice($booksIDs);
 			endif;
 		elseif($this->account['group'] == USER_GROUP_VALUE):
 			
@@ -1042,20 +1076,33 @@ class MY_Controller extends CI_Controller{
 		return NULL;
 	}
 	
+	public function getValuesBasketBooksCookie(){
+		
+		if($this->input->cookie('basket_books') !== FALSE):
+			if($booksIDs = json_decode($this->input->cookie('basket_books'),TRUE)):
+				return $booksIDs;
+			endif;
+		endif;
+		return FALSE;
+	}
+	
 	private function getBooksPrice($booksIDs){
 		
 		$this->load->model('books');
 		$summa = 0;
 		if($books = $this->books->getBooksByIDs($booksIDs)):
 			for($i=0;$i<count($books);$i++):
-				if($books[$i]['price_action'] > 0):
-					$summa+=$books[$i]['price_action'];
-				else:
-					$summa+=$books[$i]['price'];
+				if(($i+1)%$this->project_config['free_book'] != 0):
+					if($books[$i]['price_action'] > 0):
+						$summa+=$books[$i]['price_action'];
+					else:
+						$summa+=$books[$i]['price'];
+					endif;
 				endif;
 			endfor;
 		endif;
 		return getPriceInCurrency($summa);
 	}
+	
 }
 ?>

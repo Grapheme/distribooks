@@ -5,11 +5,9 @@ class Global_interface extends MY_Controller{
 	function __construct(){
 
 		parent::__construct();
-		
 		if($this->uri->language_string === FALSE):
 			$this->uri->language_string = BASE_LANG;
 		endif;
-		$this->load->helper('language');
 		$this->lang->load('localization/global',$this->languages[$this->uri->language_string]);
 	}
 	
@@ -129,7 +127,6 @@ class Global_interface extends MY_Controller{
 	
 	private function buyBookInLogIn(){
 		
-		$this->load->helper('cookie');
 		if($this->input->cookie('buy_book') !== FALSE):
 			$this->account = json_decode($this->session->userdata('account'),TRUE);
 			if($this->account['group'] == USER_GROUP_VALUE):

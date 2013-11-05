@@ -4,7 +4,7 @@ class Configuration extends MY_Model{
 
 	protected $table = "config";
 	protected $primary_key = "id";
-	protected $fields = array("*");
+	protected $fields = array("dollar_rate,free_book,count_free_book,action_price,action_percent");
 
 	function __construct(){
 		parent::__construct();

@@ -1,14 +1,8 @@
-<div class="basket-item basket-sale">
-	<a class="basket-rm remove-book-in-basket no-clickable" href="#"></a>
-	<div class="basket-img"><img src="<?=baseURL('img/book-big.png');?>"></div>
-	<p class="basket-item-name">Назавние Назавние Назавние Назавние</p>
-	<p class="basket-price"></p>
-	<div class="basket-one-buy">
-		<div class="basket-select" style="margin-left: 2px;">
-			<select>
-				<option value="1"> </option>
-				<option value="2"> </option>
-			</select>
-		</div>
+<div class="basket-sale-full-action basket-book-item" data-book-id="<?=$book['id'];?>">
+	<div class="basket-item basket-sale book-as-action">
+		<a class="basket-rm remove-book-in-basket book-as-action no-clickable" href="#"></a>
+		<div class="basket-img"><img src="<?=baseURL($book['thumbnail']);?>"></div>
+		<a href="<?=site_url($this->uri->language_string.'/'.$book['page_address'])?>" class="basket-item-name"><?=$book[$this->uri->language_string.'_title'];?></a>
 	</div>
+	<div class="basket-sale-bottom"></div>
 </div>

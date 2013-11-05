@@ -60,7 +60,7 @@ $(function(){
 		if(cookies.getCookie('basket_books') !== null){
 			basket_books = JSON.parse(cookies.getCookie('basket_books'));
 		}
-		if(basket_books.indexOf(bookID) == -1){
+		if(basket_books.length < mt.max_basket && basket_books.indexOf(bookID) == -1){
 			basket_books.push(bookID);
 			cookies.setCookie('basket_books',JSON.stringify(basket_books),largeExpDate,'/');
 			addToBasketBlock(this);
@@ -102,13 +102,27 @@ $(function(){
 			beforeSend: function(){},
 			success: function(response,textStatus,xhr){
 				if(response.status){
-					$("div.basket-items-list").append(response.responseProduct);
-					$(".basket-total-price").html(response.booksTotalPrice);
-					cookies.setCookie('basket_total_price',response.booksTotalPrice,largeExpDate,'/');
+					if(response.responseBooks != ''){
+						$("div.basket-items-list").append(response.responseBooks);
+						$("div.basket-items-list").find(".remove-book-in-basket:last").on('click',function(event){event.preventDefault();event.stopPropagation();removeBookInBasket(this);});
+						$(".basket-total-price").html(response.booksTotalPrice);
+						cookies.setCookie('basket_total_price',response.booksTotalPrice,largeExpDate,'/');
+					}
+					if(response.responseBooks !== false){
+						if(response.isFullAction == true){
+							if($("div.basket-items-action-list").find(".basket-sale-full-action").length == 0){
+								$("div.basket-items-action-list").prepend(response.responseBooksActions);
+							}else{
+								$("div.basket-items-action-list").append(response.responseBooksActions);
+							}
+							$("div.basket-items-action-list").find("div.basket-sale-empty-action").not('.hidden').eq(0).addClass('hidden');
+						}else{
+							$("div.basket-items-action-list").append(response.responseBooksActions);
+						}
+					}
 					$("a.basket-show-link").removeClass('hidden');
-					$('body,html').animate({scrollTop: 0},200);
 					$(_this).parents('p.tocart').addClass('hidden').after('<p class="incart"><span>'+Localize[mt.currentLanguage]['book_in_basket']+'</span></p>');
-					$("div.basket-items-list").find(".remove-book-in-basket:last").on('click',function(event){event.preventDefault();event.stopPropagation();removeBookInBasket(this);});
+					
 				}
 			},
 			error: function(xhr,textStatus,errorThrown){}
@@ -120,11 +134,11 @@ $(function(){
 			type: 'POST',dataType: 'json',data:{'book':bookID},
 			beforeSend: function(){
 				$('div.basket-book-item[data-book-id="'+bookID+'"]').children().addClass('hidden');
-				$('div.basket-book-item[data-book-id="'+bookID+'"]').addClass('loading');
+				$('div.basket-book-item[data-book-id="'+bookID+'"]').parents('div.basket-sale-full-action').addClass('loading');
 			},
 			success: function(response,textStatus,xhr){
 				if(response.status){
-					$('div.basket-book-item[data-book-id="'+bookID+'"]').remove();
+					$('div.basket-book-item[data-book-id="'+bookID+'"]').parents('div.basket-sale-full-action').remove();
 					$('div.buyor[data-book-id="'+bookID+'"]').find(".incart").remove();
 					$('div.buyor[data-book-id="'+bookID+'"]').find(".tocart").removeClass('hidden');
 					if(response.booksTotalPrice == null){
@@ -133,12 +147,11 @@ $(function(){
 						$(".basket-total-price").html(response.booksTotalPrice);
 						cookies.setCookie('basket_total_price',response.booksTotalPrice,largeExpDate,'/');
 					}
-					
 				}
 			},
 			error: function(xhr,textStatus,errorThrown){
 				$('div.basket-book-item[data-book-id="'+bookID+'"]').children().removeClass('hidden');
-				$('div.buyor[data-book-id="'+bookID+'"]').addClass('loading');
+				$('div.basket-book-item[data-book-id="'+bookID+'"]').parents('div.basket-sale-full-action').removeClass('loading');
 			}
 		})
 	}

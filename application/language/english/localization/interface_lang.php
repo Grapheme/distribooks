@@ -69,6 +69,7 @@ $lang['basket_buy'] = "Buy";
 $lang['basket_choice_price'] = "Choice";
 $lang['basket_total'] = "Total";
 $lang['basket_buy_all'] = "All buy";
+$lang['basket_action_book_block'] = "Shared book";
 
 $lang['signin_auth_text'] = "You need to sign up for the books you bought on e-mail and access to bonuses and rebates";
 $lang['signin_nickname'] = "Nickname";
