@@ -115,6 +115,7 @@ $(function(){
 							}else{
 								$("div.basket-items-action-list").append(response.responseBooksActions);
 							}
+							$("div.basket-items-action-list").find(".remove-book-in-basket:last").on('click',function(event){event.preventDefault();event.stopPropagation();removeBookInBasket(this);});
 							$("div.basket-items-action-list").find("div.basket-sale-empty-action").not('.hidden').eq(0).addClass('hidden');
 						}else{
 							$("div.basket-items-action-list").append(response.responseBooksActions);
@@ -134,24 +135,26 @@ $(function(){
 			type: 'POST',dataType: 'json',data:{'book':bookID},
 			beforeSend: function(){
 				$('div.basket-book-item[data-book-id="'+bookID+'"]').children().addClass('hidden');
-				$('div.basket-book-item[data-book-id="'+bookID+'"]').parents('div.basket-sale-full-action').addClass('loading');
+				$('div.basket-book-item[data-book-id="'+bookID+'"]').addClass('loading');
 			},
 			success: function(response,textStatus,xhr){
 				if(response.status){
-					$('div.basket-book-item[data-book-id="'+bookID+'"]').parents('div.basket-sale-full-action').remove();
+					mt.redirect(mt.currentURL);
+					$('div.basket-book-item[data-book-id="'+bookID+'"]').remove();
 					$('div.buyor[data-book-id="'+bookID+'"]').find(".incart").remove();
 					$('div.buyor[data-book-id="'+bookID+'"]').find(".tocart").removeClass('hidden');
-					if(response.booksTotalPrice == null){
+					/*if(response.booksTotalPrice == null){
 						cookies.deleteCookie('basket_total_price','/');
 					}else{
 						$(".basket-total-price").html(response.booksTotalPrice);
 						cookies.setCookie('basket_total_price',response.booksTotalPrice,largeExpDate,'/');
-					}
+						
+					}*/
 				}
 			},
 			error: function(xhr,textStatus,errorThrown){
 				$('div.basket-book-item[data-book-id="'+bookID+'"]').children().removeClass('hidden');
-				$('div.basket-book-item[data-book-id="'+bookID+'"]').parents('div.basket-sale-full-action').removeClass('loading');
+				$('div.basket-book-item[data-book-id="'+bookID+'"]').removeClass('loading');
 			}
 		})
 	}

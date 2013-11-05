@@ -1026,7 +1026,7 @@ class MY_Controller extends CI_Controller{
 	public function createBasketBlockEmptyAction(){
 		$productBasket = '';
 		for($i=0;$i<$this->project_config['count_free_book'];$i++):
-			$productBasket .= $this->load->view('guests_interface/html/basket/basket-item-sale-empty',NULL,TRUE);
+			$productBasket .= $this->load->view('guests_interface/html/basket/basket-item-sale-empty',array('hidden'=>FALSE),TRUE);
 		endfor;
 		return $productBasket;
 	}
