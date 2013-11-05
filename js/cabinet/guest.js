@@ -83,6 +83,19 @@ $(function(){
 			error: function(xhr,textStatus,errorThrown){}
 		})
 	})
+	$(".basket-buy-link").click(function(){
+		$.ajax({
+			url: mt.getLangBaseURL('buy-books-in-basket'),type: 'POST',dataType: 'json',
+			beforeSend: function(){},
+			success: function(response,textStatus,xhr){
+				if(response.status){
+					mt.redirect(response.redirect);
+				}
+			},
+			error: function(xhr,textStatus,errorThrown){}
+		});
+	});
+	
 	function showRequestDivForm(element){
 		$(".dark-screen").fadeIn("fast");
 		$(element).fadeIn("fast");

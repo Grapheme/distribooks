@@ -18,6 +18,7 @@ class Users_interface extends MY_Controller{
 		endif;
 		$this->lang->load('localization/interface',$this->languages[$this->uri->language_string]);
 		$this->load->model('meta_titles');
+		$this->getAccountBasketBooks();
 	}
 	
 	public function cabinet(){
@@ -29,6 +30,7 @@ class Users_interface extends MY_Controller{
 			'breadcrumbs' => array('cabinet'=>lang('user_cabinet')),
 			'books' => $this->signed_books->getMyBooks(PER_PAGE_DEFAULT,$this->offset),
 			'pages' => $this->pagination('cabinet/my-books',4,$this->signed_books->countAllResults(array('account'=>$this->account['id'])),PER_PAGE_DEFAULT),
+			'basket_list' => $this->getBooksInBasket()
 		);
 		$pagevar['books'] = $this->BooksGenre($pagevar['books']);
 		$pagevar['books'] = $this->mySignedBooks($pagevar['books']);

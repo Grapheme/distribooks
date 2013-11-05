@@ -36,6 +36,7 @@ $route['cabinet'] = "users_interface/cabinet";
 $route['cabinet/my-books(\/:any)*?'] = "users_interface/cabinet";
 $route['download-book'] = "users_interface/downloadBookFile";
 $route['buy-book'] = "user_ajax_interface/singleBuyBook";
+$route['buy-books-in-basket'] = "user_ajax_interface/basketBuyBooks";
 $route['add-book-in-basket'] = "user_ajax_interface/addBookInBasket";
 $route['remove-book-in-basket'] = "user_ajax_interface/removeBookInBasket";
 $route['refresh-books-in-basket'] = "user_ajax_interface/refreshBooksInBasket";

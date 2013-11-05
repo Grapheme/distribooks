@@ -162,7 +162,7 @@ class Guests_interface extends MY_Controller{
 	public function basket(){
 		
 		$pagevar = array(
-		
+			'basket_list' => $this->getBooksInBasket()
 		);
 		$this->load->view("guests_interface/basket",$pagevar);
 	}

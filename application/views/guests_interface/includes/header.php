@@ -100,7 +100,7 @@
 				</div>
 			</div>
 			<div class="grid_1">
-				<a href="" class="blue button call pos1 basket basket-show-link no-clickable<?=($this->input->cookie('basket_books')===FALSE)?' hidden':'';?>">
+				<a href="" class="blue button call pos1 basket<?=($this->uri->segment(1) == 'basket')?'':' basket-show-link';?> no-clickable<?=($this->input->cookie('basket_books')===FALSE)?' hidden':'';?>">
 					<img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span class="basket-total-price"><?=$this->account_basket['basket_total_price'];?></span>
 				</a>
 			</div>

@@ -24,10 +24,7 @@ class Global_interface extends MY_Controller{
 		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
 		if($this->postDataValidation('signin') == TRUE):
 			if($user = $this->accounts->authentication($this->input->post('login'),$this->input->post('password'))):
-				if($user['active']):
-					if($this->setLoginSession($user['id'])):
-						$this->buyBookInLogIn();
-					endif;
+				if($this->signInAccount($user['id'])):
 					if($user['group'] == ADMIN_GROUP_VALUE):
 						$json_request['redirect'] = site_url(ADMIN_START_PAGE);
 					elseif($user['group'] == USER_GROUP_VALUE):

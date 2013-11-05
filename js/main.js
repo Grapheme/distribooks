@@ -141,7 +141,7 @@ $(document).ready(function(){
 		basket = "close";
 	});
 	
-	$(".button.basket").click(function() {
+	$(".basket-show-link").click(function(){
 		if(basket == "close") { $(".basket-min-div").fadeIn("fast"); basket = "open"; }
 		else { $(".basket-min-div").fadeOut("fast"); basket = "close"; }
 	});

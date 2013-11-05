@@ -737,7 +737,7 @@ class MY_Controller extends CI_Controller{
 		endif;
 	}
 
-	public function getValuesInArray($array,$value){
+	public function getValuesInArray($array,$value = 'id'){
 		
 		$ids = array();
 		for($i=0;$i<count($array);$i++):
