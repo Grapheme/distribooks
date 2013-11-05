@@ -185,6 +185,11 @@ class Global_interface extends MY_Controller{
 		if($user = $this->accounts->getWhere($userID,array('active'=>1))):
 			if($this->setLoginSession($user['id'])):
 				$this->buyBookInLogIn();
+				if($this->validBasket()):
+					$this->setDBBasket();
+				else:
+					$this->getDBBasket();
+				endif;
 			endif;
 			return TRUE;
 		endif;

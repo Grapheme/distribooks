@@ -66,10 +66,23 @@ $(function(){
 			addToBasketBlock(this);
 		}
 	});
-	$(".basket-link-auth").click(function(){
-		
-	});
 	$(".remove-book-in-basket").click(function(){removeBookInBasket(this);})
+	$(".clear-basket").click(function(){
+		$.ajax({
+			url: mt.getLangBaseURL('clear-basket'),type: 'POST',dataType: 'json',
+			beforeSend: function(){},
+			success: function(response,textStatus,xhr){
+				if(response.status){
+					$("div.basket-items-list").empty();
+					$("div.basket-items-action-list").empty();
+					$(".basket-show-link").click().addClass('hidden');
+					$('div.buyor').find(".incart").remove();
+					$('div.buyor').find(".tocart").removeClass('hidden');
+				}
+			},
+			error: function(xhr,textStatus,errorThrown){}
+		})
+	})
 	function showRequestDivForm(element){
 		$(".dark-screen").fadeIn("fast");
 		$(element).fadeIn("fast");
@@ -129,6 +142,21 @@ $(function(){
 			error: function(xhr,textStatus,errorThrown){}
 		})
 	}
+	function refreshBasket(){
+		
+		$.ajax({
+			url: mt.getLangBaseURL('refresh-books-in-basket'),type: 'POST',dataType: 'json',
+			beforeSend: function(){},
+			success: function(response,textStatus,xhr){
+				if(response.status){
+					$("div.basket-items-full-list").html(response.responseText);
+					$(".basket-total-price").html(response.booksTotalPrice);
+					$("div.basket-items-full-list").find(".remove-book-in-basket").on('click',function(event){event.preventDefault();event.stopPropagation();removeBookInBasket(this);});
+				}
+			},
+			error: function(xhr,textStatus,errorThrown){}
+		})
+	}
 	function removeToBasketBlock(bookID){
 		$.ajax({
 			url: mt.getLangBaseURL('remove-book-in-basket'),
@@ -139,17 +167,16 @@ $(function(){
 			},
 			success: function(response,textStatus,xhr){
 				if(response.status){
-					mt.redirect(mt.currentURL);
 					$('div.basket-book-item[data-book-id="'+bookID+'"]').remove();
 					$('div.buyor[data-book-id="'+bookID+'"]').find(".incart").remove();
 					$('div.buyor[data-book-id="'+bookID+'"]').find(".tocart").removeClass('hidden');
-					/*if(response.booksTotalPrice == null){
+					if(response.booksTotalPrice == null){
 						cookies.deleteCookie('basket_total_price','/');
 					}else{
 						$(".basket-total-price").html(response.booksTotalPrice);
 						cookies.setCookie('basket_total_price',response.booksTotalPrice,largeExpDate,'/');
-						
-					}*/
+					}
+					refreshBasket();
 				}
 			},
 			error: function(xhr,textStatus,errorThrown){

@@ -7,9 +7,6 @@ class User_ajax_interface extends MY_Controller{
 	function __construct(){
 		
 		parent::__construct();
-		if($this->input->is_ajax_request() === FALSE && $this->account['group'] == USER_GROUP_VALUE):
-			show_error('В доступе отказано');
-		endif;
 		$this->lang->load('localization/interface',$this->languages[$this->uri->language_string]);
 	}
 	
@@ -49,6 +46,7 @@ class User_ajax_interface extends MY_Controller{
 					$this->json_request['responseBooks'] = $this->createBasketBlock($this->input->post('book'));
 					$this->json_request['booksTotalPrice'] = $this->getBasketTotalPrice();
 				endif;
+				$this->setDBBasket();
 				$this->json_request['status'] = TRUE;
 			endif;
 		else:
@@ -70,4 +68,25 @@ class User_ajax_interface extends MY_Controller{
 		echo json_encode($this->json_request);
 	}
 	
+	public function refreshBooksInBasket(){
+		
+		$this->getAccountBasketBooks();
+		if($basket_list = $this->getBooksInBasket()):
+			$this->json_request['responseText'] = $this->load->view('guests_interface/html/basket/basket-full-lists',array('basket_list'=>$basket_list),TRUE);
+			$this->json_request['booksTotalPrice'] = $this->getBasketTotalPrice();
+			$this->json_request['status'] = TRUE;
+		endif;
+		echo json_encode($this->json_request);
+	}
+
+	public function clearBasket(){
+		
+		if($this->loginstatus === TRUE && $this->account['group']==USER_GROUP_VALUE):
+			$this->accounts->updateField($this->account['id'],'basket','');
+		endif;
+		delete_cookie('basket_books');
+		delete_cookie('basket_total_price');
+		$this->json_request['status'] = TRUE;
+		echo json_encode($this->json_request);
+	}
 }

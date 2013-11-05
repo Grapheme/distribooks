@@ -38,6 +38,8 @@ $route['download-book'] = "users_interface/downloadBookFile";
 $route['buy-book'] = "user_ajax_interface/singleBuyBook";
 $route['add-book-in-basket'] = "user_ajax_interface/addBookInBasket";
 $route['remove-book-in-basket'] = "user_ajax_interface/removeBookInBasket";
+$route['refresh-books-in-basket'] = "user_ajax_interface/refreshBooksInBasket";
+$route['clear-basket'] = "user_ajax_interface/clearBasket";
 /************************************************* ADMIN AJAX INTRERFACE *******************************************/
 /* ---------------- news ----------------- */
 $route[ADMIN_START_PAGE.'/news/insert'] = "admin_ajax_interface/insertNews";

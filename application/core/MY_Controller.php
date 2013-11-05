@@ -49,8 +49,10 @@ class MY_Controller extends CI_Controller{
 	public function setLoginSession($accountID){
 		
 		if($accountInfo = $this->accounts->getWhere($accountID)):
-			$account = json_encode(array('id'=>$accountInfo['id'],'group'=>$accountInfo['group']));
+			$this->account = array('id'=>$accountInfo['id'],'group'=>$accountInfo['group']);
+			$account = json_encode($this->account);
 			$this->session->set_userdata(array('logon'=>md5($accountInfo['email']),'account'=>$account));
+			$this->loginstatus = TRUE;
 			return TRUE;
 		endif;
 		return FALSE;
@@ -59,7 +61,6 @@ class MY_Controller extends CI_Controller{
 	public function getAccountBasketBooks(){
 		
 		$basket_exist = FALSE; $booksIDs = array();
-		
 		if($booksIDs = $this->getValuesBasketBooksCookie()):
 			$basket_exist = TRUE;
 		endif;
@@ -78,6 +79,7 @@ class MY_Controller extends CI_Controller{
 			$this->account_basket['basket_total_price'] = $basketTotalPrice;
 			return $booksIDs;
 		else:
+			delete_cookie('basket_total_price');
 			return FALSE;
 		endif;
 	}
@@ -822,13 +824,11 @@ class MY_Controller extends CI_Controller{
 		return  $retArray;
 	}
 	/* -------------------------------------------------------------------------------------------- */
-	public function createBasket(){
+	public function getDBBasket(){
 		
-		$basket = $this->accounts->value($this->account['id'],'basket');
-		if(empty($basket)):
-			$basket = '[""]';
+		if($basket = $this->accounts->value($this->account['id'],'basket')):
+			set_cookie('basket_books',$basket,time()+86500,'','/');
 		endif;
-		set_cookie('basket_books',$basket,time()+86500,'','/');
 	}
 	
 	public function validBasket(){
@@ -840,17 +840,14 @@ class MY_Controller extends CI_Controller{
 		endif;
 	}
 	
-	public function setBasket(){
+	public function setDBBasket(){
 		
-		if($this->input->cookie('basket_books') !== FALSE):
+		if($this->loginstatus === TRUE && $this->account['group'] == USER_GROUP_VALUE):
 			$this->accounts->updateField($this->account['id'],'basket',$this->input->cookie('basket_books'));
+			return TRUE;
 		else:
-			$basket = $this->accounts->value($this->account['id'],'basket');
-			if(!empty($basket)):
-				set_cookie('basket_books',$basket,time()+86500,'','/');
-			endif;
+			return FALSE;
 		endif;
-		return TRUE;
 	}
 	/* -------------------------------------------------------------------------------------------- */
 	public function getAuthorsByIDs($authors){
@@ -1055,12 +1052,8 @@ class MY_Controller extends CI_Controller{
 	
 	public function getBasketTotalPrice(){
 		
-		if($this->loginstatus === FALSE):
-			if($booksIDs = $this->getValuesBasketBooksCookie()):
-				return $this->getBooksPrice($booksIDs);
-			endif;
-		elseif($this->account['group'] == USER_GROUP_VALUE):
-			
+		if($booksIDs = $this->getValuesBasketBooksCookie()):
+			return $this->getBooksPrice($booksIDs);
 		endif;
 		return NULL;
 	}
