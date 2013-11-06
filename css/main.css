@@ -508,7 +508,7 @@ ul, li {
 .lang {
 	position: absolute;
 	bottom: 0;
-	left: 65px;
+	right: -3px;
 	width: 95px;
 	text-align: center;
 }
@@ -555,7 +555,7 @@ ul, li {
 	position: relative;
 	overflow: hidden;
 	height: 18px;
-	width: 145px;
+	width: 95px;
 }
 
 .enter {
