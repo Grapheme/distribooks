@@ -74,6 +74,7 @@ class User_ajax_interface extends MY_Controller{
 				if($this->json_request['isFullAction'] === FALSE):
 					$this->json_request['responseBooks'] = $this->createBasketBlock($this->input->post('book'));
 					$this->json_request['booksTotalPrice'] = $this->getBasketTotalPrice();
+					set_cookie('basket_total_price',$this->json_request['booksTotalPrice'],time()+86500,'','/');
 				endif;
 				$this->setDBBasket();
 				$this->json_request['status'] = TRUE;
@@ -89,6 +90,7 @@ class User_ajax_interface extends MY_Controller{
 		$json_request = array('booksTotalPrice'=>0,'removeLastsActioBook'=>FALSE);
 		if($this->postDataValidation('buy_book')):
 			$this->json_request['removeLastActioBook'] = $this->removeBasketBlocks();
+			$this->setDBBasket();
 			$this->json_request['booksTotalPrice'] = $this->getBasketTotalPrice();
 			$this->json_request['status'] = TRUE;
 		else:

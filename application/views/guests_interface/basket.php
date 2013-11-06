@@ -35,21 +35,37 @@
 						<?php $this->load->view('guests_interface/html/basket/basket-full-lists',array('basket_list'=>$basket_list));?>
 					</div>
 					<div class="basket-item" style="background: #fff; margin-top: 10px; margin-bottom: 25px;">
+					
+					<?php 
+						$total_summa = $this->account_basket['basket_total_price'];
+						if($this->account_basket['basket_total_price'] >= $this->project_config['action_price']):
+							$total_summa = $total_summa - round($total_summa*($this->project_config['action_percent']/100));
+						endif;
+					?>
+					<?php if($this->project_config['action_price'] > 0):?>
+						<div class="summa-action-block<?=($this->account_basket['basket_total_price'] < $this->project_config['action_price'])?' hidden':'';?>">
+							<?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%
+						</div>
+					<?php endif;?>
 						<div>
-							<p class="basket-item-name all" style="width: 210px;; color: #000; margin-left: 15px;">Всего выбрано <?=count($basket_list);?> книг на сумму</p>
-							<p class="basket-price" style="border: 0;"><?=$this->account_basket['basket_total_price'];?></p>
+							<p class="basket-item-name all" style="width: 210px;; color: #000; margin-left: 15px;"><?=lang('basket_page_part4');?> <?=count($basket_list);?> <?=lang('basket_page_part5');?></p>
+							<p class="basket-price basket-total-price" style="border: 0;"><?=addCurrencyInPrice($total_summa);?></p>
 							<div class="basket-one-buy">
 								<a href="" class="buy buy-all no-clickable basket-buy-link" style="margin-right: 5px; width: 180px"><?=lang('basket_buy_all');?></a>
 							</div>
 						</div>
 					</div>
+			<?php if($this->project_config['action_price'] > 0):?>
+				<div class="summa-action-block<?=($this->account_basket['basket_total_price'] > $this->project_config['action_price'])?' hidden':'';?>">
 					<div class="basket-bottom-sale-top"></div>
 					<div class="basket-bottom-sale">
 						<p class="basket-bottom-sale-text">
-							Выбери книг на сумму <span>3000 р.</span> и получи скидку <span>10%</span> на всю сумму
+							<?=lang('basket_page_part1');?> <span><?=getPriceInCurrency($this->project_config['action_price']);?></span> <?=lang('basket_page_part2');?> <span><?=$this->project_config['action_percent']?>%</span> <?=lang('basket_page_part3');?>
 						</p>
 					</div>
 					<div class="basket-bottom-sale-bottom"></div>
+				</div>
+			<?php endif;?>
 				</div>
 			</div>
 		</div>

@@ -71,6 +71,11 @@ $lang['basket_total'] = "Всего";
 $lang['basket_buy_all'] = "Купить все";
 $lang['basket_action_book_block'] = "Бесплатная книга";
 $lang['clear-basket'] = "Очистить";
+$lang['basket_page_part1'] = "Выбери книг на сумму";
+$lang['basket_page_part2'] = "и получи скидку";
+$lang['basket_page_part3'] = "на всю сумму";
+$lang['basket_page_part4'] = "Всего выбрано";
+$lang['basket_page_part5'] = "книг на сумму";
 
 $lang['signin_auth_text'] = "Вам необходимо зарегистрироваться для получения купленных вами книг на электронную почту и доступа к бонусам и скидкам";
 $lang['signin_nickname'] = "Никнейм";

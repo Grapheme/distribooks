@@ -50,9 +50,9 @@
 					<a href="#" class="enter-text"><?=lang('top_menu_sign_in');?></a>&nbsp;<a href="#" class="enter"></a>
 				</div>
 			</div>
-				<div class="grid_1" style="z-index: 100;">&nbsp;
-					<a class="top-logo" href="<?=site_url();?>"></a>
-				</div>
+			<div class="grid_1" style="z-index: 100;">&nbsp;
+				<a class="top-logo" href="<?=site_url();?>"></a>
+			</div>
 			<div class="top-container">
 				<div class="grid_1">&nbsp;
 					<a href="#" class="red button topb-left pos2"><?=lang('top_menu_bookmark');?></a>
@@ -64,7 +64,9 @@
 					<img class="qr pos2" src="<?=baseURL('img/qr.png');?>">
 					<div style="position: absolute; bottom: -1px; right: 0;">
 						<a href="skype:DistibBooks?call" class="top-contact"><img src="<?=baseURL('img/skype.png');?>">DistibBooks</a>
-						<a href="#" class="red button no-clickable"><?=lang('top_menu_promotion');?> -30%!</a>
+					<?php if($this->project_config['action_percent'] > 0):?>
+						<a href="#" class="red button no-clickable"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>
+					<?php endif;?>
 					</div>
 				</div>
 				<div class="grid_1">
@@ -100,7 +102,7 @@
 				</div>
 			</div>
 			<div class="grid_1">
-				<a href="" class="blue button call pos1 basket<?=($this->uri->segment(1) == 'basket')?'':' basket-show-link';?> no-clickable<?=($this->input->cookie('basket_books')===FALSE)?' hidden':'';?>">
+				<a href="" class="blue button call pos1 basket<?=($this->uri->segment(1) == 'basket')?'':' basket-show-link';?> no-clickable<?=(empty($this->account_basket['basket_books']))?' hidden':'';?>">
 					<img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span class="basket-total-price"><?=$this->account_basket['basket_total_price'];?></span>
 				</a>
 			</div>

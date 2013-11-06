@@ -10,10 +10,15 @@
 		<div class="basket-item">
 			<a href="" class="no-clickable clear-basket"><?=lang('clear-basket');?></a>
 			<div style="float: right;">
+			<?php if($this->project_config['action_price'] > 0):?>
+				<div class="summa-action-block<?=(CurrencyExchange($this->account_basket['basket_total_price']) < $this->project_config['action_price'])?' hidden':'';?>">
+					<?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%
+				</div>
+			<?php endif;?>
 				<p class="basket-item-name all"><?=lang('basket_total');?>:</p>
 				<p class="basket-price basket-total-price" style="border: 0;"><?=$this->account_basket['basket_total_price'];?></p>
 				<div class="basket-one-buy">
-					<a href="<?=site_url('basket')?>" class="buy buy-all"><?=lang('basket_buy_all');?></a>
+					<a href="<?=site_url('basket')?>" class="buy buy-all"><?=lang('basket_buy');?></a>
 				</div>
 			</div>
 		</div>

@@ -96,6 +96,18 @@ $(function(){
 		});
 	});
 	
+	function currencyExchange(price){
+		
+		if(mt.currentLanguage == 'en'){
+			price = parseInt(price);
+			if(cookies.getCookie('project_config') !== false){
+				var configuration = JSON.parse(cookies.getCookie('project_config'));
+				mt.dollar_rate = configuration['dollar_rate'];
+			}
+			price = Math.round(price/mt.dollar_rate);
+		}
+		return price;
+	}
 	function showRequestDivForm(element){
 		$(".dark-screen").fadeIn("fast");
 		$(element).fadeIn("fast");
@@ -132,7 +144,6 @@ $(function(){
 						$("div.basket-items-list").append(response.responseBooks);
 						$("div.basket-items-list").find(".remove-book-in-basket:last").on('click',function(event){event.preventDefault();event.stopPropagation();removeBookInBasket(this);});
 						$(".basket-total-price").html(response.booksTotalPrice);
-						cookies.setCookie('basket_total_price',response.booksTotalPrice,largeExpDate,'/');
 					}
 					if(response.responseBooks !== false){
 						if(response.isFullAction == true){
@@ -149,7 +160,7 @@ $(function(){
 					}
 					$("a.basket-show-link").removeClass('hidden');
 					$(_this).parents('p.tocart').addClass('hidden').after('<p class="incart"><span>'+Localize[mt.currentLanguage]['book_in_basket']+'</span></p>');
-					
+					actionBasketTarget();
 				}
 			},
 			error: function(xhr,textStatus,errorThrown){}
@@ -190,6 +201,7 @@ $(function(){
 						cookies.setCookie('basket_total_price',response.booksTotalPrice,largeExpDate,'/');
 					}
 					refreshBasket();
+					actionBasketTarget();
 				}
 			},
 			error: function(xhr,textStatus,errorThrown){
@@ -197,5 +209,27 @@ $(function(){
 				$('div.basket-book-item[data-book-id="'+bookID+'"]').removeClass('loading');
 			}
 		})
+	}
+	function actionBasketTarget(){
+		
+		var total_price = 0;
+		var action_price = 0;
+		var action_percent = false;
+		if(cookies.getCookie('basket_total_price') !== false){
+			total_price = parseInt(cookies.getCookie('basket_total_price'));
+		}
+		if(cookies.getCookie('project_config') !== false){
+			var configuration = JSON.parse(cookies.getCookie('project_config'));
+			action_price = currencyExchange(configuration['action_price']);
+			action_percent = configuration['action_percent']*1;
+		}
+		if(action_price > 0 && total_price > 0){
+			if(total_price >= action_price){
+				$(".summa-action-block").removeClass('hidden');
+			}else{
+				$(".summa-action-block").addClass('hidden');
+			}
+		}
+		return action_percent;
 	}
 });

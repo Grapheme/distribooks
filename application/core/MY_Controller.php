@@ -6,7 +6,7 @@ class MY_Controller extends CI_Controller{
 	var $profile = '';
 	var $loginstatus = FALSE;
 	var $account_basket = array('basket_books'=>array(),'basket_total_price'=>0);
-	var $project_config = array('dollar_rate'=>32.00,'free_book'=>4,'count_free_book'=>1,'action_price'=>10000,'action_percent'=>10);
+	var $project_config = array('dollar_rate'=>32.00,'free_book'=>4,'count_free_book'=>1,'action_price'=>2000,'action_percent'=>10);
 	
 	var $baseURL = '';
 	var $baseLanguageURL = RUSLAN;
@@ -68,19 +68,17 @@ class MY_Controller extends CI_Controller{
 			$basket = $this->accounts->value($this->account['id'],'basket');
 			if(!empty($basket)):
 				if($booksIDs = json_decode($basket,TRUE)):
-					set_cookie('account_basket',$basket,time()+86500,'','/');
+					set_cookie('basket_books',$basket,time()+86500,'','/');
+					set_cookie('basket_total_price',$this->getBooksPrice($booksIDs),time()+86500,'','/');
+					$basket_exist = TRUE;
 				endif;
 			endif;
 		endif;
 		if($basket_exist === TRUE && !empty($booksIDs)):
-			$basketTotalPrice = $this->getBooksPrice($booksIDs);
-			set_cookie('basket_total_price',$basketTotalPrice,time()+86500,'','/');
 			$this->account_basket['basket_books'] = $booksIDs;
-			$this->account_basket['basket_total_price'] = $basketTotalPrice;
+			$this->account_basket['basket_total_price'] = $this->getBooksPrice($booksIDs);
+			
 			return $booksIDs;
-		else:
-			delete_cookie('basket_total_price');
-			return FALSE;
 		endif;
 	}
 
@@ -843,7 +841,11 @@ class MY_Controller extends CI_Controller{
 	public function setDBBasket(){
 		
 		if($this->loginstatus === TRUE && $this->account['group'] == USER_GROUP_VALUE):
-			$this->accounts->updateField($this->account['id'],'basket',$this->input->cookie('basket_books'));
+			$basket = '';
+			if($this->input->cookie('basket_books') !== FALSE):
+				$basket = $this->input->cookie('basket_books');
+			endif;
+			$this->accounts->updateField($this->account['id'],'basket',$basket);
 			return TRUE;
 		else:
 			return FALSE;
