@@ -78,7 +78,7 @@
 					<img class="qr" src="<?=baseURL('img/qr.png');?>">
 					<a href="#" class="red button topb no-clickable"><?=lang('top_menu_bookmark');?></a>
 					<div class="lang">
-						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng<?=($this->uri->language_string == ENGLAN)?' active-lang':''?>"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus<?=($this->uri->language_string == RUSLAN)?' active-lang':''?>"></a>
+						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng<?=($this->uri->language_string == ENGLAN)?' active-lang no-clickable':''?>"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus<?=($this->uri->language_string == RUSLAN)?' active-lang no-clickable':''?>"></a>
 					<?php if($this->loginstatus === FALSE):?>
 						<?php $this->load->view('headers/guest');?>
 					<?php elseif($this->account['group'] == ADMIN_GROUP_VALUE):?>
@@ -100,8 +100,8 @@
 				</div>
 			</div>
 			<div class="grid_1">
-				<a href="" class="blue button no-clickable call pos1 basket no-clickable">
-					<img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span>2000 р.</span>
+				<a href="" class="blue button call pos1 basket basket-show-link no-clickable<?=($this->input->cookie('basket_books')===FALSE)?' hidden':'';?>">
+					<img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span class="basket-total-price"><?=$this->account_basket['basket_total_price'];?></span>
 				</a>
 			</div>
 		</div>

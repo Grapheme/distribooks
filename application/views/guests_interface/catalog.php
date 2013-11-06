@@ -63,32 +63,8 @@
 				<?php endif;?>
 				<?php for($i=0;$i<count($catalog);$i++):?>
 					<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($catalog)-1))?' omega':'';?>">
-						<div class="shop-top">
-							<div class="shop-img">
-								<a href="#" class="shopi" id="play" src=""></a>
-								<a href="#" class="shopi" id="a" src="<?=baseURL('img/shop-a.png');?>"></a>
-								<a href="#" class="shopi" id="like" src="<?=baseURL('img/shop-like.png');?>"></a>
-								<div class="shop-img-cont"><img src="<?=baseURL($catalog[$i]['thumbnail']);?>"></div>
-							</div>
-							<div class="shop-about">
-								<a href="<?=site_url($catalog[$i]['page_address']);?>" class="title"><?=$catalog[$i][$this->uri->language_string.'_title'];?></a>
-								<p class="author">
-								<?php for($j=0;$j<count($catalog[$i]['authors']);$j++):?>
-									<a href="<?=site_url('catalog?author='.$catalog[$i]['authors'][$j]['id'])?>"><?=$catalog[$i]['authors'][$j][$this->uri->language_string.'_name'];?></a><?php if(isset($catalog[$i]['authors'][$j+1])):?>, <?php endif;?>
-								<?php endfor;?>
-								</p>
-								<div class="rating-shop">
-									<img src="<?=baseURL('img/star.png');?>">
-									<img src="<?=baseURL('img/star.png');?>">
-									<img src="<?=baseURL('img/star.png');?>">
-									<img src="<?=baseURL('img/star-none.png');?>">
-									<img src="<?=baseURL('img/star-none.png');?>">
-								</div>
-								<a href="<?=site_url('catalog?genre='.$catalog[$i]['genre']);?>" class="genre"><?=$catalog[$i]['genre_title'];?></a>
-								<p class="price"><?=$catalog[$i]['price']?> <?=$currency[$catalog[$i]['currency']-1]['title'];?></p>
-							</div>
-						</div>
-						<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$catalog[$i]['id']));?>
+						<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$catalog[$i]));?>
+						<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$catalog[$i]['id'],'mySignedBook'=>$catalog[$i]['signed_book'],'in_basket'=>$catalog[$i]['book_in_basket']));?>
 					</div>
 				<?php if(($i+1)%3 == 0):?>
 					<div class="clear"></div>
@@ -129,32 +105,8 @@
 				<p class="top-shop-title"><?=lang('catalog_top_shop')?>:</p>
 			<?php for($i=0;$i<count($bestsellers);$i++):?>
 				<div class="top-shop">
-					<div class="shop-top">
-						<div class="shop-img">
-							<a href="#" class="shopi" id="play" src=""></a>
-							<a href="#" class="shopi" id="a"></a>
-							<a href="#" class="shopi" id="like" data-tooltip="2323"></a>
-							<div class="shop-img-cont big"><img src="<?=baseURL($bestsellers[$i]['thumbnail']);?>"></div>
-						</div>
-						<div class="shop-about">
-							<a href="<?=site_url($bestsellers[$i]['page_address'])?>" class="title"><?=$bestsellers[$i][$this->uri->language_string.'_title'];?></a>
-							<p class="author">
-							<?php for($j=0;$j<count($bestsellers[$i]['authors']);$j++):?>
-								<a href="<?=site_url('catalog?author='.$bestsellers[$i]['authors'][$j]['id'])?>"><?=$bestsellers[$i]['authors'][$j][$this->uri->language_string.'_name'];?></a><?php if(isset($bestsellers[$i]['authors'][$j+1])):?>, <?php endif;?>
-							<?php endfor;?>
-							</p>
-							<div class="rating-shop">
-								<img src="<?=baseURL('img/star.png');?>">
-								<img src="<?=baseURL('img/star.png');?>">
-								<img src="<?=baseURL('img/star.png');?>">
-								<img src="<?=baseURL('img/star-none.png');?>">
-								<img src="<?=baseURL('img/star-none.png');?>">
-							</div>
-							<a href="<?=site_url('catalog?genre='.$bestsellers[$i]['genre']);?>" class="genre"><?=$bestsellers[$i]['genre_title'];?></a>
-							<p class="price"><?=$bestsellers[$i]['price']?> <?=$currency[$bestsellers[$i]['currency']-1]['title'];?></p>
-						</div>
-					</div>
-					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$bestsellers[$i]['id']));?>
+					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$bestsellers[$i]));?>
+					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$bestsellers[$i]['id'],'mySignedBook'=>$bestsellers[$i]['signed_book'],'in_basket'=>$bestsellers[$i]['book_in_basket']));?>
 					<div class="shop-desc">
 						<?=$bestsellers[$i][$this->uri->language_string.'_anonce']?>
 					</div>
@@ -168,32 +120,8 @@
 				<p class="top-shop-title"><?=lang('catalog_novelty')?>:</p>
 			<?php for($i=0;$i<count($novelty);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($novelty)-1))?' omega':'';?>">
-					<div class="shop-top">
-						<div class="shop-img">
-							<a href="#" class="shopi" id="play" src=""></a>
-							<a href="#" class="shopi" id="a" src="<?=baseURL('img/shop-a.png');?>"></a>
-							<a href="#" class="shopi" id="like" src="<?=baseURL('img/shop-like.png');?>"></a>
-							<div class="shop-img-cont"><img src="<?=baseURL($novelty[$i]['thumbnail']);?>"></div>
-						</div>
-						<div class="shop-about">
-							<a href="<?=site_url($novelty[$i]['page_address'])?>" class="title"><?=$novelty[$i][$this->uri->language_string.'_title'];?></a>
-							<p class="author">
-							<?php for($j=0;$j<count($novelty[$i]['authors']);$j++):?>
-								<a href="<?=site_url('catalog?author='.$novelty[$i]['authors'][$j]['id'])?>"><?=$novelty[$i]['authors'][$j][$this->uri->language_string.'_name'];?></a><?php if(isset($novelty[$i]['authors'][$j+1])):?>, <?php endif;?>
-							<?php endfor;?>
-							</p>
-							<div class="rating-shop">
-								<img src="<?=baseURL('img/star.png');?>">
-								<img src="<?=baseURL('img/star.png');?>">
-								<img src="<?=baseURL('img/star.png');?>">
-								<img src="<?=baseURL('img/star-none.png');?>">
-								<img src="<?=baseURL('img/star-none.png');?>">
-							</div>
-							<a href="<?=site_url('catalog?genre='.$novelty[$i]['genre']);?>" class="genre"><?=$novelty[$i]['genre_title'];?></a>
-							<p class="price"><?=$novelty[$i]['price']?> <?=$currency[$novelty[$i]['currency']-1]['title'];?></p>
-						</div>
-					</div>
-					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$novelty[$i]['id']));?>
+					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$novelty[$i]));?>
+					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$novelty[$i]['id'],'mySignedBook'=>$novelty[$i]['signed_book'],'in_basket'=>$novelty[$i]['book_in_basket']));?>
 				</div>
 			<?php endfor;?>
 				<div class="clear"></div>
@@ -205,32 +133,8 @@
 				<p class="top-shop-title"><?=lang('catalog_recommended')?>:</p>
 			<?php for($i=0;$i<count($recommended);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($recommended)-1))?' omega':'';?>">
-					<div class="shop-top">
-						<div class="shop-img">
-							<a href="#" class="shopi" id="play" src=""></a>
-							<a href="#" class="shopi" id="a" src="<?=baseURL('img/shop-a.png');?>"></a>
-							<a href="#" class="shopi" id="like" src="<?=baseURL('img/shop-like.png');?>"></a>
-							<div class="shop-img-cont"><img src="<?=baseURL($recommended[$i]['thumbnail']);?>"></div>
-						</div>
-						<div class="shop-about">
-							<a href="<?=site_url($recommended[$i]['page_address'])?>" class="title"><?=$recommended[$i][$this->uri->language_string.'_title'];?></a>
-							<p class="author">
-							<?php for($j=0;$j<count($recommended[$i]['authors']);$j++):?>
-								<a href="<?=site_url('catalog?author='.$recommended[$i]['authors'][$j]['id'])?>"><?=$recommended[$i]['authors'][$j][$this->uri->language_string.'_name'];?></a><?php if(isset($recommended[$i]['authors'][$j+1])):?>, <?php endif;?>
-							<?php endfor;?>
-							</p>
-							<div class="rating-shop">
-								<img src="<?=baseURL('img/star.png');?>">
-								<img src="<?=baseURL('img/star.png');?>">
-								<img src="<?=baseURL('img/star.png');?>">
-								<img src="<?=baseURL('img/star-none.png');?>">
-								<img src="<?=baseURL('img/star-none.png');?>">
-							</div>
-							<a href="<?=site_url('catalog?genre='.$novelty[$i]['genre']);?>" class="genre"><?=$novelty[$i]['genre_title'];?></a>
-							<p class="price"><?=$recommended[$i]['price']?> <?=$currency[$recommended[$i]['currency']-1]['title'];?></p>
-						</div>
-					</div>
-					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$recommended[$i]['id']));?>
+					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$recommended[$i]));?>
+					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$recommended[$i]['id'],'mySignedBook'=>$recommended[$i]['signed_book'],'in_basket'=>$recommended[$i]['book_in_basket']));?>
 				</div>
 			<?php endfor;?>
 				<div class="clear"></div>

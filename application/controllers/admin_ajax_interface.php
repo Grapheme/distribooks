@@ -467,24 +467,28 @@ class Admin_ajax_interface extends MY_Controller{
 		$this->json_request['resource_id'] = 0; $this->json_request['resource_title'] = ''; $this->json_request['format'] = '';
 		$this->load->model(array('books','formats'));
 		if($book = $this->books->getWhere($this->input->get('id'))):
-			$resultUpload = $this->uploadSingleDocument(getcwd().'/catalog');
-			if($resultUpload['status'] == TRUE):
-				$resource = $resultUpload['uploadData'];
-				if(!$resource['format_id'] = $this->formats->search('title',$resource['file_ext'])):
-					$resource['format_id'] = 0;
+			if($this->validBookFiles($book['files'],$_FILES)):
+				$resultUpload = $this->uploadSingleDocument(getcwd().'/catalog');
+				if($resultUpload['status'] == TRUE):
+					$resource = $resultUpload['uploadData'];
+					if(!$resource['format_id'] = $this->formats->search('title',$resource['file_ext'])):
+						$resource['format_id'] = 0;
+					endif;
+					$resources = json_decode($book['files'],TRUE);
+					$resource['sort'] = $resource['number'] = count($resources)+1;
+					$resource['caption'] = '';
+					$resources[] = $resource;
+					$this->books->updateField($this->input->get('id'),'files',json_encode($resources));
+					$this->json_request['resource_title'] = $resultUpload['uploadData']['file_name'].', '.$resultUpload['uploadData']['file_size'].' кбайт';
+					$this->load->helper('string');
+					$this->json_request['responsePhotoSrc'] = '<img class="" src="'.site_url('book-format/'.$resource['format_id']).'" alt="" />';
+					$this->json_request['responsePhotoSrc'] .= '<a href="#" data-resource-id="'.$resource['number'].'" class="delete-resource-item">&times;</a>';
+					$this->json_request['status'] = TRUE;
+				else:
+					$this->json_request['responseText'] = $resultUpload['message'];
 				endif;
-				$resources = json_decode($book['files'],TRUE);
-				$resource['sort'] = $resource['number'] = count($resources)+1;
-				$resource['caption'] = '';
-				$resources[] = $resource;
-				$this->books->updateField($this->input->get('id'),'files',json_encode($resources));
-				$this->json_request['resource_title'] = $resultUpload['uploadData']['file_name'].', '.$resultUpload['uploadData']['file_size'].' кбайт';
-				$this->load->helper('string');
-				$this->json_request['responsePhotoSrc'] = '<img class="" src="'.site_url('book-format/'.$resource['format_id']).'" alt="" />';
-				$this->json_request['responsePhotoSrc'] .= '<a href="#" data-resource-id="'.$resource['number'].'" class="delete-resource-item">&times;</a>';
-				$this->json_request['status'] = TRUE;
 			else:
-				$this->json_request['responseText'] = $resultUpload['message'];
+				$this->json_request['responseText'] = 'Книга данного формата уже загружена!';
 			endif;
 		endif;
 		echo json_encode($this->json_request);
@@ -534,7 +538,8 @@ class Admin_ajax_interface extends MY_Controller{
 	}
 	
 	private function insertingBook($post){
-
+		
+		$post['currency'] = 1;
 		$bookData = array(
 			'ru_title'=>$post['ru_title'],'en_title'=>$post['en_title'],'ru_anonce'=>$post['ru_anonce'],'en_anonce'=>$post['en_anonce'],
 			'ru_text'=>$post['ru_text'],'en_text'=>$post['en_text'],'date_released'=>$post['date_released'],'ru_size'=>$post['ru_size'],
@@ -565,6 +570,7 @@ class Admin_ajax_interface extends MY_Controller{
 	
 	private function updatingBook($post){
 		
+		$post['currency'] = 1;
 		$bookData = array(
 			'id'=>$post['book_id'],
 			'ru_title'=>$post['ru_title'],'en_title'=>$post['en_title'],'ru_anonce'=>$post['ru_anonce'],'en_anonce'=>$post['en_anonce'],
@@ -599,6 +605,24 @@ class Admin_ajax_interface extends MY_Controller{
 		$this->books->updateField($bookID,'image','');
 		$this->books->updateField($bookID,'thumbnail','');
 		return TRUE;
+	}
+
+	private function validBookFiles($bookFiles,$file){
+		
+		if(isset($file['file']['name']) && $file['file']['error'] == 0):
+			if($formatID = $this->formats->search('title',$this->getFileExt($file['file']['name'],0))):
+				if($formatsList = $this->getBookFormatsList($bookFiles)):
+					if(in_array($formatID,$formatsList) !== FALSE):
+						return FALSE;
+					else:
+						return TRUE;
+					endif;
+				else:
+					return TRUE;
+				endif;
+			endif;
+		endif;
+		return FALSE;
 	}
 	/****************************************** keywords ******************************************************/
 	private function setKeyWords($bookID,$keywords){

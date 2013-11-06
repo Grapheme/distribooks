@@ -33,7 +33,11 @@ $route['request-order-distribution'] = "guest_ajax_interface/requestOrderDistrib
 $route['request-do-distribution'] = "guest_ajax_interface/requestDoDistribution";
 /**************************************************** USER INTRERFACE **********************************************/
 $route['cabinet'] = "users_interface/cabinet";
-$route['buy-book'] = "users_ajax_interface/buyBook";
+$route['cabinet/my-books(\/:any)*?'] = "users_interface/cabinet";
+$route['download-book'] = "users_interface/downloadBookFile";
+$route['buy-book'] = "user_ajax_interface/singleBuyBook";
+$route['add-book-in-basket'] = "user_ajax_interface/addBookInBasket";
+$route['remove-book-in-basket'] = "user_ajax_interface/removeBookInBasket";
 /************************************************* ADMIN AJAX INTRERFACE *******************************************/
 /* ---------------- news ----------------- */
 $route[ADMIN_START_PAGE.'/news/insert'] = "admin_ajax_interface/insertNews";
@@ -95,6 +99,8 @@ $route['editing'] = "guests_interface/editing";
 $route['typography'] = "guests_interface/typography";
 $route['translation'] = "guests_interface/translation";
 $route['distribution'] = "guests_interface/distribution";
+
+$route['basket'] = "guests_interface/basket";
 
 $route['formats'] = "guests_interface/formats";
 $route[':any'] = "guests_interface/redirectPage";

@@ -1585,7 +1585,7 @@ input[type="radio"]:checked + label
 	margin-top: 10px;
 }
 
-.tooltip {
+.sn-tooltip {
   z-index: 9999;
   position: absolute;
   display: none;
@@ -1593,7 +1593,7 @@ input[type="radio"]:checked + label
   left:0px;
 }
 
-.tooltip-in {
+.sn-tooltip-in {
 	width: 83px;
 	position: relative;
 	top: 8px;
@@ -1602,13 +1602,13 @@ input[type="radio"]:checked + label
 	background: #fff;
 }
 
-.tooltip-arrow {
+.sn-tooltip-arrow {
 	position: absolute;
 	z-index: 9999;
 	left: 25px;
 }
 
-.tooltip .social-link {
+.sn-tooltip .social-link {
 	display: inline-block;
 }
 
@@ -1786,7 +1786,7 @@ input[type="radio"]:checked + label
 	background-size: 100% 100%;
 }
 
-.tocart {
+.tocart,.incart {
 	margin-top: 0;
 	margin-bottom: 0;
 	margin-left: 5px;
@@ -1874,13 +1874,13 @@ input[type="radio"]:checked + label
 	background: url('../img/tw.png');
 }
 
-.tooltip .social-link#vk {
+.sn-tooltip .social-link#vk {
 	background: url('../img/tooltip-vk.png') no-repeat;
 	width: 18px;
 	height: 16px;
 }
 
-.tooltip .social-link:nth-of-type(3n-1) {
+.sn-tooltip .social-link:nth-of-type(3n-1) {
 	margin-left: 0;
 	margin-right: 0;
 }
@@ -4167,3 +4167,9 @@ input[type="checkbox"].cart-check:checked + label
 .pagination-list-item a:hover { text-decoration: underline; }
 .pagination-list-item.active { font-weight: 700; }
 .pagination-list-item.active a:hover { text-decoration: none; cursor: default; }
+
+.loading{
+	background: url("../img/dots-white.gif") no-repeat scroll center center !important;
+	border: 0 none !important;
+	text-indent: -9999px;
+}

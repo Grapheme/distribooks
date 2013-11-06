@@ -73,4 +73,20 @@ class Books_card extends MY_Model{
 		$this->db->where('(books_card.authors = \''.$where['author'].'\' OR books_card.authors LIKE \'%'.','.$where['author'].'\' OR books_card.authors LIKE \'%,'.$where['author'].',%\' OR books_card.authors LIKE \''.$where['author'].',%\')',NULL);
 		return $this->db->count_all_results($this->table);
 	}
+	
+	function getBooksByIDs($IDs,$fields = 'id,page_address,thumbnail,ru_title,en_title,genre,rating,price,price_action'){
+		
+		if(empty($fields)):
+			$fields = $this->_fields();
+		endif;
+		
+		$this->db->select($fields);
+		$this->db->order_by($this->order_by);
+		$this->db->where_in('id',$IDs);
+		$query = $this->db->get($this->table);
+		if($data = $query->result_array()):
+			return $data;
+		endif;
+		return NULL;
+	}
 }

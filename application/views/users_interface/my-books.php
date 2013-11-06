@@ -22,28 +22,21 @@
 		<div class="container_5">
 			<div class="grid_1 left-boxes shop">
 				<?php $this->load->view('guests_interface/includes/left-nav');?>
-				<?php $this->load->view('guests_interface/includes/gift-pad',array('style'=>' style="position: absolute; border: 1px solid #fff;"'));?>
 			</div>
-		<?php if(!empty($news)):?>
-			<div class="grid_4 news-one">
-			<?php for($i=0;$i<count($news);$i++):?>
-				<div style="overflow: hidden;">
-					<div class="news-one-div all">
-						<a href="<?=$news[$i]['page_address'];?>"><img src="<?=baseURL($news[$i]['thumbnail']);?>"></a>
-					</div>
-					<div class="news-text all">
-						<a href="<?=$news[$i]['page_address'];?>" class="news-one-title"><?=$news[$i][$this->uri->language_string.'_title'];?></a>
-						<p class="news-all-text">
-							<?=$news[$i][$this->uri->language_string.'_anonce'];?>
-						</p>
-						<a class="news-date all no-clickable" href=""><?=swapDotDateWithoutTime($news[$i]['date']);?></a>
-						<a class="share-product all" href="#"><img src="<?=baseURL('img/big-like.png');?>"><span><?=lang('book_share')?></span></a>
-					</div>
+			<div class="grid_4 top-shop-div">
+		<?php if(!empty($books)):?>
+			<?php for($i=0;$i<count($books);$i++):?>
+				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($books)-1))?' omega':'';?>">
+					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$books[$i],'currency'=>array()));?>
 				</div>
+				<?php if(($i+1)%3 == 0):?>
+				<div class="clear"></div>
+				<?php endif?>
 			<?php endfor;?>
-			</div>
+			<div class="clear"></div>
 			<?=$pages;?>
 		<?php endif;?>
+			</div>
 		</div>
 		<div class="clear"></div>
 		<div class="container_5">
@@ -52,7 +45,6 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<?php $this->load->view('guests_interface/html/yelow-block');?>
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>

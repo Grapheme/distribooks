@@ -34,7 +34,6 @@
 						</tr>
 					</thead>
 					<tbody>
-					<?php $this->load->helper('text');?>
 					<?php for($i=0;$i<count($formats);$i++):?>
 						<tr>
 							<td>

@@ -39,6 +39,7 @@ $lang['book_sort_by'] = "Сортировать по";
 $lang['book_sort_price'] = "Цене";
 $lang['book_sort_title'] = "Названию";
 $lang['book_sort_rating'] = "Рейтингу";
+$lang['book_in_basket'] = "В корзине";
 
 $lang['footer_menu_main'] = "Меню";
 $lang['footer_menu_services'] = "Услуги";
@@ -68,6 +69,7 @@ $lang['basket_buy'] = "Купить";
 $lang['basket_choice_price'] = "Выбрать";
 $lang['basket_total'] = "Всего";
 $lang['basket_buy_all'] = "Купить все";
+$lang['basket_action_book_block'] = "Бесплатная книга";
 
 $lang['signin_auth_text'] = "Вам необходимо зарегистрироваться для получения купленных вами книг на электронную почту и доступа к бонусам и скидкам";
 $lang['signin_nickname'] = "Никнейм";
@@ -110,6 +112,7 @@ $lang['book_date_released'] = "Дата выхода";
 $lang['book_size'] = "Объем";
 $lang['book_isbn'] = "ISBN";
 $lang['book_formats'] = "Доступна в форматах";
+$lang['book_formats_failed'] = "Загрузка файлов временно недоступна";
 
 $lang['catalog_tag_genre'] = "Все книги жанра";
 $lang['catalog_tag_keyword'] = "Все книги с тегом";

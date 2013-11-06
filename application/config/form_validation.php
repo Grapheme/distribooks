@@ -19,7 +19,8 @@
 		),
 		'format_categoty' => array(
 			array('field'=>'id','label'=>'ID','rules'=>'required|trim|integer'),
-			array('field'=>'title','label'=>'Название','rules'=>'required|trim'),
+			array('field'=>'ru_title','label'=>'Название','rules'=>'required|trim'),
+			array('field'=>'en_title','label'=>'Title','rules'=>'required|trim'),
 			array('field'=>'sort','label'=>'Порядковый номер','rules'=>'trim|integer')
 		),
 		'format' => array(

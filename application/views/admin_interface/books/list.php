@@ -29,7 +29,6 @@
 				<h2>Книги</h2>
 				<?php $this->load->view('html/multy-search-form',array('form_action'=>uri_string(),'search_action'=>'search-books-list')); ?>
 				<?=$pages;?>
-				<?php $this->load->helper('text');?>
 				<table class="table table-bordered table-striped table-hover table-condensed" data-action="<?=site_url(ADMIN_START_PAGE.'/books/remove');?>">
 					<thead>
 						<tr>

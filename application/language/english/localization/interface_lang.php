@@ -39,6 +39,7 @@ $lang['book_sort_by'] = "Sort by";
 $lang['book_sort_price'] = "Price";
 $lang['book_sort_title'] = "Title";
 $lang['book_sort_rating'] = "Rating";
+$lang['book_in_basket'] = "In cart";
 
 $lang['footer_menu_main'] = "Menu";
 $lang['footer_menu_services'] = "Services";
@@ -68,6 +69,7 @@ $lang['basket_buy'] = "Buy";
 $lang['basket_choice_price'] = "Choice";
 $lang['basket_total'] = "Total";
 $lang['basket_buy_all'] = "All buy";
+$lang['basket_action_book_block'] = "Shared book";
 
 $lang['signin_auth_text'] = "You need to sign up for the books you bought on e-mail and access to bonuses and rebates";
 $lang['signin_nickname'] = "Nickname";
@@ -110,10 +112,11 @@ $lang['book_date_released'] = "Date released";
 $lang['book_size'] = "Size";
 $lang['book_isbn'] = "ISBN";
 $lang['book_formats'] = "Available formats";
+$lang['book_formats_failed'] = "Downloading files is temporarily unavailable";
 
-$lang['catalog_tag_genre'] = "All the books category";
-$lang['catalog_tag_keyword'] = "All the books keyword";
-$lang['catalog_tag_author'] = "All the books by author";
+$lang['catalog_tag_genre'] = "All books of the genre";
+$lang['catalog_tag_keyword'] = "All books tagged as";
+$lang['catalog_tag_author'] = "All books by";
 
 $lang['user_cabinet'] = "My books";
 ?>

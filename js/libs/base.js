@@ -8,6 +8,7 @@ var mt = mt || {};
 mt.baseURL = window.location.protocol+'//'+window.location.hostname+'/';
 mt.currentURL = window.location.href;
 mt.languageSegment = 1;
+mt.max_basket = 8;
 mt.currentLanguage = 'ru'; //Установка языка для панели администрирования так как там не используется сегмент указывающий на язык
 mt.tooltipPlacementDefault = 'right'; // Возможные значения top | bottom | left | right | auto
 mt.tooltipPlacement = mt.tooltipPlacementDefault;
@@ -147,6 +148,12 @@ mt.ajaxBeforeSubmit = function(formData,jqForm,options){
 mt.ajaxSuccessSubmit = function(responseText,statusText,xhr,jqForm){
 	$(jqForm).find(".btn-loading").removeClass('loading').removeAttr('disabled','disabled');
 }
+mt.getNotNullElements = function(massive){
+	var newMassive = [];
+	massive.forEach(function(element,i,arr){if(element != null){newMassive.push(element);}});
+	if(newMassive.length > 0){return newMassive;}else{return null;}
+	
+}
 $.fn.exists = function(){
 	if($(this).length > 0){
 		return true;
@@ -180,7 +187,7 @@ $.fn.defaultValidationErrorStatus = function(){
 }
 $.fn.showToolTip = function(ToolTipText){
 	if(ToolTipText == ''){
-		ToolTipText = 'Поле не заполнено';
+		ToolTipText = Localize[mt.currentLanguage]['empty_field'];
 	}
 	var config = {placement:mt.tooltipPlacement,trigger:mt.tooltipTrigger,title:ToolTipText}
 	var style = "background: none repeat scroll 0 0 transparent;display: block;height: 2px;opacity: 0;position: absolute;right: 0;top: 32px;width: 2px;";
@@ -229,7 +236,7 @@ $.fn.ForceBlurEmptyValue = function(){
 	return this.each(function(i,element){
 		$(element).blur(function(){
 			if($(element).emptyValue()){
-				$(this).setValidationErrorStatus('Поле не заполнено');
+				$(this).setValidationErrorStatus(Localize[mt.currentLanguage]['empty_field']);
 			}
 		});
 	});

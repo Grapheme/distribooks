@@ -5,8 +5,8 @@ class MY_Controller extends CI_Controller{
 	var $account = array('id'=>0,'group'=>0);
 	var $profile = '';
 	var $loginstatus = FALSE;
-	var $language = 1;
-	var $acceptedDocTypes = array();
+	var $account_basket = array('basket_books'=>array(),'basket_total_price'=>0);
+	var $project_config = array('dollar_rate'=>32.00,'free_book'=>4,'count_free_book'=>1,'action_price'=>10000,'action_percent'=>10);
 	
 	var $baseURL = '';
 	var $baseLanguageURL = RUSLAN;
@@ -27,36 +27,11 @@ class MY_Controller extends CI_Controller{
 					endif;
 				else:
 					$this->profile = json_decode($this->session->userdata('profile'),TRUE);
-					$this->profile['balance'] = 0;
-//					$this->profile['balance'] = $this->accounts->value($this->account['id'],'balance');
 					$this->loginstatus = TRUE;
 				endif;
 			endif;
 		endif;
-		$this->acceptedDocTypes = array(
-			'text/plain' => base_url('img/icons/txt.png'),
-			'application/pdf' => base_url('img/icons/pdf.png'),
-			'application/x-zip-compressed' => base_url('img/icons/zip.png'),
-			'application/msword' => base_url('img/icons/doc.png'),
-			'application/vnd.openxmlformats-officedocument.wordprocessingml.document' => base_url('img/icons/doc.png'),
-			'application/vnd.ms-excel' => base_url('img/icons/doc.png'),
-			'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' => base_url('img/icons/doc.png'),
-			'application/vnd.ms-powerpoint' => base_url('img/icons/doc.png'),
-			'application/vnd.openxmlformats-officedocument.presentationml.presentation' => base_url('img/icons/doc.png'),
-			
-			'image/png' => base_url('img/icons/pic.png'),
-			'image/jpeg'=> base_url('img/icons/pic.png'),
-			'image/gif'=> base_url('img/icons/pic.png'),
-			
-			'audio/mpeg' => base_url('img/icons/sound.png'),
-			'audio/ogg'=> base_url('img/icons/sound.png'),
-			'audio/webm'=> base_url('img/icons/sound.png'),
-			
-			'video/avi' => base_url('img/icons/video.png'),
-			'video/mpeg' => base_url('img/icons/video.png'),
-			'video/mp4'=> base_url('img/icons/video.png'),
-			'video/webm'=> base_url('img/icons/video.png'),
-		);
+		$this->setProjectConfig();
 	}
 	
 	public function clearSession($redirect = TRUE){
@@ -79,6 +54,48 @@ class MY_Controller extends CI_Controller{
 			return TRUE;
 		endif;
 		return FALSE;
+	}
+
+	public function getAccountBasketBooks(){
+		
+		$basket_exist = FALSE; $booksIDs = array();
+		
+		if($booksIDs = $this->getValuesBasketBooksCookie()):
+			$basket_exist = TRUE;
+		endif;
+		if($this->loginstatus === TRUE && $basket_exist === FALSE):
+			$basket = $this->accounts->value($this->account['id'],'basket');
+			if(!empty($basket)):
+				if($booksIDs = json_decode($basket,TRUE)):
+					set_cookie('account_basket',$basket,time()+86500,'','/');
+				endif;
+			endif;
+		endif;
+		if($basket_exist === TRUE && !empty($booksIDs)):
+			$basketTotalPrice = $this->getBooksPrice($booksIDs);
+			set_cookie('basket_total_price',$basketTotalPrice,time()+86500,'','/');
+			$this->account_basket['basket_books'] = $booksIDs;
+			$this->account_basket['basket_total_price'] = $basketTotalPrice;
+			return $booksIDs;
+		else:
+			return FALSE;
+		endif;
+	}
+
+	public function setProjectConfig(){
+		
+		if($this->input->cookie('project_config') !== FALSE):
+			if($project_config = json_decode($this->input->cookie('project_config'),TRUE)):
+				$this->project_config = $project_config;
+			endif;
+		else:
+			$this->load->model('configuration');
+			if($project_config = $this->configuration->getWhere(1)):
+				$this->project_config = $project_config;
+				set_cookie('project_config',json_encode($project_config),time()+86500,'','/');
+			endif;
+		endif;
+		return TRUE;
 	}
 	/*************************************************************************************************************/
 	public function getVKontakteAccessToken($code,$redirect){
@@ -134,7 +151,6 @@ class MY_Controller extends CI_Controller{
 			$this->accounts->updateField($SNAccountID,$SN.'_access_token','');
 		endif;
 	}
-	
 	/*************************************************************************************************************/
 	public function pagination($url,$uri_segment,$total_rows,$per_page,$get_string = FALSE){
 		
@@ -583,6 +599,15 @@ class MY_Controller extends CI_Controller{
 		endif;
 		return $zipStatus;
 	}
+	
+	public function getFileExt($fileName = '',$start_char = 1){
+		
+		if(!empty($fileName)):
+			return substr(strrchr($fileName,'.'),$start_char);
+		else:
+			return '';
+		endif;
+	}
 
 	public function filedelete($file = NULL){
 		
@@ -797,7 +822,37 @@ class MY_Controller extends CI_Controller{
 		return  $retArray;
 	}
 	/* -------------------------------------------------------------------------------------------- */
+	public function createBasket(){
+		
+		$basket = $this->accounts->value($this->account['id'],'basket');
+		if(empty($basket)):
+			$basket = '[""]';
+		endif;
+		set_cookie('basket_books',$basket,time()+86500,'','/');
+	}
 	
+	public function validBasket(){
+		
+		if($this->input->cookie('basket_books') !== FALSE):
+			return TRUE;
+		else:
+			return FALSE;
+		endif;
+	}
+	
+	public function setBasket(){
+		
+		if($this->input->cookie('basket_books') !== FALSE):
+			$this->accounts->updateField($this->account['id'],'basket',$this->input->cookie('basket_books'));
+		else:
+			$basket = $this->accounts->value($this->account['id'],'basket');
+			if(!empty($basket)):
+				set_cookie('basket_books',$basket,time()+86500,'','/');
+			endif;
+		endif;
+		return TRUE;
+	}
+	/* -------------------------------------------------------------------------------------------- */
 	public function getAuthorsByIDs($authors){
 		
 		$authorsList = array();
@@ -846,10 +901,207 @@ class MY_Controller extends CI_Controller{
 		if($this->books->getWhere($bookID)):
 			if(!$this->signed_books->getWhere(NULL,array('book'=>$bookID,'account'=>$this->account['id']))):
 				return $signedID = $this->insertItem(array('insert'=>array('book'=>$bookID,'account'=>$this->account['id']),'model'=>'signed_books'));
-				return $signedID = $this->insertItem(array('insert'=>array('book'=>$bookID,'account'=>$this->account['id']),'model'=>'signed_books'));
 			endif;
 		endif;
 		return FALSE;
+	}
+	
+	public function mySignedBooks($books){
+		
+		$this->load->model('signed_books');
+		$mySignedBooks = $this->signed_books->getWhere(NULL,array('account'=>$this->account['id']),TRUE);
+		for($i=0;$i<count($books);$i++):
+			$books[$i]['signed_book'] = FALSE;
+			for($j=0;$j<count($mySignedBooks);$j++):
+				if($books[$i]['id'] == $mySignedBooks[$j]['book']):
+					$books[$i]['signed_book'] = TRUE;
+				endif;
+			endfor;
+		endfor;
+		return $books;
+	}
+	
+	public function booksInBasket($books){
+		
+		for($i=0;$i<count($books);$i++):
+			$books[$i]['book_in_basket'] = FALSE;
+		endfor;
+		if($booksIDs = $this->getAccountBasketBooks()):
+			for($i=0;$i<count($books);$i++):
+				for($j=0;$j<count($booksIDs);$j++):
+					if($books[$i]['id'] == $booksIDs[$j]):
+						$books[$i]['book_in_basket'] = TRUE;
+					endif;
+				endfor;
+			endfor;
+		endif;
+		return $books;
+	}
+	
+	public function validSignedBook($bookID){
+		
+		$this->load->model(array('signed_books','books'));
+		if($this->signed_books->getWhere(NULL,array('book'=>$bookID,'account'=>$this->account['id']))):
+			if($book = $this->books->getWhere($bookID)):
+				return $book;
+			endif;
+		endif;
+		return FALSE;
+	}
+	
+	public function setPageAddress($elements,$group){
+		
+		$metaTitles = $this->meta_titles->getWhere(NULL,array('group'=>$group),TRUE);
+		for($i=0;$i<count($elements);$i++):
+			$elements[$i]['page_address'] = FALSE;
+			for($j=0;$j<count($metaTitles);$j++):
+				if($metaTitles[$j]['item_id'] == $elements[$i]['id']):
+					$elements[$i]['page_address'] = $metaTitles[$j]['page_address'];
+				endif;
+			endfor;
+		endfor;
+		return $elements;
+	}
+
+	public function BooksGenre($books){
+		
+		$this->load->model('genres');
+		$genres = $this->genres->getAll();
+		for($i=0;$i<count($books);$i++):
+			$books[$i]['genre_title'] = '';
+			for($j=0;$j<count($genres);$j++):
+				if($books[$i]['genre'] == $genres[$j]['id']):
+					$books[$i]['genre_title'] = $genres[$j][$this->uri->language_string.'_title'];
+				endif;
+			endfor;
+		endfor;
+		return $books;
+	}
+	
+	public function getBookFormats($book_files){
+		
+		$BookFormats = array('categories_ids'=>array(),'categories_titles'=>array(),'formats'=>array());
+		if($formatsList = $this->getBookFormatsList($book_files)):
+			$this->load->model('formats_categories');
+			if($BookFormats['formats'] = $this->formats_categories->getCategoryByFormatsIDs($formatsList)):
+				$BookFormats['categories_ids'] = $this->reIndexArray(array_unique($this->getValuesInArray($BookFormats['formats'],'category_id')));
+				for($i=0;$i<count($BookFormats['categories_ids']);$i++):
+					for($j=0;$j<count($BookFormats['formats']);$j++):
+						if($BookFormats['formats'][$j]['category_id'] == $BookFormats['categories_ids'][$i]):
+							$BookFormats['categories_titles'][$BookFormats['categories_ids'][$i]]['ru_title'] = $BookFormats['formats'][$j]['ru_title'];
+							$BookFormats['categories_titles'][$BookFormats['categories_ids'][$i]]['en_title'] = $BookFormats['formats'][$j]['en_title'];
+						endif;
+					endfor;
+				endfor;
+			endif;
+		endif;
+		return $BookFormats;
+	}
+	
+	public function getBookFormatsList($book_files){
+		
+		if(!empty($book_files)):
+			if($jsonformats = json_decode($book_files,TRUE)):
+				if(isset($jsonformats[0]) && !empty($jsonformats[0])):
+					if($formatsList = $this->getValuesInArray($jsonformats,'format_id')):
+						return $formatsList;
+					endif;
+				endif;
+			endif;
+		else:
+			return FALSE;
+		endif;
+	}
+
+	public function createBasketBlock($BookID){
+		
+		$productBasket = '';
+		$this->load->model('books_card');
+		if($book = $this->books_card->getWhere($BookID)):
+			$productBasket = $this->load->view('guests_interface/html/basket/basket-item',array('book'=>$book),TRUE);
+		endif;
+		return $productBasket;
+	}
+	
+	public function createBasketBlockEmptyAction(){
+		$productBasket = '';
+		for($i=0;$i<$this->project_config['count_free_book'];$i++):
+			$productBasket .= $this->load->view('guests_interface/html/basket/basket-item-sale-empty',array('hidden'=>FALSE),TRUE);
+		endfor;
+		return $productBasket;
+	}
+	
+	public function createBasketBlockAction($BookID){
+		
+		$productBasket = '';
+		$this->load->model('books_card');
+		if($book = $this->books_card->getWhere($BookID)):
+			$productBasket .= $this->load->view('guests_interface/html/basket/basket-item-sale-full',array('book'=>$book),TRUE);
+		endif;
+		return $productBasket;
+	}
+	
+	public function removeBasketBlocks(){
+		
+		$this->load->model('books_card');
+		if($booksIDs = $this->getValuesBasketBooksCookie()):
+			$booksBasketCount = count($booksIDs);
+			if($booksBasketCount%$this->project_config['free_book'] != 0):
+				return $this->project_config['count_free_book'];
+			endif;
+		endif;
+		return FALSE;
+	}
+	
+	public function getBasketTotalPrice(){
+		
+		if($this->loginstatus === FALSE):
+			if($booksIDs = $this->getValuesBasketBooksCookie()):
+				return $this->getBooksPrice($booksIDs);
+			endif;
+		elseif($this->account['group'] == USER_GROUP_VALUE):
+			
+		endif;
+		return NULL;
+	}
+	
+	public function getBooksInBasket(){
+		
+		$this->load->model('books_card');
+		if(!empty($this->account_basket['basket_books'])):
+			if($books = $this->books_card->getBooksByIDs($this->account_basket['basket_books'])):
+				return $books;
+			endif;
+		endif;
+		return NULL;
+	}
+	
+	public function getValuesBasketBooksCookie(){
+		
+		if($this->input->cookie('basket_books') !== FALSE):
+			if($booksIDs = json_decode($this->input->cookie('basket_books'),TRUE)):
+				return $booksIDs;
+			endif;
+		endif;
+		return FALSE;
+	}
+	
+	private function getBooksPrice($booksIDs){
+		
+		$this->load->model('books');
+		$summa = 0;
+		if($books = $this->books->getBooksByIDs($booksIDs)):
+			for($i=0;$i<count($books);$i++):
+				if(($i+1)%$this->project_config['free_book'] != 0):
+					if($books[$i]['price_action'] > 0):
+						$summa+=$books[$i]['price_action'];
+					else:
+						$summa+=$books[$i]['price'];
+					endif;
+				endif;
+			endfor;
+		endif;
+		return getPriceInCurrency($summa);
 	}
 	
 }

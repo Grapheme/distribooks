@@ -10,6 +10,7 @@ class Guest_ajax_interface extends MY_Controller{
 		if($this->input->is_ajax_request() === FALSE):
 			show_error('В доступе отказано');
 		endif;
+		$this->lang->load('localization/interface',$this->languages[$this->uri->language_string]);
 	}
 	
 	public function requestOrderEditing(){

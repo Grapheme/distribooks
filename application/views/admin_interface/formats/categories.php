@@ -37,7 +37,7 @@
 								<a href="<?=site_url(ADMIN_START_PAGE.'/formats/categories/edit?id='.$categories[$i]['id'])?>" class="btn btn-link" ><i class="icon-edit"></i></a>
 							</td>
 							<td class="menu-title">
-								<a href="<?=site_url(ADMIN_START_PAGE.'/formats?category='.$categories[$i]['id'])?>"><?=$categories[$i]['title'];?></a>
+								<a href="<?=site_url(ADMIN_START_PAGE.'/formats?category='.$categories[$i]['id'])?>"><?=$categories[$i]['ru_title'];?> (<?=$categories[$i]['en_title'];?>)</a>
 							</td>
 							<td class="menu-title"><?=$categories[$i]['sort'];?></td>
 						</tr>

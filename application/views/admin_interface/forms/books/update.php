@@ -135,12 +135,12 @@
 		<input type="text" class="span2" name="price" value="<?=$book['en_copyright'];?>"/>
 		<label>Цена со скидкой:</label>
 		<input type="text" class="span2" name="price_action" value="<?=$book['en_copyright'];?>" />
-		<label>Валюта:</label>
+		<!--<label>Валюта:</label>
 		<select class="span2" name="currency">
 		<?php for($i=0;$i<count($currency);$i++):?>
 			<option value="<?=$currency[$i]['id']?>" <?=($currency[$i]['id'] == $book['currency'])?'selected':'';?>><?=$currency[$i]['title'];?></option>
 		<?php endfor;?>
-		</select>
+		</select>-->
 	</div>
 	<div class="control-group">
 		<label>Постоянный адрес страницы (page address):</label>
