@@ -116,13 +116,17 @@
 				<a class="min-logo" href="<?=site_url();?>"></a>
 				<div class="min-right">
 					<div class="min-div-left">
-						<a href="#" class="red button no-clickable"><?=lang('top_menu_promotion');?> -30%!</a><br>
+					<?php if($this->project_config['action_percent'] > 0):?>
+						<a href="#" class="red button no-clickable"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a><br>
+					<?php endif;?>
 						<a href="#" class="blue button menu-open no-clickable"><?=lang('top_menu_main');?></a>
 					</div>
 					<div class="min-div-right">
 						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a><div><a href="" class="enter-text no-clickable"><?=lang('top_menu_sign_in');?></a>&nbsp;<a href="#" class="enter"></a></div>
 					</div>
-					<a href="#" class="blue button call basket no-clickable"><img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span>2000 р.</span></a>
+					<a href="" class="blue button call basket<?=($this->uri->segment(1) == 'basket')?'':' basket-show-link';?> no-clickable<?=(empty($this->account_basket['basket_books']))?' hidden':'';?>">
+						<img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span class="basket-total-price"><?=$this->account_basket['basket_total_price'];?></span>
+					</a>
 				</div>
 			</div>
 			<div class="clear"></div>

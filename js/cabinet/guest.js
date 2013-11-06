@@ -75,7 +75,8 @@ $(function(){
 				if(response.status){
 					$("div.basket-items-list").empty();
 					$("div.basket-items-action-list").empty();
-					$(".basket-show-link").click().addClass('hidden');
+					$(".basket-show-link").eq(0).click();
+					$(".basket-show-link").addClass('hidden');
 					$('div.buyor').find(".incart").remove();
 					$('div.buyor').find(".tocart").removeClass('hidden');
 				}
@@ -127,7 +128,8 @@ $(function(){
 					cookies.setCookie('basket_books',cookieValue,largeExpDate,'/');
 				}else{
 					cookies.deleteCookie('basket_books','/');
-					$(".basket-show-link").click().addClass('hidden');
+					$(".basket-show-link").eq(0).click();
+					$(".basket-show-link").addClass('hidden');
 					if($(".basket-main-total-price").length > 0){
 						$(".basket-min").empty();
 						$("a.basket").addClass('hidden');
