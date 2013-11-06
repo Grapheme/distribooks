@@ -128,6 +128,10 @@ $(function(){
 				}else{
 					cookies.deleteCookie('basket_books','/');
 					$(".basket-show-link").click().addClass('hidden');
+					if($(".basket-main-total-price").length > 0){
+						$(".basket-min").empty();
+						$("a.basket").addClass('hidden');
+					}
 				}
 				removeToBasketBlock(bookID);
 			}
