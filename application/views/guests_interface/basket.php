@@ -29,15 +29,15 @@
 				</div>
 			</div>
 			<div class="grid_4 cart-page">
+			<?php if(!empty($basket_list)):?>
 				<div class="basket-min">
 					<p class="basket-title"><?=lang('basket_title');?></p>
 					<div class="basket-items-full-list">
 						<?php $this->load->view('guests_interface/html/basket/basket-full-lists',array('basket_list'=>$basket_list));?>
 					</div>
 					<div class="basket-item" style="background: #fff; margin-top: 10px; margin-bottom: 25px;">
-					
 					<?php 
-						$total_summa = $this->account_basket['basket_total_price'];
+						$total_summa = (int)$this->account_basket['basket_total_price'];
 						if($this->account_basket['basket_total_price'] >= $this->project_config['action_price']):
 							$total_summa = $total_summa - round($total_summa*($this->project_config['action_percent']/100));
 						endif;
@@ -49,14 +49,14 @@
 					<?php endif;?>
 						<div>
 							<p class="basket-item-name all" style="width: 210px;; color: #000; margin-left: 15px;"><?=lang('basket_page_part4');?> <?=count($basket_list);?> <?=lang('basket_page_part5');?></p>
-							<p class="basket-price basket-total-price" style="border: 0;"><?=addCurrencyInPrice($total_summa);?></p>
+							<p class="basket-price basket-main-total-price" style="border: 0;"><?=addCurrencyInPrice($total_summa);?></p>
 							<div class="basket-one-buy">
-								<a href="" class="buy buy-all no-clickable basket-buy-link" style="margin-right: 5px; width: 180px"><?=lang('basket_buy_all');?></a>
+								<a href="" class="buy buy-all no-clickable <?=(isUserLoggined() === FALSE)?'sign-in-link':'basket-buy-link';?>" style="margin-right: 5px; width: 180px"><?=lang('basket_buy_all');?></a>
 							</div>
 						</div>
 					</div>
 			<?php if($this->project_config['action_price'] > 0):?>
-				<div class="summa-action-block<?=($this->account_basket['basket_total_price'] > $this->project_config['action_price'])?' hidden':'';?>">
+				<div class="summa-action-block-info<?=($this->account_basket['basket_total_price'] > $this->project_config['action_price'])?' hidden':'';?>">
 					<div class="basket-bottom-sale-top"></div>
 					<div class="basket-bottom-sale">
 						<p class="basket-bottom-sale-text">
@@ -67,6 +67,7 @@
 				</div>
 			<?php endif;?>
 				</div>
+			<?php endif;?>
 			</div>
 		</div>
 		<div class="clear"></div>

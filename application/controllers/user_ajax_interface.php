@@ -12,31 +12,38 @@ class User_ajax_interface extends MY_Controller{
 	
 	public function singleBuyBook(){
 		
-		if($this->postDataValidation('buy_book')):
-			if($signedID = $this->buyBook($this->input->post('book'))):
-				$this->json_request['status'] = TRUE;
-				$this->json_request['responseText'] = 'Книга куплена успешно';
-				$this->load->model('books_card');
-				$this->json_request['redirect'] = site_url($this->uri->language_string.'/'.$this->books_card->value($this->input->post('book'),'page_address'));
+		if(isUserLoggined()):
+			if($this->postDataValidation('buy_book')):
+				if($signedID = $this->buyBook($this->input->post('book'))):
+					$this->json_request['status'] = TRUE;
+					$this->json_request['responseText'] = 'Книга куплена успешно';
+					$this->load->model('books_card');
+					$this->json_request['redirect'] = site_url($this->uri->language_string.'/'.$this->books_card->value($this->input->post('book'),'page_address'));
+				endif;
+			else:
+				$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
 			endif;
-		else:
-			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
 		endif;
 		echo json_encode($this->json_request);
 	}
 	
 	public function basketBuyBooks(){
 		
-		if($this->validBasket() === FALSE):
-			$this->getDBBasket();
-		endif;
-		if($this->validBasket() === TRUE):
-			if($booksIDs = $this->getAccountBasketBooks()):
-				for($i=0;$i<count($booksIDs);$i++):
-					$this->buyBook($booksIDs[$i]);
-				endfor;
-				$this->json_request['status'] = TRUE;
-				$this->json_request['redirect'] = site_url($this->uri->language_string.'/'.USER_START_PAGE);
+		if(isUserLoggined()):
+			if($this->validBasket() === FALSE):
+				$this->getDBBasket();
+			endif;
+			if($this->validBasket() === TRUE):
+				if($booksIDs = $this->getAccountBasketBooks()):
+					for($i=0;$i<count($booksIDs);$i++):
+						$this->buyBook($booksIDs[$i]);
+					endfor;
+					delete_cookie('basket_books');
+					delete_cookie('basket_total_price');
+					$this->accounts->updateField($this->account['id'],'basket','');
+					$this->json_request['status'] = TRUE;
+					$this->json_request['redirect'] = site_url($this->uri->language_string.'/'.USER_START_PAGE);
+				endif;
 			endif;
 		endif;
 		echo json_encode($this->json_request);
@@ -112,7 +119,7 @@ class User_ajax_interface extends MY_Controller{
 
 	public function clearBasket(){
 		
-		if($this->loginstatus === TRUE && $this->account['group']==USER_GROUP_VALUE):
+		if(isUserLoggined()):
 			$this->accounts->updateField($this->account['id'],'basket','');
 		endif;
 		delete_cookie('basket_books');

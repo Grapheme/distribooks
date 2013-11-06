@@ -40,7 +40,7 @@ $(function(){
 		$(".window-auth").fadeIn("fast");
 	});
 	$(".buy-link").click(function(){
-		var book = $(this).attr('data-book-id');
+		var book = $(this).parents('.buyor').attr('data-book-id');
 		$.ajax({
 			url: mt.getLangBaseURL('buy-book'),
 			type: 'POST',dataType: 'json',data:{'book':book},
@@ -174,6 +174,9 @@ $(function(){
 			success: function(response,textStatus,xhr){
 				if(response.status){
 					$("div.basket-items-full-list").html(response.responseText);
+					if($(".basket-main-total-price").length > 0){
+						$(".basket-main-total-price").html(priceOnAction(response.booksTotalPrice));
+					}
 					$(".basket-total-price").html(response.booksTotalPrice);
 					$("div.basket-items-full-list").find(".remove-book-in-basket").on('click',function(event){event.preventDefault();event.stopPropagation();removeBookInBasket(this);});
 				}
@@ -226,10 +229,32 @@ $(function(){
 		if(action_price > 0 && total_price > 0){
 			if(total_price >= action_price){
 				$(".summa-action-block").removeClass('hidden');
+				$(".summa-action-block-info").addClass('hidden');
 			}else{
 				$(".summa-action-block").addClass('hidden');
+				$(".summa-action-block-info").removeClass('hidden');
 			}
 		}
 		return action_percent;
+	}
+	function priceOnAction(price){
+		
+		var action_price = 0;
+		var action_percent = false;
+		var currency = ' руб.';
+		price = parseInt(price);
+		if(cookies.getCookie('project_config') !== false){
+			var configuration = JSON.parse(cookies.getCookie('project_config'));
+			action_price = currencyExchange(configuration['action_price']);
+			action_percent = configuration['action_percent']*1;
+		}
+		if(action_price > 0 && action_percent !== false && price >= action_price){
+			price = price - Math.round(price*(action_percent/100));
+		}
+		if(mt.currentLanguage == 'en'){
+			currency = ' $';
+		}
+		
+		return price+currency;
 	}
 });

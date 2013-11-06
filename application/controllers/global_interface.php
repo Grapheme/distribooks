@@ -125,8 +125,7 @@ class Global_interface extends MY_Controller{
 	private function buyBookInLogIn(){
 		
 		if($this->input->cookie('buy_book') !== FALSE):
-			$this->account = json_decode($this->session->userdata('account'),TRUE);
-			if($this->account['group'] == USER_GROUP_VALUE):
+			if(isUserLoggined()):
 				//Переход на страницу оплаты
 				if($signedID = $this->buyBook($this->input->cookie('buy_book'))):
 					delete_cookie('buy_book');
