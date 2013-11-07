@@ -854,6 +854,8 @@ class MY_Controller extends CI_Controller{
 	/* -------------------------------------------------------------------------------------------- */
 	public function getAuthorsByIDs($authors){
 		
+		//var_dump(explode(',',$authors));exit;
+		
 		$authorsList = array();
 		if($authorsIDs = explode(',',$authors)):
 			$this->load->model('authors');
@@ -1017,6 +1019,7 @@ class MY_Controller extends CI_Controller{
 		$productBasket = '';
 		$this->load->model('books_card');
 		if($book = $this->books_card->getWhere($BookID)):
+			$book['authors'] = $this->getAuthorsByIDs($book['authors']);
 			$productBasket = $this->load->view('guests_interface/html/basket/basket-item',array('book'=>$book),TRUE);
 		endif;
 		return $productBasket;
@@ -1035,6 +1038,7 @@ class MY_Controller extends CI_Controller{
 		$productBasket = '';
 		$this->load->model('books_card');
 		if($book = $this->books_card->getWhere($BookID)):
+			$book['authors'] = $this->getAuthorsByIDs($book['authors']);
 			$productBasket .= $this->load->view('guests_interface/html/basket/basket-item-sale-full',array('book'=>$book),TRUE);
 		endif;
 		return $productBasket;
@@ -1065,6 +1069,10 @@ class MY_Controller extends CI_Controller{
 		$this->load->model('books_card');
 		if(!empty($this->account_basket['basket_books'])):
 			if($books = $this->books_card->getBooksByIDs($this->account_basket['basket_books'])):
+				$books = $this->getBooksSortByIDs($books);
+				for($i=0;$i<count($books);$i++):
+					$books[$i]['authors'] = $this->getAuthorsByIDs($books[$i]['authors']);
+				endfor;	
 				return $books;
 			endif;
 		endif;
@@ -1080,6 +1088,20 @@ class MY_Controller extends CI_Controller{
 		endif;
 		return FALSE;
 	}
+	
+	private function getBooksSortByIDs($books){
+		
+		$sortBooks = array();
+		for($i=0;$i<count($this->account_basket['basket_books']);$i++):
+			for($j=0;$j<count($books);$j++):
+				if($this->account_basket['basket_books'][$i] == $books[$j]['id']):
+					$sortBooks[] = $books[$j];
+				endif;
+			endfor;
+		endfor;
+		return $sortBooks;
+			
+	}	
 	
 	private function getBooksPrice($booksIDs){
 		
