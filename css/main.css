@@ -2024,7 +2024,16 @@ input[type="radio"]:checked + label
 	float: left;
 	margin-left: 10px;
 	margin-right: 10px;
-	width: 25px;
+	width: 45px;
+}
+
+.clear-basket {
+	font-size: 13px;
+	color: #037295;
+}
+
+.summa-action-block {
+	font-size: 13px;
 }
 
 .basket-item-name {
