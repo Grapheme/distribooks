@@ -2051,7 +2051,7 @@ input[type="radio"]:checked + label
 
 .basket-price {
 	display: inline-block;
-	float: left;
+	float: right;
 	text-align: center;
 	font-weight: 700;
 	font-size: 18px;
@@ -2060,7 +2060,7 @@ input[type="radio"]:checked + label
 	line-height: 35px;
 	margin: 0;
 	border-left: 1px solid #037295;
-	border-right: 1px solid #037295;
+	/*border-right: 1px solid #037295;*/
 }
 
 .basket-price.pos3-no {
@@ -2069,7 +2069,7 @@ input[type="radio"]:checked + label
 
 .basket-min .basket-price {
 	border-left: 1px solid #037295;
-	border-right: 1px solid #037295;
+	/*border-right: 1px solid #037295;*/
 }
 
 .basket-price .date {
@@ -2569,7 +2569,7 @@ footer .button {
 	border-radius: 5px;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
-	z-index: 999;
+	z-index: 1;
 	-moz-box-shadow: 0 3px 5px 0px rgba(0,0,0,0.5); /* Для Firefox */
     -webkit-box-shadow: 0 3px 5px 0px rgba(0,0,0,0.5); /* Для Safari и Chrome */
     box-shadow: 0 3px 5px 0px rgba(0,0,0,0.5); /* Параметры тени */
