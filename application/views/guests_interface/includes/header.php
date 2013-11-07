@@ -36,9 +36,6 @@
 		<a href="#" class="social-link" id="vk"></a>
 		<a href="#" class="social-link" id="fb"></a>
 		<a href="#" class="social-link" id="tw"></a>
-		<a href="#" class="social-link" id="vk"></a>
-		<a href="#" class="social-link" id="fb"></a>
-		<a href="#" class="social-link" id="tw"></a>
 	</div>
 	<div class="top">
 		<div class="container_5">

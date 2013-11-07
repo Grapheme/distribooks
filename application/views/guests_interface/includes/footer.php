@@ -6,39 +6,37 @@
 		<a href="#" class="social-link" id="vk"></a>
 		<a href="#" class="social-link" id="fb"></a>
 		<a href="#" class="social-link" id="tw"></a>
-		<a href="#" class="social-link" id="vk"></a>
 			</div>
 		</div>
 		<div class="grid_1 footer-nav">
-			<p class="footer-title">Menu:</p>
+			<p class="footer-title"><?=lang('footer_menu_main');?></p>
 			<div class="dashed"></div>
 			<nav>
 				<ul>
-					<li><a href="<?=site_url('catalog');?>" class="footer-option">Catalog</a></li>
-					<li><a href="<?=site_url('about');?>" class="footer-option">About</a></li>
-					<li><a href="" class="footer-option no-clickable">Make donation</a></li>
+					<li><a href="<?=site_url('catalog');?>" class="footer-option"><?=lang('top_menu_catalog');?></a></li>
+					<li><a href="<?=site_url('about');?>" class="footer-option"><?=lang('top_menu_about');?></a></li>
+					<li><a href="" class="footer-option no-clickable"><?=lang('top_menu_donation');?></a></li>
 				</ul>
 			</nav>
 		</div>
 		<div class="grid_1 footer-nav">
-			<p class="footer-title">Services:</p>
+			<p class="footer-title"><?=lang('footer_menu_services');?></p>
 			<div class="dashed"></div>
 			<nav>
 				<ul>
-					<li><a href="<?=site_url('editing');?>" class="footer-option">Editing</a></li>
-					<li><a href="<?=site_url('translation');?>" class="footer-option">Translation</a></li>
-					<li><a href="<?=site_url('typography');?>" class="footer-option">Typography</a></li>
-					<li><a href="<?=site_url('distribution');?>" class="footer-option">Distribution</a></li>
+					<li><a href="<?=site_url('editing');?>" class="footer-option"><?=lang('menu_editing');?></a></li>
+					<li><a href="<?=site_url('translation');?>" class="footer-option"><?=lang('menu_typography');?></a></li>
+					<li><a href="<?=site_url('typography');?>" class="footer-option"><?=lang('menu_translation');?></a></li>
+					<li><a href="<?=site_url('distribution');?>" class="footer-option"><?=lang('menu_distribution');?></a></li>
 				</ul>
 			</nav>
 		</div>
 		<div class="grid_1 footer-nav pos3">
 			<a href="#" class="button red" style="font-size: 18px;">Lottery</a>
 			<div class="social-footer">
-		<a href="#" class="social-link" id="vk"></a>
-		<a href="#" class="social-link" id="fb"></a>
-		<a href="#" class="social-link" id="tw"></a>
-		<a href="#" class="social-link" id="vk"></a>
+				<a href="#" class="social-link" id="vk"></a>
+				<a href="#" class="social-link" id="fb"></a>
+				<a href="#" class="social-link" id="tw"></a>
 			</div>
 			<div class="footer-right">
 				<div><a href="mailto:welcome@distibbooks.com"><img src="<?=baseURL('img/white-mail.png')?>">welcome@distibbooks.com</a></div>

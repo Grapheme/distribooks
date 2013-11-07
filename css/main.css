@@ -1457,7 +1457,7 @@ input[type="radio"]:checked + label
 }
 
 .recall-in {
-	/*position: relative;*/
+	position: relative;
 	top: -12px;
 	width: 170px;
 	padding: 5px;
@@ -1845,6 +1845,10 @@ input[type="radio"]:checked + label
 	width: 16px;
 	height: 17px;
 	margin: 5px;
+}
+
+.social-link:hover {
+	opacity: .5;
 }
 
 .social-footer .social-link {

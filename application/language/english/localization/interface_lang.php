@@ -41,8 +41,8 @@ $lang['book_sort_title'] = "Title";
 $lang['book_sort_rating'] = "Rating";
 $lang['book_in_basket'] = "In cart";
 
-$lang['footer_menu_main'] = "Menu";
-$lang['footer_menu_services'] = "Services";
+$lang['footer_menu_main'] = "Menu:";
+$lang['footer_menu_services'] = "Services:";
 
 $lang['catalog_top_shop'] = "Bestsellers";
 $lang['catalog_novelty'] = "Novelty";
