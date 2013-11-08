@@ -257,19 +257,32 @@ class Guests_interface extends MY_Controller{
 		$pagevar['recommended'] = $this->mySignedBooks($pagevar['recommended']);
 		$pagevar['recommended'] = $this->booksInBasket($pagevar['recommended']);
 		
+		$pagevar['catalog'] = $this->sortCatalogByPrice($pagevar['catalog']);
+//		print_r($pagevar['catalog']);exit;
+		$this->load->view("guests_interface/catalog",$pagevar);
+	}
+	
+	private function sortCatalogByPrice($catalog){
+		
 		if($this->input->get('sort') == 'price'):
-			for($i=0;$i<count($pagevar['catalog']);$i++):
-				$pagevar['catalog'][$i]['sort_price'] = min($pagevar['catalog'][$i]['price'],$pagevar['catalog'][$i]['price_action']);
+			for($i=0;$i<count($catalog);$i++):
+				if($catalog[$i]['price_action'] == 0):
+					$catalog[$i]['price_action'] = 1000000;
+				endif;
+				$catalog[$i]['sort_price'] = min($catalog[$i]['price'],$catalog[$i]['price_action']);
+			endfor;
+			for($i=0;$i<count($catalog);$i++):
+				if($catalog[$i]['price_action'] == 1000000):
+					$catalog[$i]['price_action'] = 0;
+				endif;
 			endfor;
 			if($this->input->get('directing') == 'asc'):
-				$pagevar['catalog'] = $this->AssociateSort($pagevar['catalog'],'sort_price');
+				$catalog = $this->AssociateSort($catalog,'sort_price');
 			elseif($this->input->get('directing') == 'desc'):
-				$pagevar['catalog'] = $this->AssociateRSort($pagevar['catalog'],'sort_price');
+				$catalog = $this->AssociateRSort($catalog,'sort_price');
 			endif;
-			print_r($pagevar['catalog']);exit;
 		endif;
-		
-		$this->load->view("guests_interface/catalog",$pagevar);
+		return $this->reIndexArray($catalog);
 	}
 	
 }
