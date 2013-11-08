@@ -62,9 +62,12 @@
 					<p class="shop-sort"><?=lang('book_sort_by')?>: <a href="<?=site_url('catalog?sort=price&directing=desc'.$getSuffix)?>" class="sort-link"><?=lang('book_sort_price')?></a> <?=($arrowPos == 1)?$arrow:'';?> | <a href="<?=site_url('catalog?sort='.$this->uri->language_string.'_title&directing=desc'.$getSuffix)?>" class="sort-link"><?=lang('book_sort_title')?></a> <?=($arrowPos == 2)?$arrow:'';?> | <a href="<?=site_url('catalog?sort=rating&directing=desc'.$getSuffix)?>" class="sort-link"><?=lang('book_sort_rating')?></a> <?=($arrowPos == 3)?$arrow:'';?></p>
 				<?php endif;?>
 				<?php for($i=0;$i<count($catalog);$i++):?>
-					<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($catalog)-1))?' omega':'';?>">
+					<div class="top-shop<?=($i==0)?' alpha':'';?><?=($i==(count($catalog)-1))?' omega':'';?>">
 						<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$catalog[$i]));?>
 						<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$catalog[$i]['id'],'mySignedBook'=>$catalog[$i]['signed_book'],'in_basket'=>$catalog[$i]['book_in_basket']));?>
+						<div class="shop-desc">
+							<?=$catalog[$i][$this->uri->language_string.'_anonce']?>
+						</div>
 					</div>
 				<?php if(($i+1)%3 == 0):?>
 					<div class="clear"></div>
