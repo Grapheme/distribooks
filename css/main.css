@@ -78,6 +78,38 @@ textarea {
     resize: vertical;
 }
 
+.rating-f {
+	margin: 5px auto;
+}
+
+.rating-f .br-widget {
+    height: 24px;
+}
+
+.rating-f .br-widget a {
+    background: url('../img/star.png');
+    width: 24px;
+    height: 24px;
+    display: block;
+    float: left;
+}
+
+.rating-f .br-widget a:hover,
+.rating-f .br-widget a.br-active,
+.rating-f .br-widget a.br-selected {
+    background-position: 0 24px;
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio : 1.5),
+(min-resolution: 192dpi) {
+    .rating-f .br-widget a {
+        background: url('../img/star@2x.png');
+        background-size: 24px 48px;
+    }
+}
+
 /* ==========================================================================
    Chrome Frame prompt
    ========================================================================== */
@@ -1656,13 +1688,15 @@ input[type="radio"]:checked + label
 	color: #626261;
 	font-size: 10px;
 }
+
 .shop-top .author-big {
-	font-size: 12px;
+	margin-top: 10px;
+	margin-bottom: 10px
+}
+
+.shop-top .author-big a {
+	font-size: 13px;
 	color: #000;
-	text-decoration: underline;
-	margin: 0;
-	margin-top: 20px;
-	line-height: 1px;
 }
 
 .rating {
