@@ -37,7 +37,18 @@
 							<?=$news[$i][$this->uri->language_string.'_anonce'];?>
 						</p>
 						<a class="news-date all no-clickable" href=""><?=swapDotDateWithoutTime($news[$i]['date']);?></a>
-						<a class="share-product all" href="#"><img src="<?=baseURL('img/big-like.png');?>"><span><?=lang('book_share')?></span></a>
+						<div class="pluso-div">
+						<script type="text/javascript">(function() {
+						  if (window.pluso)if (typeof window.pluso.start == "function") return;
+						  if (window.ifpluso==undefined) { window.ifpluso = 1;
+						    var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+						    s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+						    s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+						    var h=d[g]('body')[0];
+						    h.appendChild(s);
+						  }})();</script>
+						<div class="pluso" data-url="<?=site_url($news[$i]['page_address']);?>" data-background="#ffffff" data-options="medium,square,line,vertical,nocounter,theme=01" data-services=""></div>
+	<span><?=lang('book_share')?></span></div>
 					</div>
 				</div>
 			<?php endfor;?>
