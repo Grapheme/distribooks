@@ -556,12 +556,13 @@ ul, li {
 	overflow: hidden;
 	height: 18px;
 	width: 95px;
+	text-align: left !important;
+	line-height: 13px !important;
 }
 
 .enter {
 	position: absolute;
 	top: 0;
-	right: 11px;
 	display: inline-block;
 	width: 18px;
 	height: 15px;
@@ -920,6 +921,7 @@ ul, li {
 	display: inline-block;
 	float: left;
 	width: 600px;
+	margin: 20px auto;
 }
 
 .news-date.all {
@@ -1038,7 +1040,6 @@ ul, li {
 
 .pluso {
 	margin-bottom: 20px;
-	background: #000 !important;
 }
 
 .share-product.all {
@@ -1125,6 +1126,13 @@ ul, li {
 	display: block;
 	height: 23px;
 	width: 23px;
+}
+
+.shoplus {
+	bottom: -15px;
+    display: block;
+    position: absolute;
+    right: -4px;
 }
 
 .shopi#play {
