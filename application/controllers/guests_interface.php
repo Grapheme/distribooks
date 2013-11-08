@@ -256,6 +256,19 @@ class Guests_interface extends MY_Controller{
 		$pagevar['novelty'] = $this->booksInBasket($pagevar['novelty']);
 		$pagevar['recommended'] = $this->mySignedBooks($pagevar['recommended']);
 		$pagevar['recommended'] = $this->booksInBasket($pagevar['recommended']);
+		
+		if($this->input->get('sort') == 'price'):
+			for($i=0;$i<count($pagevar['catalog']);$i++):
+				$pagevar['catalog'][$i]['sort_price'] = min($pagevar['catalog'][$i]['price'],$pagevar['catalog'][$i]['price_action']);
+			endfor;
+			if($this->input->get('directing') == 'asc'):
+				$pagevar['catalog'] = $this->AssociateSort($pagevar['catalog'],'sort_price');
+			elseif($this->input->get('directing') == 'desc'):
+				$pagevar['catalog'] = $this->AssociateRSort($pagevar['catalog'],'sort_price');
+			endif;
+			print_r($pagevar['catalog']);exit;
+		endif;
+		
 		$this->load->view("guests_interface/catalog",$pagevar);
 	}
 	
