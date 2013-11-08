@@ -110,6 +110,9 @@ class User_ajax_interface extends MY_Controller{
 		
 		$this->getAccountBasketBooks();
 		if($basket_list = $this->getBooksInBasket()):
+			for($i=0;$i<count($basket_list);$i++):
+				$basket_list[$i]['authors'] = $this->getAuthorsByIDs($basket_list[$i]['authors']);
+			endfor;	
 			$this->json_request['responseText'] = $this->load->view('guests_interface/html/basket/basket-full-lists',array('basket_list'=>$basket_list),TRUE);
 			$this->json_request['booksTotalPrice'] = $this->getBasketTotalPrice();
 			$this->json_request['status'] = TRUE;

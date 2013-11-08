@@ -28,8 +28,8 @@ $lang['menu_translation'] = "Перевод";
 $lang['menu_distribution'] = "Дистрибуция";
 
 $lang['gift_pad_h2'] = "Книга - лучший подарок";
-$lang['gift_pad_text'] = "Подарить книгу удобно через наш сайт";
-$lang['gift_pad_button'] = "Подарить";
+$lang['gift_pad_text'] = "Выберите книгу в нашем магазине";
+$lang['gift_pad_button'] = "Выбрать";
 
 $lang['book_shop_buyor'] = "Купить";
 $lang['book_shop_tocart'] = "В корзину";
@@ -41,8 +41,8 @@ $lang['book_sort_title'] = "Названию";
 $lang['book_sort_rating'] = "Рейтингу";
 $lang['book_in_basket'] = "В корзине";
 
-$lang['footer_menu_main'] = "Меню";
-$lang['footer_menu_services'] = "Услуги";
+$lang['footer_menu_main'] = "Меню:";
+$lang['footer_menu_services'] = "Услуги:";
 
 $lang['catalog_top_shop'] = "Лидеры продаж";
 $lang['catalog_novelty'] = "Новинки";

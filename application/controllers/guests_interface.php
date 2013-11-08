@@ -163,7 +163,7 @@ class Guests_interface extends MY_Controller{
 		
 		$pagevar = array(
 			'basket_list' => $this->getBooksInBasket()
-		);
+		);		
 		$this->load->view("guests_interface/basket",$pagevar);
 	}
 	/*********************************************** catalog ***********************************************************/
@@ -232,7 +232,8 @@ class Guests_interface extends MY_Controller{
 		endif;
 		for($i=0;$i<count($pagevar['catalog']);$i++):
 			$pagevar['catalog'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['catalog'][$i]['authors']);
-		endfor;
+		endfor;		
+		
 		for($i=0;$i<count($pagevar['bestsellers']);$i++):
 			$pagevar['bestsellers'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['bestsellers'][$i]['authors']);
 		endfor;

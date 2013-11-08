@@ -27,9 +27,9 @@ $lang['menu_typography'] = "Typography";
 $lang['menu_translation'] = "Translation";
 $lang['menu_distribution'] = "Distribution";
 
-$lang['gift_pad_h2'] = "The book - the best gift";
-$lang['gift_pad_text'] = "Give a book comfortably through our website";
-$lang['gift_pad_button'] = "Present";
+$lang['gift_pad_h2'] = "Book is the best gift";
+$lang['gift_pad_text'] = "Choose a book in our store";
+$lang['gift_pad_button'] = "Choose";
 
 $lang['book_shop_buyor'] = "Buy";
 $lang['book_shop_tocart'] = "Move to cart";
@@ -41,8 +41,8 @@ $lang['book_sort_title'] = "Title";
 $lang['book_sort_rating'] = "Rating";
 $lang['book_in_basket'] = "In cart";
 
-$lang['footer_menu_main'] = "Menu";
-$lang['footer_menu_services'] = "Services";
+$lang['footer_menu_main'] = "Menu:";
+$lang['footer_menu_services'] = "Services:";
 
 $lang['catalog_top_shop'] = "Bestsellers";
 $lang['catalog_novelty'] = "Novelty";
