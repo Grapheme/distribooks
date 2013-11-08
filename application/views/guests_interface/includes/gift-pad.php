@@ -3,6 +3,6 @@
 	<div>
 		<h2><span><?=lang('gift_pad_h2')?></span></h2>
 		<p><?=lang('gift_pad_text')?></p>
-		<a href="#" class="button red"><?=lang('gift_pad_button')?></a>
+		<a href="<?=site_url('catalog');?>" class="button red"><?=lang('gift_pad_button')?></a>
 	</div>
 </div>
