@@ -12214,7 +12214,153 @@
 			</treenode>
 		</phptree>
 		<jstree>
-			<treenode node="addToBasketBlock;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;141;2;173;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;141;2;173;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;141;2;173;;;;vpos;;v;;r;;d33,141;;b0,0;;mthis;;p">
+			<treenode node="addToBasketBlock;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;141;2;173;;;;vpos;;v;;r;;d33,141;;b0,0;;mthis;;p">
+				<treenode node="data;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;144;101;144;;;;vpos;;v;;r;;d38,144;;b0,0;;m">
+					<treenode node="_this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f48;144;53;144;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="beforeSend;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;145;27;145;;;;vpos;;v;;r;;d25,145;;b0,0;;m">
+				</treenode>
+				<treenode node="error;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;171;48;171;;;;vpos;;v;;r;;d46,171;;b0,0;;mxhr;;ptextStatus;;perrorThrown;;p">
+					<treenode node="errorThrown;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f34;171;45;171;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;171;33;171;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f19;171;22;171;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="success;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;146;4;170;;;;vpos;;v;;r;;d45,146;;b0,0;;mresponse;;ptextStatus;;pxhr;;p">
+					<treenode node="_this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f7;167;12;167;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="event;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f89;150;94;150;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="Localize;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f86;167;94;167;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f95;167;97;167;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="response;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f21;146;29;146;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;146;40;146;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f41;146;44;146;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="data;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;144;37;144;;;;vposdata;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f16;144;24;144;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;143;10;143;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f28;141;32;141;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;144;7;144;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;143;6;143;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="mainOptions;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;7;125;7;;;;vpos;;v;;r;;d19,7;;b0,0;;m">
+				<treenode node="beforeSubmit;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;7;45;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f97;7;105;7;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f47;7;49;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="success;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f67;7;74;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="target;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f20;7;26;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f113;7;117;7;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="refreshBasket;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;174;2;191;;;;vpos;;v;;r;;d25,174;;b0,0;;m">
+				<treenode node="beforeSend;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;178;27;178;;;;vpos;;v;;r;;d25,178;;b0,0;;m">
+				</treenode>
+				<treenode node="error;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;189;48;189;;;;vpos;;v;;r;;d46,189;;b0,0;;mxhr;;ptextStatus;;perrorThrown;;p">
+					<treenode node="errorThrown;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f34;189;45;189;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;189;33;189;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f19;189;22;189;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="success;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;179;4;188;;;;vpos;;v;;r;;d45,179;;b0,0;;mresponse;;ptextStatus;;pxhr;;p">
+					<treenode node="event;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f88;186;93;186;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="response;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f21;179;29;179;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;179;40;179;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f41;179;44;179;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f66;177;74;177;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;177;10;177;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f53;177;57;177;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;177;6;177;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="removeToBasketBlock;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;192;2;220;;;;vpos;;v;;r;;d37,192;;b0,0;;mbookID;;p">
+				<treenode node="data;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;195;53;195;;;;vpos;;v;;r;;d38,195;;b0,0;;m">
+					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f46;195;52;195;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="beforeSend;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;196;4;199;;;;vpos;;v;;r;;d25,196;;b0,0;;m">
+					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f44;197;50;197;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="error;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;215;4;218;;;;vpos;;v;;r;;d46,215;;b0,0;;mxhr;;ptextStatus;;perrorThrown;;p">
+					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f44;216;50;216;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="errorThrown;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f34;215;45;215;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;215;33;215;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f19;215;22;215;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="success;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;200;4;214;;;;vpos;;v;;r;;d45,200;;b0,0;;mresponse;;ptextStatus;;pxhr;;p">
+					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f45;202;51;202;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;206;13;206;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="response;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f21;200;29;200;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;200;40;200;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f41;200;44;200;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;192;36;192;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="data;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;195;37;195;;;;vposdata;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f16;195;24;195;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;194;10;194;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;195;7;195;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;194;6;194;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="actionBasketTarget;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;221;2;244;;;;vpos;;v;;r;;d30,221;;b0,0;;m">
+				<treenode node="action_percent;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;225;20;225;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="action_price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;224;18;224;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="configuration;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f7;230;20;230;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;226;12;226;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;230;27;230;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="total_price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;223;17;223;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="addToBasketBlock;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;141;2;173;;;;vpos;;v;;r;;d33,141;;b0,0;;mthis;;p">
 				<treenode node="data;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;144;101;144;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;144;101;144;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;144;101;144;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;144;101;144;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;144;101;144;;;;vpos;;v;;r;;d38,144;;b0,0;;m">
 					<treenode node="_this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f48;144;53;144;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f48;144;53;144;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f48;144;53;144;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f48;144;53;144;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f48;144;53;144;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
@@ -12256,6 +12402,18 @@
 				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;144;7;144;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;144;7;144;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;144;7;144;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;144;7;144;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;144;7;144;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;143;6;143;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;143;6;143;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;143;6;143;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;143;6;143;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;143;6;143;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="currencyExchange;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;99;2;110;;;;vpos;;v;;r;;d33,99;;b0,0;;mprice;;p">
+				<treenode node="configuration;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;104;21;104;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;103;13;103;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f24;104;28;104;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;101;7;101;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f27;99;32;99;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="deleteResource;JS:Function Name;S:\home\distribbooks.ru\www\js\libs\base.js;f3;63;1;83;;;;vpos;;v;;r;;d35,63;;b0,0;;m_this;;p">
@@ -12304,21 +12462,25 @@
 				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\libs\base.js;f2;70;5;70;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="mainOptions;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;7;125;7;;;;vpos;;v;;r;;d19,7;;b0,0;;m">
-				<treenode node="beforeSubmit;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;7;45;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="priceOnAction;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;245;2;264;;;;vpos;;v;;r;;d30,245;;b0,0;;mprice;;p">
+				<treenode node="action_percent;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;248;20;248;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f97;7;105;7;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="action_price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;247;18;247;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f47;7;49;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="configuration;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f7;252;20;252;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="success;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f67;7;74;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;251;12;251;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="target;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f20;7;26;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="currency;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;249;14;249;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f113;7;117;7;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;252;27;252;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;259;7;259;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f24;245;29;245;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="refreshBasket;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;174;2;191;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;174;2;191;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;174;2;191;;;;vpos;;v;;r;;d25,174;;b0,0;;m">
+			<treenode node="refreshBasket;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;174;2;191;;;;vpos;;v;;r;;d25,174;;b0,0;;m">
 				<treenode node="beforeSend;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;178;27;178;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;178;27;178;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;178;27;178;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;178;27;178;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;178;27;178;;;;vpos;;v;;r;;d25,178;;b0,0;;m">
 				</treenode>
 				<treenode node="error;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;189;48;189;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;189;48;189;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;189;48;189;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;189;48;189;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;189;48;189;;;;vpos;;v;;r;;d46,189;;b0,0;;mxhr;;ptextStatus;;perrorThrown;;p">
@@ -12348,7 +12510,27 @@
 				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;177;6;177;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;177;6;177;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;177;6;177;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;177;6;177;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;177;6;177;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="removeToBasketBlock;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;192;2;220;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;192;2;220;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;192;2;220;;;;vpos;;v;;r;;d37,192;;b0,0;;mbookID;;p">
+			<treenode node="removeBookInBasket;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;117;2;140;;;;vpos;;v;;r;;d35,117;;b0,0;;mthis;;p">
+				<treenode node="_this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f17;119;22;119;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="basket_books;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;121;15;121;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;119;12;119;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;120;12;120;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="cookieValue;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f9;126;20;126;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f18;121;22;121;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f25;124;27;124;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="newBasketBooks;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;124;22;124;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;117;34;117;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="removeToBasketBlock;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;192;2;220;;;;vpos;;v;;r;;d37,192;;b0,0;;mbookID;;p">
 				<treenode node="data;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;195;53;195;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;195;53;195;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;195;53;195;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;195;53;195;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;195;53;195;;;;vpos;;v;;r;;d38,195;;b0,0;;m">
 					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f46;195;52;195;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f46;195;52;195;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f46;195;52;195;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f46;195;52;195;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f46;195;52;195;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
@@ -12392,20 +12574,6 @@
 				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;194;6;194;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;194;6;194;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;194;6;194;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;194;6;194;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;194;6;194;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="actionBasketTarget;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;221;2;244;;;;vpos;;v;;r;;d30,221;;b0,0;;m">
-				<treenode node="action_percent;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;225;20;225;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="action_price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;224;18;224;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="configuration;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f7;230;20;230;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;226;12;226;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;230;27;230;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="total_price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;223;17;223;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</treenode>
 			<treenode node="ajaxBeforeSubmit;JS:Function Name;S:\home\distribbooks.ru\www\js\libs\base.js;f3;135;1;147;;;;vpos;;v;;r;;d55,135;;b0,0;;mformData;;pjqForm;;poptions;;p">
 				<treenode node="formData;JS:JS Var Name;S:\home\distribbooks.ru\www\js\libs\base.js;f31;135;39;135;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
@@ -12424,18 +12592,6 @@
 				<treenode node="statusText;JS:JS Var Name;S:\home\distribbooks.ru\www\js\libs\base.js;f45;148;55;148;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\libs\base.js;f56;148;59;148;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</treenode>
-			<treenode node="currencyExchange;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;99;2;110;;;;vpos;;v;;r;;d33,99;;b0,0;;mprice;;p">
-				<treenode node="configuration;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;104;21;104;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;103;13;103;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f24;104;28;104;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;101;7;101;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f27;99;32;99;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="defaultValidationErrorStatus;JS:Function Name;S:\home\distribbooks.ru\www\js\libs\base.js;f5;183;1;187;;;;vpos;;v;;r;;d46,183;;b0,0;;m">
@@ -12602,48 +12758,10 @@
 				<treenode node="user_email;JS:JS Var Name;S:\home\distribbooks.ru\www\js\libs\base.js;f5;92;15;92;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="priceOnAction;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;245;2;264;;;;vpos;;v;;r;;d30,245;;b0,0;;mprice;;p">
-				<treenode node="action_percent;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;248;20;248;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="action_price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;247;18;247;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="configuration;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f7;252;20;252;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;251;12;251;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="currency;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;249;14;249;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;252;27;252;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;259;7;259;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f24;245;29;245;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</treenode>
 			<treenode node="redirect;JS:Function Name;S:\home\distribbooks.ru\www\js\libs\base.js;f3;62;51;62;;;;vpos;;v;;r;;d28,62;;b0,0;;mpath;;p">
 				<treenode node="path;JS:JS Var Name;S:\home\distribbooks.ru\www\js\libs\base.js;f23;62;27;62;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="window;JS:JS Var Name;S:\home\distribbooks.ru\www\js\libs\base.js;f29;62;35;62;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</treenode>
-			<treenode node="removeBookInBasket;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;117;2;140;;;;vpos;;v;;r;;d35,117;;b0,0;;mthis;;p">
-				<treenode node="_this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f17;119;22;119;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="basket_books;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;121;15;121;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;119;12;119;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;120;12;120;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="cookieValue;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f9;126;20;126;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f18;121;22;121;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f25;124;27;124;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="newBasketBooks;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;124;22;124;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;117;34;117;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="setCookie;JS:Function Name;S:\home\distribbooks.ru\www\js\libs\cookies.js;f8;5;1;12;;;;vpos;;v;;r;;d67,5;;b0,0;;mname;;pvalue;;pexpires;;ppath;;pdomain;;psecure;;p">
@@ -15711,7 +15829,7 @@
 				</treenode>
 			</treenode>
 			<treenode node="showRequestDivForm;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\Codelobster0.js;f0;57;2;62;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;111;2;116;;;;vpos;;v;;r;;d37,111;;b0,0;;melement;;p">
-				<treenode node="element;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\Codelobster0.js;f29;57;36;57;;S:\home\distribbooks.ru\www\js\cabinet\Codelobster0.js;f29;57;36;57;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;110;36;110;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;110;36;110;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;110;36;110;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;111;36;111;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;111;36;111;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;111;36;111;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;111;36;111;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="element;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\Codelobster0.js;f29;57;36;57;;S:\home\distribbooks.ru\www\js\cabinet\Codelobster0.js;f29;57;36;57;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;110;36;110;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;110;36;110;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;110;36;110;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;111;36;111;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;111;36;111;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;111;36;111;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;111;36;111;;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;111;36;111;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="showToolTip;JS:Function Name;S:\home\distribbooks.ru\www\js\libs\base.js;f5;188;1;203;;;;vpos;;v;;r;;d40,188;;b0,0;;mToolTipText;;p">
@@ -22710,6 +22828,8 @@
 			<todo name="@todo - this needs to be made more general purpose" pos="6;1130"/>
 		</todofile>
 	</todoblock>
+	<dbgurls>
+	</dbgurls>
 	<filescache>
 		<file name="S:\home\distribbooks.ru\www\system\libraries\javascript\Jquery.php" crc="1251186840"/>
 		<file name="S:\home\distribbooks.ru\www\system\libraries\Cache\drivers\Cache_memcached.php" crc="1655735133"/>
