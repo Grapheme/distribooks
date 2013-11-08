@@ -256,7 +256,33 @@ class Guests_interface extends MY_Controller{
 		$pagevar['novelty'] = $this->booksInBasket($pagevar['novelty']);
 		$pagevar['recommended'] = $this->mySignedBooks($pagevar['recommended']);
 		$pagevar['recommended'] = $this->booksInBasket($pagevar['recommended']);
+		
+		$pagevar['catalog'] = $this->sortCatalogByPrice($pagevar['catalog']);
+//		print_r($pagevar['catalog']);exit;
 		$this->load->view("guests_interface/catalog",$pagevar);
+	}
+	
+	private function sortCatalogByPrice($catalog){
+		
+		if($this->input->get('sort') == 'price'):
+			for($i=0;$i<count($catalog);$i++):
+				if($catalog[$i]['price_action'] == 0):
+					$catalog[$i]['price_action'] = 1000000;
+				endif;
+				$catalog[$i]['sort_price'] = min($catalog[$i]['price'],$catalog[$i]['price_action']);
+			endfor;
+			for($i=0;$i<count($catalog);$i++):
+				if($catalog[$i]['price_action'] == 1000000):
+					$catalog[$i]['price_action'] = 0;
+				endif;
+			endfor;
+			if($this->input->get('directing') == 'asc'):
+				$catalog = $this->AssociateSort($catalog,'sort_price');
+			elseif($this->input->get('directing') == 'desc'):
+				$catalog = $this->AssociateRSort($catalog,'sort_price');
+			endif;
+		endif;
+		return $this->reIndexArray($catalog);
 	}
 	
 }
