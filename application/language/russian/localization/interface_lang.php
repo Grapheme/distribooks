@@ -28,8 +28,8 @@ $lang['menu_translation'] = "Перевод";
 $lang['menu_distribution'] = "Дистрибуция";
 
 $lang['gift_pad_h2'] = "Книга - лучший подарок";
-$lang['gift_pad_text'] = "Подарить книгу удобно через наш сайт";
-$lang['gift_pad_button'] = "Подарить";
+$lang['gift_pad_text'] = "Выберите книгу в нашем магазине";
+$lang['gift_pad_button'] = "Выбрать";
 
 $lang['book_shop_buyor'] = "Купить";
 $lang['book_shop_tocart'] = "В корзину";
