@@ -125,4 +125,7 @@ $lang['catalog_tag_keyword'] = "Все книги с тегом";
 $lang['catalog_tag_author'] = "Все книги автора";
 
 $lang['user_cabinet'] = "Мои книги";
+
+$lang['trailer'] = "Видеотрейлер";
+$lang['audio'] = "Аудиотрейлер";
 ?>

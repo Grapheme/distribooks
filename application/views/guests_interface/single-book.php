@@ -57,7 +57,7 @@
 				<div class="product-desc">
 					<?=$book[$this->uri->language_string.'_text']?>
 				</div>
-				<p><?=$book[$this->uri->language_string.'_video']?></p>
+				<p><?=lang('trailer');?>:</p>
 				<?php
 					if(!empty($book['trailers'])):
 						if($video_trailer = json_decode($book['trailers'],TRUE)):
@@ -67,7 +67,7 @@
 						endif;
 					endif;
 				?>
-				<p><?=$book[$this->uri->language_string.'_audio']?></p>
+				<p><?=lang('audio');?>:</p>
 				<?php
 					if(!empty($book['audio_recording'])):
 						if($audio_recording = json_decode($book['audio_recording'],TRUE)):
