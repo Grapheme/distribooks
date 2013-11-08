@@ -57,6 +57,26 @@
 				<div class="product-desc">
 					<?=$book[$this->uri->language_string.'_text']?>
 				</div>
+				<p><?=$book[$this->uri->language_string.'_video']?></p>
+				<?php
+					if(!empty($book['trailers'])):
+						if($video_trailer = json_decode($book['trailers'],TRUE)):
+							if(isset($video_trailer[0]) && !empty($video_trailer[0])):
+								echo $video_trailer[0];
+							endif;
+						endif;
+					endif;
+				?>
+				<p><?=$book[$this->uri->language_string.'_audio']?></p>
+				<?php
+					if(!empty($book['audio_recording'])):
+						if($audio_recording = json_decode($book['audio_recording'],TRUE)):
+							if(isset($audio_recording[0]) && !empty($audio_recording[0])):
+								echo $audio_recording[0];
+							endif;
+						endif;
+					endif;
+				?>
 			</div>
 		</div>
 		<div class="clear"></div>

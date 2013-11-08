@@ -38,4 +38,4 @@
 	<a href="#" class="shoplus">
 		<div class="pluso" data-url="<?=site_url($book['page_address'])?>" data-background="transparent" data-options="medium,square,line,vertical,nocounter,theme=01" data-services=""></div>
 	</a>
-<?php endif;?>
+<?php endif; ?>
