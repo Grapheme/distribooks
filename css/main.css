@@ -1034,7 +1034,11 @@ ul, li {
 	font-size: 12px;
 	display: block;
 	width: 105px;
-	margin-left: -33px;
+}
+
+.pluso {
+	margin-bottom: 20px;
+	background: #000 !important;
 }
 
 .share-product.all {
