@@ -17,7 +17,7 @@
 			<?php endif;?>
 			</div>
 			<div style="float: right;">
-				<p class="basket-item-name all"><?=lang('basket_total');?>:</p>
+				<!--<p class="basket-item-name all"><?=lang('basket_total');?>:</p>-->
 				<p class="basket-price basket-total-price" style="border: 0;"><?=$this->account_basket['basket_total_price'];?></p>
 				<div class="basket-one-buy">
 					<a href="<?=site_url('basket')?>" class="buy buy-all"><?=lang('basket_buy');?></a>

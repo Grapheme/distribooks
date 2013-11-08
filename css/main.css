@@ -805,6 +805,7 @@ ul, li {
 
 .shop-top {
 	overflow: hidden;
+	height: 150px;
 }
 
 .shop-img {
@@ -1627,7 +1628,6 @@ input[type="radio"]:checked + label
 	color: #626261;
 	margin: 0;
 	margin-top: 10px;
-	line-height: 1px;
 }
 
 .basket-author {
