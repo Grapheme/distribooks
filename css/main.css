@@ -88,8 +88,8 @@ textarea {
 
 .rating-f .br-widget a {
     background: url('../img/star.png');
-    width: 24px;
-    height: 24px;
+    width: 21px;
+    height: 19px;
     display: block;
     float: left;
 }
@@ -97,7 +97,7 @@ textarea {
 .rating-f .br-widget a:hover,
 .rating-f .br-widget a.br-active,
 .rating-f .br-widget a.br-selected {
-    background-position: 0 24px;
+    background-position: 0 19px;
 }
 
 @media
@@ -1164,7 +1164,7 @@ ul, li {
 }
 
 .shoplus {
-	bottom: -15px;
+	bottom: -11px;
     display: block;
     position: absolute;
     right: -4px;
@@ -2234,6 +2234,11 @@ input[type="radio"]:checked + label
 	width: 38%;
 }
 
+.itrailer {
+	width: 372px;
+	height: 200px;
+}
+
 footer {
 	min-width: 480px;
 	background: #00749c;
@@ -2864,6 +2869,11 @@ input[type="checkbox"].cart-check:checked + label
 
 @media screen and (min-width: 768px) and (max-width: 960px) {
 	
+	.itrailer {
+		width: 296px;
+		height: 200px;
+	}
+	
 	.search-title {
 		margin-top: 40px !important;
 	}
@@ -3016,6 +3026,7 @@ input[type="checkbox"].cart-check:checked + label
 	.intext {
 		font-size: 15px;
 		line-height: 28px;
+		margin-left: 13px;
 	}
 	
 	.slider-i img {

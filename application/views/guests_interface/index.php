@@ -55,16 +55,12 @@
 					</div>
 				</div>
 			<?php endif;?>
-			<?php for($i=0;$i<2;$i++):?>
 				<div class="grid_2 vidiv">
-					<a href="#" class="vid-like"><img src="<?=baseURL('img/shop-like.png');?>"><?=lang('book_share');?></a>
-					<a href="#" class="vid-name">Softman</a>
-					<a href="#" class="vid-play"></a>
-					<a href="#" class="vid" style="background-image: url('<?=baseURL('img/vid.png');?>');">
-						<img class="adult" src="<?=baseURL('img/adult.png');?>">
-					</a>
+					<iframe class="itrailer" src="//www.youtube.com/embed/YoaNmkOPICA" frameborder="0" allowfullscreen></iframe>
 				</div>
-			<?php endfor;?>
+				<div class="grid_2 vidiv">
+					<iframe class="itrailer" width="372" height="200" src="//www.youtube.com/embed/YoaNmkOPICA" frameborder="0" allowfullscreen></iframe>
+				</div>
 			</div>
 		</div>
 		<?php $this->load->view('guests_interface/includes/footer');?>
