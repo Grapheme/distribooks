@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	
+	$('.example-f').barrating({ showSelectedRating:false });
+	
 	$(".enter-text").click(function(){
 		$(".dark-screen").fadeIn("fast");
 		$(".window-auth").fadeIn("fast");
