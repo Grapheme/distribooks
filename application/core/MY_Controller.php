@@ -854,8 +854,6 @@ class MY_Controller extends CI_Controller{
 	/* -------------------------------------------------------------------------------------------- */
 	public function getAuthorsByIDs($authors){
 		
-		//var_dump(explode(',',$authors));exit;
-		
 		$authorsList = array();
 		if($authorsIDs = explode(',',$authors)):
 			$this->load->model('authors');
