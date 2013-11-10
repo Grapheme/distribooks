@@ -1,10 +1,9 @@
-<div class="rating">
-	<?=lang('book_ballot')?>
-	<div>
-		<img src="<?=baseURL('img/star.png');?>">
-		<img src="<?=baseURL('img/star.png');?>">
-		<img src="<?=baseURL('img/star.png');?>">
-		<img src="<?=baseURL('img/star-none.png');?>">
-		<img src="<?=baseURL('img/star-none.png');?>">
-	</div>
+<div class="input select rating-f">
+    <select class="example-f" name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
 </div>

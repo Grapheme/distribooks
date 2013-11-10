@@ -85,16 +85,12 @@
 				<div style="position: relative;"><img src="<?=baseURL('img/shadow-top.png');?>" class="shadow-top"></div>
 				<div class="grid_1 gift shop">&nbsp;</div>
 				<div class="grid_1 pos1">&nbsp;</div>
-				<?php for($i=0;$i<count($trailers);$i++):?>
 				<div class="grid_2 vidiv">
-					<a href="#" class="vid-like"><img src="<?=baseURL('img/shop-like.png');?>"><?=lang('book_share')?></a>
-					<a href="#" class="vid-name">Softman</a>
-					<a href="#" class="vid-play"></a>
-					<a href="#" class="vid" style="background-image: url('<?=baseURL('img/vid.png');?>');">
-						<img class="adult" src="<?=baseURL('img/adult.png');?>">
-					</a>
+					<iframe class="itrailer" src="//www.youtube.com/embed/YoaNmkOPICA" frameborder="0" allowfullscreen></iframe>
 				</div>
-				<?php endfor;?>
+				<div class="grid_2 vidiv">
+					<iframe class="itrailer" width="372" height="200" src="//www.youtube.com/embed/YoaNmkOPICA" frameborder="0" allowfullscreen></iframe>
+				</div>
 			</div>
 		</div>
 		<div class="container_5">

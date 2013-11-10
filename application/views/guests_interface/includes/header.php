@@ -62,7 +62,7 @@
 					<div style="position: absolute; bottom: -1px; right: 0;">
 						<a href="skype:DistibBooks?call" class="top-contact"><img src="<?=baseURL('img/skype.png');?>">DistibBooks</a>
 					<?php if($this->project_config['action_percent'] > 0):?>
-						<a href="#" class="red button no-clickable"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>
+						<a href="<?=site_url('sale');?>" class="red button"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>
 					<?php endif;?>
 					</div>
 				</div>
@@ -114,7 +114,7 @@
 				<div class="min-right">
 					<div class="min-div-left">
 					<?php if($this->project_config['action_percent'] > 0):?>
-						<a href="#" class="red button no-clickable"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a><br>
+						<a href="<?=site_url('sale');?>" class="red button"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a><br>
 					<?php endif;?>
 						<a href="#" class="blue button menu-open no-clickable"><?=lang('top_menu_main');?></a>
 					</div>

@@ -125,4 +125,7 @@ $lang['catalog_tag_keyword'] = "All books tagged as";
 $lang['catalog_tag_author'] = "All books by";
 
 $lang['user_cabinet'] = "My books";
+
+$lang['trailer'] = "Videotrailer";
+$lang['audio'] = "Audiotrailer";
 ?>

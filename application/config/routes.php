@@ -97,6 +97,7 @@ $route[ADMIN_START_PAGE.'/pages/:any/edit'] = "admin_interface/editPages";
 $route['news(\/:any)*?'] = "guests_interface/news";
 
 $route['about'] = "guests_interface/about";
+$route['sale'] = "guests_interface/sale";
 $route['catalog(\/:any)*?'] = "guests_interface/catalog";
 $route['editing'] = "guests_interface/editing";
 $route['typography'] = "guests_interface/typography";

@@ -23,7 +23,7 @@
 		endif;
 	endif;
 ?>
-<?php if($this->loginstatus === TRUE && !isset($big_icons)):?>
+
 					<script type="text/javascript">(function() {
 					  if (window.pluso)if (typeof window.pluso.start == "function") return;
 					  if (window.ifpluso==undefined) { window.ifpluso = 1;
@@ -38,4 +38,3 @@
 	<a href="#" class="shoplus">
 		<div class="pluso" data-url="<?=site_url($book['page_address'])?>" data-background="transparent" data-options="medium,square,line,vertical,nocounter,theme=01" data-services=""></div>
 	</a>
-<?php endif;?>

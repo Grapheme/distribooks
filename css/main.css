@@ -78,6 +78,38 @@ textarea {
     resize: vertical;
 }
 
+.rating-f {
+	margin: 5px auto;
+}
+
+.rating-f .br-widget {
+    height: 24px;
+}
+
+.rating-f .br-widget a {
+    background: url('../img/star.png');
+    width: 21px;
+    height: 19px;
+    display: block;
+    float: left;
+}
+
+.rating-f .br-widget a:hover,
+.rating-f .br-widget a.br-active,
+.rating-f .br-widget a.br-selected {
+    background-position: 0 19px;
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio : 1.5),
+(min-resolution: 192dpi) {
+    .rating-f .br-widget a {
+        background: url('../img/star@2x.png');
+        background-size: 24px 48px;
+    }
+}
+
 /* ==========================================================================
    Chrome Frame prompt
    ========================================================================== */
@@ -1132,7 +1164,7 @@ ul, li {
 }
 
 .shoplus {
-	bottom: -15px;
+	bottom: -11px;
     display: block;
     position: absolute;
     right: -4px;
@@ -1481,7 +1513,6 @@ input[type="radio"]:checked + label
 	padding-bottom: 15px;
 	background: #007195;
 	border-radius: 5px;
-	overflow: hidden;
 }
 
 .after-recall-div {
@@ -1656,13 +1687,15 @@ input[type="radio"]:checked + label
 	color: #626261;
 	font-size: 10px;
 }
+
 .shop-top .author-big {
-	font-size: 12px;
+	margin-top: 10px;
+	margin-bottom: 10px
+}
+
+.shop-top .author-big a {
+	font-size: 13px;
 	color: #000;
-	text-decoration: underline;
-	margin: 0;
-	margin-top: 20px;
-	line-height: 1px;
 }
 
 .rating {
@@ -2201,6 +2234,11 @@ input[type="radio"]:checked + label
 	width: 38%;
 }
 
+.itrailer {
+	width: 372px;
+	height: 200px;
+}
+
 footer {
 	min-width: 480px;
 	background: #00749c;
@@ -2635,8 +2673,6 @@ footer .button {
 
 .format-select {
 	width: 100px;
-	background: url('../img/search-button.png') no-repeat right #fff;
-	overflow: hidden;
 	border: 1px solid #aaaaaa;
 	border-radius: 3px;
 	height: 18px;
@@ -2655,9 +2691,8 @@ footer .button {
 
 .search-full select {
 	background: transparent;
-	width: 120px;
+	width: 100px;
 	border: 0;
-	width: 120px;
 	height: 18px;
 	font-size: 12px;
 	padding-left: 5px;
@@ -2834,6 +2869,11 @@ input[type="checkbox"].cart-check:checked + label
 
 @media screen and (min-width: 768px) and (max-width: 960px) {
 	
+	.itrailer {
+		width: 296px;
+		height: 200px;
+	}
+	
 	.search-title {
 		margin-top: 40px !important;
 	}
@@ -2986,6 +3026,7 @@ input[type="checkbox"].cart-check:checked + label
 	.intext {
 		font-size: 15px;
 		line-height: 28px;
+		margin-left: 13px;
 	}
 	
 	.slider-i img {
