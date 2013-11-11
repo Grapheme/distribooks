@@ -11,14 +11,14 @@
 		<?php endfor;?>
 		</p>
 		<div class="input select rating-f">
-            <select class="example-f" name="rating">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-        </div>
+			<select class="example-f" name="rating">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</div>
 		<a href="<?=site_url('catalog?genre='.$book['genre']);?>" class="genre"><?=$book['genre_title'];?></a>
 		<?php $this->load->view('guests_interface/html/book-price');?>
 	</div>
