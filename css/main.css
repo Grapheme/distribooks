@@ -998,10 +998,6 @@ ul, li {
 	text-decoration: none;
 }
 
-.formats-title:hover {
-	text-decoration: inline;
-}
-
 .format {
 	font-size: 11px;
 	margin-top: 10px;
