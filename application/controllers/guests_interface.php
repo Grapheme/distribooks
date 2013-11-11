@@ -183,8 +183,8 @@ class Guests_interface extends MY_Controller{
 			'breadcrumbs' => array('catalog'=>lang('catalog_catalog')),
 			'bestsellers' => $this->getBestSellers(),
 			'trailers' => array('1','2'),
-			'novelty' => array(),
-			'recommended' => array(),
+			'novelty' => $this->books_card->limit(4,0,'id DESC'),
+			'recommended' => $this->getRecommended(),
 			'catalog' => array(),
 			'pages' => NULL,
 			'basket_list' => $this->getBooksInBasket()
@@ -240,7 +240,7 @@ class Guests_interface extends MY_Controller{
 		endif;
 		for($i=0;$i<count($pagevar['catalog']);$i++):
 			$pagevar['catalog'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['catalog'][$i]['authors']);
-		endfor;		
+		endfor;
 		
 		for($i=0;$i<count($pagevar['bestsellers']);$i++):
 			$pagevar['bestsellers'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['bestsellers'][$i]['authors']);
@@ -269,7 +269,7 @@ class Guests_interface extends MY_Controller{
 		$this->load->view("guests_interface/catalog",$pagevar);
 	}
 	
-	private function getBestSellers($limit = 3){
+	private function getBestSellers($limit = 4){
 		
 		$BestSellers = array();
 		$this->load->model(array('signed_books','books_card'));
@@ -281,6 +281,13 @@ class Guests_interface extends MY_Controller{
 			endif;
 		endif;
 		return $BestSellers;
+	}
+	
+	private function getRecommended($limit = 4){
+		
+		$this->load->model('books_card');
+		$sql = "SELECT *,(price - price_action) AS max_subprice FROM books_card WHERE price > 0 && price_action > 0 ORDER BY max_subprice DESC LIMIT $limit";
+		return $this->books_card->execute($sql);
 	}
 	
 	private function sortCatalogByPrice($catalog){
