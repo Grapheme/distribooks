@@ -88,13 +88,8 @@ textarea {
 
 .rating-f .br-widget a {
     background: url('../img/star.png');
-<<<<<<< HEAD
-    width: 24px;
-    height: 24px;
-=======
     width: 21px;
     height: 19px;
->>>>>>> c80021820b22707e858d19c3ee5e1468fa98f21d
     display: block;
     float: left;
 }
@@ -102,11 +97,7 @@ textarea {
 .rating-f .br-widget a:hover,
 .rating-f .br-widget a.br-active,
 .rating-f .br-widget a.br-selected {
-<<<<<<< HEAD
-    background-position: 0 24px;
-=======
     background-position: 0 19px;
->>>>>>> c80021820b22707e858d19c3ee5e1468fa98f21d
 }
 
 @media
@@ -133,7 +124,14 @@ only screen and (min-device-pixel-ratio : 1.5),
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-  
+ 
+.donation-info {
+	position: relative;
+	top: 115px;
+	left: 55px;
+	overflow: hidden;
+}
+
 .active-lang {
 	opacity: 0.3;
 }
@@ -1243,10 +1241,12 @@ ul, li {
 	width: 600px;
 	background: #88b41f;
 	left: 50%;
-	margin-left: -300px;
+	margin-left: -210px;
 	top: 15%;
 	z-index: 9999;
 	border-radius: 5px;
+	height: 500px;
+	width: 420px;
 }
 
 .how-much {
@@ -1366,9 +1366,6 @@ ul, li {
 	color: #fff;
 	font-size: 12px;
 	width: 300px;
-	margin: 0;
-	margin-left: 20px;
-	margin-top: -5px;
 }
 
 .donate-link {
