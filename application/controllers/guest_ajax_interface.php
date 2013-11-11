@@ -157,5 +157,15 @@ class Guest_ajax_interface extends MY_Controller{
 		echo json_encode($this->json_request);
 	}
 
-
+	public function requestCall(){
+		
+		if($this->postDataValidation('request_call')):
+			$mailtext = $this->load->view('mails/request-call',array('post'=>$this->input->post()),TRUE);
+			$this->sendMail(TO_BASE_EMAIL,FROM_BASE_EMAIL,'Distribboks','Новый заказ на звонок',$mailtext);
+			$this->json_request['status'] = TRUE;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
 }
