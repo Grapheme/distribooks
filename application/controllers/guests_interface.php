@@ -30,7 +30,7 @@ class Guests_interface extends MY_Controller{
 			'page_content'=> array(),
 			'sliderExist' =>TRUE,
 			'news' => $this->news->limit(3),
-			'novelty' => $this->books_card->limit(4),
+			'novelty' => $this->books_card->limit(4,0,'id DESC'),
 			'basket_list' => $this->getBooksInBasket()
 		);
 		for($i=0;$i<count($pagevar['novelty']);$i++):

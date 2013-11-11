@@ -66,5 +66,8 @@
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>
+	
+	<script type="text/javascript" src="<?=baseURL('js/vendor/jquery.barrating.js');?>"></script>
+	<script type="text/javascript" src="<?=baseURL('js/cabinet/barrating-config.js')?>"></script>
 </body>
 </html>
