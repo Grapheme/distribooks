@@ -35,7 +35,6 @@
 			</div>
 			<div class="grid_4 news-one">
 				<div style="margin-bottom: 25px;">
-					<a class="share-product typo" href="#"><img src="<?=baseURL('img/big-like.png');?>"><span>Поделиться</span></a>
 					<p class="title-1">Подробнее о доступных форматах</p>
 				</div>
 			<?php for($i=0;$i<count($formats);$i++):?>
