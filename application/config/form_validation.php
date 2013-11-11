@@ -55,5 +55,9 @@
 		'buy_book' =>array(
 			array('field'=>'book','label'=>'Номер книги','rules'=>'required|trim|integer')
 		),
+		'book_rating' => array(
+			array('field'=>'book','label'=>'Номер книги','rules'=>'required|trim|integer'),
+			array('field'=>'rating','label'=>'Рейтинг','rules'=>'required|trim|integer')
+		)
 	);
 ?>
