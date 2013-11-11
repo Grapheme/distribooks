@@ -42,6 +42,8 @@ class Users_interface extends MY_Controller{
 
 	public function downloadBookFile(){
 		
+		show_404();
+		
 		$this->load->model(array('signed_books','books'));
 		if($signedBook = $this->validSignedBook($this->input->get('book'))):
 			if(!empty($signedBook['files'])):
@@ -61,7 +63,7 @@ class Users_interface extends MY_Controller{
 									header('Content-Length: '.filesize($files[$i]['full_path']));
 									header('Connection: close');
 									readfile($files[$i]['full_path']);
-									exit();
+									exit;
 								endif;
 							endif;
 						endfor;

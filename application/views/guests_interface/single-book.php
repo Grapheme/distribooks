@@ -40,7 +40,15 @@
 								<a href="<?=site_url('catalog?author='.$authors[$j]['id'])?>"><?=$authors[$j][$this->uri->language_string.'_name'];?></a><?php if(isset($book['authors'][$j+1])):?>, <?php endif;?>
 							<?php endfor;?>
 							</p>
-							<?php $this->load->view('guests_interface/html/book-rating',array('disabled'=>FALSE,'bookID'=>$book['id']))?>
+							<?php
+								$disabled = TRUE;
+								if($this->loginstatus === TRUE && $this->account['group'] == USER_GROUP_VALUE):
+									if($book['signed_book'] === TRUE):
+										$disabled = FALSE;
+									endif;
+								endif;
+							?>
+							<?php $this->load->view('guests_interface/html/book-rating',array('disabled'=>$disabled,'bookID'=>$book['id']))?>
 							<?php $this->load->view('guests_interface/html/book-price');?>
 							<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$book['id'],'mySignedBook'=>$book['signed_book'],'in_basket'=>$book['book_in_basket']));?>
 							<div class="pos3-no">

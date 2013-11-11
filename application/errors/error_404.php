@@ -38,7 +38,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="grid_4 news-one">
 				<div class="not-found">
 					<p class="not-found-title" id="menu"><?=lang('404_menu')?>:</p>

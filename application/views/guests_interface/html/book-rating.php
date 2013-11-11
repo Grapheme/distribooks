@@ -1,5 +1,5 @@
 <div class="input select rating-f">
-	<select class="select-rating book-ratind<?=($disabled === TRUE)?'-disabled':'';?>" name="rating" data-book-id="<?=$bookID;?>" >
+	<select autocomplete="off" class="select-rating book-ratind<?=($disabled === TRUE)?'-disabled':'';?>" name="rating" data-book-id="<?=$bookID;?>" >
 		<option value="1"<?=($book['rating'] == 1)?' selected="selected"':'';?>>1</option>
 		<option value="2"<?=($book['rating'] == 2)?' selected="selected"':'';?>>2</option>
 		<option value="3"<?=($book['rating'] == 3)?' selected="selected"':'';?>>3</option>
