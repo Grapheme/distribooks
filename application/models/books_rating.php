@@ -11,4 +11,14 @@ class Books_rating extends MY_Model{
 		parent::__construct();
 	}
 	
+	function getTotalRatingSumma($bookID){
+		
+		$this->db->select_sum('value','rating');
+		$this->db->where('book',$bookID);
+		$query = $this->db->get($this->table);
+		if($data = $query->result_array()):
+			return $data[0]['rating'];
+		endif;
+		return NULL;
+	}
 }

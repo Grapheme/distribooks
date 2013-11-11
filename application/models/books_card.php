@@ -84,4 +84,5 @@ class Books_card extends MY_Model{
 		endif;
 		return NULL;
 	}
+	
 }

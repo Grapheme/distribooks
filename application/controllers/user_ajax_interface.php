@@ -47,18 +47,6 @@ class User_ajax_interface extends MY_Controller{
 			endif;
 		endif;
 		echo json_encode($this->json_request);
-		
-		/*if($this->postDataValidation('buy_book')):
-			if($signedID = $this->buyBook($this->input->post('book'))):
-				$this->json_request['status'] = TRUE;
-				$this->json_request['responseText'] = 'Книга куплена успешно';
-				$this->load->model('books_card');
-				$this->json_request['redirect'] = site_url($this->uri->language_string.'/'.$this->books_card->value($this->input->post('book'),'page_address'));
-			endif;
-		else:
-			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
-		endif;*/
-		
 	}
 	
 	public function addBookInBasket(){
@@ -127,4 +115,42 @@ class User_ajax_interface extends MY_Controller{
 		$this->json_request['status'] = TRUE;
 		echo json_encode($this->json_request);
 	}
+
+	public function setBookRating(){
+		
+		
+		if(isUserLoggined()):
+			if($this->postDataValidation('book_rating')):
+				if($book = $this->validSignedBook($this->input->post('book'))):
+					$this->load->model('books_rating');
+					if($ratingID = $this->books_rating->search('book',$this->input->post('book'),array('account'=>$this->account['id']))):
+						$update = array('id'=>$ratingID,'value'=>$this->input->post('rating'));
+						$this->updateItem(array('update'=>$update,'model'=>'books_rating'));
+						$this->json_request['status'] = TRUE;
+					else:
+						$insert = array('book'=>$this->input->post('book'),'account'=>$this->account['id'],'value'=>$this->input->post('rating'));
+						$this->json_request['status'] = $this->insertItem(array('insert'=>$insert,'model'=>'books_rating'));
+					endif;
+					$this->updateBookRating($this->input->post('book'));
+				endif;
+			else:
+				$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+			endif;
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	private function updateBookRating($bookID){
+		
+		$this->load->model(array('books_rating','books'));
+		$total_summa = $this->books_rating->getTotalRatingSumma($bookID);
+		$total_count = $this->books_rating->countAllResults(array('book'=>$bookID));
+		if($total_summa > 0 && $total_count > 0):
+			$rating = ceil($total_summa/$total_count);
+			$this->books->updateField($bookID,'rating',$rating);
+			return TRUE;
+		endif;
+		return FALSE;
+	}
+	
 }
