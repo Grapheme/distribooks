@@ -1,4 +1,41 @@
-<form action="">
+<a href="#" class="donate-close"></a>
+	<div class="donate-top">
+		<img class="donate-top-img" src="<?=baseURL('img/big-coins.png');?>">
+		<div class="donate-text"><?=lang('form_donation_thank_you')?></div>
+	</div>
+	
+	<div class="donation-info">
+		<p>
+					Р/с &nbsp;
+			40817810004410010709 (RUR)
+			
+			<br>
+			
+			
+			в банке ОАО «Альфа-Банк» г. Москва
+			<br>
+			
+			БИК:
+			
+			044525593<br>
+			
+			Кор. Счет: 
+			
+			
+			30101810200000000593<br>
+			
+			ИНН Банка:
+			
+			  7728168971<br>
+			
+			КПП Банка:
+			
+			  775001001<br>
+  		</p>
+		<p class="donate-another-text"><?=lang('form_donate_another_text')?>:</p>
+	</div>
+
+<!--<form action="">
 	<a href="#" class="donate-close"></a>
 	<div class="donate-top">
 		<img class="donate-top-img" src="<?=baseURL('img/big-coins.png');?>">
@@ -48,4 +85,4 @@
 		<a href="#" class="donate-link" id="visa"></a>
 		<a href="#" class="donate-link" id="mc"></a>
 	</div>
-</form>
+</form>-->

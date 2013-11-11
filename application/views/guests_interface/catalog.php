@@ -138,7 +138,6 @@
 				<div class="clear"></div>
 			</div>
 		<?php endif;?>
-		
 		</div>
 		<div class="clearfix"></div>
 		<?php $this->load->view('guests_interface/html/yelow-block');?>
