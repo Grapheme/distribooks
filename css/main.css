@@ -88,13 +88,8 @@ textarea {
 
 .rating-f .br-widget a {
     background: url('../img/star.png');
-<<<<<<< HEAD
-    width: 24px;
-    height: 24px;
-=======
     width: 21px;
     height: 19px;
->>>>>>> c80021820b22707e858d19c3ee5e1468fa98f21d
     display: block;
     float: left;
 }
@@ -102,11 +97,7 @@ textarea {
 .rating-f .br-widget a:hover,
 .rating-f .br-widget a.br-active,
 .rating-f .br-widget a.br-selected {
-<<<<<<< HEAD
-    background-position: 0 24px;
-=======
     background-position: 0 19px;
->>>>>>> c80021820b22707e858d19c3ee5e1468fa98f21d
 }
 
 @media
@@ -3606,7 +3597,7 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.not-found-title#usl {
-		left: 365px;
+		left: 365px;
 	}
 	
 	.not-found-title {
