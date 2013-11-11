@@ -38,7 +38,7 @@ class Books extends MY_Model{
 	
 	function getBooksByIDs($IDs){
 
-		$this->db->select('id,ru_title AS name,ru_title,en_title,price,price_action,currency');
+		$this->db->select($this->_fields());
 		$this->db->where_in('id',$IDs);
 		$query = $this->db->get($this->table);
 		if($data = $query->result_array()):

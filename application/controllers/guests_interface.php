@@ -106,6 +106,14 @@ class Guests_interface extends MY_Controller{
 		);
 		$this->load->view("guests_interface/about",$pagevar);
 	}
+
+	public function sale(){
+		$pagevar = array(
+			'page_content'=>array(),
+			'basket_list' => $this->getBooksInBasket()
+		);
+		$this->load->view("guests_interface/sale",$pagevar);		
+	}
 	
 	public function editing(){
 		
@@ -163,7 +171,7 @@ class Guests_interface extends MY_Controller{
 		
 		$pagevar = array(
 			'basket_list' => $this->getBooksInBasket()
-		);		
+		);
 		$this->load->view("guests_interface/basket",$pagevar);
 	}
 	/*********************************************** catalog ***********************************************************/
@@ -173,10 +181,10 @@ class Guests_interface extends MY_Controller{
 		$pagevar = array(
 			'page_content'=> array(),
 			'breadcrumbs' => array('catalog'=>lang('catalog_catalog')),
-			'bestsellers' => $this->books_card->limit(6),
+			'bestsellers' => $this->getBestSellers(),
 			'trailers' => array('1','2'),
-			'novelty' => $this->books_card->limit(6),
-			'recommended' => $this->books_card->limit(6),
+			'novelty' => array(),
+			'recommended' => array(),
 			'catalog' => array(),
 			'pages' => NULL,
 			'basket_list' => $this->getBooksInBasket()
@@ -258,8 +266,21 @@ class Guests_interface extends MY_Controller{
 		$pagevar['recommended'] = $this->booksInBasket($pagevar['recommended']);
 		
 		$pagevar['catalog'] = $this->sortCatalogByPrice($pagevar['catalog']);
-//		print_r($pagevar['catalog']);exit;
 		$this->load->view("guests_interface/catalog",$pagevar);
+	}
+	
+	private function getBestSellers($limit = 3){
+		
+		$BestSellers = array();
+		$this->load->model(array('signed_books','books_card'));
+		$sql = "SELECT book AS id,COUNT(*) AS max_signed FROM signed_books GROUP BY book ORDER BY max_signed DESC LIMIT $limit";
+		if($maxSigned = $this->signed_books->execute($sql)):
+			if($booksIDs = $this->getValuesInArray($maxSigned)):
+				$BestSellers = $this->books_card->getBooksByIDs($booksIDs);
+				$BestSellers = $this->getBooksSortByIDs($BestSellers,$booksIDs);
+			endif;
+		endif;
+		return $BestSellers;
 	}
 	
 	private function sortCatalogByPrice($catalog){

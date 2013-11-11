@@ -11,7 +11,7 @@ $(document).ready(function(){
 		$(".window-donation").fadeIn("fast");
 	});
 	
-	$(".dark-screen").click(function() {
+	$(".dark-screen").click(function(){
 		$(".dark-screen").fadeOut("fast");
 		$(".window-donation").fadeOut("fast");
 		$(".request-div").fadeOut("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
@@ -27,28 +27,28 @@ $(document).ready(function(){
 	var recall = "close";
 	
 	$(".recall").click(function () {
-		if( recall == "open" ) {
-			$(".recall-div").slideUp("fast");
+		if(recall == "open"){
+			$(".recall-div").slideUp("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
 			recall = "close";
-		} else {
+		}else{
 			$(".recall-div").css({
-				"top:" : $(this).offset().top,
-				"left" : $(this).offset().left
+				"top:":$(this).offset().top,
+				"left":$(this).offset().left
 			});
-			$(".recall-div").slideDown("fast");
-			recall = "open";	
+			$(".recall-div").slideDown("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
+			recall = "open";
 		}
 	});
 	
 	$(document).click(function(event) {
-    	if ($(event.target).closest(".recall-div,.recall").length) return;
-   		$(".recall-div").slideUp("fast");
-   		recall = "close";
-  	});
-  	
-  	var minmenu = "close";
-  	
-  	$(".menu-open").click(function () {
+	if($(event.target).closest(".recall-div,.recall").length) return;
+		$(".recall-div").slideUp("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
+		recall = "close";
+	});
+
+	var minmenu = "close";
+
+	$(".menu-open").click(function () {
 		if( minmenu == "open" ) {
 			$(".min-menu").slideUp("fast");
 			minmenu = "close";

@@ -29,7 +29,7 @@
 			<?php for($i=0;$i<count($news);$i++):?>
 				<div style="overflow: hidden;">
 					<div class="news-one-div all">
-						<a href="<?=$news[$i]['page_address'];?>"><img src="<?=baseURL($news[$i]['thumbnail']);?>"></a>
+						&nbsp;<?php if(baseURL($news[$i]['thumbnail']) != baseURL()) {?>} <a href="<?=$news[$i]['page_address'];?>"><img src="<?=baseURL($news[$i]['thumbnail']);?>"></a><? } ?>
 					</div>
 					<div class="news-text all">
 						<a href="<?=$news[$i]['page_address'];?>" class="news-one-title"><?=$news[$i][$this->uri->language_string.'_title'];?></a>

@@ -9,7 +9,7 @@
 			<a href="#" class="donate-close  no-clickable"></a>
 			<img class="recall-img" src="<?=baseURL('img/request.png')?>">
 			<div class="recall-text"><?=lang('form_service_text');?></div>
-			<form action="<?=baseURL('request-order-distribution');?>" method="POST">
+			<form action="<?=site_url('request-order-distribution');?>" method="POST">
 				<input class="valid-required" name="yourself" type="text" placeholder="<?=lang('form_service_name');?>">
 				<input class="valid-required valid-email" name="email" type="text" placeholder="E-mail">
 				<input class="valid-required valid-phone-number" name="phone" type="text" placeholder="<?=lang('form_service_number');?>">
