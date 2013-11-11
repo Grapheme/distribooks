@@ -1513,7 +1513,6 @@ input[type="radio"]:checked + label
 	padding-bottom: 15px;
 	background: #007195;
 	border-radius: 5px;
-	overflow: hidden;
 }
 
 .after-recall-div {
