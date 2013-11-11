@@ -994,6 +994,12 @@ ul, li {
 	margin: 0;
 	font-weight: 700;
 	font-size: 12px;
+	color: #000;
+	text-decoration: none;
+}
+
+.formats-title:hover {
+	text-decoration: inline;
 }
 
 .format {
