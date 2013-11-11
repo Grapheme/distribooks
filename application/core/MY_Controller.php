@@ -1070,7 +1070,7 @@ class MY_Controller extends CI_Controller{
 				$books = $this->getBooksSortByIDs($books);
 				for($i=0;$i<count($books);$i++):
 					$books[$i]['authors'] = $this->getAuthorsByIDs($books[$i]['authors']);
-				endfor;	
+				endfor;
 				return $books;
 			endif;
 		endif;
@@ -1087,18 +1087,20 @@ class MY_Controller extends CI_Controller{
 		return FALSE;
 	}
 	
-	private function getBooksSortByIDs($books){
+	public function getBooksSortByIDs($books,$array = NULL){
 		
+		if(is_null($array)):
+			$array = $this->account_basket['basket_books']; //сортировка по карзине (базовое условие)
+		endif;
 		$sortBooks = array();
-		for($i=0;$i<count($this->account_basket['basket_books']);$i++):
+		for($i=0;$i<count($array);$i++):
 			for($j=0;$j<count($books);$j++):
-				if($this->account_basket['basket_books'][$i] == $books[$j]['id']):
+				if($array[$i] == $books[$j]['id']):
 					$sortBooks[] = $books[$j];
 				endif;
 			endfor;
 		endfor;
 		return $sortBooks;
-			
 	}	
 	
 	private function getBooksPrice($booksIDs){
