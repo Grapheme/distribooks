@@ -1,6 +1,6 @@
 <div class="formats">
 <?php if(!empty($formats['categories_ids'])):?>
-	<a href="<?=site_url('formats');?>" class="formats-title"><?=lang('book_formats')?>:</p>
+	<a href="<?=site_url('formats');?>" class="formats-title"><?=lang('book_formats')?>:</a>
 	<?php for($i=0;$i<count($formats['categories_ids']);$i++):?>
 		<?php if(isset($formats['categories_titles'][$formats['categories_ids'][$i]])):?>
 			<p class="format"><?=$formats['categories_titles'][$formats['categories_ids'][$i]][$this->uri->language_string.'_title'];?>:</p>
