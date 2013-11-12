@@ -98,6 +98,7 @@ $route[ADMIN_START_PAGE.'/pages'] = "admin_interface/pagesList";
 $route[ADMIN_START_PAGE.'/pages/:any/edit'] = "admin_interface/editPages";
 /*************************************************** GUEST INTRERFACE ***********************************************/
 $route['news(\/:any)*?'] = "guests_interface/news";
+$route['search'] = "guests_interface/searchResults";
 
 $route['about'] = "guests_interface/about";
 $route['sale'] = "guests_interface/sale";

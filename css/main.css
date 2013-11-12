@@ -369,7 +369,7 @@ only screen and (min-device-pixel-ratio : 1.5),
 
 .search input {
 	position: absolute;
-	left: 35px;
+	left: 10px;
 	top: 7px;
 	width: 130px;
 	border: 1px solid #aaaaaa;
@@ -377,12 +377,12 @@ only screen and (min-device-pixel-ratio : 1.5),
 	padding-left: 5px;
 }
 
-.search a {
+.search button {
 	position: absolute;
-	left: 8px;
-	top: 8px;
-	height: 20px;
-	width: 20px;
+	left: 150px;
+	top: 5px;
+	height: 23px;
+	width: 23px;
 	background: url('../img/find.png') no-repeat;
 }
 

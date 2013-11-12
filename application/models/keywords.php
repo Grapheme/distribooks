@@ -35,4 +35,15 @@ class Keywords extends MY_Model{
 		endif;
 		return NULL;
 	}
+
+	function searchKeywordsByString($string){
+		
+		$this->db->select('id');
+		$this->db->like('LCASE(word)',mb_strtolower($string));
+		$query = $this->db->get($this->table);
+		if($data = $query->result_array()):
+			return $data;
+		endif;
+		return NULL;
+	}
 }

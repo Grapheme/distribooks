@@ -24,11 +24,11 @@
 			<?php endforeach;?>
 			</div>
 		<?php endif;?>
-			<div class="search-full">
+		<!--<div class="search-full">
 				<div class="search-full-in">
 					<?php $this->load->view('guests_interface/forms/search');?>
 				</div>
-			</div>
+			</div>-->
 			<?php if(isset($basket_list)):?>
 				<?php $this->load->view('guests_interface/includes/basket');?>
 			<?php endif?>
@@ -97,7 +97,7 @@
 			</div>
 			<div class="grid_1">
 				<div class="search">
-					<a href="#"></a><input type="text" placeholder="<?=lang('top_menu_find');?>">
+				<?=$this->load->view("guests_interface/forms/search");?>
 				</div>
 			</div>
 			<div class="grid_1">

@@ -34,6 +34,20 @@ class Authors extends MY_Model{
 		return NULL;
 	}
 	
+	function searchAuthorsByString($string){
+		
+		$this->db->select('id');
+		$this->db->like('LCASE(ru_name)',mb_strtolower($string));
+		$this->db->or_like('LCASE(en_name)',mb_strtolower($string));
+		$query = $this->db->get($this->table);
+		if($data = $query->result_array()):
+			return $data;
+		endif;
+		return NULL;
+	}
+	
+	
+	
 	function getAuthorsByIDs($IDs){
 
 		$this->db->select('id,ru_name AS name,ru_name,en_name');

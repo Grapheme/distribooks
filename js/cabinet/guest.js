@@ -96,7 +96,11 @@ $(function(){
 			error: function(xhr,textStatus,errorThrown){}
 		});
 	});
-	
+	$(".btn-search-submit").click(function(){
+		if($(".input-search-text").emptyValue() === true){
+			return false;
+		}
+	})
 	function currencyExchange(price){
 		
 		if(mt.currentLanguage == 'en'){

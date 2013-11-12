@@ -46,4 +46,15 @@ class Genres extends MY_Model{
 		return NULL;
 	}
 	
+	function searchGenresByString($string){
+		
+		$this->db->select('id');
+		$this->db->or_like('LCASE(ru_title)',mb_strtolower($string));
+		$this->db->or_like('LCASE(en_title)',mb_strtolower($string));
+		$query = $this->db->get($this->table);
+		if($data = $query->result_array()):
+			return $data;
+		endif;
+		return NULL;
+	}
 }

@@ -128,4 +128,7 @@ $lang['user_cabinet'] = "My books";
 
 $lang['trailer'] = "Videotrailer";
 $lang['audio'] = "Audiotrailer";
+
+$lang['search_catalog'] = "Search results";
+$lang['search_catalog_fail'] = "Sorry, no results found.<br/>Try changing or consult our experts.";
 ?>

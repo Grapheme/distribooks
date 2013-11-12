@@ -85,4 +85,69 @@ class Books_card extends MY_Model{
 		return NULL;
 	}
 	
+	function getBooksIDsByAuthorsIDs($limit,$offset,$AuthorsIDs){
+		
+		if(!empty($AuthorsIDs)):
+			$this->db->select('id');
+			$this->db->order_by($this->order_by);
+			$this->db->from($this->table);
+			for($i=0;$i<count($AuthorsIDs);$i++):
+				$this->db->or_where('(authors = \''.$AuthorsIDs[$i].'\' OR authors LIKE \'%'.','.$AuthorsIDs[$i].'\' OR authors LIKE \'%,'.$AuthorsIDs[$i].',%\' OR authors LIKE \''.$AuthorsIDs[$i].',%\')',NULL);
+			endfor;
+			$this->db->limit($limit,$offset);
+			$this->db->group_by('books_card.'.$this->primary_key);
+			$query = $this->db->get();
+			if($data = $query->result_array()):
+				return $data;
+			endif;
+		endif;
+		return NULL;
+	}
+	
+	function getBooksIDsByKeyWords($limit = NULL,$offset = NULL,$keyWordsIDs){
+		
+		if(!empty($keyWordsIDs)):
+			$this->db->select('id');
+			$this->db->from($this->table);
+			$this->db->join('matching','books_card.id = matching.book');
+			$this->db->where_in('matching.word',$keyWordsIDs);
+			$this->db->limit($limit,$offset);
+			$this->db->group_by('books_card.'.$this->primary_key);
+			$query = $this->db->get();
+			if($data = $query->result_array()):
+				return $data;
+			endif;
+		endif;
+		return NULL;
+	}
+	
+	function getBooksIDsByGenres($limit = NULL,$offset = NULL,$genresIDs){
+		
+		if(!empty($genresIDs)):
+			$this->db->select('id');
+			$this->db->where_in('genre',$genresIDs);
+			$this->db->limit($limit,$offset);
+			$query = $this->db->get($this->table);
+			if($data = $query->result_array()):
+				return $data;
+			endif;
+		endif;
+		return NULL;
+	}
+
+	function getBooksIDsByString($string){
+		
+		$this->db->select('id');
+		$this->db->or_like('LCASE(ru_title)',mb_strtolower($string));
+		$this->db->or_like('LCASE(en_title)',mb_strtolower($string));
+		$this->db->or_like('LCASE(ru_anonce)',mb_strtolower($string));
+		$this->db->or_like('LCASE(en_anonce)',mb_strtolower($string));
+		$this->db->or_like('LCASE(ru_text)',mb_strtolower($string));
+		$this->db->or_like('LCASE(en_text)',mb_strtolower($string));
+		$query = $this->db->get($this->table);
+		if($data = $query->result_array()):
+			return $data;
+		endif;
+		return NULL;
+	}
 }

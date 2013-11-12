@@ -3,6 +3,7 @@
 class Guests_interface extends MY_Controller{
 
 	var $offset = 0;
+	var $TotalProducts = 0;
 	
 	function __construct(){
 
@@ -166,6 +167,114 @@ class Guests_interface extends MY_Controller{
 		);
 		$this->load->view("guests_interface/formats",$pagevar);
 	}
+	/*********************************************** search ***********************************************************/
+	public function searchResults(){
+		
+		$this->load->model('books_card');
+		$pagevar = array(
+			'page_content' => array(),
+			'breadcrumbs' => array('search'.urlGETParameters()=>lang('search_catalog')),
+		);
+		if($this->input->get('param') !== FALSE && $this->input->get('param') != ''):
+			$this->offset = (int)$this->input->get('offset');
+			$pagevar['catalog'] = $this->foundBooks($this->input->get('param'));
+			for($i=0;$i<count($pagevar['catalog']);$i++):
+				$pagevar['catalog'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['catalog'][$i]['authors']);
+			endfor;
+			$pagevar['catalog'] = $this->BooksGenre($pagevar['catalog']);
+			$pagevar['catalog'] = $this->mySignedBooks($pagevar['catalog']);
+			$pagevar['catalog'] = $this->booksInBasket($pagevar['catalog']);
+			$pagevar['pages'] = $this->pagination('search?param='.$this->input->get('param'),3,$this->TotalProducts,PER_PAGE_DEFAULT,TRUE);
+		endif;
+		$this->load->view("guests_interface/search-results",$pagevar);
+	}
+	
+	private function foundBooks($searchString = ''){
+		
+		$books = array(); $booksCount = 0; $IDs = array();
+		$booksAuthors = array();
+		$booksGenres = array();
+		$booksKeyWords = array();
+		$booksSphinx = array();
+		if(!empty($searchString)):
+			$this->load->model(array('authors','keywords','books_card','genres'));
+			if($IDs = $this->authors->searchAuthorsByString($searchString)):
+				$IDs = $this->getValuesInArray($IDs);
+				$booksAuthors = $this->books_card->getBooksIDsByAuthorsIDs(PER_PAGE_DEFAULT,$this->offset,$IDs);
+			endif;
+			if($IDs = $this->keywords->searchKeywordsByString($searchString)):
+				$IDs = $this->getValuesInArray($IDs);
+				$booksKeyWords = $this->books_card->getBooksIDsByKeyWords(PER_PAGE_DEFAULT,$this->offset,$IDs);
+			endif;
+			if($IDs = $this->genres->searchGenresByString($searchString)):
+				$IDs = $this->getValuesInArray($IDs);
+				$booksGenres = $this->books_card->getBooksIDsByGenres(PER_PAGE_DEFAULT,$this->offset,$IDs);
+			endif;
+			$booksSphinx = $this->getBooksBySphinxSearch($searchString);
+		endif;
+		$booksIDs = $this->mergingSearchArrays($booksAuthors,$booksKeyWords,$booksGenres,$booksSphinx);
+		$books = $this->getUniqueBooks($booksIDs);
+		$this->TotalProducts = count($books);
+		return $books;
+	}
+	
+	private function mergingSearchArrays($authors,$keywords,$booksGenres,$sphinx){
+		
+		$books = array();
+		if(!empty($authors)):
+			$books = $authors;
+		endif;
+		if(!empty($keywords)):
+			for($i=0;$i<count($keywords);$i++):
+				$books[] = $keywords[$i];
+			endfor;
+		endif;
+		if(!empty($booksGenres)):
+			for($i=0;$i<count($booksGenres);$i++):
+				$books[] = $booksGenres[$i];
+			endfor;
+		endif;
+		if(!empty($sphinx)):
+			for($i=0;$i<count($sphinx);$i++):
+				$books[] = $sphinx[$i];
+			endfor;
+		endif;
+		return $books;
+	}
+	
+	private function getBooksBySphinxSearch($searchString = ''){
+		
+		if(!empty($searchString)):
+			$booksSphinx = array();
+			/*$this->load->library('sphinxclient');
+			$this->sphinxclient->SetServer('localhost',9312);
+			$this->sphinxclient->SetMatchMode(SPH_MATCH_ANY);
+			$this->sphinxclient->SetLimits($this->offset,PER_PAGE_DEFAULT);
+			$this->sphinxclient->SetSortMode(SPH_SORT_RELEVANCE);
+			$this->sphinxclient->SetFieldWeights(array('ru_title'=>50,'en_title'=>50,'ru_text'=>30,'en_text'=>20,'ru_anonce'=>5,'en_anonce'=>5));
+			$result = $this->sphinxclient->Query($searchString,'distribbooks');
+			if($result && isset($result['matches'])):
+				if($booksIDs = array_keys($result['matches'])):
+					print_r($booksIDs);
+					return $booksSphinx;
+				endif;
+			endif;*/
+			if($books = $this->books_card->getBooksIDsByString($searchString)):
+				return $books;
+			endif;
+		endif;
+		return NULL;
+	}
+	
+	private function getUniqueBooks($books){
+		
+		if($booksIDs = $this->getValuesInArray($books)):
+			$booksIDs = array_unique($booksIDs);
+			return $this->books_card->getBooksByIDs($booksIDs);
+		endif;
+		return NULL;
+	}
+	
 	/*********************************************** basket ***********************************************************/
 	public function basket(){
 		
@@ -241,7 +350,6 @@ class Guests_interface extends MY_Controller{
 		for($i=0;$i<count($pagevar['catalog']);$i++):
 			$pagevar['catalog'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['catalog'][$i]['authors']);
 		endfor;
-		
 		for($i=0;$i<count($pagevar['bestsellers']);$i++):
 			$pagevar['bestsellers'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['bestsellers'][$i]['authors']);
 		endfor;

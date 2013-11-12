@@ -144,21 +144,4 @@ $(document).ready(function(){
 		if(basket == "close") { $(".basket-min-div").fadeIn("fast"); basket = "open"; }
 		else { $(".basket-min-div").fadeOut("fast"); basket = "close"; }
 	});
-	
-	
-	var search = "close";
-	
-	$('.search input').focus(function() {
-		$(".search-full").slideDown("fast");
-		$(".search").addClass("open");
-		search = "open";
-	});
-	
-	$(document).click(function(event) {
-    	if ($(event.target).closest(".search-full,.search,.search-page").length) return;
-   		$(".search-full").slideUp("fast");
-   		$(".search").removeClass("open");
-   		search = "close";
-  	});
-	
 });
