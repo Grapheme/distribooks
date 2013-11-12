@@ -91,14 +91,26 @@ $lang['service_for_author'] = "For the author and publisher";
 $lang['service_order_ending'] = "Order Editing";
 $lang['service_do_ending'] = "Do editing";
 
+$lang['service_order_ending_text'] = "If you are the author of a book, at this web page you can quickly and easily apply for professional editing and correcting your book.<br><br>Services for editing and correcting our creative studio providing professional linguists with extensive experience in the publishing business. Typically, this is the current leaders of the editorial boards in successful international periodicals and publishing houses. Proposal under the terms of our cooperation will be sent to you by e-mail, based on the processing of applications received from you.";
+$lang['service_do_ending_text'] = "If you are a professional editor / proofreader, have a profile degry in linguistics and a desire to work in our creative studio, at this page of the website you can quickly and easily make a request to cooperate with us.<br><br>Creative Workshop DistribBooks, helps talented and promising writers and editors - to realize their creative potential. Thanks to the joint efforts of the creative (in the editing and translation, design, marketing and promotion) of the material authors, we create and publish enjoying high popularity among readers - electronic literature. Proposal under the terms of our cooperation will be sent to you by e-mail, based on the processing of applications received from you.";
+
 $lang['service_order_distribution'] = "Order distribution";
-$lang['service_begin_distribution'] = "To begin distribution";
+$lang['service_begin_distribution'] = "To do distribution";
+
+$lang['service_order_distribution_text'] = "If you are the author of a book, at this web page you can quickly and easily apply for the organization of the process of national / international distribution of your books.<br><br>Services for the organization of international distribution (to producing) of your books, in our creative workshop provided by specialists, with years of experience in international sales and international business development. As a rule, these are professional managers with the necessary knowledge in the field of marketing and reliable connections with key specialized marketplaces. A computerized accounting system of sales, allows you to create transparent financial reporting for our creative writers workshop. Proposal under the terms of our cooperation will be sent to you by e-mail, based on the processing of applications received from you.";
+$lang['service_begin_distribution_text'] = "If you own an online bookstore, or a representative of the marketplace, legally selling e-books and want to cooperate with our creative studio, at this web page you can quickly and easily make a request to cooperate with us.<br><br>Creative Workshop DistribBooks, helps talented and promising writers and translators - to realize their creative potential. Thanks to the joint efforts of the creative (in the editing and translation, design, marketing and promotion) of the material authors, we create and publish enjoying high popularity among readers - electronic literature. Proposal under the terms of our cooperation will be sent to you by e-mail, based on the processing of applications received from you.";
 
 $lang['service_request_translation'] = "Request a translation";
 $lang['service_begin_translating'] = "To begin translating";
 
+$lang['service_request_translation_text'] = "If you are the author of a book, at this web page you can quickly and easily apply for a professional translation of your work, on any of the languages ​​of the world.<br><br>Translation services for your books, our creative studio providing professional translators who have extensive experience with fiction. Usually, it supports the language in which the translation possessing literary talent, with successful experience in reputable translation agencies. Proposal under the terms of our cooperation will be sent to you by e-mail, based on the processing of applications received from you.";
+$lang['service_begin_translating_text'] = "If you are a professional translator (mainly medium of a foreign language), have the literary skills, have a profile in linguistics and a desire to work in our creative studio, at this page of the website you can quickly and easily make a request to cooperate with us.<br><br>Creative Workshop DistribBooks, helps talented and promising writers and translators - to realize their creative potential. Thanks to the joint efforts of the creative (in the editing and translation, design, marketing and promotion) of the material authors, we create and publish enjoying high popularity among readers - electronic literature. Proposal under the terms of our cooperation will be sent to you by e-mail, based on the processing of applications received from you.";
+
 $lang['service_order_clearance'] = "Order clearance";
 $lang['service_do_design'] = "To do design";
+
+$lang['service_order_clearance_text'] = "If you are the author of a book, at this web page you can quickly and easily apply for registration of your professional design work.<br><br>Services designer décor of your book (including design unique book covers and illustrations for her) in our creative studio providing professional designers, artists and photographers, with extensive experience in the publishing business. As a rule, it is highly qualified professionals with experience in successful international advertising agencies. Proposal under the terms of our cooperation will be sent to you by e-mail, based on the processing of applications received from you.";
+$lang['service_do_design_text'] = "If you are a professional designer / artist / photographer, have a profile design education and the desire to work in our creative studio, at this page of the website you can quickly and easily make a request to cooperate with us.<br><br>Creative Workshop DistribBooks, helps talented and promising writers and designers - to realize their creative potential. Thanks to the joint efforts of the creative (in the editing and translation, design, marketing and promotion) of the material authors, we create and publish enjoying high popularity among readers - electronic literature. Proposal under the terms of our cooperation will be sent to you by e-mail, based on the processing of applications received from you.";
 
 $lang['form_service_text'] = "Thanks for the suggestion";
 $lang['form_service_name'] = "Introduce yourself";
@@ -131,4 +143,7 @@ $lang['audio'] = "Audiotrailer";
 
 $lang['search_catalog'] = "Search results";
 $lang['search_catalog_fail'] = "Sorry, no results found.<br/>Try changing or consult our experts.";
+
+$lang['about_project'] = "";
+
 ?>

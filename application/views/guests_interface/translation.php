@@ -50,11 +50,8 @@
 					<div>
 						<p class="title"><span><?=lang('service_request_translation');?></span></p>
 						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
-						<p class="desc">
-							If you are the author of a book, at this web page you can quickly and easily apply for a professional 
-							translation of your work, on any of the languages ​​of the world.
-						</p>
 					</div>
+					<p class="desc"><?=lang('service_request_translation_text');?></p>
 				</div>
 				<div class="grid_2 information">
 					<div>
@@ -64,12 +61,8 @@
 					<div>
 						<p class="title"><span><?=lang('service_begin_translating');?></span></p>
 						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
-						<p class="desc">
-							If you are a professional translator (mainly medium of a foreign language), have the literary skills, have a 
-							profile in linguistics and a desire to work in our creative studio, at this page of the website you can quickly 
-							and easily make a request to cooperate with us.
-						</p>
 					</div>
+					<p class="desc"><?=lang('service_begin_translating_text');?></p>
 				</div>
 			</div>
 		</div>

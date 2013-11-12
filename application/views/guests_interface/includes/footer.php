@@ -5,7 +5,7 @@
 			<div class="social-footer">
 		<a href="#" class="social-link" id="vk"></a>
 		<a href="#" class="social-link" id="fb"></a>
-		<a href="#" class="social-link" id="tw"></a>
+		<a href="https://twitter.com/DistribBooks" target="_blank" class="social-link" id="tw"></a>
 			</div>
 		</div>
 		<div class="grid_1 footer-nav">
@@ -36,7 +36,7 @@
 			<div class="social-footer">
 				<a href="#" class="social-link" id="vk"></a>
 				<a href="#" class="social-link" id="fb"></a>
-				<a href="#" class="social-link" id="tw"></a>
+				<a href="https://twitter.com/DistribBooks" target="_blank" class="social-link" id="tw"></a>
 			</div>
 			<div class="footer-right">
 				<div><a href="mailto:welcome@distibbooks.com"><img src="<?=baseURL('img/white-mail.png')?>">welcome@distibbooks.com</a></div>
