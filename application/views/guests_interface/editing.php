@@ -50,9 +50,8 @@
 					<div>
 						<p class="title"><span><?=lang('service_order_ending');?></span></p>
 						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
-						<p class="desc">If you are the author of a book, at this web page you can quickly and 
-						easily apply for professional editing and correcting your book.</p>
 					</div>
+					<p class="desc"><?=lang('service_order_ending_text');?></p>
 				</div>
 				<div class="grid_2 information">
 					<div>
@@ -62,10 +61,8 @@
 					<div>
 						<p class="title"><span><?=lang('service_do_ending');?></span></p>
 						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
-						<p class="desc">If you are a professional editor / proofreader, have a profile degry in linguistics and a 
-						desire to work in our creative studio, at this page of the website you can quickly and easily make a request 
-						to cooperate with us.</p>
 					</div>
+					<p class="desc"><?=lang('service_do_ending_text');?></p>
 				</div>
 			</div>		
 		</div>

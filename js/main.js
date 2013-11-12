@@ -8,17 +8,51 @@ $(document).ready(function(){
 		$(".window-donation").fadeIn("fast");
 	});
 	
+	$(".sale-popup-open").click(function(){
+		$(".dark-screen").fadeIn("fast");
+		$(".sale-popup").fadeIn("fast");
+	});
+	
 	$(".dark-screen").click(function(){
 		$(".dark-screen").fadeOut("fast");
 		$(".window-donation").fadeOut("fast");
 		$(".request-div").fadeOut("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
 		$(".window-auth").fadeOut("fast");
+		$(".sale-popup").fadeOut("fast");
 	});
 	
 	$(".donate-close").click(function() {
 		$(".dark-screen").fadeOut("fast");
 		$(".window-donation").fadeOut("fast");
 		$(".request-div").fadeOut("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
+		$(".sale-popup").fadeOut("fast");
+	});
+	
+	$(".catalog-novelty-link").click(function(){
+		$(".catalog-main-div").hide();
+		$(".recommended-div").hide();
+		$(".novelty-div").fadeIn();
+		$(".catalog-novelty-link").addClass('active-link');
+		$(".catalog-top-shop-link").removeClass('active-link');
+		$(".catalog-recommended-link").removeClass('active-link');
+	});
+	
+	$(".catalog-top-shop-link").click(function(){
+		$(".novelty-div").hide();
+		$(".recommended-div").hide();
+		$(".catalog-main-div").fadeIn();
+		$(".catalog-novelty-link").removeClass('active-link');
+		$(".catalog-top-shop-link").addClass('active-link');
+		$(".catalog-recommended-link").removeClass('active-link');
+	});
+	
+	$(".catalog-recommended-link").click(function(){
+		$(".novelty-div").hide();
+		$(".catalog-main-div").hide();
+		$(".recommended-div").fadeIn();
+		$(".catalog-novelty-link").removeClass('active-link');
+		$(".catalog-top-shop-link").removeClass('active-link');
+		$(".catalog-recommended-link").addClass('active-link');
 	});
 	
 	var recall = "close";

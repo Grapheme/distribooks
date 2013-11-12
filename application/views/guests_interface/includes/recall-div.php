@@ -13,3 +13,7 @@
 		</div>
 	</div>
 </div>
+<div class="sale-popup">
+	<a href="#" class="donate-close"></a>
+	<img src="<?=baseURL('img/sale.png');?>">
+</div>

@@ -35,7 +35,7 @@
 	<div class="social">
 		<a href="#" class="social-link" id="vk"></a>
 		<a href="#" class="social-link" id="fb"></a>
-		<a href="#" class="social-link" id="tw"></a>
+		<a href="https://twitter.com/DistribBooks" target="_blank" class="social-link" id="tw"></a>
 	</div>
 	<div class="top">
 		<div class="container_5">
@@ -62,7 +62,7 @@
 					<div style="position: absolute; bottom: -1px; right: 0;">
 						<a href="skype:DistibBooks?call" class="top-contact"><img src="<?=baseURL('img/skype.png');?>">DistibBooks</a>
 					<?php if($this->project_config['action_percent'] > 0):?>
-						<a href="<?=site_url('sale');?>" class="red button"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>
+						<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>
 					<?php endif;?>
 					</div>
 				</div>
@@ -114,7 +114,7 @@
 				<div class="min-right">
 					<div class="min-div-left">
 					<?php if($this->project_config['action_percent'] > 0):?>
-						<a href="<?=site_url('sale');?>" class="red button"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a><br>
+						<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a><br>
 					<?php endif;?>
 						<a href="#" class="blue button menu-open no-clickable"><?=lang('top_menu_main');?></a>
 					</div>

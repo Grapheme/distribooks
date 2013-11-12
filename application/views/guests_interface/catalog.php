@@ -100,9 +100,11 @@
 			</div>
 		<?php if(!empty($bestsellers)):?>
 			<div class="grid_1">&nbsp;</div>
-			<div class="grid_4 shop-new-div">
-				<p class="top-shop-title"><?=lang('catalog_top_shop')?>:</p>
-			<?php for($i=0;$i<count($bestsellers);$i++):?>
+			<p class="top-shop-title"><span class="catalog-top-shop-link active-link"><?=lang('catalog_top_shop')?></span>&nbsp;|&nbsp;<span class="catalog-novelty-link"><?=lang('catalog_novelty')?></span>&nbsp;|&nbsp;<span class="catalog-recommended-link"><?=lang('catalog_recommended')?></span></p>
+			<div class="clear"></div>
+			<div class="grid_1">&nbsp;</div>
+			<div class="grid_4 shop-new-div catalog-main-div">
+				<?php for($i=0;$i<count($bestsellers);$i++):?>
 				<div class="top-shop">
 					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$bestsellers[$i]));?>
 					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$bestsellers[$i]['id'],'mySignedBook'=>$bestsellers[$i]['signed_book'],'in_basket'=>$bestsellers[$i]['book_in_basket']));?>
@@ -114,9 +116,9 @@
 			</div>
 		<?php endif;?>
 		<?php if(!empty($novelty)):?>
-			<div class="grid_1">&nbsp;</div>
-			<div class="grid_4 shop-new-div">
+			<div class="grid_4 shop-new-div novelty-div" style="display: none;">
 				<p class="top-shop-title"><?=lang('catalog_novelty')?>:</p>
+				
 			<?php for($i=0;$i<count($novelty);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($novelty)-1))?' omega':'';?>">
 					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$novelty[$i]));?>
@@ -127,8 +129,7 @@
 			</div>
 		<?php endif;?>
 		<?php if(!empty($recommended)):?>
-			<div class="grid_1">&nbsp;</div>
-			<div class="grid_4 shop-new-div">
+			<div class="grid_4 shop-new-div recommended-div" style="display: none;">
 				<p class="top-shop-title"><?=lang('catalog_recommended')?>:</p>
 			<?php for($i=0;$i<count($recommended);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($recommended)-1))?' omega':'';?>">

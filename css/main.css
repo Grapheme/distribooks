@@ -132,6 +132,30 @@ only screen and (min-device-pixel-ratio : 1.5),
 	overflow: hidden;
 }
 
+.sale-popup-open {
+	cursor: pointer;
+}
+
+.sale-popup {
+	display: none;
+	width: 500px;
+	background: #FFDF00;
+	border-radius: 5px;
+	position: absolute;
+	left: 50%;
+	margin-left: -250px;
+	top: 20%;
+	z-index: 9999;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.sale-popup img {
+	max-width: 480px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 .active-lang {
 	opacity: 0.3;
 }
@@ -1251,9 +1275,25 @@ ul, li {
 	top: 15%;
 	z-index: 9999;
 	border-radius: 5px;
-	height: 500px;
 	width: 420px;
 }
+
+.novelty-div,.recommended-div {
+}
+
+.catalog-top-shop-link,.catalog-novelty-link,.catalog-recommended-link {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.catalog-top-shop-link.active-link,.catalog-novelty-link.active-link,.catalog-recommended-link.active-link {
+	color: #aaaaaa;
+	cursor: default;
+}
+
+.catalog-top-shop-link:hover { text-decoration: underline; }
+.catalog-novelty-link:hover { text-decoration: underline; }
+.catalog-recommended-link:hover { text-decoration: underline; }
 
 .how-much {
 	position: relative;
@@ -1529,6 +1569,7 @@ input[type="radio"]:checked + label
 
 .after-recall-div {
 	display: none;
+	overflow: hidden;
 }
 
 .recall-after {
@@ -1750,9 +1791,12 @@ input[type="radio"]:checked + label
 }
 
 .price.old {
-	color: #e08308;
 	font-size: 12px;
 	text-decoration: line-through;
+}
+
+.price.new {
+	color: #e08308;
 }
 
 .price-big {
