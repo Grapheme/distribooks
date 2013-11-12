@@ -28,7 +28,7 @@ class Guests_interface extends MY_Controller{
 		
 		$this->load->model(array('news','books_card'));
 		$pagevar = array(
-			'page_content'=> array(),
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>'home')),
 			'sliderExist' =>TRUE,
 			'news' => $this->news->limit(3),
 			'novelty' => $this->books_card->limit(4,0,'id DESC'),
@@ -102,24 +102,25 @@ class Guests_interface extends MY_Controller{
 	public function about(){
 		
 		$pagevar = array(
-			'page_content'=>array(),
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'basket_list' => $this->getBooksInBasket()
 		);
 		$this->load->view("guests_interface/about",$pagevar);
 	}
 
 	public function sale(){
+		
 		$pagevar = array(
-			'page_content'=>array(),
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'basket_list' => $this->getBooksInBasket()
 		);
-		$this->load->view("guests_interface/sale",$pagevar);		
+		$this->load->view("guests_interface/sale",$pagevar);
 	}
 	
 	public function editing(){
 		
 		$pagevar = array(
-			'page_content'=>array(),
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'sliderExist' =>TRUE,
 			'basket_list' => $this->getBooksInBasket()
 		);
@@ -129,7 +130,7 @@ class Guests_interface extends MY_Controller{
 	public function typography(){
 		
 		$pagevar = array(
-			'page_content'=>array(),
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'sliderExist' =>TRUE,
 			'basket_list' => $this->getBooksInBasket()
 		);
@@ -139,7 +140,7 @@ class Guests_interface extends MY_Controller{
 	public function translation(){
 		
 		$pagevar = array(
-			'page_content'=>array(),
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'sliderExist' =>TRUE,
 			'basket_list' => $this->getBooksInBasket()
 		);
@@ -149,7 +150,7 @@ class Guests_interface extends MY_Controller{
 	public function distribution(){
 		
 		$pagevar = array(
-			'page_content'=>array(),
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'sliderExist' =>TRUE,
 			'basket_list' => $this->getBooksInBasket()
 		);
@@ -160,7 +161,7 @@ class Guests_interface extends MY_Controller{
 		
 		$this->load->model('formats');
 		$pagevar = array(
-			'page_content'=> array(),
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'breadcrumbs' => array('formats'=>'FORMATS'),
 			'formats'=>$this->formats->getWhere(NULL,array('visible'=>1),TRUE),
 			'basket_list' => $this->getBooksInBasket()
@@ -172,7 +173,7 @@ class Guests_interface extends MY_Controller{
 		
 		$this->load->model('books_card');
 		$pagevar = array(
-			'page_content' => array(),
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'breadcrumbs' => array('search'.urlGETParameters()=>lang('search_catalog')),
 		);
 		if($this->input->get('param') !== FALSE && $this->input->get('param') != ''):
@@ -274,11 +275,11 @@ class Guests_interface extends MY_Controller{
 		endif;
 		return NULL;
 	}
-	
 	/*********************************************** basket ***********************************************************/
 	public function basket(){
 		
 		$pagevar = array(
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'basket_list' => $this->getBooksInBasket()
 		);
 		$this->load->view("guests_interface/basket",$pagevar);
@@ -288,7 +289,7 @@ class Guests_interface extends MY_Controller{
 		
 		$this->load->model('books_card');
 		$pagevar = array(
-			'page_content'=> array(),
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'breadcrumbs' => array('catalog'=>lang('catalog_catalog')),
 			'bestsellers' => $this->getBestSellers(),
 			'trailers' => array('1','2'),

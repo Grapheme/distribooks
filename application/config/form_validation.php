@@ -66,6 +66,12 @@
 			array('field'=>'oldpassword','label'=>'Cтарый пароль','rules'=>'required|min_length[6]|trim'),
 			array('field'=>'password','label'=>'Новый пароль','rules'=>'required|min_length[6]|trim'),
 			array('field'=>'confirm','label'=>'Повтор пароля','rules'=>'required|min_length[6]|matches[password]|trim')
-		),
+		),'promo' =>array(
+			array('field'=>'dollar_rate','label'=>'Курс доллара','rules'=>'required|trim'),
+			array('field'=>'free_book','label'=>'Номер бесплатной книги','rules'=>'required|trim'),
+			array('field'=>'count_free_book','label'=>'Количество бесплатных книг','rules'=>'required|trim'),
+			array('field'=>'action_price','label'=>'Сумма для скидки','rules'=>'required|trim'),
+			array('field'=>'action_percent','label'=>'Процент скидки','rules'=>'required|trim')
+		)
 	);
 ?>

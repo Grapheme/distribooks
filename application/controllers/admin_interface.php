@@ -21,6 +21,12 @@ class Admin_interface extends MY_Controller{
 		
 		$this->load->view("admin_interface/cabinet/profile");
 	}
+	public function promoAction(){
+		
+		$this->load->model('configuration');
+		$pagevar['config'] = $this->configuration->getWhere(1);
+		$this->load->view("admin_interface/cabinet/promo",$pagevar);
+	}
 	/********************************************** news ********************************************************/
 	public function news(){
 		

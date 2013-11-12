@@ -46,6 +46,7 @@ $route['clear-basket'] = "user_ajax_interface/clearBasket";
 $route['set-book-rating'] = "user_ajax_interface/setBookRating";
 /************************************************* ADMIN AJAX INTRERFACE *******************************************/
 $route[ADMIN_START_PAGE.'/password-save'] = "admin_ajax_interface/adminSavePassword";
+$route[ADMIN_START_PAGE.'/promo-save'] = "admin_ajax_interface/updatePromo";
 /* ---------------- seo ------------------ */
 $route[ADMIN_START_PAGE.'/seo/update'] = "admin_ajax_interface/updateSEO";
 /* ---------------- news ----------------- */
@@ -74,6 +75,7 @@ $route[ADMIN_START_PAGE.'/books/remove/book'] = "admin_ajax_interface/removeBook
 $route[ADMIN_START_PAGE.'/books/caption'] = "admin_ajax_interface/captionBook";
 /************************************************** ADMIN INTRERFACE ***********************************************/
 $route[ADMIN_START_PAGE] = "admin_interface/controlPanel";
+$route[ADMIN_START_PAGE.'/promo'] = "admin_interface/promoAction";
 $route[ADMIN_START_PAGE.'/password'] = "admin_interface/changePassword";
 
 $route[ADMIN_START_PAGE.'/news/add'] = "admin_interface/addNews";

@@ -64,6 +64,27 @@ class Admin_ajax_interface extends MY_Controller{
 		$this->updateItem(array('update'=>$seoMeta,'model'=>'meta_titles'));
 		return TRUE;
 	}
+	/********************************************** promo ********************************************************/
+	public function updatePromo(){
+		
+		if($this->postDataValidation('promo') === TRUE):
+			if($this->updatingPromo($this->input->post())):
+				$this->json_request['status'] = TRUE;
+				$this->json_request['responseText'] = 'Акции сохранены';
+				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/seo');
+			endif;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
+
+	private function updatingPromo($post){
+		
+		$post['id'] = 1;
+		$this->updateItem(array('update'=>$post,'model'=>'configuration'));
+		return TRUE;
+	}
 	/******************************************** formats ******************************************************/
 	public function updateFormatCategory(){
 		
