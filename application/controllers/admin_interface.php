@@ -16,6 +16,17 @@ class Admin_interface extends MY_Controller{
 		
 		$this->load->view("admin_interface/cabinet/control-panel");
 	}
+
+	public function changePassword(){
+		
+		$this->load->view("admin_interface/cabinet/profile");
+	}
+	public function promoAction(){
+		
+		$this->load->model('configuration');
+		$pagevar['config'] = $this->configuration->getWhere(1);
+		$this->load->view("admin_interface/cabinet/promo",$pagevar);
+	}
 	/********************************************** news ********************************************************/
 	public function news(){
 		
@@ -43,6 +54,27 @@ class Admin_interface extends MY_Controller{
 		$this->load->view("admin_interface/news/edit",$pagevar);
 	}
 	/******************************************** cabinet *******************************************************/
+	/********************************************* pages *********************************************************/
+	public function pagesList(){
+		
+		$this->load->model('meta_titles');
+		$pagevar = array(
+			'meta_titles' => $this->meta_titles->getWhere(NULL,array('group'=>'interface'),TRUE)
+		);
+		$this->load->view("admin_interface/pages/list",$pagevar);
+	}
+
+	public function editPage(){
+		
+		if($this->input->get('id') === FALSE || is_numeric($this->input->get('id')) === FALSE):
+			redirect(ADMIN_START_PAGE);
+		endif;
+		$this->load->model('meta_titles');
+		$pagevar = array(
+			'meta_titles' => $this->meta_titles->getWhere($this->input->get('id')),
+		);
+		$this->load->view("admin_interface/pages/edit",$pagevar);
+	}
 	/********************************************* formats ********************************************************/
 	public function formatsСategories(){
 		

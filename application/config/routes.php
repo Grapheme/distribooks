@@ -45,6 +45,10 @@ $route['refresh-books-in-basket'] = "user_ajax_interface/refreshBooksInBasket";
 $route['clear-basket'] = "user_ajax_interface/clearBasket";
 $route['set-book-rating'] = "user_ajax_interface/setBookRating";
 /************************************************* ADMIN AJAX INTRERFACE *******************************************/
+$route[ADMIN_START_PAGE.'/password-save'] = "admin_ajax_interface/adminSavePassword";
+$route[ADMIN_START_PAGE.'/promo-save'] = "admin_ajax_interface/updatePromo";
+/* ---------------- seo ------------------ */
+$route[ADMIN_START_PAGE.'/seo/update'] = "admin_ajax_interface/updateSEO";
 /* ---------------- news ----------------- */
 $route[ADMIN_START_PAGE.'/news/insert'] = "admin_ajax_interface/insertNews";
 $route[ADMIN_START_PAGE.'/news/update'] = "admin_ajax_interface/updateNews";
@@ -71,6 +75,9 @@ $route[ADMIN_START_PAGE.'/books/remove/book'] = "admin_ajax_interface/removeBook
 $route[ADMIN_START_PAGE.'/books/caption'] = "admin_ajax_interface/captionBook";
 /************************************************** ADMIN INTRERFACE ***********************************************/
 $route[ADMIN_START_PAGE] = "admin_interface/controlPanel";
+$route[ADMIN_START_PAGE.'/promo'] = "admin_interface/promoAction";
+$route[ADMIN_START_PAGE.'/password'] = "admin_interface/changePassword";
+
 $route[ADMIN_START_PAGE.'/news/add'] = "admin_interface/addNews";
 $route[ADMIN_START_PAGE.'/news/edit'] = "admin_interface/editNews";
 $route[ADMIN_START_PAGE.'/news(\/:any)*?'] = "admin_interface/news";
@@ -93,9 +100,9 @@ $route[ADMIN_START_PAGE.'/books(\/:any)*?'] = "admin_interface/booksList";
 $route[ADMIN_START_PAGE.'/books/add'] = "admin_interface/insertBook";
 $route[ADMIN_START_PAGE.'/books/edit'] = "admin_interface/editBook";
 $route[ADMIN_START_PAGE.'/books/upload'] = "admin_interface/uploadBooks";
-/* ----------------------------------------------- Pages ---------------------------------------------------------- */
-$route[ADMIN_START_PAGE.'/pages'] = "admin_interface/pagesList";
-$route[ADMIN_START_PAGE.'/pages/:any/edit'] = "admin_interface/editPages";
+/* ----------------------------------------------- seo ---------------------------------------------------------- */
+$route[ADMIN_START_PAGE.'/seo'] = "admin_interface/pagesList";
+$route[ADMIN_START_PAGE.'/seo/edit'] = "admin_interface/editPage";
 /*************************************************** GUEST INTRERFACE ***********************************************/
 $route['news(\/:any)*?'] = "guests_interface/news";
 $route['search'] = "guests_interface/searchResults";

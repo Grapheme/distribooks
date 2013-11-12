@@ -211,15 +211,15 @@ class MY_Controller extends CI_Controller{
 		
 		$this->load->library('phpmailer');
 		$mail = new PHPMailer();
-/*		$mail->SMTPDebug = 1;
+		
 		$mail->IsSMTP();
 		$mail->SMTPAuth = true;
 		$mail->SMTPSecure = "tls";
-		$mail->Host = "smtp.gmail.com";
+		$mail->Host = "smtp.yandex.ru";
 		$mail->Port = 587;
-		$mail->Username = "konferum.ru@gmail.com";
-		$mail->Password = "hf5msdfl34";
-*/
+		$mail->Username = "distribbooks@yandex.ru";
+		$mail->Password = "gfd688NNDNS";
+		
 		$mail->AddReplyTo($from_mail,$from_name);
 		$mail->AddAddress($to);
 		$mail->SetFrom($from_mail,$from_name);
