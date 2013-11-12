@@ -29,9 +29,7 @@
 					<?php $this->load->view('guests_interface/forms/search');?>
 				</div>
 			</div>-->
-			<?php if(isset($basket_list)):?>
-				<?php $this->load->view('guests_interface/includes/basket');?>
-			<?php endif?>
+			<?php $this->load->view('guests_interface/includes/basket');?>
 		</div>
 	</div>
 	<div class="social">

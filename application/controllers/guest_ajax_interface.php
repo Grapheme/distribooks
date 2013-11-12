@@ -168,4 +168,5 @@ class Guest_ajax_interface extends MY_Controller{
 		endif;
 		echo json_encode($this->json_request);
 	}
+	
 }

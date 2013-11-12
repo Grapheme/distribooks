@@ -11,6 +11,59 @@ class Admin_ajax_interface extends MY_Controller{
 			show_404();
 		endif;
 	}
+	/******************************************** cabinet ******************************************************/
+	public function adminSavePassword(){
+		
+		if($this->account['group'] != ADMIN_GROUP_VALUE):
+			show_error('В доступе отказано');
+		endif;
+		if($this->postDataValidation('password')):
+			if($this->validOldPassword($this->input->post('oldpassword'))):
+				$this->accounts->updateField($this->account['id'],'password',md5($this->input->post('password')));
+				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/books');
+				$this->json_request['status'] = TRUE;
+				$this->json_request['responseText'] = 'Пароль сохранен';
+			else:
+				$this->json_request['responseText'] = 'Не верный старый пароль';
+			endif;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	public function validOldPassword($password = ''){
+		
+		if($this->accounts->getWhere(NULL,array('id'=>$this->account['id'],'password'=>md5($password)))):
+			return TRUE;
+		endif;
+		return FALSE;
+	}
+	/********************************************** seo ********************************************************/
+	public function updateSEO(){
+		
+		if($this->postDataValidation('seo') === TRUE):
+			if($this->updatingSEO($this->input->post())):
+				$this->json_request['status'] = TRUE;
+				$this->json_request['responseText'] = 'Страница cохранена';
+				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/seo');
+			endif;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+		endif;
+		echo json_encode($this->json_request);
+	}
+
+	private function updatingSEO($post){
+		
+		$seoMeta = array(
+			'id'=>$post['meta_titles_id'],
+			'ru_page_title'=>$post['ru_page_title'],'ru_page_description'=>$post['ru_page_description'],'ru_page_h1'=>$post['ru_page_h1'],
+			'en_page_title'=>$post['en_page_title'],'en_page_description'=>$post['en_page_description'],'en_page_h1'=>$post['en_page_h1']
+		);
+		$this->updateItem(array('update'=>$seoMeta,'model'=>'meta_titles'));
+		return TRUE;
+	}
 	/******************************************** formats ******************************************************/
 	public function updateFormatCategory(){
 		

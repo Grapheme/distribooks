@@ -9,7 +9,7 @@
 			<a class="brand" href="<?=site_url(ADMIN_START_PAGE)?>">Администрирование</a>
 			<div class="nav-collapse collapse">
 				<p class="navbar-text pull-right">
-					Здравствуйте,  
+					Здравствуйте,
 					<a href="" class="navbar-link  no-clickable">Админ</a> 
 					[<a href="<?=site_url('log-off');?>">Выйти</a>]
 				</p>
