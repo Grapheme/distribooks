@@ -132,6 +132,30 @@ only screen and (min-device-pixel-ratio : 1.5),
 	overflow: hidden;
 }
 
+.sale-popup-open {
+	cursor: pointer;
+}
+
+.sale-popup {
+	display: none;
+	width: 500px;
+	background: #FFDF00;
+	border-radius: 5px;
+	position: absolute;
+	left: 50%;
+	margin-left: -250px;
+	top: 20%;
+	z-index: 9999;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.sale-popup img {
+	max-width: 480px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 .active-lang {
 	opacity: 0.3;
 }

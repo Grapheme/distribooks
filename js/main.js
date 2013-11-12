@@ -8,17 +8,24 @@ $(document).ready(function(){
 		$(".window-donation").fadeIn("fast");
 	});
 	
+	$(".sale-popup-open").click(function(){
+		$(".dark-screen").fadeIn("fast");
+		$(".sale-popup").fadeIn("fast");
+	});
+	
 	$(".dark-screen").click(function(){
 		$(".dark-screen").fadeOut("fast");
 		$(".window-donation").fadeOut("fast");
 		$(".request-div").fadeOut("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
 		$(".window-auth").fadeOut("fast");
+		$(".sale-popup").fadeOut("fast");
 	});
 	
 	$(".donate-close").click(function() {
 		$(".dark-screen").fadeOut("fast");
 		$(".window-donation").fadeOut("fast");
 		$(".request-div").fadeOut("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
+		$(".sale-popup").fadeOut("fast");
 	});
 	
 	var recall = "close";
