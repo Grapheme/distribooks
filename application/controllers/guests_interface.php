@@ -3,7 +3,7 @@
 class Guests_interface extends MY_Controller{
 
 	var $offset = 0;
-	var $TotalProducts = 0;
+	var $TotalCount = 0;
 	
 	function __construct(){
 
@@ -32,7 +32,8 @@ class Guests_interface extends MY_Controller{
 			'sliderExist' =>TRUE,
 			'news' => $this->news->limit(3),
 			'novelty' => $this->books_card->limit(4,0,'id DESC'),
-			'basket_list' => $this->getBooksInBasket()
+			'basket_list' => $this->getBooksInBasket(),
+			'trailers' => $this->getTrailers(2)
 		);
 		for($i=0;$i<count($pagevar['novelty']);$i++):
 			$pagevar['novelty'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['novelty'][$i]['authors']);
@@ -42,6 +43,34 @@ class Guests_interface extends MY_Controller{
 		$pagevar['novelty'] = $this->booksInBasket($pagevar['novelty']);
 		$pagevar['news'] = $this->setPageAddress($pagevar['news'],'news');
 		$this->load->view("guests_interface/index",$pagevar);
+	}
+	
+	public function trailers(){
+		
+		$this->offset = (int)$this->uri->segment(3);
+		$pagevar = array(
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
+			'trailers' => $this->getTrailers(1),
+			'breadcrumbs' => array(),
+			'pages' => $this->pagination('trailers',3,$this->TotalCount,1)
+		);
+		$pagevar['breadcrumbs'] = array('catalog'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
+		$this->load->view("guests_interface/trailers",$pagevar);
+	}
+	
+	public function getTrailers($limit = NULL){
+		
+		$this->load->model('books_card');
+		$trailers = array();
+		if($trailersJSON = $this->books_card->getTrailers($limit,$this->offset)):
+			$this->TotalCount = count($this->books_card->getTrailers());
+			for($i=0;$i<count($trailersJSON);$i++):
+				if($trailer = json_decode($trailersJSON[$i]['trailers'],TRUE)):
+					$trailers[] = $trailer[0];
+				endif;
+			endfor;
+		endif;
+		return $trailers;
 	}
 	/************************************************ pages ***********************************************************/
 	public function redirectPage(){
@@ -103,8 +132,10 @@ class Guests_interface extends MY_Controller{
 		
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
+			'breadcrumbs' => array(),
 			'basket_list' => $this->getBooksInBasket()
 		);
+		$pagevar['breadcrumbs'] = array('about'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/about",$pagevar);
 	}
 
@@ -122,8 +153,10 @@ class Guests_interface extends MY_Controller{
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'sliderExist' =>TRUE,
+			'breadcrumbs' => array(),
 			'basket_list' => $this->getBooksInBasket()
 		);
+		$pagevar['breadcrumbs'] = array('editing'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/editing",$pagevar);
 	}
 	
@@ -132,8 +165,10 @@ class Guests_interface extends MY_Controller{
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'sliderExist' =>TRUE,
+			'breadcrumbs' => array(),
 			'basket_list' => $this->getBooksInBasket()
 		);
+		$pagevar['breadcrumbs'] = array('typography'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/typography",$pagevar);
 	}
 	
@@ -142,8 +177,10 @@ class Guests_interface extends MY_Controller{
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'sliderExist' =>TRUE,
+			'breadcrumbs' => array(),
 			'basket_list' => $this->getBooksInBasket()
 		);
+		$pagevar['breadcrumbs'] = array('translation'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/translation",$pagevar);
 	}
 	
@@ -152,8 +189,10 @@ class Guests_interface extends MY_Controller{
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'sliderExist' =>TRUE,
+			'breadcrumbs' => array(),
 			'basket_list' => $this->getBooksInBasket()
 		);
+		$pagevar['breadcrumbs'] = array('distribution'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/distribution",$pagevar);
 	}
 	
@@ -162,10 +201,11 @@ class Guests_interface extends MY_Controller{
 		$this->load->model('formats');
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
-			'breadcrumbs' => array('formats'=>'FORMATS'),
+			'breadcrumbs' => array(),
 			'formats'=>$this->formats->getWhere(NULL,array('visible'=>1),TRUE),
 			'basket_list' => $this->getBooksInBasket()
 		);
+		$pagevar['breadcrumbs'] = array('formats'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/formats",$pagevar);
 	}
 	/*********************************************** search ***********************************************************/
@@ -185,7 +225,7 @@ class Guests_interface extends MY_Controller{
 			$pagevar['catalog'] = $this->BooksGenre($pagevar['catalog']);
 			$pagevar['catalog'] = $this->mySignedBooks($pagevar['catalog']);
 			$pagevar['catalog'] = $this->booksInBasket($pagevar['catalog']);
-			$pagevar['pages'] = $this->pagination('search?param='.$this->input->get('param'),3,$this->TotalProducts,PER_PAGE_DEFAULT,TRUE);
+			$pagevar['pages'] = $this->pagination('search?param='.$this->input->get('param'),3,$this->TotalCount,PER_PAGE_DEFAULT,TRUE);
 		endif;
 		$this->load->view("guests_interface/search-results",$pagevar);
 	}
@@ -215,7 +255,7 @@ class Guests_interface extends MY_Controller{
 		endif;
 		$booksIDs = $this->mergingSearchArrays($booksAuthors,$booksKeyWords,$booksGenres,$booksSphinx);
 		$books = $this->getUniqueBooks($booksIDs);
-		$this->TotalProducts = count($books);
+		$this->TotalCount = count($books);
 		return $books;
 	}
 	
@@ -280,6 +320,7 @@ class Guests_interface extends MY_Controller{
 		
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
+			'breadcrumbs' => array('basket'=>lang('catalog_catalog')),
 			'basket_list' => $this->getBooksInBasket()
 		);
 		$this->load->view("guests_interface/basket",$pagevar);
@@ -289,7 +330,7 @@ class Guests_interface extends MY_Controller{
 		
 		$this->load->model('books_card');
 		$pagevar = array(
-			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
 			'breadcrumbs' => array('catalog'=>lang('catalog_catalog')),
 			'bestsellers' => $this->getBestSellers(),
 			'trailers' => array('1','2'),
@@ -297,7 +338,8 @@ class Guests_interface extends MY_Controller{
 			'recommended' => $this->getRecommended(),
 			'catalog' => array(),
 			'pages' => NULL,
-			'basket_list' => $this->getBooksInBasket()
+			'basket_list' => $this->getBooksInBasket(),
+			'trailers' => $this->getTrailers(2)
 		);
 		$sortBy = NULL; $tags = $genre = $keyword = $author = FALSE;
 		if($this->input->get('tag') !== FALSE && $this->input->get('tag') != ''):

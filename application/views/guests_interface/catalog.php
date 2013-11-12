@@ -85,12 +85,13 @@
 				<div style="position: relative;"><img src="<?=baseURL('img/shadow-top.png');?>" class="shadow-top"></div>
 				<div class="grid_1 gift shop">&nbsp;</div>
 				<div class="grid_1 pos1">&nbsp;</div>
+		<?php if(!empty($trailers)):?>
+			<?php for($i=0;$i<count($trailers);$i++):?>
 				<div class="grid_2 vidiv">
-					<iframe class="itrailer" src="//www.youtube.com/embed/YoaNmkOPICA" frameborder="0" allowfullscreen></iframe>
+					<?=$trailers[$i];?>
 				</div>
-				<div class="grid_2 vidiv">
-					<iframe class="itrailer" width="372" height="200" src="//www.youtube.com/embed/YoaNmkOPICA" frameborder="0" allowfullscreen></iframe>
-				</div>
+			<?php endfor;?>
+		<?php endif;?>
 			</div>
 		</div>
 		<div class="container_5">

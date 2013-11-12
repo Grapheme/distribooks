@@ -67,8 +67,8 @@
 			<?php else:?>
 					<textarea rows="2" class="span6" name="trailers[]"></textarea>
 			<?php endif;?>
-				<a href="#" class="btn add-media-content no-clickable" title="добавить трейлер"><i class="icon-plus"></i></a>
-				<a href="#" class="btn remove-media-content no-clickable" title="удалить трейлер"><i class="icon-minus"></i></a>
+				<!--<a href="#" class="btn add-media-content no-clickable" title="добавить трейлер"><i class="icon-plus"></i></a>
+				<a href="#" class="btn remove-media-content no-clickable" title="удалить трейлер"><i class="icon-minus"></i></a>-->
 			</div>
 		</div>
 		<div class="tab-pane fade" id="audio">
@@ -82,8 +82,8 @@
 			<?php else:?>
 					<textarea rows="2" class="span6" name="audio_recording[]"></textarea>
 			<?php endif;?>
-				<a href="#" class="btn remove-media-content no-clickable" title="добавить аудиозапись"><i class="icon-plus"></i></a>
-				<a href="#" class="btn remove-media-content no-clickable" title="удалить аудиозапись"><i class="icon-minus"></i></a>
+				<!--<a href="#" class="btn remove-media-content no-clickable" title="добавить аудиозапись"><i class="icon-plus"></i></a>
+				<a href="#" class="btn remove-media-content no-clickable" title="удалить аудиозапись"><i class="icon-minus"></i></a>-->
 			</div>
 		</div>
 	</div>

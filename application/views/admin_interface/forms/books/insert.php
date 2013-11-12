@@ -58,16 +58,16 @@
 			<div class="control-group">
 				<label>Трейлер:</label>
 				<textarea rows="2" class="span6" name="trailers[]"></textarea>
-				<a href="#" class="btn add-media-content no-clickable" title="добавить трейлер"><i class="icon-plus"></i></a>
-				<a href="#" class="btn remove-media-content no-clickable" title="удалить трейлер"><i class="icon-minus"></i></a>
+				<!--<a href="#" class="btn add-media-content no-clickable" title="добавить трейлер"><i class="icon-plus"></i></a>
+				<a href="#" class="btn remove-media-content no-clickable" title="удалить трейлер"><i class="icon-minus"></i></a>-->
 			</div>
 		</div>
 		<div class="tab-pane fade" id="audio">
 			<div class="control-group">
 				<label>Аудиозапись:</label>
 				<textarea rows="2" class="span6" name="audio_recording[]"></textarea>
-				<a href="#" class="btn add-media-content no-clickable" title="добавить аудиозапись"><i class="icon-plus"></i></a>
-				<a href="#" class="btn remove-media-content no-clickable" title="удалить аудиозапись"><i class="icon-minus"></i></a>
+				<!--<a href="#" class="btn add-media-content no-clickable" title="добавить аудиозапись"><i class="icon-plus"></i></a>
+				<a href="#" class="btn remove-media-content no-clickable" title="удалить аудиозапись"><i class="icon-minus"></i></a>-->
 			</div>
 		</div>
 	</div>
