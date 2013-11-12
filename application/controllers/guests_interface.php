@@ -50,9 +50,9 @@ class Guests_interface extends MY_Controller{
 		$this->offset = (int)$this->uri->segment(3);
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
-			'trailers' => $this->getTrailers(1),
+			'trailers' => $this->getTrailers(PER_PAGE_DEFAULT),
 			'breadcrumbs' => array(),
-			'pages' => $this->pagination('trailers',3,$this->TotalCount,1)
+			'pages' => $this->pagination('trailers',3,$this->TotalCount,PER_PAGE_DEFAULT)
 		);
 		$pagevar['breadcrumbs'] = array('catalog'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/trailers",$pagevar);
