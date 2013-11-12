@@ -1275,9 +1275,25 @@ ul, li {
 	top: 15%;
 	z-index: 9999;
 	border-radius: 5px;
-	height: 500px;
 	width: 420px;
 }
+
+.novelty-div,.recommended-div {
+}
+
+.catalog-top-shop-link,.catalog-novelty-link,.catalog-recommended-link {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.catalog-top-shop-link.active-link,.catalog-novelty-link.active-link,.catalog-recommended-link.active-link {
+	color: #aaaaaa;
+	cursor: default;
+}
+
+.catalog-top-shop-link:hover { text-decoration: underline; }
+.catalog-novelty-link:hover { text-decoration: underline; }
+.catalog-recommended-link:hover { text-decoration: underline; }
 
 .how-much {
 	position: relative;

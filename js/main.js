@@ -28,6 +28,33 @@ $(document).ready(function(){
 		$(".sale-popup").fadeOut("fast");
 	});
 	
+	$(".catalog-novelty-link").click(function(){
+		$(".catalog-main-div").hide();
+		$(".recommended-div").hide();
+		$(".novelty-div").fadeIn();
+		$(".catalog-novelty-link").addClass('active-link');
+		$(".catalog-top-shop-link").removeClass('active-link');
+		$(".catalog-recommended-link").removeClass('active-link');
+	});
+	
+	$(".catalog-top-shop-link").click(function(){
+		$(".novelty-div").hide();
+		$(".recommended-div").hide();
+		$(".catalog-main-div").fadeIn();
+		$(".catalog-novelty-link").removeClass('active-link');
+		$(".catalog-top-shop-link").addClass('active-link');
+		$(".catalog-recommended-link").removeClass('active-link');
+	});
+	
+	$(".catalog-recommended-link").click(function(){
+		$(".novelty-div").hide();
+		$(".catalog-main-div").hide();
+		$(".recommended-div").fadeIn();
+		$(".catalog-novelty-link").removeClass('active-link');
+		$(".catalog-top-shop-link").removeClass('active-link');
+		$(".catalog-recommended-link").addClass('active-link');
+	});
+	
 	var recall = "close";
 	
 	$(".recall").click(function () {
