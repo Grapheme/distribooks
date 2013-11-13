@@ -15,7 +15,8 @@
 				<ul>
 					<li><a href="<?=site_url('catalog');?>" class="footer-option"><?=lang('top_menu_catalog');?></a></li>
 					<li><a href="<?=site_url('about');?>" class="footer-option"><?=lang('top_menu_about');?></a></li>
-					<li><a href="" class="footer-option no-clickable"><?=lang('top_menu_donation');?></a></li>
+					<li><a href="<?=site_url('formats');?>" class="footer-option"><?=lang('top_menu_formats');?></a></li>
+					<li><a href="<?=site_url('trailers');?>" class="footer-option"><?=lang('top_menu_trailers');?></a></li>
 				</ul>
 			</nav>
 		</div>

@@ -21,6 +21,8 @@ $lang['top_menu_user_cabinet'] = "My cabinet";
 $lang['top_menu_bookmark'] = "Bookmark";
 $lang['top_menu_publisher'] = "Online Publisher";
 $lang['top_menu_main'] = "Menu";
+$lang['top_menu_formats'] = "Formats";
+$lang['top_menu_trailers'] = "Trailers";
 
 $lang['menu_editing'] = "Editing";
 $lang['menu_typography'] = "Typography";

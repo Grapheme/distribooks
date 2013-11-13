@@ -21,6 +21,8 @@ $lang['top_menu_user_cabinet'] = "Мой кабинет";
 $lang['top_menu_bookmark'] = "В закладки";
 $lang['top_menu_publisher'] = "Интернет-издание";
 $lang['top_menu_main'] = "Меню";
+$lang['top_menu_formats'] = "Форматы";
+$lang['top_menu_trailers'] = "Трейлеры";
 
 $lang['menu_editing'] = "Редактирование";
 $lang['menu_typography'] = "Оформление";
@@ -47,6 +49,7 @@ $lang['footer_menu_services'] = "Услуги:";
 $lang['catalog_top_shop'] = "Лидеры продаж";
 $lang['catalog_novelty'] = "Новинки";
 $lang['catalog_recommended'] = "Рекомендуемые";
+$lang['catalog_catalog'] = "Каталог";
 $lang['catalog_catalog'] = "Каталог";
 
 $lang['catalog_promotion'] = "Акция";

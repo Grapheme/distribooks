@@ -150,4 +150,17 @@ class Books_card extends MY_Model{
 		endif;
 		return NULL;
 	}
+
+	function getTrailers($limit = NULL){
+		
+		$sql = "SELECT trailers FROM books_card WHERE trailers != '' ORDER BY id DESC";
+		if(!is_null($limit)):
+			$sql .= " LIMIT $limit";
+		endif;
+		$query = $this->db->query($sql);
+		if($data = $query->result_array()):
+			return $data;
+		endif;
+		return NULL;
+	}
 }

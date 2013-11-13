@@ -212,11 +212,12 @@ class MY_Controller extends CI_Controller{
 		$this->load->library('phpmailer');
 		$mail = new PHPMailer();
 		
+//		$mail->SMTPDebug = 1;
 		$mail->IsSMTP();
 		$mail->SMTPAuth = true;
-		$mail->SMTPSecure = "tls";
+		$mail->SMTPSecure = "ssl";
 		$mail->Host = "smtp.yandex.ru";
-		$mail->Port = 587;
+		$mail->Port = 465;
 		$mail->Username = "distribbooks@yandex.ru";
 		$mail->Password = "gfd688NNDNS";
 		
@@ -769,11 +770,16 @@ class MY_Controller extends CI_Controller{
 	
 	public function reIndexArray($array){
 		
-		$newArray = array();
-		foreach($array as $key => $value):
-			$newArray[] = $value;
-		endforeach;
-		return $newArray;
+		if(!empty($array)):
+			$newArray = array();
+			foreach($array as $key => $value):
+				$newArray[] = $value;
+			endforeach;
+			return $newArray;
+		else:
+			return NULL;
+		endif;
+		
 	}
 
 	public function getFileUploadErrorMessage($FileData){
