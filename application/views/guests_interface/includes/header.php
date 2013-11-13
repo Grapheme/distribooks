@@ -33,8 +33,8 @@
 		</div>
 	</div>
 	<div class="social">
-		<a href="#" class="social-link" id="vk"></a>
-		<a href="#" class="social-link" id="fb"></a>
+		<a href="http://vk.com/distribbooks" class="social-link" target="_blank" id="vk"></a>
+		<a href="https://www.facebook.com/pages/Distribbooks/414587435333963?skip_nax_wizard=true" class="social-link" target="_blank" id="fb"></a>
 		<a href="https://twitter.com/DistribBooks" target="_blank" class="social-link" id="tw"></a>
 	</div>
 	<div class="top">

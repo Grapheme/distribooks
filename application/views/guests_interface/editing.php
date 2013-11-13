@@ -66,29 +66,6 @@
 				</div>
 			</div>		
 		</div>
-		<div class="container_5">
-			<div class="clear"></div>
-			<div class="grid_1 pos3-no">&nbsp;</div>
-			<div class="grid_2 info-bottom-div">
-				<div class="edit-bottom">
-					<p>Services for editing and correcting our creative studio providing professional linguists with extensive 
-					experience in the publishing business. Typically, this is the current leaders of the editorial boards in successful 
-					international periodicals and publishing houses. Proposal under the terms of our cooperation will be sent to you by e-mail, 
-					based on the processing of applications received from you.
-					</p>
-				</div>
-			</div>
-			<div class="grid_2 info-bottom-div">
-				<div class="edit-bottom right">
-					<p>Creative Workshop DistribBooks, helps talented and promising writers and editors - to realize their creative potential. 
-					Thanks to the joint efforts of the creative (in the editing and translation, design, marketing and promotion) of the 
-					material authors, we create and publish enjoying high popularity among readers - electronic literature. 
-					Proposal under the terms of our cooperation will be sent to you by e-mail, based on the processing of applications 
-					received from you.
-					</p>
-				</div>
-			</div>
-		</div>
 		<div class="clearfix"></div>
 		<div class="container_5">
 			<div class="min-nav pos3">
