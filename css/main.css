@@ -202,7 +202,7 @@ only screen and (min-device-pixel-ratio : 1.5),
 .min-right {
 	float: left;
 	margin-left: 15px;
-	margin-top: 20px;
+	margin-top: 7px;
 	width: 260px;
 }
 
@@ -280,8 +280,8 @@ only screen and (min-device-pixel-ratio : 1.5),
 .min-div-left .button {
 	width: 130px;
 	padding: 0 !important;
-	height: 50px;
-	line-height: 50px;
+	height: 40px;
+	line-height: 40px;
 }
 
 .top-title {
@@ -1903,6 +1903,10 @@ input[type="radio"]:checked + label
 	margin-top: 38px;
 }
 
+.vidiv iframe {
+	max-width: 372px;
+}
+
 .buy {
 	display: block;
 	background: url('../img/green-button.png') repeat-x;
@@ -3417,8 +3421,9 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.grid_1 .buy {
-		line-height: 45px !important;
-		height: 45px;
+		line-height: 60px !important;
+		height: 60px;
+		width: 110px !important;
 	}
 	
 	.top-shop .buy {
@@ -3459,6 +3464,8 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.basket.button {
+		height: 40px;
+		line-height: 40px;
 		width: 205px !important;
 	}
 	
@@ -3897,6 +3904,9 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	.top-shop.alpha {
 		margin-left: 30px !important;
+	}
+	.incart {
+		line-height: 59px;
 	}
 }
 
