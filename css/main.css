@@ -125,6 +125,15 @@ only screen and (min-device-pixel-ratio : 1.5),
    Author's custom styles
    ========================================================================== */
  
+.about-title {
+	font-size: 1em;
+    font-weight: 700;
+}
+
+.about-text {
+	font-size: 12px;
+}
+ 
 .donation-info {
 	position: relative;
 	top: 115px;
@@ -1272,10 +1281,16 @@ ul, li {
 	background: #88b41f;
 	left: 50%;
 	margin-left: -210px;
-	top: 15%;
+	top: 50%;
+	margin-top: -300px;
 	z-index: 9999;
 	border-radius: 5px;
 	width: 420px;
+}
+
+.window-donation {
+	height: 420px;
+	margin-top: -210px;
 }
 
 .novelty-div,.recommended-div {
@@ -1385,8 +1400,8 @@ ul, li {
 .auth-text {
 	color: #fff;
 	font-size: 11px;
-	width: 400px;
-	height: 50px;
+	width: 320px;
+	height: 74px;
 	padding: 5px;
 	background: url('../img/auth-text.png');
 	background-size: 100% 100%;
@@ -1442,14 +1457,12 @@ ul, li {
 
 .auth-left {
 	width: 150px;
-	margin-left: 40px;
 	margin-top: 20px;
-	float: left;
+	margin: 0 auto;
 }
 
 .auth-right {
-	float: left;
-	margin-left: 40px;
+	margin: 0 auto;
 	width: 310px;
 	text-align: center;
 }
@@ -3372,7 +3385,7 @@ input[type="checkbox"].cart-check:checked + label
 	    margin-left: -250px;
 	    overflow: hidden;
 	    position: fixed;
-	    top: 15%;
+	    top: 10%;
 	    width: 470px;
 	    z-index: 9999;
 	}
@@ -3872,6 +3885,8 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	.window-donation,.window-auth {
 		position: absolute;
+		top: 0;
+		margin-top: 0;
 	}
 }
 
