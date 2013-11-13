@@ -251,7 +251,7 @@ only screen and (min-device-pixel-ratio : 1.5),
 .triangle {
 	position: absolute;
 	right: 15px;
-	top: 14px;
+	top: 20px;
     width: 0;
     height: 0;
     border-top: 5px solid transparent;
@@ -280,6 +280,8 @@ only screen and (min-device-pixel-ratio : 1.5),
 .min-div-left .button {
 	width: 130px;
 	padding: 0 !important;
+	height: 50px;
+	line-height: 50px;
 }
 
 .top-title {
@@ -417,6 +419,8 @@ only screen and (min-device-pixel-ratio : 1.5),
 	height: 23px;
 	width: 23px;
 	background: url('../img/find.png') no-repeat;
+	border: none;
+	margin-top: 2px;
 }
 
 .search-a {
@@ -567,7 +571,7 @@ ul, li {
 
 .min-menu {
 	position: absolute;
-	top: 97px;
+	top: 127px;
 	z-index: 999;
 	display: none;
 }
@@ -575,6 +579,8 @@ ul, li {
 .min-menu .button {
 	margin-top: -1px;
 	width: 145px;
+	height: 50px;
+	line-height: 50px;
 }
 
 .lang {
@@ -2331,8 +2337,8 @@ footer .button {
 .min-option {
 	position: relative;
 	display: block;
-	height: 35px;
-	line-height: 35px;
+	height: 50px;
+	line-height: 50px;
 	width: 100%;
 	color: #fff;
 	text-decoration: none;
@@ -3416,8 +3422,9 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.top-shop .buy {
-		line-height: 45px !important;
-		height: 45px;
+		line-height: 60px !important;
+		height: 60px;
+		width: 110px !important;
 	}
 	
 	.footer-right {
@@ -3560,7 +3567,7 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.tocart {
-		line-height: 44px;
+		line-height: 59px;
 		font-size: 14px;
 	}
 	
@@ -3887,6 +3894,9 @@ input[type="checkbox"].cart-check:checked + label
 		position: absolute;
 		top: 0;
 		margin-top: 0;
+	}
+	.top-shop.alpha {
+		margin-left: 30px !important;
 	}
 }
 
