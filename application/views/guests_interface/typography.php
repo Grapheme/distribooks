@@ -48,7 +48,6 @@
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_order_clearance');?></span></p>
-						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png');?>"></a><p><?=lang('service_for_author');?></p></div>
 					</div>
 					<p class="desc style"><?=lang('service_order_clearance_text');?></p>
 				</div>
@@ -59,31 +58,8 @@
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_do_design');?></span></p>
-						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png');?>"></a><p><?=lang('service_for_author');?></p></div>
 					</div>
 					<p class="desc style"><?=lang('service_do_design_text');?></p>
-				</div>
-			</div>
-		</div>
-		<div class="container_5">
-			<div class="clear"></div>
-			<div class="grid_1 pos3-no">&nbsp;</div>
-			<div class="grid_2 info-bottom-div">
-				<div class="style-bottom">
-					<p>Services designer décor of your book (including design unique book covers and illustrations for her) 
-					in our creative studio providing professional designers, artists and photographers, with extensive experience 
-					in the publishing business. As a rule, it is highly qualified professionals with experience in successful international 
-					advertising agencies. Proposal under the terms of our cooperation will be sent to you by e-mail, based on the 
-					processing of applications received from you.</p>
-				</div>
-			</div>
-			<div class="grid_2 info-bottom-div">
-				<div class="style-bottom right">
-					<p>Creative Workshop DistribBooks, helps talented and promising writers and designers - to realize their creative 
-					potential. Thanks to the joint efforts of the creative (in the editing and translation, design, 
-					marketing and promotion) of the material authors, we create and publish enjoying high popularity 
-					among readers - electronic literature. Proposal under the terms of our cooperation will be sent to you 
-					by e-mail, based on the processing of applications received from you.</p>
 				</div>
 			</div>
 		</div>

@@ -108,7 +108,6 @@
 	<div class="min-top">
 		<div class="min-shadow"></div>
 		<div class="container_5">
-			<div style="position: relative;"><a class="like-min" href="#"></a></div>
 			<div class="grid_1" style="margin-top: 0 !important;">
 				<a class="min-logo" href="<?=site_url();?>"></a>
 				<div class="min-right">

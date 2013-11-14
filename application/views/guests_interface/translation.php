@@ -49,7 +49,6 @@
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_request_translation');?></span></p>
-						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
 					</div>
 					<p class="desc"><?=lang('service_request_translation_text');?></p>
 				</div>
@@ -60,29 +59,8 @@
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_begin_translating');?></span></p>
-						<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
 					</div>
 					<p class="desc"><?=lang('service_begin_translating_text');?></p>
-				</div>
-			</div>
-		</div>
-		<div class="container_5">
-			<div class="clear"></div>
-			<div class="grid_1 pos3-no">&nbsp;</div>
-			<div class="grid_2 info-bottom-div">
-				<div class="info-bottom">
-					<p>Translation services for your books, our creative studio providing professional translators who have extensive 
-					experience with fiction. Usually, it supports the language in which the translation possessing literary talent, with 
-					successful experience in reputable translation agencies. Proposal under the terms of our cooperation will be sent to 
-					you by e-mail, based on the processing of applications received from you.</p>
-				</div>
-			</div>
-			<div class="grid_2 info-bottom-div">
-				<div class="info-bottom right">
-					<p>Creative Workshop DistribBooks, helps talented and promising writers and translators - to realize their creative 
-					potential. Thanks to the joint efforts of the creative (in the editing and translation, design, marketing and promotion) 
-					of the material authors, we create and publish enjoying high popularity among readers - electronic literature. Proposal 
-					under the terms of our cooperation will be sent to you by e-mail, based on the processing of applications received from you.</p>
 				</div>
 			</div>
 		</div>
