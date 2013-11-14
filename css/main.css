@@ -874,8 +874,12 @@ ul, li {
 }
 
 .shop-top {
+	min-height: 250px;
+}
+
+.top-shop .shop-top {
 	overflow: hidden;
-	min-height: 150px;
+	min-height: 180px;
 }
 
 .shop-img {
@@ -1824,7 +1828,6 @@ input[type="radio"]:checked + label
 .yellow {
 	background: #ffdf00;
 	overflow: hidden;
-	margin-top: 20px;
 	padding-bottom: 38px;
 }
 
