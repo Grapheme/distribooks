@@ -100,16 +100,6 @@ textarea {
     background-position: 0 19px;
 }
 
-@media
-only screen and (-webkit-min-device-pixel-ratio: 1.5),
-only screen and (min-device-pixel-ratio : 1.5),
-(min-resolution: 192dpi) {
-    .rating-f .br-widget a {
-        background: url('../img/star@2x.png');
-        background-size: 24px 48px;
-    }
-}
-
 /* ==========================================================================
    Chrome Frame prompt
    ========================================================================== */
@@ -128,6 +118,7 @@ only screen and (min-device-pixel-ratio : 1.5),
 .about-title {
 	font-size: 1em;
     font-weight: 700;
+    margin-top: 50px;
 }
 
 .about-text {
@@ -3383,6 +3374,24 @@ input[type="checkbox"].cart-check:checked + label
 }
 
 @media screen and (max-width: 767px) {
+	
+	.search button {
+		left: 310px;
+	}
+	
+	.basket-one-buy .buy {
+		height: 60px;
+	}
+	
+	.basket-item {
+		height: 60px;
+	}
+	
+	.buy {
+		height: 60px;
+		line-height: 60px !important;
+		width: 100px !important;
+	}
 
 	.shop-sort {
 		right: 90px;
@@ -3494,10 +3503,6 @@ input[type="checkbox"].cart-check:checked + label
 	
 	.basket-select select {
 		padding-left: 20px;
-	}
-	
-	.buy {
-		width: 60px !important;
 	}
 	
 	.basket-select select {
