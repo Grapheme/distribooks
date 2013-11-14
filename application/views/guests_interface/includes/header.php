@@ -2,13 +2,13 @@
 <?php if(isset($sliderExist)):?>
 	<div class="slide-container pos3-no">
 	<?php if($this->uri->segment(1) == 'editing'):?>
-		<div class="slider edit">&nbsp;</div>
+		<div class="slider edit n-page">&nbsp;</div>
 	<?php elseif($this->uri->segment(1) == 'typography'):?>
-		<div class="slider style">&nbsp;</div>
+		<div class="slider style n-page">&nbsp;</div>
 	<?php elseif($this->uri->segment(1) == 'translation'):?>
-		<div class="slider trans">&nbsp;</div>
+		<div class="slider trans n-page">&nbsp;</div>
 	<?php elseif($this->uri->segment(1) == 'distribution'):?>
-		<div class="slider dist">&nbsp;</div>
+		<div class="slider dist n-page">&nbsp;</div>
 	<?php else:?>
 		<div class="slider">&nbsp;</div>
 	<?php endif;?>

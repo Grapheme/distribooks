@@ -2529,6 +2529,10 @@ footer .button {
 	background: url('../img/edit-left-p.png');
 }
 
+.n-page {
+	top: 200px;
+}
+
 /****/
 
 .info-bottom.right {
