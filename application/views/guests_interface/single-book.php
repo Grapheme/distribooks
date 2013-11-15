@@ -36,8 +36,8 @@
 						<div class="shop-about big">
 							<p class="title no-clickable"><?=$book[$this->uri->language_string.'_title'];?></p>
 							<p class="author-big">
-							<?php for($j=0;$j<count($book['authors']);$j++):?>
-								<a href="<?=site_url('catalog?author='.$authors[$j]['id'])?>"><?=$authors[$j][$this->uri->language_string.'_name'];?></a><?php if(isset($book['authors'][$j+1])):?>, <?php endif;?>
+							<?php for($j=0;$j<count($authors);$j++):?>
+								<a href="<?=site_url('catalog?author='.$authors[$j]['id'])?>"><?=$authors[$j][$this->uri->language_string.'_name'];?></a><?php if(isset($authors[$j+1])):?>, <?php endif;?>
 							<?php endfor;?>
 							</p>
 							<?php
