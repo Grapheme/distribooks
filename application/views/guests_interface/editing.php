@@ -49,8 +49,8 @@
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_order_ending');?></span></p>
+						<p class="desc"><?=lang('service_order_ending_text');?></p>
 					</div>
-					<p class="desc"><?=lang('service_order_ending_text');?></p>
 				</div>
 				<div class="grid_2 information">
 					<div>
@@ -59,11 +59,41 @@
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_do_ending');?></span></p>
+						<p class="desc"><?=lang('service_do_ending_text');?></p>
 					</div>
-					<p class="desc"><?=lang('service_do_ending_text');?></p>
+					
 				</div>
 			</div>		
 		</div>
+		
+		
+		<div class="container_5">
+                                
+                                
+                                
+                                
+                                <div class="clear"></div>                         
+                                
+                                
+                                
+                                <div class="grid_1 pos3-no">
+                                        &nbsp;
+                                </div>
+                                
+                                <div class="grid_2 info-bottom-div">
+                                        <div class="edit-bottom">
+                                                <p><?=lang('service_order_ending_text_2');?></p>
+                                                
+                                        </div>                                 
+                                </div>
+                                <div class="grid_2 info-bottom-div">
+                                        <div class="edit-bottom right">
+                                                <p><?=lang('service_do_ending_text_2');?></p>
+                                        </div>                                 
+                                </div>
+                </div>
+		
+		
 		<div class="clearfix"></div>
 		<div class="container_5">
 			<div class="min-nav pos3">

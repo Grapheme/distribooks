@@ -33,8 +33,8 @@
 				<?php $this->load->view('guests_interface/includes/left-nav');?>
 				<?php $this->load->view('guests_interface/includes/gift-pad');?>
 			</div>
-			</div>
-			<div class="dist-div">
+		</div>
+		<div class="dist-div">
 				<div class="container_5">
 					<div class="grid_1 pos3-no">&nbsp;</div>
 					<div class="grid_2 information">
@@ -44,8 +44,8 @@
 						</div>
 						<div>
 							<p class="title"><span><?=lang('service_order_distribution');?></span></p>
+							<p class="desc"><?=lang('service_order_distribution_text');?></p>
 						</div>
-						<p class="desc"><?=lang('service_order_distribution_text');?></p>
 					</div>
 					<div class="grid_2 information">
 						<div>
@@ -54,12 +54,42 @@
 						</div>
 						<div>
 							<p class="title"><span><?=lang('service_begin_distribution');?></span></p>
+							<p class="desc"><?=lang('service_begin_distribution_text');?></p>
 						</div>
-						<p class="desc"><?=lang('service_begin_distribution_text');?></p>
+						
 					</div>
 				</div>		
-			</div>
 		</div>
+		 <div class="container_5">
+                                
+                                
+                                
+                                
+                                <div class="clear"></div>                         
+                                
+                                
+                                
+                                <div class="grid_1 pos3-no">
+                                        &nbsp;
+                                </div>
+                                
+                                <div class="grid_2 info-bottom-div">
+                                        <div class="dist-bottom">
+                                                <p>
+                                                	<?=lang('service_order_distribution_text_2');?>
+                                                </p>
+                                        </div>                                 
+                                </div>
+                                <div class="grid_2 info-bottom-div">
+                                        <div class="dist-bottom right">
+                                                <p>
+                                                	<?=lang('service_begin_distribution_text_2');?>
+                                                </p>
+                                        </div>                                 
+                                </div>
+        </div>
+        
+		<div class="clearfix"></div>
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>

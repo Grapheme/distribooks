@@ -48,8 +48,8 @@
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_order_clearance');?></span></p>
+						<p class="desc style"><?=lang('service_order_clearance_text');?></p>
 					</div>
-					<p class="desc style"><?=lang('service_order_clearance_text');?></p>
 				</div>
 				<div class="grid_2 information">
 					<div>
@@ -58,11 +58,30 @@
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_do_design');?></span></p>
+						<p class="desc style"><?=lang('service_do_design_text');?></p>
 					</div>
-					<p class="desc style"><?=lang('service_do_design_text');?></p>
 				</div>
 			</div>
 		</div>
+		<div class="container_5">
+                
+                                <div class="clear"></div>                         
+                                
+                                        <div class="grid_1 pos3-no">
+                                        &nbsp;
+                                </div>
+                                
+                                <div class="grid_2 info-bottom-div">
+                                        <div class="style-bottom">
+                                                <p><?=lang('service_order_clearance_text_2');?></p>
+                                        </div>                                 
+                                </div>
+                                <div class="grid_2 info-bottom-div">
+                                        <div class="style-bottom right">
+                                        	<p><?=lang('service_do_design_text_2');?></p>
+                                        </div>                                 
+                                </div>
+                </div>
 		<div class="clearfix"></div>
 		<div class="container_5">
 			<div class="min-nav pos3">
