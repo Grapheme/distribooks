@@ -44,8 +44,9 @@
 			<?php if(!empty($news)):?>
 				<div class="grid_1 news-div pos3-no">
 					<div class="news-cont">
-						<p class="title"><?=lang('news_block');?></p>
-					<?php for($i=0;$i<count($news);$i++):?>
+						<p class="title"><a href="<?=site_url('news');?>" style="color: #fff; text-decoration: none;"><?=lang('news_block');?></a></p>
+					<?php if(count($news) >= 2) { $cnews = 2; } else { $cnews = count($news); } ?>
+					<?php for($i=0;$i<$cnews;$i++):?>
 						<div class="news">
 							<a href="<?=$news[$i]['page_address'];?>" class="news-title"><?=$news[$i][$this->uri->language_string.'_title'];?></a>
 							<a href="" class="date no-clickable"><?=swapDotDateWithoutTime($news[$i]['date'])?></a>
