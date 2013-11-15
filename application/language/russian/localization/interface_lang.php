@@ -2,6 +2,7 @@
 
 $lang['news_block'] = "Новости";
 
+$lang['trailers_title'] = "Видеотрейлеры к нашим книгам";
 $lang['index_page'] = "Главная";
 $lang['top_menu_catalog'] = "Каталог";
 $lang['top_menu_about'] = "О проекте";

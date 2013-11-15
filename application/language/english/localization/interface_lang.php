@@ -2,6 +2,7 @@
 
 $lang['news_block'] = "News";
 
+$lang['trailers_title'] = "Trailers of our books";
 $lang['index_page'] = "Home";
 $lang['top_menu_catalog'] = "Catalog";
 $lang['top_menu_about'] = "About";

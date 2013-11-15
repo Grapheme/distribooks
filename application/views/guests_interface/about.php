@@ -34,8 +34,8 @@
 				</div>
 			</div>
 			<div class="grid_4">
-				<p class="about-title"><?=lang('about-title')?></p>
-				<p class="about-text">
+				<p class="about-title title-1"><?=lang('about-title')?></p>
+				<p class="about-text typo-normal-text">
 					<?=lang('about_project')?>
 				</p>
 			</div>
