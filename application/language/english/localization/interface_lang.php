@@ -145,7 +145,7 @@ $lang['trailer'] = "Videotrailer";
 $lang['audio'] = "Audiotrailer";
 
 $lang['search_catalog'] = "Search results";
-$lang['search_catalog_fail'] = "Sorry, no results found.<br/>Try changing or consult our experts.";
+$lang['search_catalog_fail'] = "Sorry, no results found. Try to change your request.";
 
 $lang['about_project_1'] = "Online publisher DistribBooks - is an interactive creative workshop that helps talented and promising: autors, editors, translators, designers and marketers - to realize their creative potential to create a popular literary works of the new electronic formats in a friendly and relaxed atmosfete.
 Thanks to the joint efforts of the creative (in the editing and translation, design, marketing and promotion) of the \"raw material\" of their authors, we create and publish enjoying high popularity among readers - electronic literature.";

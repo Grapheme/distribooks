@@ -457,6 +457,11 @@ ul, li {
 	margin: 0 0 0 12px;
 }
 
+.news-text li {
+	margin: 5px 5px 5px 15px;
+	list-style: disc;
+}
+
 .qr {
 	position: absolute; top: 50%; margin-top: -30px;
 	margin-left: 10px;
