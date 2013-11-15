@@ -879,12 +879,11 @@ ul, li {
 }
 
 .shop-top {
-	min-height: 250px;
+	min-height: 180px;
 }
 
 .top-shop .shop-top {
 	overflow: hidden;
-	min-height: 180px;
 }
 
 .shop-img {
@@ -927,7 +926,7 @@ ul, li {
 
 .shop-about {
 	display: inline-block;
-	margin-left: 10px;
+	width: 105px;
 }
 
 .shop-about.big {
