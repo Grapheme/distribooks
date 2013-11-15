@@ -1,6 +1,7 @@
 <?php
 	$CI = & get_instance();
 	$CI->load->helper('language');
+	$basket_list = array();
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,8 @@
 <body>
 	<div class="wrapper">
 		<?php $CI->load->view('guests_interface/includes/ie7');?>
-		<?php $CI->load->view('guests_interface/includes/header');?>
+		<?php $CI->load->view('guests_interface/includes/header404');?>
+		
 		<div class="dark-screen"></div>
 		<div class="window-donation">
 			<?php $CI->load->view('guests_interface/forms/donation');?>
