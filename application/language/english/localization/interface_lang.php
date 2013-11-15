@@ -3,7 +3,7 @@
 $lang['news_block'] = "News";
 
 $lang['trailers_title'] = "Trailers of our books";
-$lang['index_page'] = "Home";
+$lang['index_page'] = "Distribbooks";
 $lang['top_menu_catalog'] = "Catalog";
 $lang['top_menu_about'] = "About";
 $lang['top_menu_donation'] = "Make donation";
@@ -147,17 +147,15 @@ $lang['audio'] = "Audiotrailer";
 $lang['search_catalog'] = "Search results";
 $lang['search_catalog_fail'] = "Sorry, no results found.<br/>Try changing or consult our experts.";
 
-$lang['about_project'] = "Online publisher DistribBooks - is an interactive creative workshop that helps talented and promising: autors, editors, translators, designers and marketers - to realize their creative potential to create a popular literary works of the new electronic formats in a friendly and relaxed atmosfete.
-Thanks to the joint efforts of the creative (in the editing and translation, design, marketing and promotion) of the \"raw material\" of their authors, we create and publish enjoying high popularity among readers - electronic literature.
-<br><br>
-In turn, the online store of books published by the creative studio DistribBooks and financial support for the project provided to us by private people, companies and organizations - allow our team to more actively develop their professional competence to the new power and creative energy to delight our readers with their new - more colorful and interesting books than before.
+$lang['about_project_1'] = "Online publisher DistribBooks - is an interactive creative workshop that helps talented and promising: autors, editors, translators, designers and marketers - to realize their creative potential to create a popular literary works of the new electronic formats in a friendly and relaxed atmosfete.
+Thanks to the joint efforts of the creative (in the editing and translation, design, marketing and promotion) of the \"raw material\" of their authors, we create and publish enjoying high popularity among readers - electronic literature.";
+$lang['about_project_2'] = "In turn, the online store of books published by the creative studio DistribBooks and financial support for the project provided to us by private people, companies and organizations - allow our team to more actively develop their professional competence to the new power and creative energy to delight our readers with their new - more colorful and interesting books than before.
 Your support also helps us to learn and develop new, modern, more reader-friendly formats of interactive design books published.
 In every published book of our creative studio - is part of the soul, energy and heat, every one of our readers. Even if you just paid for the our books, bought books from online publishing DistribBooks, thus you are making a contribution to our overall favorite business - to create of modern books that are in demand by our esteemed readers.
 Thank you for that!
 <br><br>
 Sincerely,
 The team of creative workshop <b>DistribBooks</b>";
-
 $lang['about-title'] = "Dear friends!";
 
 ?>

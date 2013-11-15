@@ -33,13 +33,27 @@
 					</div>
 				</div>
 			</div>
-			<div class="grid_4">
-				<p class="about-title title-1"><?=lang('about-title')?></p>
+				<p class="about-title title-1"</p>
 				<p class="about-text typo-normal-text">
-					<?=lang('about_project')?>
+					
 				</p>
-			</div>
-		</div>
+			<div class="grid_4 news-one" style="margin-top: 0;">
+                <div>
+                	<p class="title-1"><?=lang('about-title')?></p>
+                    <img class="typo-img" src="<?=baseURL('img/typo.png');?>">
+                    <div>
+                    	<p class="typo-left-text"><?=lang('about_project_1')?></p>
+                    </div>
+                </div>
+                <div>
+                    <p class="typo-normal-text">
+                    	<?=lang('about_project_2')?>
+                    </p>
+                </div>
+                
+                <div class="clear"></div>
+             </div>
+        </div>
 		<div class="clear"></div>
 		<div class="yellow blue">
 			<div class="container_5">
