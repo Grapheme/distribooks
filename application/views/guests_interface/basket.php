@@ -43,7 +43,13 @@
 						endif;
 					?>
 						<div>
-							<p class="basket-price basket-main-total-price" style="border: 0;"><?=addCurrencyInPrice(number_format($total_summa,2,'.',''));?></p>
+							<p class="basket-price basket-main-total-price" style="border: 0;">
+							<?php if($this->uri->language_string == RUSLAN):?>
+								<?=addCurrencyInPrice($total_summa);?>
+							<?php else:?>
+								<?=addCurrencyInPrice(number_format($total_summa,2,'.',''));?>
+							<?php endif;?>
+							</p>
 							<p class="basket-item-name all" style="width: 210px;; color: #000; margin-left: 15px; float:right;"><?=lang('basket_page_part4');?> <?=count($basket_list);?> <?=lang('basket_page_part5');?></p>
 							<div class="basket-one-buy">
 								<a href="" class="buy buy-all no-clickable <?=(isUserLoggined() === FALSE)?'sign-in-link':'basket-buy-link';?>" style="margin-right: 5px; width: 180px"><?=lang('basket_buy_all');?></a>
