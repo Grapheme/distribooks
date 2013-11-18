@@ -31,7 +31,7 @@ class Guests_interface extends MY_Controller{
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>'home')),
 			'sliderExist' =>TRUE,
 			'news' => $this->news->limit(3),
-			'novelty' => $this->books_card->limit(4,0,'id DESC'),
+			'novelty' => $this->books_card->limit(4,0,$this->uri->language_string.'_sort,id DESC'),
 			'basket_list' => $this->getBooksInBasket(),
 			'trailers' => $this->getTrailers(2)
 		);
@@ -342,7 +342,7 @@ class Guests_interface extends MY_Controller{
 			'basket_list' => $this->getBooksInBasket(),
 			'trailers' => $this->getTrailers(2)
 		);
-		$sortBy = NULL; $tags = $genre = $keyword = $author = FALSE;
+		$sortBy = $this->uri->language_string.'_sort'; $tags = $genre = $keyword = $author = FALSE;
 		if($this->input->get('tag') !== FALSE && $this->input->get('tag') != ''):
 			$tags = TRUE;
 		endif;

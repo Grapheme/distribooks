@@ -31,6 +31,10 @@
 				<label>Объем: </label>
 				<input type="text" name="ru_size" class="span3" value="<?=$book['ru_size'];?>"/>
 			</div>
+			<div class="control-group">
+				<label>Порядковый номер</label>
+				<input type="text" name="ru_sort" class="span1 valid-numeric" value="<?=$book['ru_sort'];?>" />
+			</div>
 		</div>
 		<div class="tab-pane fade" id="en">
 			<a href="#" class="show-meta no-clickable">Page titles</a>
@@ -54,6 +58,10 @@
 				<input type="text" name="en_copyright" class="span4" value="<?=$book['en_copyright'];?>" />
 				<label>Size: </label>
 				<input type="text" name="en_size" class="span3" value="<?=$book['en_size'];?>"/>
+			</div>
+			<div class="control-group">
+				<label>Sort number</label>
+				<input type="text" name="en_sort" class="span1 valid-numeric" value="<?=$book['en_sort'];?>" />
 			</div>
 		</div>
 		<div class="tab-pane fade" id="video">
@@ -149,10 +157,6 @@
 			<small>Указывать только URI (без доменного имени)</small>
 			<small>По-умолчанию транслит русского названия</small>
 		</blockquote>
-	</div>
-	<div class="control-group">
-		<label>Порядковый номер</label>
-		<input type="text" name="sort" class="span1 valid-numeric" value="<?=$book['sort'];?>" />
 	</div>
 	<div class="div-form-operation">
 		<button type="submit" value="" name="submit" class="btn btn-success btn-img-submit no-clickable btn-loading">Сохранить</button>

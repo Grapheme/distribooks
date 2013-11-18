@@ -54,7 +54,7 @@
 							</td>
 							<td><?=$books[$i]['ru_title'].' ('.$books[$i]['en_title'].')';?></td>
 							<td><?=word_limiter($books[$i]['ru_anonce'],25);?></td>
-							<td><?=$books[$i]['sort'];?></td>
+							<td><?=$books[$i]['ru_sort'].' ('.$books[$i]['en_sort'].')';?></td>
 						</tr>
 					<?php endfor;?>
 					</tbody>

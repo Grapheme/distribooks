@@ -333,4 +333,14 @@ class MY_Model extends CI_Model{
 		if($data[0]['max_number']) return (int)($data[0]['max_number']+1);
 		return 1;
 	}
+	function getNextLangSortable($lang = RUSLAN){
+		
+		$this->db->select_max($lang.'_sort','max_number');
+		$query = $this->db->get($this->table);
+		$data = $query->result_array();
+		if($data[0]['max_number']) return (int)($data[0]['max_number']+1);
+		return 1;
+	}
+	
+	
 }

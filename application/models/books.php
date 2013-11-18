@@ -5,7 +5,7 @@ class Books extends MY_Model{
 	protected $table = "books";
 	protected $primary_key = "id";
 	protected $fields = array("*");
-	protected $order_by = "sort,price DESC,genre";
+	protected $order_by = "ru_sort,en_sort,price DESC,genre";
 
 	function __construct(){
 		

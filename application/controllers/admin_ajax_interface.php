@@ -619,11 +619,16 @@ class Admin_ajax_interface extends MY_Controller{
 			'ru_text'=>$post['ru_text'],'en_text'=>$post['en_text'],'date_released'=>$post['date_released'],'ru_size'=>$post['ru_size'],
 			'isbn'=>$post['isbn'],'age_limit'=>$post['age_limit'],'genre'=>$post['genre'],'en_size'=>$post['en_size'],
 			'currency'=>$post['currency'],'price'=>$post['price'],'price_action'=>$post['price_action'],'authors'=>$post['authors'],
-			'ru_copyright'=>$post['ru_copyright'],'en_copyright'=>$post['en_copyright'],
+			'ru_copyright'=>$post['ru_copyright'],'en_copyright'=>$post['en_copyright'],'ru_sort'=>$post['ru_sort'],'en_sort'=>$post['en_sort'],
 			'trailers'=>json_encode($post['trailers']),'audio_recording'=>json_encode($post['audio_recording'])
 		);
 		$this->load->model('books');
-		$bookData['sort'] = $this->books->getNextSortable();
+		if(empty($bookData['ru_sort'])):
+			$bookData['ru_sort'] = $this->books->getNextLangSortable(RUSLAN);
+		endif;
+		if(empty($bookData['en_sort'])):
+			$bookData['en_sort'] = $this->books->getNextLangSortable(ENGLAN);
+		endif;
 		if($bookID = $this->insertItem(array('insert'=>$bookData,'model'=>'books'))):
 			if(!empty($post['keywords'])):
 				$this->setKeyWords($bookID,$post['keywords']);
@@ -651,7 +656,7 @@ class Admin_ajax_interface extends MY_Controller{
 			'ru_text'=>$post['ru_text'],'en_text'=>$post['en_text'],'date_released'=>$post['date_released'],'ru_size'=>$post['ru_size'],
 			'isbn'=>$post['isbn'],'age_limit'=>$post['age_limit'],'genre'=>$post['genre'],'en_size'=>$post['en_size'],
 			'currency'=>$post['currency'],'price'=>$post['price'],'price_action'=>$post['price_action'],'authors'=>$post['authors'],
-			'ru_copyright'=>$post['ru_copyright'],'en_copyright'=>$post['en_copyright'],'sort'=>$post['sort'],
+			'ru_copyright'=>$post['ru_copyright'],'en_copyright'=>$post['en_copyright'],'ru_sort'=>$post['ru_sort'],'en_sort'=>$post['en_sort'],
 			'trailers'=>json_encode($post['trailers']),'audio_recording'=>json_encode($post['audio_recording'])
 		);
 		$this->updateItem(array('update'=>$bookData,'model'=>'books'));
