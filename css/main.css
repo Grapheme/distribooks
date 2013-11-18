@@ -2917,6 +2917,7 @@ input[type="checkbox"].cart-check:checked + label
 	top: 0;
 	color: #000;
 	font-size: 14px;
+	transition: 2s all ease;
 }
 
 .search-page .shop-sort {
@@ -2964,7 +2965,8 @@ input[type="checkbox"].cart-check:checked + label
 	}
 
 	.shop-sort {
-		right: 210px;
+		left: 0;
+    	top: -25px;
 	}
 	
 	.itrailer {
@@ -2995,7 +2997,7 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.basket-min .basket-sale .basket-item-name {
-		width: 122px;
+		width: 250px;
 	}
 	
 	.about-product {
@@ -3421,7 +3423,8 @@ input[type="checkbox"].cart-check:checked + label
 	}
 
 	.shop-sort {
-		right: 90px;
+		left: 30px;
+    	top: -25px;
 	}
 
 	.auth-left {
@@ -3454,7 +3457,7 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.basket-min .basket-sale .basket-item-name {
-		width: 122px !important;
+		width: 250px !important;
 	}
 	
 	.basket-min .basket-item .basket-one-buy {
@@ -3701,11 +3704,11 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.cart-page .basket-item-name {
-		width: 145px !important;
+		width: 250px !important;
 	}
 	
 	.basket-sale .basket-item-name {
-		width: 110px !important;
+		width: 250px !important;
 	}
 	
 	.news-text.all {
