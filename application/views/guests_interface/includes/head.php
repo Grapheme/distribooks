@@ -3,6 +3,8 @@
 <title><?=(isset($page_content[$this->uri->language_string.'_page_title']))?$page_content[$this->uri->language_string.'_page_title']:'Distribbooks';?></title>
 <meta name="description" content="<?=(isset($page_content[$this->uri->language_string.'_page_description']))?$page_content[$this->uri->language_string.'_page_description']:'Distribbooks';?>">
 <meta name="viewport" content="width=device-width">
+<link rel="icon" href="<?=baseURL('favicon.ico')?>" type="image/x-icon">
+<link rel="shortcut icon" href="<?=baseURL('favicon.ico')?>" type="image/x-icon">
 <link rel="stylesheet" href="<?=baseURL('css/normalize.css');?>">
 <link rel="stylesheet" href="<?=baseURL('css/main.css');?>">
 <link rel="stylesheet" href="<?=baseURL('css/tooltip.css');?>">
