@@ -13,7 +13,7 @@
 				$CI->load->model('configuration');
 				$dollar_rate = $CI->configuration->getDollarRate();
 			endif;
-			return round($bookPrice/$dollar_rate,0).' $';
+			return round($bookPrice/$dollar_rate,2).' $';
 		endif;
 	}
 	
@@ -38,7 +38,7 @@
 				$CI->load->model('configuration');
 				$dollar_rate = $CI->configuration->getDollarRate();
 			endif;
-			$price = round($price*$dollar_rate,0);
+			$price = round($price*$dollar_rate,2);
 		endif;
 		return $price;
 	}

@@ -39,11 +39,11 @@
 					<?php 
 						$total_summa = (int)$this->account_basket['basket_total_price'];
 						if($this->account_basket['basket_total_price'] >= $this->project_config['action_price']):
-							$total_summa = $total_summa - round($total_summa*($this->project_config['action_percent']/100));
+							$total_summa = $total_summa - round($total_summa*($this->project_config['action_percent']/100),2);
 						endif;
 					?>
 						<div>
-							<p class="basket-price basket-main-total-price" style="border: 0;"><?=addCurrencyInPrice($total_summa);?></p>
+							<p class="basket-price basket-main-total-price" style="border: 0;"><?=addCurrencyInPrice(number_format($total_summa,2,'.',''));?></p>
 							<p class="basket-item-name all" style="width: 210px;; color: #000; margin-left: 15px; float:right;"><?=lang('basket_page_part4');?> <?=count($basket_list);?> <?=lang('basket_page_part5');?></p>
 							<div class="basket-one-buy">
 								<a href="" class="buy buy-all no-clickable <?=(isUserLoggined() === FALSE)?'sign-in-link':'basket-buy-link';?>" style="margin-right: 5px; width: 180px"><?=lang('basket_buy_all');?></a>

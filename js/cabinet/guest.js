@@ -109,7 +109,7 @@ $(function(){
 				var configuration = JSON.parse(cookies.getCookie('project_config'));
 				mt.dollar_rate = configuration['dollar_rate'];
 			}
-			price = Math.round(price/mt.dollar_rate);
+			price = Math.round(price/mt.dollar_rate).toFixed(2);
 		}
 		return price;
 	}
