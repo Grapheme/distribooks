@@ -8,7 +8,7 @@ $lang['top_menu_catalog'] = "Catalog";
 $lang['top_menu_about'] = "About";
 $lang['top_menu_donation'] = "Make donation";
 $lang['top_menu_promotion'] = "Promotion";
-$lang['top_menu_request_the_call'] = "Request a call";
+$lang['top_menu_request_the_call'] = "Contact us";
 $lang['top_menu_find'] = "Find";
 $lang['top_menu_find_genre'] = "Genre";
 $lang['top_menu_find_author'] = "Author";
@@ -59,12 +59,12 @@ $lang['form_donation_thank_you'] = "Thanks<br/>for the help";
 $lang['form_donation_summs'] = "Other amount";
 $lang['form_donate_another_text'] = "you can use the account at any bank supports the following payment systems";
 
-$lang['form_recall_text'] = "We'll call you back at a convenient time for you";
-$lang['form_recall_after_text'] = "Your request has been successfully processed";
-$lang['form_recall_after_message'] = "We'll call you back at the specified time";
+$lang['form_recall_text'] = "We'll answer you as soon as possible";
+$lang['form_recall_after_text'] = "Your message sent";
+$lang['form_recall_after_message'] = "We'll answer you as soon as possible";
 $lang['form_recall_name'] = "Introduce yourself";
-$lang['form_recall_number'] = "Telephone number";
-$lang['form_recall_button'] = "Send inquiry";
+$lang['form_recall_number'] = "Message text";
+$lang['form_recall_button'] = "Send message";
 
 $lang['basket_title'] = "Every fourth book as a gift!";
 $lang['basket_format'] = "Format";

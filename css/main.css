@@ -1643,6 +1643,16 @@ input[type="radio"]:checked + label
 	padding-left: 5px;
 }
 
+.recall-div textarea {
+	height: 100px;
+	margin: 5px 15px 0px 15px;
+	width: 130px;
+	border-radius: 3px;
+	border: 0;
+	font-size: 12px;
+	padding-left: 5px;
+}
+
 .request-div input[type=text] {
 	height: 15px;
 	margin: 5px 20px 0px 20px;

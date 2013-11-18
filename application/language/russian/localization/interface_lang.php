@@ -8,7 +8,7 @@ $lang['top_menu_catalog'] = "Каталог";
 $lang['top_menu_about'] = "О проекте";
 $lang['top_menu_donation'] = "Поддержать проект";
 $lang['top_menu_promotion'] = "Скидка";
-$lang['top_menu_request_the_call'] = "Заказать звонок";
+$lang['top_menu_request_the_call'] = "Напишите нам";
 $lang['top_menu_find'] = "Поиск";
 $lang['top_menu_find_genre'] = "Жанр";
 $lang['top_menu_find_author'] = "Автор";
@@ -60,12 +60,12 @@ $lang['form_donation_thank_you'] = "Спасибо<br>за помощь";
 $lang['form_donation_summs'] = "Другая сумма";
 $lang['form_donate_another_text'] = "вы можете воспользоваться счетом в любом банке поддерживающем следующие платежные системы";
 
-$lang['form_recall_text'] = "Мы перезвоним в удобное для вас время";
+$lang['form_recall_text'] = "Мы ответим вам как можно быстрее";
 $lang['form_recall_after_text'] = "Ваш запрос успешно обработан";
-$lang['form_recall_after_message'] = "Мы перезвоним в указанное вами время";
+$lang['form_recall_after_message'] = "Мы ответим вам как можно быстрее";
 $lang['form_recall_name'] = "Представьтесь";
-$lang['form_recall_number'] = "Номер телефона";
-$lang['form_recall_button'] = "Отправить запрос";
+$lang['form_recall_number'] = "Текст сообщения";
+$lang['form_recall_button'] = "Отправить сообщение";
 
 $lang['basket_title'] = "Каждая четвертая книга в подарок!";
 $lang['basket_format'] = "Формат";
