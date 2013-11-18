@@ -1,36 +1,7 @@
 <header>
-<?php if(isset($sliderExist)):?>
-	<div class="slide-container pos3-no">
-	<?php if($this->uri->segment(1) == 'editing'):?>
-		<div class="slider edit n-page">&nbsp;</div>
-	<?php elseif($this->uri->segment(1) == 'typography'):?>
-		<div class="slider style n-page">&nbsp;</div>
-	<?php elseif($this->uri->segment(1) == 'translation'):?>
-		<div class="slider trans n-page">&nbsp;</div>
-	<?php elseif($this->uri->segment(1) == 'distribution'):?>
-		<div class="slider dist n-page">&nbsp;</div>
-	<?php else:?>
-		<div class="slider">&nbsp;</div>
-	<?php endif;?>
-	</div>
-<?php endif;?>
+
 	<div class="container_5">
-		<div style="position: relative;">
-		<?php if(!empty($breadcrumbs)):?>
-			<div class="bread">
-				<a href="<?=site_url();?>"><?=lang('index_page');?></a>
-			<?php foreach($breadcrumbs as $page_url => $page_title):?>
-				/ <a href="<?=site_url($page_url);?>"><?=$page_title;?></a>
-			<?php endforeach;?>
-			</div>
-		<?php endif;?>
-		<!--<div class="search-full">
-				<div class="search-full-in">
-					<?php $this->load->view('guests_interface/forms/search');?>
-				</div>
-			</div>-->
-			<?php $this->load->view('guests_interface/includes/basket');?>
-		</div>
+
 	</div>
 	<div class="social">
 		<a href="http://vk.com/distribbooks" class="social-link" target="_blank" id="vk"></a>

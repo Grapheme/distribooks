@@ -23,32 +23,50 @@
 			<div class="grid_1 left-boxes shop">
 				<?php $this->load->view('guests_interface/includes/left-nav');?>
 				<div style="position: relative;">
-					<div class="gift-pad" style="position: absolute !important;">
+					<div class="gift-pad"<?=(isset($style))?$style:'';?> style="position: absolute !important;">
 						<img src="<?=baseURL('img/book.png');?>">
 						<div>
-							<h2><span>Book is the best gift</span></h2>
-							<p>Present book comfortably through our website</p>
-							<a href="#" class="button red">Present</a>
+							<h2><span><?=lang('gift_pad_h2')?></span></h2>
+							<p><?=lang('gift_pad_text')?></p>
+							<a href="<?=site_url('catalog');?>" class="button red"><?=lang('gift_pad_button')?></a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="grid_4">
-				<div class="clear"></div>
-			</div>
-		</div>
+				<p class="about-title title-1"</p>
+				<p class="about-text typo-normal-text">
+					
+				</p>
+			<div class="grid_4 news-one" style="margin-top: 0;">
+                <div>
+                	<p class="title-1"><?=lang('about-title')?></p>
+                    <img class="typo-img" src="<?=baseURL('img/typo.png');?>">
+                    <div>
+                    	<p class="typo-left-text"><?=lang('about_project_1')?></p>
+                    </div>
+                </div>
+                <div>
+                    <p class="typo-normal-text">
+                    	<?=lang('about_project_2')?>
+                    </p>
+                </div>
+                
+                <div class="clear"></div>
+             </div>
+        </div>
 		<div class="clear"></div>
 		<div class="yellow blue">
 			<div class="container_5">
 				<div style="position: relative;"><img src="<?=baseURL('img/shadow-top.png');?>" class="shadow-top"></div>
 				<div class="grid_1 gift shop">&nbsp;</div>
 				<div class="grid_1 pos1">&nbsp;</div>
+				<?php if(!empty($trailers)):?>
+			<?php for($i=0;$i<count($trailers);$i++):?>
 				<div class="grid_2 vidiv">
-					<iframe class="itrailer" src="//www.youtube.com/embed/YoaNmkOPICA" frameborder="0" allowfullscreen></iframe>
+					<?=$trailers[$i];?>
 				</div>
-				<div class="grid_2 vidiv">
-					<iframe class="itrailer" width="372" height="200" src="//www.youtube.com/embed/YoaNmkOPICA" frameborder="0" allowfullscreen></iframe>
-				</div>
+			<?php endfor;?>
+		<?php endif;?>
 			</div>
 		</div>
 		<div class="container_5">

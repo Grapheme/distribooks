@@ -3,9 +3,9 @@
 		<div class="grid_1 footer-nav pos3-no">
 			<a href="#" class="button red">Lottery</a>
 			<div class="social-footer">
-		<a href="#" class="social-link" id="vk"></a>
-		<a href="#" class="social-link" id="fb"></a>
-		<a href="https://twitter.com/DistribBooks" target="_blank" class="social-link" id="tw"></a>
+				<a href="http://vk.com/distribbooks" class="social-link" target="_blank" id="vk"></a>
+				<a href="https://www.facebook.com/pages/Distribbooks/414587435333963?skip_nax_wizard=true" class="social-link" target="_blank" id="fb"></a>
+				<a href="https://twitter.com/DistribBooks" target="_blank" class="social-link" id="tw"></a>
 			</div>
 		</div>
 		<div class="grid_1 footer-nav">
@@ -35,8 +35,8 @@
 		<div class="grid_1 footer-nav pos3">
 			<a href="#" class="button red" style="font-size: 18px;">Lottery</a>
 			<div class="social-footer">
-				<a href="#" class="social-link" id="vk"></a>
-				<a href="#" class="social-link" id="fb"></a>
+				<a href="http://vk.com/distribbooks" class="social-link" target="_blank" id="vk"></a>
+				<a href="https://www.facebook.com/pages/Distribbooks/414587435333963?skip_nax_wizard=true" class="social-link" target="_blank" id="fb"></a>
 				<a href="https://twitter.com/DistribBooks" target="_blank" class="social-link" id="tw"></a>
 			</div>
 			<div class="footer-right">

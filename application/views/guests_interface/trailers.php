@@ -27,17 +27,18 @@
 				</div>
 			</div>
 			<div class="grid_4 top-shop-div">
+			<p class="title-1"><?=lang('trailers_title');?></p>
 			<?php if(!empty($trailers)):?>
 				<div class="grid_4 shop-new-div">
-		<?php if(!empty($trailers)):?>
-			<?php for($i=0;$i<count($trailers);$i++):?>
-				<div class="grid_2 vidiv">
-					<?=$trailers[$i];?>
-				</div>
-			<?php endfor;?>
-				<div class="clear"></div>
-				<?=$pages;?>
-		<?php endif;?>
+				<?php if(!empty($trailers)):?>
+					<?php for($i=0;$i<count($trailers);$i++):?>
+						<div class="grid_2 vidiv">
+							<?=$trailers[$i];?>
+						</div>
+					<?php endfor;?>
+						<div class="clear"></div>
+						<?=$pages;?>
+				<?php endif;?>
 				</div>
 			<?php endif;?>
 			</div>

@@ -100,16 +100,6 @@ textarea {
     background-position: 0 19px;
 }
 
-@media
-only screen and (-webkit-min-device-pixel-ratio: 1.5),
-only screen and (min-device-pixel-ratio : 1.5),
-(min-resolution: 192dpi) {
-    .rating-f .br-widget a {
-        background: url('../img/star@2x.png');
-        background-size: 24px 48px;
-    }
-}
-
 /* ==========================================================================
    Chrome Frame prompt
    ========================================================================== */
@@ -124,6 +114,16 @@ only screen and (min-device-pixel-ratio : 1.5),
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+ 
+.about-title {
+	font-size: 1em;
+    font-weight: 700;
+    margin-top: 50px;
+}
+
+.about-text {
+	font-size: 12px;
+}
  
 .donation-info {
 	position: relative;
@@ -193,7 +193,7 @@ only screen and (min-device-pixel-ratio : 1.5),
 .min-right {
 	float: left;
 	margin-left: 15px;
-	margin-top: 20px;
+	margin-top: 7px;
 	width: 260px;
 }
 
@@ -242,7 +242,7 @@ only screen and (min-device-pixel-ratio : 1.5),
 .triangle {
 	position: absolute;
 	right: 15px;
-	top: 14px;
+	top: 20px;
     width: 0;
     height: 0;
     border-top: 5px solid transparent;
@@ -271,6 +271,8 @@ only screen and (min-device-pixel-ratio : 1.5),
 .min-div-left .button {
 	width: 130px;
 	padding: 0 !important;
+	height: 40px;
+	line-height: 40px;
 }
 
 .top-title {
@@ -408,6 +410,8 @@ only screen and (min-device-pixel-ratio : 1.5),
 	height: 23px;
 	width: 23px;
 	background: url('../img/find.png') no-repeat;
+	border: none;
+	margin-top: 2px;
 }
 
 .search-a {
@@ -451,6 +455,11 @@ ul, li {
 .bottom-menu li {
 	float: right;
 	margin: 0 0 0 12px;
+}
+
+.news-text li {
+	margin: 5px 5px 5px 15px;
+	list-style: disc;
 }
 
 .qr {
@@ -558,7 +567,7 @@ ul, li {
 
 .min-menu {
 	position: absolute;
-	top: 97px;
+	top: 94px;
 	z-index: 999;
 	display: none;
 }
@@ -566,6 +575,8 @@ ul, li {
 .min-menu .button {
 	margin-top: -1px;
 	width: 145px;
+	height: 50px;
+	line-height: 50px;
 }
 
 .lang {
@@ -868,8 +879,11 @@ ul, li {
 }
 
 .shop-top {
+	min-height: 180px;
+}
+
+.top-shop .shop-top {
 	overflow: hidden;
-	min-height: 150px;
 }
 
 .shop-img {
@@ -912,6 +926,11 @@ ul, li {
 
 .shop-about {
 	display: inline-block;
+	width: 105px;
+}
+
+.shop-about.big {
+	width: 405px;
 	margin-left: 10px;
 }
 
@@ -1006,12 +1025,12 @@ ul, li {
 }
 
 .formats {
-	float: right;
 	border: 1px solid #0080b6;
 	border-radius: 5px;
 	width: 150px;
 	font-size: 12px;
 	padding: 5px;
+	margin-top: 15px;
 }
 
 .formats-title {
@@ -1272,10 +1291,16 @@ ul, li {
 	background: #88b41f;
 	left: 50%;
 	margin-left: -210px;
-	top: 15%;
+	top: 50%;
+	margin-top: -300px;
 	z-index: 9999;
 	border-radius: 5px;
 	width: 420px;
+}
+
+.window-donation {
+	height: 420px;
+	margin-top: -210px;
 }
 
 .novelty-div,.recommended-div {
@@ -1385,8 +1410,8 @@ ul, li {
 .auth-text {
 	color: #fff;
 	font-size: 11px;
-	width: 400px;
-	height: 50px;
+	width: 320px;
+	height: 74px;
 	padding: 5px;
 	background: url('../img/auth-text.png');
 	background-size: 100% 100%;
@@ -1442,14 +1467,12 @@ ul, li {
 
 .auth-left {
 	width: 150px;
-	margin-left: 40px;
 	margin-top: 20px;
-	float: left;
+	margin: 0 auto;
 }
 
 .auth-right {
-	float: left;
-	margin-left: 40px;
+	margin: 0 auto;
 	width: 310px;
 	text-align: center;
 }
@@ -1814,7 +1837,6 @@ input[type="radio"]:checked + label
 .yellow {
 	background: #ffdf00;
 	overflow: hidden;
-	margin-top: 20px;
 	padding-bottom: 38px;
 }
 
@@ -1882,6 +1904,10 @@ input[type="radio"]:checked + label
 
 .vidiv {
 	margin-top: 38px;
+}
+
+.vidiv iframe {
+	max-width: 372px;
 }
 
 .buy {
@@ -2318,8 +2344,8 @@ footer .button {
 .min-option {
 	position: relative;
 	display: block;
-	height: 35px;
-	line-height: 35px;
+	height: 50px;
+	line-height: 50px;
 	width: 100%;
 	color: #fff;
 	text-decoration: none;
@@ -2513,6 +2539,10 @@ footer .button {
 
 .edit-bottom {
 	background: url('../img/edit-left-p.png');
+}
+
+.n-page {
+	top: 200px;
 }
 
 /****/
@@ -2924,6 +2954,18 @@ input[type="checkbox"].cart-check:checked + label
 }
 
 @media screen and (min-width: 768px) and (max-width: 960px) {
+
+	.shop-about.big {
+		width: 317px;
+	}
+
+	.vidiv iframe {
+	    max-width: 295px;
+	}
+
+	.shop-sort {
+		right: 210px;
+	}
 	
 	.itrailer {
 		width: 296px;
@@ -3356,6 +3398,32 @@ input[type="checkbox"].cart-check:checked + label
 
 @media screen and (max-width: 767px) {
 
+	.formats {
+		float: left;
+	}
+	
+	.search button {
+		left: 310px;
+	}
+	
+	.basket-one-buy .buy {
+		height: 60px;
+	}
+	
+	.basket-item {
+		height: 60px;
+	}
+	
+	.buy {
+		height: 60px;
+		line-height: 60px !important;
+		width: 100px !important;
+	}
+
+	.shop-sort {
+		right: 90px;
+	}
+
 	.auth-left {
 		margin-left: 55px;
 	}
@@ -3369,11 +3437,11 @@ input[type="checkbox"].cart-check:checked + label
 	    border-radius: 5px 5px 5px 5px;
 	    display: none;
 	    left: 50%;
-	    margin-left: -250px;
+	    margin-left: -225px;
 	    overflow: hidden;
 	    position: fixed;
-	    top: 15%;
-	    width: 470px;
+	    top: 10%;
+	    width: 400px;
 	    z-index: 9999;
 	}
 	
@@ -3398,13 +3466,15 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.grid_1 .buy {
-		line-height: 45px !important;
-		height: 45px;
+		line-height: 60px !important;
+		height: 60px;
+		width: 110px !important;
 	}
 	
 	.top-shop .buy {
-		line-height: 45px !important;
-		height: 45px;
+		line-height: 60px !important;
+		height: 60px;
+		width: 110px !important;
 	}
 	
 	.footer-right {
@@ -3439,6 +3509,8 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.basket.button {
+		height: 40px;
+		line-height: 40px;
 		width: 205px !important;
 	}
 	
@@ -3458,10 +3530,6 @@ input[type="checkbox"].cart-check:checked + label
 	
 	.basket-select select {
 		padding-left: 20px;
-	}
-	
-	.buy {
-		width: 60px !important;
 	}
 	
 	.basket-select select {
@@ -3547,7 +3615,7 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.tocart {
-		line-height: 44px;
+		line-height: 59px;
 		font-size: 14px;
 	}
 	
@@ -3872,6 +3940,14 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	.window-donation,.window-auth {
 		position: absolute;
+		top: 0;
+		margin-top: 0;
+	}
+	.top-shop.alpha {
+		margin-left: 30px !important;
+	}
+	.incart {
+		line-height: 59px;
 	}
 }
 

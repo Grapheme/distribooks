@@ -33,8 +33,8 @@
 				<?php $this->load->view('guests_interface/includes/left-nav');?>
 				<?php $this->load->view('guests_interface/includes/gift-pad');?>
 			</div>
-			</div>
-			<div class="dist-div">
+		</div>
+		<div class="dist-div">
 				<div class="container_5">
 					<div class="grid_1 pos3-no">&nbsp;</div>
 					<div class="grid_2 information">
@@ -44,9 +44,8 @@
 						</div>
 						<div>
 							<p class="title"><span><?=lang('service_order_distribution');?></span></p>
-							<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
+							<p class="desc"><?=lang('service_order_distribution_text');?></p>
 						</div>
-						<p class="desc"><?=lang('service_order_distribution_text');?></p>
 					</div>
 					<div class="grid_2 information">
 						<div>
@@ -55,36 +54,42 @@
 						</div>
 						<div>
 							<p class="title"><span><?=lang('service_begin_distribution');?></span></p>
-							<div class="like"><a href="#"><img src="<?=baseURL('img/like.png')?>"></a><p><?=lang('service_for_author');?></p></div>
+							<p class="desc"><?=lang('service_begin_distribution_text');?></p>
 						</div>
-						<p class="desc"><?=lang('service_begin_distribution_text');?></p>
+						
 					</div>
 				</div>		
-			</div>
-			<div class="container_5">
-				<div class="clear"></div>
-				<div class="grid_1 pos3-no">&nbsp;</div>
-				<div class="grid_2 info-bottom-div">
-					<div class="dist-bottom">
-						<p>Services for the organization of international distribution (to producing) of your books, in our creative 
-						workshop provided by specialists, with years of experience in international sales and international business 
-						development. As a rule, these are professional managers with the necessary knowledge in the field of marketing and 
-						reliable connections with key specialized marketplaces. A computerized accounting system of sales, allows you to create 
-						transparent financial reporting for our creative writers workshop. Proposal under the terms of our cooperation will 
-						be sent to you by e-mail, based on the processing of applications received from you.</p>
-					</div>
-				</div>
-				<div class="grid_2 info-bottom-div">
-					<div class="dist-bottom right">
-						<p>Creative Workshop DistribBooks, helps talented and promising writers and translators - to realize their 
-						creative potential. Thanks to the joint efforts of the creative (in the editing and translation, design, marketing 
-						and promotion) of the material authors, we create and publish enjoying high popularity among readers - electronic 
-						literature. Proposal under the terms of our cooperation will be sent to you by e-mail, based on the processing of 
-						applications received from you.</p>
-					</div>
-				</div>
-			</div>
 		</div>
+		 <div class="container_5">
+                                
+                                
+                                
+                                
+                                <div class="clear"></div>                         
+                                
+                                
+                                
+                                <div class="grid_1 pos3-no">
+                                        &nbsp;
+                                </div>
+                                
+                                <div class="grid_2 info-bottom-div">
+                                        <div class="dist-bottom">
+                                                <p>
+                                                	<?=lang('service_order_distribution_text_2');?>
+                                                </p>
+                                        </div>                                 
+                                </div>
+                                <div class="grid_2 info-bottom-div">
+                                        <div class="dist-bottom right">
+                                                <p>
+                                                	<?=lang('service_begin_distribution_text_2');?>
+                                                </p>
+                                        </div>                                 
+                                </div>
+        </div>
+        
+		<div class="clearfix"></div>
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>

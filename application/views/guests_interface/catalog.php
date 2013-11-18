@@ -116,9 +116,7 @@
 			</div>
 		<?php endif;?>
 		<?php if(!empty($novelty)):?>
-			<div class="grid_4 shop-new-div novelty-div" style="display: none;">
-				<p class="top-shop-title"><?=lang('catalog_novelty')?>:</p>
-				
+			<div class="grid_4 shop-new-div novelty-div" style="display: none;">	
 			<?php for($i=0;$i<count($novelty);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($novelty)-1))?' omega':'';?>">
 					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$novelty[$i]));?>
@@ -130,7 +128,6 @@
 		<?php endif;?>
 		<?php if(!empty($recommended)):?>
 			<div class="grid_4 shop-new-div recommended-div" style="display: none;">
-				<p class="top-shop-title"><?=lang('catalog_recommended')?>:</p>
 			<?php for($i=0;$i<count($recommended);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($recommended)-1))?' omega':'';?>">
 					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$recommended[$i]));?>

@@ -36,8 +36,8 @@
 						<div class="shop-about big">
 							<p class="title no-clickable"><?=$book[$this->uri->language_string.'_title'];?></p>
 							<p class="author-big">
-							<?php for($j=0;$j<count($book['authors']);$j++):?>
-								<a href="<?=site_url('catalog?author='.$authors[$j]['id'])?>"><?=$authors[$j][$this->uri->language_string.'_name'];?></a><?php if(isset($book['authors'][$j+1])):?>, <?php endif;?>
+							<?php for($j=0;$j<count($authors);$j++):?>
+								<a href="<?=site_url('catalog?author='.$authors[$j]['id'])?>"><?=$authors[$j][$this->uri->language_string.'_name'];?></a><?php if(isset($authors[$j+1])):?>, <?php endif;?>
 							<?php endfor;?>
 							</p>
 							<?php
@@ -65,21 +65,22 @@
 				<div class="product-desc">
 					<?=$book[$this->uri->language_string.'_text']?>
 				</div>
-				<p><?=lang('trailer');?>:</p>
+				
 				<?php
 					if(!empty($book['trailers'])):
 						if($video_trailer = json_decode($book['trailers'],TRUE)):
 							if(isset($video_trailer[0]) && !empty($video_trailer[0])):
+								?> <p><?=lang('trailer');?>:</p> <?php
 								echo $video_trailer[0];
 							endif;
 						endif;
 					endif;
 				?>
-				<p><?=lang('audio');?>:</p>
 				<?php
 					if(!empty($book['audio_recording'])):
 						if($audio_recording = json_decode($book['audio_recording'],TRUE)):
 							if(isset($audio_recording[0]) && !empty($audio_recording[0])):
+								?> <p><?=lang('audio');?>:</p> <?php
 								echo $audio_recording[0];
 							endif;
 						endif;
