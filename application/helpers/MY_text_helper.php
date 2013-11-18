@@ -6,7 +6,7 @@
 		if($CI->uri->language_string == RUSLAN):
 			return $bookPrice.' '.$price_title;
 		elseif($CI->uri->language_string == ENGLAN):
-			$dollar_rate = 31.00;
+			$dollar_rate = 32.00;
 			if(!empty($CI->project_config['dollar_rate'])):
 				$dollar_rate = $CI->project_config['dollar_rate'];
 			else:

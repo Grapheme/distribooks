@@ -5,11 +5,11 @@
 var mt = mt || {};
 
 //CONFIGURATION
-mt.baseURL = window.location.protocol+'//'+window.location.hostname+'/';
+mt.baseURL = window.location.protocol+'//'+window.location.hostname+'/distribbooks/';
 mt.currentURL = window.location.href;
 mt.languageSegment = 1;
 mt.max_basket = 8;
-mt.dollar_rate = 32.00;
+mt.dollar_rate = 31;
 mt.currentLanguage = 'ru'; //Установка языка для панели администрирования так как там не используется сегмент указывающий на язык
 mt.tooltipPlacementDefault = 'right'; // Возможные значения top | bottom | left | right | auto
 mt.tooltipPlacement = mt.tooltipPlacementDefault;
