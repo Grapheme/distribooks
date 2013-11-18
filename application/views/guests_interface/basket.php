@@ -22,11 +22,6 @@
 		<div class="container_5">
 			<div class="grid_1 left-boxes shop">
 				<?php $this->load->view('guests_interface/includes/left-nav');?>
-				<div class="gift-pad sale10" style="margin-bottom: 25px;">
-					<img src="<?=baseURL('img/sale10.png');?>" class="sale10-img">
-					<h2><span>Расскажи про книгу и получи скидку</span></h2>
-					<img src="<?=baseURL('img/sale10-bottom.png');?>" class="sale10-bottom-img">
-				</div>
 			</div>
 			<div class="grid_4 cart-page">
 			<?php if(!empty($basket_list)):?>
@@ -56,11 +51,11 @@
 							</div>
 						</div>
 					</div>
-					<?php if($this->project_config['action_price'] > 0):?>
+					<!--<?php if($this->project_config['action_price'] > 0):?>
 						<div class="summa-action-block<?=($this->account_basket['basket_total_price'] < $this->project_config['action_price'])?' hidden':'';?>">
 							<?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%
 						</div>
-					<?php endif;?>
+					<?php endif;?>-->
 			<?php if($this->project_config['action_price'] > 0):?>
 				<div class="summa-action-block-info<?=($this->account_basket['basket_total_price'] > $this->project_config['action_price'])?' hidden':'';?>">
 					<div class="basket-bottom-sale-top"></div>
