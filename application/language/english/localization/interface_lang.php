@@ -163,7 +163,9 @@ In every published book of our creative studio - is part of the soul, energy and
 Thank you for that!
 <br><br>
 Sincerely,
-The team of creative workshop <b>DistribBooks</b>";
+The team of creative workshop <b>DistribBooks</b>
+<br><br>
+Buying our e-books, you save from destruction forests!";
 $lang['about-title'] = "Dear friends!";
 
 ?>

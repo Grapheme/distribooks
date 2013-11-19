@@ -44,7 +44,13 @@
 					<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a>
 					<div class="med-bar"></div>
 					<a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a>
-					<a href="#" class="enter-text"><?=lang('top_menu_sign_in');?></a>&nbsp;<a href="#" class="enter"></a>
+					<?php if($this->loginstatus === FALSE):?>
+						<?php $this->load->view('headers/guest');?>
+					<?php elseif($this->account['group'] == ADMIN_GROUP_VALUE):?>
+						<?php $this->load->view('headers/admin');?>
+					<?php elseif($this->account['group'] == USER_GROUP_VALUE):?>
+						<?php $this->load->view('headers/users');?>
+					<?php endif;?>
 				</div>
 			</div>
 			<div class="grid_1" style="z-index: 100;">&nbsp;
@@ -70,7 +76,9 @@
 					<div style="position: absolute; bottom: -1px; width: 100%;">
 						<a href="mailto:welcome@distibbooks.com" class="top-contact"><img src="<?=baseURL('img/mail.png');?>">welcome@distibbooks.com</a>
 						<a href="#" class="blue button call pos1 recall no-clickable"><img src="<?=baseURL('img/call.png');?>"><?=lang('top_menu_request_the_call');?></a>
-						<a href="#" class="blue button call pos2 basket no-clickable"><img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span>2000 р.</span></a>
+						<a href="" class="blue button call pos2 basket<?=($this->uri->segment(1) == 'basket')?'':' basket-show-link';?> no-clickable<?=(empty($this->account_basket['basket_books']))?' hidden':'';?>">
+							<img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span class="basket-total-price"><?=$this->account_basket['basket_total_price'];?></span>
+						</a>
 					</div>
 				</div>
 				<div class="grid_1 pos1">
@@ -118,7 +126,14 @@
 						<a href="#" class="blue button menu-open no-clickable"><?=lang('top_menu_main');?></a>
 					</div>
 					<div class="min-div-right">
-						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a><div><a href="" class="enter-text no-clickable"><?=lang('top_menu_sign_in');?></a>&nbsp;<a href="#" class="enter"></a></div>
+						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a>
+						<?php if($this->loginstatus === FALSE):?>
+						<?php $this->load->view('headers/guest');?>
+						<?php elseif($this->account['group'] == ADMIN_GROUP_VALUE):?>
+							<?php $this->load->view('headers/admin');?>
+						<?php elseif($this->account['group'] == USER_GROUP_VALUE):?>
+							<?php $this->load->view('headers/users');?>
+						<?php endif;?>
 					</div>
 					<a href="" class="blue button call basket<?=($this->uri->segment(1) == 'basket')?'':' basket-show-link';?> no-clickable<?=(empty($this->account_basket['basket_books']))?' hidden':'';?>">
 						<img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span class="basket-total-price"><?=$this->account_basket['basket_total_price'];?></span>

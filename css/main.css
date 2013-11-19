@@ -114,7 +114,24 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
- 
+.min-div-right.pos2 .enter-div a:first-of-type {
+	line-height: 15px;
+	margin-left: 10px;
+	color: #000;
+}
+
+.min-div-right .enter-div {
+	margin-left: 25px;
+}
+
+.min-div-right .enter-div a:first-of-type {
+	line-height: 15px;
+}
+
+.min-div-right .enter-div .enter {
+	position: absolute !important;
+}
+
 .about-title {
 	font-size: 1em;
     font-weight: 700;
@@ -598,6 +615,7 @@ ul, li {
 
 .lang div a {
 	margin-right: 5px;
+	line-height: 18px;
 }
 
 .med-bar {
@@ -879,7 +897,7 @@ ul, li {
 }
 
 .shop-top {
-	min-height: 180px;
+	min-height: 190px;
 }
 
 .top-shop .shop-top {
@@ -1800,11 +1818,11 @@ input[type="radio"]:checked + label
 }
 
 .shop-top .title {
-	display: inline-block;
+	display: block;
 	color: #0080b6;
 	font-size: 12px;
 	width: 98px;
-	height: 20px;
+	height: 50px;
 }
 
 .big .title {
@@ -2966,6 +2984,11 @@ input[type="checkbox"].cart-check:checked + label
 
 @media screen and (min-width: 768px) and (max-width: 960px) {
 
+	.min-div-right.pos2 .enter-div a:first-of-type {
+		margin-left: 0;
+		color: #000;
+	}
+
 	.shop-about.big {
 		width: 317px;
 	}
@@ -3436,10 +3459,6 @@ input[type="checkbox"].cart-check:checked + label
 		left: 30px;
     	top: -25px;
 	}
-
-	.auth-left {
-		margin-left: 55px;
-	}
 	
 	.auth-right p {
 		margin-bottom: 30px;
@@ -3449,8 +3468,6 @@ input[type="checkbox"].cart-check:checked + label
 	    background: none repeat scroll 0 0 #88B41F;
 	    border-radius: 5px 5px 5px 5px;
 	    display: none;
-	    left: 50%;
-	    margin-left: -225px;
 	    overflow: hidden;
 	    position: fixed;
 	    top: 10%;
@@ -3468,6 +3485,10 @@ input[type="checkbox"].cart-check:checked + label
 	
 	.basket-min .basket-sale .basket-item-name {
 		width: 250px !important;
+	}
+	
+	.basket-items-list .basket-item-name {
+		width: 250px;
 	}
 	
 	.basket-min .basket-item .basket-one-buy {
@@ -3963,7 +3984,6 @@ input[type="checkbox"].cart-check:checked + label
 		line-height: 59px;
 	}
 }
-
 
 @-moz-document url-prefix() 
 { 

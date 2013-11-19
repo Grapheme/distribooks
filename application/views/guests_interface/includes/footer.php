@@ -7,6 +7,7 @@
 				<a href="https://www.facebook.com/pages/Distribbooks/414587435333963?skip_nax_wizard=true" class="social-link" target="_blank" id="fb"></a>
 				<a href="https://twitter.com/DistribBooks" target="_blank" class="social-link" id="tw"></a>
 			</div>
+			<img src="<?=baseURL('img/paypal.jpg');?>" style="width: 70px;">
 		</div>
 		<div class="grid_1 footer-nav">
 			<p class="footer-title"><?=lang('footer_menu_main');?></p>
@@ -43,6 +44,7 @@
 				<div><a href="mailto:welcome@distibbooks.com"><img src="<?=baseURL('img/white-mail.png')?>">welcome@distibbooks.com</a></div>
 				<div><a href="skype:DistibBooks?call"><img src="<?=baseURL('img/white-skype.png')?>">DistibBooks</a></div>
 			</div>
+			<img src="<?=baseURL('img/paypal.jpg');?>" style="width: 70px;">
 		</div>
 		<div class="grid_2 footer-nav">
 			<div class="footer-left">
