@@ -2368,6 +2368,12 @@ footer .button {
 	font-size: 14px;
 }
 
+.msg-alert.error {
+	font-size: 14px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
 .min-option {
 	position: relative;
 	display: block;
