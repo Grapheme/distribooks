@@ -64,13 +64,16 @@ class Guests_interface extends MY_Controller{
 		$trailers = array();
 		if($trailersJSON = $this->books_card->getTrailers($limit,$this->offset)):
 			$this->TotalCount = count($this->books_card->getTrailers());
-			for($i=0;$i<count($trailersJSON);$i++):
+			for($i=0,$index=0;$i<count($trailersJSON);$i++):
 				if($trailer = json_decode($trailersJSON[$i]['trailers'],TRUE)):
-					$trailers[$i]['id'] = $trailersJSON[$i]['id'];
-					$trailers[$i]['page_address'] = $trailersJSON[$i]['page_address'];
-					$trailers[$i]['ru_title'] = $trailersJSON[$i]['ru_title'];
-					$trailers[$i]['en_title'] = $trailersJSON[$i]['en_title'];
-					$trailers[$i]['trailer'] = $trailer[0];
+					if(!empty($trailer[0])):
+						$trailers[$index]['id'] = $trailersJSON[$i]['id'];
+						$trailers[$index]['page_address'] = $trailersJSON[$i]['page_address'];
+						$trailers[$index]['ru_title'] = $trailersJSON[$i]['ru_title'];
+						$trailers[$index]['en_title'] = $trailersJSON[$i]['en_title'];
+						$trailers[$index]['trailer'] = $trailer[0];
+						$index++;
+					endif;
 				endif;
 			endfor;
 		endif;
