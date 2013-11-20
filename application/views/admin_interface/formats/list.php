@@ -30,6 +30,7 @@
 						<tr>
 							<th class="span2"></th>
 							<th class="span2">Название</th>
+							<th class="span1">Описание</th>
 							<th class="span1">№ п.п.</th>
 						</tr>
 					</thead>
@@ -41,7 +42,7 @@
 								<button data-item="<?=$formats[$i]['id'];?>" class="btn btn-link remove-item"><i class="icon-remove"></i></button>
 							</td>
 							<td class="menu-title"><?=$formats[$i]['title'];?></td>
-							<td class="menu-title"><?=word_limiter($formats[$i]['description'],15);?></td>
+							<td class="menu-title"><?=word_limiter($formats[$i]['ru_description'],15);?></td>
 							<td class="menu-title"><?=$formats[$i]['sort'];?></td>
 						</tr>
 					<?php endfor;?>

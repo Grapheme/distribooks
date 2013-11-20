@@ -2,7 +2,7 @@
 	<select autocomplete="off" class="select-format-category" name="category">
 	<option value="">Категория не указана</option>
 	<?php for($i=0;$i<count($categories);$i++):?>
-		<option value="<?=$categories[$i]['id'];?>" <?=($this->input->get('category') == $categories[$i]['id'])?'selected="selected"':'';?>><?=$categories[$i]['title'];?></option>
+		<option value="<?=$categories[$i]['id'];?>" <?=($this->input->get('category') == $categories[$i]['id'])?'selected="selected"':'';?>><?=$categories[$i]['ru_title'];?></option>
 	<?php endfor;?>
 	</select>
 </div>

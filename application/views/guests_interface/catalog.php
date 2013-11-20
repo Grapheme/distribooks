@@ -88,7 +88,8 @@
 		<?php if(!empty($trailers)):?>
 			<?php for($i=0;$i<count($trailers);$i++):?>
 				<div class="grid_2 vidiv">
-					<?=$trailers[$i];?>
+					<a href="<?=site_url($trailers[$i]['page_address'])?>" class="title"><?=$trailers[$i][$this->uri->language_string.'_title'];?></a>
+					<?=$trailers[$i]['trailer'];?>
 				</div>
 			<?php endfor;?>
 		<?php endif;?>

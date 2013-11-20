@@ -153,7 +153,7 @@ class Books_card extends MY_Model{
 
 	function getTrailers($limit = NULL){
 		
-		$sql = "SELECT trailers FROM books_card WHERE trailers != '' ORDER BY id DESC";
+		$sql = "SELECT id,trailers,page_address,ru_title,en_title FROM books_card WHERE trailers != '' ORDER BY id DESC";
 		if(!is_null($limit)):
 			$sql .= " LIMIT $limit";
 		endif;

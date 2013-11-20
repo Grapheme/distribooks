@@ -66,7 +66,11 @@ class Guests_interface extends MY_Controller{
 			$this->TotalCount = count($this->books_card->getTrailers());
 			for($i=0;$i<count($trailersJSON);$i++):
 				if($trailer = json_decode($trailersJSON[$i]['trailers'],TRUE)):
-					$trailers[] = $trailer[0];
+					$trailers[$i]['id'] = $trailersJSON[$i]['id'];
+					$trailers[$i]['page_address'] = $trailersJSON[$i]['page_address'];
+					$trailers[$i]['ru_title'] = $trailersJSON[$i]['ru_title'];
+					$trailers[$i]['en_title'] = $trailersJSON[$i]['en_title'];
+					$trailers[$i]['trailer'] = $trailer[0];
 				endif;
 			endfor;
 		endif;
@@ -89,20 +93,23 @@ class Guests_interface extends MY_Controller{
 						break;
 					case 'books':
 						$this->load->model(array('books_card','age_limit','genres'));
-						$pagevar['book'] = $this->books_card->getWhere($page['item_id']);
-						$signedBook = $this->mySignedBooks(array($pagevar['book']));
-						$signedBook = $this->booksInBasket($signedBook);
-						$pagevar['book'] = $signedBook[0];
-						$pagevar['book']['genre_title'] = $this->genres->value($pagevar['book']['genre'],$this->uri->language_string.'_title');
-						$pagevar['authors'] = $this->getAuthorsByIDs($pagevar['book']['authors']);
-						$pagevar['age_limit'] = $this->age_limit->getWhere($pagevar['book']['age_limit']);
-						$pagevar['formats'] = $this->getBookFormats($pagevar['book']['files']);
-						$pagevar['keywords'] = array();
-						if($keywords = $this->getBookKeyWords($page['item_id'])):
-							$pagevar['keywords'] = explode(',',$keywords);
+						if($pagevar['book'] = $this->books_card->getWhere($page['item_id'])):
+							$signedBook = $this->mySignedBooks(array($pagevar['book']));
+							$signedBook = $this->booksInBasket($signedBook);
+							$pagevar['book'] = $signedBook[0];
+							$pagevar['book']['genre_title'] = $this->genres->value($pagevar['book']['genre'],$this->uri->language_string.'_title');
+							$pagevar['authors'] = $this->getAuthorsByIDs($pagevar['book']['authors']);
+							$pagevar['age_limit'] = $this->age_limit->getWhere($pagevar['book']['age_limit']);
+							$pagevar['formats'] = $this->getBookFormats($pagevar['book']['files']);
+							$pagevar['keywords'] = array();
+							if($keywords = $this->getBookKeyWords($page['item_id'])):
+								$pagevar['keywords'] = explode(',',$keywords);
+							endif;
+							$pagevar['breadcrumbs'] = array('catalog'=>lang('catalog_catalog'),$page['page_address']=>$pagevar['book'][$this->uri->language_string.'_title']);
+							$pageContent = $this->load->view('guests_interface/single-book',$pagevar,TRUE);
+						else:
+							show_404();
 						endif;
-						$pagevar['breadcrumbs'] = array('catalog'=>lang('catalog_catalog'),$page['page_address']=>$pagevar['book'][$this->uri->language_string.'_title']);
-						$pageContent = $this->load->view('guests_interface/single-book',$pagevar,TRUE);
 						break;
 				endswitch;
 			endif;

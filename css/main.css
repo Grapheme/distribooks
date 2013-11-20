@@ -94,7 +94,6 @@ textarea {
     float: left;
 }
 
-.rating-f .br-widget a:hover,
 .rating-f .br-widget a.br-active,
 .rating-f .br-widget a.br-selected {
     background-position: 0 19px;

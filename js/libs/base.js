@@ -5,7 +5,7 @@
 var mt = mt || {};
 
 //CONFIGURATION
-mt.baseURL = window.location.protocol+'//'+window.location.hostname+'/distribbooks/';
+mt.baseURL = window.location.protocol+'//'+window.location.hostname+'/';
 mt.currentURL = window.location.href;
 mt.languageSegment = 1;
 mt.max_basket = 8;
