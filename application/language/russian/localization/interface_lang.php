@@ -56,6 +56,8 @@ $lang['catalog_catalog'] = "Каталог";
 $lang['catalog_promotion'] = "Акция";
 $lang['catalog_choice_books'] = "Выбрать книги";
 
+$lang['formats_text'] = "Подробнее о доступных форматах";
+
 $lang['form_donation_thank_you'] = "Спасибо<br>за помощь";
 $lang['form_donation_summs'] = "Другая сумма";
 $lang['form_donate_another_text'] = "вы можете воспользоваться счетом в любом банке поддерживающем следующие платежные системы";

@@ -6,11 +6,13 @@
 		<label>Категория</label>
 		<select autocomplete="off" name="category">
 		<?php for($i=0;$i<count($categories);$i++):?>
-			<option value="<?=$categories[$i]['id'];?>" <?=($categories[$i]['id'] == $format['category'])?'selected="selected"':'';?>><?=$categories[$i]['title'];?></option>
+			<option value="<?=$categories[$i]['id'];?>" <?=($categories[$i]['id'] == $format['category'])?'selected="selected"':'';?>><?=$categories[$i]['ru_title'];?></option>
 		<?php endfor;?>
 		</select>
-		<label>Описание</label>
-		<textarea name="description" class="span6"><?=$format['description'];?></textarea>
+		<label>Описание RUS</label>
+		<textarea name="ru_description" rows="5" class="span6"><?=$format['ru_description'];?></textarea>
+		<label>Описание EN</label>
+		<textarea name="en_description" rows="5" class="span6"><?=$format['en_description'];?></textarea>
 		<div class="controls">
 			<label>Изображение:</label>
 			<?php if(!empty($format['image'])):?>

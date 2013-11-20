@@ -55,6 +55,8 @@ $lang['catalog_catalog'] = "Catalog";
 $lang['catalog_promotion'] = "Promotion";
 $lang['catalog_choice_books'] = "Select books";
 
+$lang['formats_text'] = "Read more about the available formats";
+
 $lang['form_donation_thank_you'] = "Thanks<br/>for the help";
 $lang['form_donation_summs'] = "Other amount";
 $lang['form_donate_another_text'] = "you can use the account at any bank supports the following payment systems";

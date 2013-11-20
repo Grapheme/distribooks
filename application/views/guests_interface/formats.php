@@ -23,26 +23,26 @@
 			<div class="grid_1 left-boxes shop">
 				<?php $this->load->view('guests_interface/includes/left-nav');?>
 				<div style="position: relative;">
-					<div class="gift-pad" style="position: absolute !important;">
+					<div class="gift-pad"<?=(isset($style))?$style:'';?> style="position: absolute !important;">
 						<img src="<?=baseURL('img/book.png');?>">
 						<div>
-							<h2><span>Book is the best gift</span></h2>
-							<p>Present book comfortably through our website</p>
-							<a href="#" class="button red">Present</a>
+							<h2><span><?=lang('gift_pad_h2')?></span></h2>
+							<p><?=lang('gift_pad_text')?></p>
+							<a href="<?=site_url('catalog');?>" class="button red"><?=lang('gift_pad_button')?></a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="grid_4 news-one">
 				<div style="margin-bottom: 25px;">
-					<p class="title-1">Подробнее о доступных форматах</p>
+					<p class="title-1"><?=lang('formats_text');?></p>
 				</div>
 			<?php for($i=0;$i<count($formats);$i++):?>
 				<div class="format-div">
 					<div><img src="<?=baseURL($formats[$i]['image']);?>"></div>
 					<div>
 						<p class="format-title"><?=$formats[$i]['title']?></p>
-						<p class="format-text"><?=$formats[$i]['description']?></p>
+						<p class="format-text"><?=$formats[$i][$this->uri->language_string.'_description']?></p>
 					</div>
 				</div>
 			<?php endfor; ?>
