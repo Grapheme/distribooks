@@ -341,7 +341,7 @@ class Guests_interface extends MY_Controller{
 		
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
-			'breadcrumbs' => array('basket'=>lang('catalog_catalog')),
+			'breadcrumbs' => array('basket'=>lang('pay')),
 			'basket_list' => $this->getBooksInBasket()
 		);
 		$this->load->view("guests_interface/pay",$pagevar);

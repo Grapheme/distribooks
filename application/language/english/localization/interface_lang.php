@@ -2,6 +2,8 @@
 
 $lang['news_block'] = "News";
 
+$lang['pay'] = "Payment";
+
 $lang['trailers_title'] = "Trailers of our books";
 $lang['index_page'] = "Distribbooks";
 $lang['top_menu_catalog'] = "Catalog";

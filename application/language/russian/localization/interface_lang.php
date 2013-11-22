@@ -2,6 +2,8 @@
 
 $lang['news_block'] = "Новости";
 
+$lang['pay'] = "Оплата";
+
 $lang['trailers_title'] = "Видеотрейлеры к нашим книгам";
 $lang['index_page'] = "Distribbooks";
 $lang['top_menu_catalog'] = "Каталог";
