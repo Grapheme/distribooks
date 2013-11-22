@@ -119,7 +119,6 @@ $route['translation'] = "guests_interface/translation";
 $route['distribution'] = "guests_interface/distribution";
 
 $route['basket'] = "guests_interface/basket";
-$route['pay-page'] = "guests_interface/pay";
 
 $route['formats'] = "guests_interface/formats";
 $route[':any'] = "guests_interface/redirectPage";
