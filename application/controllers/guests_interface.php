@@ -329,17 +329,8 @@ class Guests_interface extends MY_Controller{
 			'breadcrumbs' => array('basket'=>lang('catalog_catalog')),
 			'basket_list' => $this->getBooksInBasket()
 		);
+		delete_cookie('buy_book');
 		$this->load->view("guests_interface/basket",$pagevar);
-	}
-	//Pay page
-	public function pay(){
-		
-		$pagevar = array(
-			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
-			'breadcrumbs' => array('basket'=>lang('catalog_catalog')),
-			'basket_list' => $this->getBooksInBasket()
-		);
-		$this->load->view("guests_interface/pay",$pagevar);
 	}
 	/*********************************************** catalog ***********************************************************/
 	public function catalog(){

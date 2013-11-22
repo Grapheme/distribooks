@@ -76,9 +76,11 @@
 					<div style="position: absolute; bottom: -1px; width: 100%;">
 						<a href="mailto:welcome@distibbooks.com" class="top-contact"><img src="<?=baseURL('img/mail.png');?>">welcome@distibbooks.com</a>
 						<a href="#" class="blue button call pos1 recall no-clickable"><img src="<?=baseURL('img/call.png');?>"><?=lang('top_menu_request_the_call');?></a>
+					<?php if($this->uri->segment(1) != 'pay'):?>
 						<a href="" class="blue button call pos2 basket<?=($this->uri->segment(1) == 'basket')?'':' basket-show-link';?> no-clickable<?=(empty($this->account_basket['basket_books']))?' hidden':'';?>">
 							<img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span class="basket-total-price"><?=$this->account_basket['basket_total_price'];?></span>
 						</a>
+					<?php endif;?>
 					</div>
 				</div>
 				<div class="grid_1 pos1">
@@ -106,11 +108,13 @@
 				<?=$this->load->view("guests_interface/forms/search");?>
 				</div>
 			</div>
+		<?php if($this->uri->segment(1) != 'pay'):?>
 			<div class="grid_1">
 				<a href="" class="blue button call pos1 basket<?=($this->uri->segment(1) == 'basket')?'':' basket-show-link';?> no-clickable<?=(empty($this->account_basket['basket_books']))?' hidden':'';?>">
 					<img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span class="basket-total-price"><?=$this->account_basket['basket_total_price'];?></span>
 				</a>
 			</div>
+		<?php endif;?>
 		</div>
 	</div>
 	<div class="min-top">
@@ -135,9 +139,11 @@
 							<?php $this->load->view('headers/users');?>
 						<?php endif;?>
 					</div>
+				<?php if($this->uri->segment(1) != 'pay'):?>
 					<a href="" class="blue button call basket<?=($this->uri->segment(1) == 'basket')?'':' basket-show-link';?> no-clickable<?=(empty($this->account_basket['basket_books']))?' hidden':'';?>">
 						<img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span class="basket-total-price"><?=$this->account_basket['basket_total_price'];?></span>
 					</a>
+				<?php endif;?>
 				</div>
 			</div>
 			<div class="clear"></div>

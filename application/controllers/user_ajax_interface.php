@@ -10,30 +10,6 @@ class User_ajax_interface extends MY_Controller{
 		$this->lang->load('localization/interface',$this->languages[$this->uri->language_string]);
 	}
 	
-	public function buySingleBook(){
-		
-		if(isUserLoggined()):
-			if($this->postDataValidation('buy_book')):
-				$this->load->model(array('books','signed_books'));
-				if($this->books->getWhere($this->input->post('book'))):
-					if(!$this->signed_books->getWhere(NULL,array('book'=>$this->input->post('book'),'account'=>$this->account['id']))):
-						$this->input->set_cookie('buy_book',$this->input->post('book'));
-						$this->json_request['redirect'] = site_url($this->uri->language_string.'/pay');
-					endif;
-				endif;
-				/*if($signedID = $this->buyBook($this->input->post('book'))):
-					$this->json_request['status'] = TRUE;
-					$this->json_request['responseText'] = 'Книга куплена успешно';
-					$this->load->model('books_card');
-					$this->json_request['redirect'] = site_url($this->uri->language_string.'/'.$this->books_card->value($this->input->post('book'),'page_address'));
-				endif;*/
-			else:
-				$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
-			endif;
-		endif;
-		echo json_encode($this->json_request);
-	}
-	
 	public function basketBuyBooks(){
 		
 		if(isUserLoggined()):
@@ -125,7 +101,6 @@ class User_ajax_interface extends MY_Controller{
 
 	public function setBookRating(){
 		
-		
 		if(isUserLoggined()):
 			if($this->postDataValidation('book_rating')):
 				if($book = $this->validSignedBook($this->input->post('book'))):
@@ -145,6 +120,31 @@ class User_ajax_interface extends MY_Controller{
 			endif;
 		endif;
 		echo json_encode($this->json_request);
+	}
+	
+	public function payBookPayU(){
+		
+		if($this->postDataValidation('PayU') == TRUE):
+			if($this->json_request['transaction'] = $this->writeToFinancialReport(1,100,$this->input->post('books'))):
+				$this->json_request['status'] = TRUE;
+			endif;
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
+	private function writeToFinancialReport($code,$summa,$books){
+		
+		if(!empty($books)):
+			$this->load->model('financial_reports');
+			$transaction_status = 0;
+			switch($code):
+				case 1: $description = 'Оплата через PayU';break;
+				case 1: $description = 'Оплата через PayPal';break;
+			endswitch;
+			$insert = array("account"=>$this->account['id'],"summa"=>$summa,'books'=>$books,'operation'=>$code,'description'=>$description,'transaction_status'=>$transaction_status);
+			return $this->financial_reports->insertRecord($insert);
+		endif;
+		return FALSE;
 	}
 	
 	private function updateBookRating($bookID){

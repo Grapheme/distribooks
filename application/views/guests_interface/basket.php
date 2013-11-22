@@ -47,7 +47,7 @@
 							</p>
 							<p class="basket-item-name all" style="width: 210px;; color: #000; margin-left: 15px; float:right;"><?=lang('basket_page_part4');?> <?=count($basket_list);?> <?=lang('basket_page_part5');?></p>
 							<div class="basket-one-buy">
-								<a href="" class="buy buy-all no-clickable <?=(isUserLoggined() === FALSE)?'sign-in-link':'basket-buy-link';?>" style="margin-right: 5px; width: 180px"><?=lang('basket_buy_all');?></a>
+								<a href="<?=(isUserLoggined())?site_url('pay'):'';?>" class="buy buy-all <?=(isUserLoggined() === FALSE)?'sign-in-link no-clickable':'';?>" style="margin-right: 5px; width: 180px"><?=lang('basket_buy_all');?></a>
 							</div>
 						</div>
 					</div>

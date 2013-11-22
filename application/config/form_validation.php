@@ -72,6 +72,8 @@
 			array('field'=>'count_free_book','label'=>'Количество бесплатных книг','rules'=>'required|trim'),
 			array('field'=>'action_price','label'=>'Сумма для скидки','rules'=>'required|trim'),
 			array('field'=>'action_percent','label'=>'Процент скидки','rules'=>'required|trim')
+		),'PayU' =>array(
+
 		)
 	);
 ?>

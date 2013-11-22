@@ -40,26 +40,14 @@ $(function(){
 		$(".window-auth").fadeIn("fast");
 	});
 	$(".buy-link").click(function(){
-		var book = $(this).parents('.buyor').attr('data-book-id');
-		$.ajax({
-			url: mt.getLangBaseURL('buy-book'),
-			type: 'POST',dataType: 'json',data:{'book':book},
-			beforeSend: function(){},
-			success: function(response,textStatus,xhr){
-				if(response.status){
-					mt.redirect(response.redirect);
-				}
-			},
-			error: function(xhr,textStatus,errorThrown){}
-		});
+		cookies.setCookie('buy_book',$(this).parents('.buyor').attr('data-book-id'),largeExpDate,'/');
 	});
 	$(".basket-link").click(function(){
 		var bookID = $(this).parents('.buyor').attr('data-book-id').trim();
 		var pathname = location.pathname;
 		var basket_books = [];
-		if(cookies.getCookie('basket_books') !== null){
-			basket_books = JSON.parse(cookies.getCookie('basket_books'));
-		}
+		if(cookies.getCookie('basket_books') !== null){basket_books = JSON.parse(cookies.getCookie('basket_books'));}
+		if(cookies.getCookie('buy_book') !== null){cookies.deleteCookie('buy_book','/');}
 		if(basket_books.length < mt.max_basket && basket_books.indexOf(bookID) == -1){
 			basket_books.push(bookID);
 			cookies.setCookie('basket_books',JSON.stringify(basket_books),largeExpDate,'/');
@@ -84,18 +72,6 @@ $(function(){
 			error: function(xhr,textStatus,errorThrown){}
 		})
 	})
-	$(".basket-buy-link").click(function(){
-		$.ajax({
-			url: mt.getLangBaseURL('buy-books-in-basket'),type: 'POST',dataType: 'json',
-			beforeSend: function(){},
-			success: function(response,textStatus,xhr){
-				if(response.status){
-					mt.redirect(response.redirect);
-				}
-			},
-			error: function(xhr,textStatus,errorThrown){}
-		});
-	});
 	$(".btn-search-submit").click(function(){
 		if($(".input-search-text").emptyValue() === true){
 			return false;

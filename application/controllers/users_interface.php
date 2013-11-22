@@ -23,10 +23,23 @@ class Users_interface extends MY_Controller{
 	
 	public function pay(){
 		
+		$booksIDs = array();
+		if($this->input->cookie('buy_book') !== FALSE):
+			$booksIDs[] = $this->input->cookie('buy_book');
+		elseif($this->input->cookie('basket_books') !== FALSE):
+			$booksIDs = json_decode($this->input->cookie('basket_books'));
+		else:
+			redirect(USER_START_PAGE);
+		endif;
+		$this->load->model('books');
 		$pagevar = array(
 			'meta_titles' => $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
 			'breadcrumbs' => array('pay'=>lang('user_pay')),
+			'books' => $this->books->getBooksByIDs($booksIDs,'id,ru_title,en_title,price,price_action')
 		);
+		
+//		print_r($pagevar['books']);exit;
+		
 		$this->load->view("users_interface/pay",$pagevar);
 	}
 	

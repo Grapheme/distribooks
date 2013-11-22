@@ -36,9 +36,12 @@ class Books extends MY_Model{
 		return NULL;
 	}
 	
-	function getBooksByIDs($IDs){
-
-		$this->db->select($this->_fields());
+	function getBooksByIDs($IDs,$fields = NULL){
+		
+		if(is_null($fields)):
+			$fields = $this->_fields();
+		endif;
+		$this->db->select($fields);
 		$this->db->where_in('id',$IDs);
 		$query = $this->db->get($this->table);
 		if($data = $query->result_array()):

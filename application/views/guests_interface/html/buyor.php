@@ -1,7 +1,7 @@
 <?php if($this->account['group'] != ADMIN_GROUP_VALUE):?>
 	<?php if($mySignedBook === FALSE):?>
 		<div class="buyor" data-book-id="<?=$book_id;?>">
-			<a href="" class="buy <?=(!isUserLoggined())?'sign-in-link':'buy-link';?> no-clickable"><?=lang('book_shop_buyor')?></a>
+			<a href="<?=(isUserLoggined())?site_url('pay'):'';?>" class="buy <?=(!isUserLoggined())?'sign-in-link no-clickable':'buy-link';?>"><?=lang('book_shop_buyor')?></a>
 			<p class="tocart<?=($in_basket === TRUE)?' hidden':'';?>">
 				<span><?=lang('book_or')?></span>
 				<a href="" class="basket-link no-clickable"><?=lang('book_shop_tocart')?></a>
