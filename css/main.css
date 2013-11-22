@@ -2484,6 +2484,13 @@ footer .button {
 	float: left;
 }
 
+.vidiv a {
+	font-size: 13px;
+    color: #000;
+    margin-bottom: 9px;
+    display: block;
+}
+
 .information div {
 	float: left;
 }
