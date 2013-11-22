@@ -3,6 +3,10 @@
 $lang['news_block'] = "News";
 
 $lang['pay'] = "Payment";
+$lang['pay-title'] = "Online-payment";
+$lang['pay-desc'] = "Payment order perfoms via the international processing center";
+$lang['pay-choose'] = "Choose the payment system";
+$lang['pay-type'] = "Enter required information in the form";
 
 $lang['trailers_title'] = "Trailers of our books";
 $lang['index_page'] = "Distribbooks";

@@ -25,20 +25,20 @@
 			</div>
 			<div class="grid_4 cart-page">
 				<img src="<?=baseURL('img/payu.jpg');?>" style="margin: 0 auto; display: block; width: 200px;">
-				<p>Онлайн оплата</p>
-				<p>Оплата заказа через интернет осуществляется через международный процессинговый центр <a href="payu.ru">PayU</a></p>
-				<p>Выберите способ оплаты</p>
-				<p>
-					<a href="#"><img src="<?=baseURL('img/');?>"></a>
-					<a href="#"><img src="<?=baseURL('img/');?>"></a>
-					<a href="#"><img src="<?=baseURL('img/');?>"></a>
-					<a href="#"><img src="<?=baseURL('img/');?>"></a>
-					<a href="#"><img src="<?=baseURL('img/');?>"></a>
-					<a href="#"><img src="<?=baseURL('img/');?>"></a>
-					<a href="#"><img src="<?=baseURL('img/');?>"></a>
-					<a href="#"><img src="<?=baseURL('img/');?>"></a>
+				<p class="payment-p"><?=lang('pay-title');?></p>
+				<p class="payment-p"><?=lang('pay-desc');?> <a href="payu.ru">PayU</a></p>
+				<p class="payment-p"><?=lang('pay-choose');?>:</p>
+				<p class="payu-payment">
+					<a href="#"><img src="<?=baseURL('img/pay/mts.jpg');?>"></a>
+					<a href="#"><img src="<?=baseURL('img/pay/megafon.png');?>"></a>
+					<a href="#"><img src="<?=baseURL('img/pay/beeline.png');?>"></a>
+					<a href="#"><img src="<?=baseURL('img/pay/mastercard.png');?>"></a>
+					<a href="#"><img src="<?=baseURL('img/pay/visa.png');?>"></a>
+					<a href="#"><img src="<?=baseURL('img/pay/alphabank.png');?>"></a>
+					<a href="#"><img src="<?=baseURL('img/pay/qiwi.png');?>"></a>
+					<a href="#"><img src="<?=baseURL('img/pay/mail.png');?>"></a>
 				</p>
-				<p>Введите соответствующие данные в форму</p>	
+				<p class="payment-p"><?=lang('pay-type');?></p>	
 			</div>
 		</div>
 		<div class="clear"></div>
