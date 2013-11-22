@@ -7,7 +7,7 @@ class Users_interface extends MY_Controller{
 	function __construct(){
 
 		parent::__construct();
-		if(!$this->loginstatus || ($this->account['group'] != USER_GROUP_VALUE)):
+		if($this->isUserLoggined() === FALSE):
 			redirect('');
 		endif;
 		if($this->uri->language_string === FALSE):
@@ -19,6 +19,15 @@ class Users_interface extends MY_Controller{
 		$this->lang->load('localization/interface',$this->languages[$this->uri->language_string]);
 		$this->load->model('meta_titles');
 		$this->getAccountBasketBooks();
+	}
+	
+	public function pay(){
+		
+		$pagevar = array(
+			'meta_titles' => $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
+			'breadcrumbs' => array('pay'=>lang('user_pay')),
+		);
+		$this->load->view("users_interface/pay",$pagevar);
 	}
 	
 	public function cabinet(){
@@ -42,8 +51,6 @@ class Users_interface extends MY_Controller{
 
 	public function downloadBookFile(){
 		
-		show_404();
-		
 		$this->load->model(array('signed_books','books'));
 		if($signedBook = $this->validSignedBook($this->input->get('book'))):
 			if(!empty($signedBook['files'])):
@@ -63,7 +70,8 @@ class Users_interface extends MY_Controller{
 									header('Content-Length: '.filesize($files[$i]['full_path']));
 									header('Connection: close');
 									readfile($files[$i]['full_path']);
-									exit;
+								else:
+									show_404();
 								endif;
 							endif;
 						endfor;
@@ -71,6 +79,6 @@ class Users_interface extends MY_Controller{
 				endif;
 			endif;
 		endif;
-		show_404();
+		exit;
 	}
 }

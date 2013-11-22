@@ -19,6 +19,7 @@ $(document).ready(function(){
 		$(".request-div").fadeOut("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
 		$(".window-auth").fadeOut("fast");
 		$(".sale-popup").fadeOut("fast");
+		cookies.deleteCookie('buy_book','/');
 	});
 	
 	$(".donate-close").click(function() {

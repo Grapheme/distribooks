@@ -43,14 +43,4 @@
 		return $price;
 	}
 	
-	function isUserLoggined(){
-		
-		$CI = & get_instance();
-		if($CI->loginstatus === TRUE && $CI->account['group'] == USER_GROUP_VALUE):
-			return TRUE;
-		else:
-			return FALSE;
-		endif;
-		
-	}
 ?>

@@ -19,11 +19,6 @@ class Guests_interface extends MY_Controller{
 		$this->getAccountBasketBooks();
 	}
 	
-	public function page404(){
-		
-		echo '404';
-	}
-	
 	public function index(){
 		
 		$this->load->model(array('news','books_card'));

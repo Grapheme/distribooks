@@ -50,8 +50,7 @@ class MY_Controller extends CI_Controller{
 		
 		if($accountInfo = $this->accounts->getWhere($accountID)):
 			$this->account = array('id'=>$accountInfo['id'],'group'=>$accountInfo['group']);
-			$account = json_encode($this->account);
-			$this->session->set_userdata(array('logon'=>md5($accountInfo['email']),'account'=>$account));
+			$this->session->set_userdata(array('logon'=>md5($accountInfo['email']),'account'=>json_encode($this->account)));
 			$this->loginstatus = TRUE;
 			return TRUE;
 		endif;
@@ -96,6 +95,24 @@ class MY_Controller extends CI_Controller{
 			endif;
 		endif;
 		return TRUE;
+	}
+
+	public function isUserLoggined(){
+		
+		if($this->loginstatus === TRUE && $this->account['group'] == USER_GROUP_VALUE):
+			return TRUE;
+		else:
+			return FALSE;
+		endif;
+	}
+	
+	public function isAdminLoggined(){
+		
+		if($this->loginstatus === TRUE && $this->account['group'] == ADMIN_GROUP_VALUE):
+			return TRUE;
+		else:
+			return FALSE;
+		endif;
 	}
 	/*************************************************************************************************************/
 	public function getVKontakteAccessToken($code,$redirect){
@@ -899,7 +916,7 @@ class MY_Controller extends CI_Controller{
 		endif;
 		return '';
 	}
-
+	
 	public function buyBook($bookID){
 		
 		$this->load->model(array('books','signed_books'));
