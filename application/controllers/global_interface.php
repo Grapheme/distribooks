@@ -25,10 +25,12 @@ class Global_interface extends MY_Controller{
 		if($this->postDataValidation('signin') == TRUE):
 			if($user = $this->accounts->authentication($this->input->post('login'),$this->input->post('password'))):
 				if($this->signInAccount($user['id'])):
-					if($user['group'] == ADMIN_GROUP_VALUE):
+					if($this->isAdminLoggined()):
 						$json_request['redirect'] = site_url(ADMIN_START_PAGE);
-					elseif($user['group'] == USER_GROUP_VALUE):
-						$json_request['redirect'] = site_url(USER_START_PAGE);
+					elseif($this->isUserLoggined()):
+						if(!$json_request['redirect'] = $this->buySingleBook(FALSE)):
+							$json_request['redirect'] = site_url(USER_START_PAGE);
+						endif;
 					endif;
 					$json_request['status'] = TRUE;
 				else:
@@ -122,15 +124,16 @@ class Global_interface extends MY_Controller{
 		endif;
 	}
 	
-	private function buyBookInLogIn(){
+	private function buySingleBook($pay = FALSE){
 		
 		if($this->input->cookie('buy_book') !== FALSE):
-			if(isUserLoggined()):
-				//Переход на страницу оплаты
+			if($pay === TRUE):
 				if($signedID = $this->buyBook($this->input->cookie('buy_book'))):
 					delete_cookie('buy_book');
 					return $signedID;
 				endif;
+			else:
+				return site_url($this->uri->language_string.'/pay');
 			endif;
 		endif;
 		return FALSE;
@@ -180,7 +183,6 @@ class Global_interface extends MY_Controller{
 		
 		if($user = $this->accounts->getWhere($userID,array('active'=>1))):
 			if($this->setLoginSession($user['id'])):
-				$this->buyBookInLogIn();
 				if($this->validBasket()):
 					$this->setDBBasket();
 				else:

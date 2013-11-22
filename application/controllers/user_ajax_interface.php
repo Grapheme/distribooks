@@ -10,16 +10,23 @@ class User_ajax_interface extends MY_Controller{
 		$this->lang->load('localization/interface',$this->languages[$this->uri->language_string]);
 	}
 	
-	public function singleBuyBook(){
+	public function buySingleBook(){
 		
 		if(isUserLoggined()):
 			if($this->postDataValidation('buy_book')):
-				if($signedID = $this->buyBook($this->input->post('book'))):
+				$this->load->model(array('books','signed_books'));
+				if($this->books->getWhere($this->input->post('book'))):
+					if(!$this->signed_books->getWhere(NULL,array('book'=>$this->input->post('book'),'account'=>$this->account['id']))):
+						$this->input->set_cookie('buy_book',$this->input->post('book'));
+						$this->json_request['redirect'] = site_url($this->uri->language_string.'/pay');
+					endif;
+				endif;
+				/*if($signedID = $this->buyBook($this->input->post('book'))):
 					$this->json_request['status'] = TRUE;
 					$this->json_request['responseText'] = 'Книга куплена успешно';
 					$this->load->model('books_card');
 					$this->json_request['redirect'] = site_url($this->uri->language_string.'/'.$this->books_card->value($this->input->post('book'),'page_address'));
-				endif;
+				endif;*/
 			else:
 				$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
 			endif;

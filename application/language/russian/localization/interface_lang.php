@@ -151,6 +151,7 @@ $lang['catalog_tag_keyword'] = "Все книги с тегом";
 $lang['catalog_tag_author'] = "Все книги автора";
 
 $lang['user_cabinet'] = "Мои книги";
+$lang['user_pay'] = "Оплата";
 
 $lang['trailer'] = "Видеотрейлер";
 $lang['audio'] = "Аудиотрейлер";
