@@ -51,11 +51,17 @@
 							</div>
 						</div>
 					</div>
-					<!--<?php if($this->project_config['action_price'] > 0):?>
+					<?php if($this->project_config['action_price'] > 0):?>
 						<div class="summa-action-block<?=($this->account_basket['basket_total_price'] < $this->project_config['action_price'])?' hidden':'';?>">
-							<?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%
+							<div class="basket-bottom-sale-top"></div>
+							<div class="basket-bottom-sale">
+								<p class="basket-bottom-sale-text">
+									<?=lang('top_menu_promotion');?> <span>-<?=$this->project_config['action_percent']?>%</span>
+								</p>
+							</div>
+							<div class="basket-bottom-sale-bottom"></div>
 						</div>
-					<?php endif;?>-->
+					<?php endif;?>
 			<?php if($this->project_config['action_price'] > 0):?>
 				<div class="summa-action-block-info<?=($this->account_basket['basket_total_price'] > $this->project_config['action_price'])?' hidden':'';?>">
 					<div class="basket-bottom-sale-top"></div>

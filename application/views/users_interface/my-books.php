@@ -24,6 +24,25 @@
 				<?php $this->load->view('guests_interface/includes/left-nav');?>
 			</div>
 			<div class="grid_4 top-shop-div">
+		<?php 
+			$notificationText = '';
+			if($this->input->get('err') !== FALSE):
+				$notificationText = 'Возникла ошибка при оплате. Попробуйте снова!.<br/>Если ошибка повториться обратитесь за помощью к администрации сайта';
+			elseif($this->input->get('result') !== FALSE):
+				switch($this->input->get('result')):
+					case 0: $notificationText = 'Оплата прошла успешно';
+						break;
+					case 1: $notificationText = 'Оплата невыполнена';
+						break;
+					case -1: $notificationText = 'Счет на оплату успешно выставлен покупателю в его QIWI кошелек, но еще не оплачен';
+						break;
+					default:
+						break;
+				endswitch;
+			endif;?>
+		<?php if(!empty($notificationText)):?>
+			<div class=""><?=$notificationText;?></div>
+		<?php endif;?>
 		<?php if(!empty($books)):?>
 			<?php for($i=0;$i<count($books);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($books)-1))?' omega':'';?>">

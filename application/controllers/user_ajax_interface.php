@@ -143,15 +143,17 @@ class User_ajax_interface extends MY_Controller{
 		
 		$order_hash = PAYU_MERCHANT_LENGTH.PAYU_MERCHANT.strlen($transactionID).$transactionID.strlen($transaction_time).$transaction_time;
 		for($i=0;$i<count($books);$i++):
-			$order_hash .= strlen($books[$i][$this->uri->language_string.'_title']).$books[$i][$this->uri->language_string.'_title']; //NAME
+			if(($i+1)%$this->project_config['free_book'] != 0):
+				$order_hash .= strlen($books[$i][$this->uri->language_string.'_title']).$books[$i][$this->uri->language_string.'_title']; //NAME
+			endif;
 		endfor;
 		for($i=0;$i<count($books);$i++):
-			$order_hash .= strlen($books[$i]['id']).$books[$i]['id']; //ID
+			if(($i+1)%$this->project_config['free_book'] != 0):
+				$order_hash .= strlen($books[$i]['id']).$books[$i]['id']; //ID
+			endif;
 		endfor;
 		for($i=0;$i<count($books);$i++):
-			if(($i+1)%$this->project_config['free_book'] == 0):
-				$order_hash .= '10';
-			else:
+			if(($i+1)%$this->project_config['free_book'] != 0):
 				if($books[$i]['price_action'] > 0):
 					$order_hash .= strlen($books[$i]['price_action']).$books[$i]['price_action'];
 				else:
@@ -160,18 +162,23 @@ class User_ajax_interface extends MY_Controller{
 			endif;
 		endfor;
 		for($i=0;$i<count($books);$i++):
-			$order_hash .= '11'; //QTY
+			if(($i+1)%$this->project_config['free_book'] != 0):
+				$order_hash .= '11'; //QTY
+			endif;
 		endfor;
 		for($i=0;$i<count($books);$i++):
-			$order_hash .= '218'; //VAT
+			if(($i+1)%$this->project_config['free_book'] != 0):
+				$order_hash .= '218'; //VAT
+			endif;
 		endfor;
 		$order_hash .= '10'; //SHIPPING
 		$order_hash .= '3RUB'.strlen($post['discount']).$post['discount'];
 		$order_hash .= strlen($post['pay_method']).$post['pay_method'];
 		for($i=0;$i<count($books);$i++):
-			$order_hash .= '3NET';
+			if(($i+1)%$this->project_config['free_book'] != 0):
+				$order_hash .= '5GROSS';
+			endif;
 		endfor;
-		
 //		print_r($order_hash);exit;
 		
 		return hash_hmac('md5',$order_hash,PAYU_SECRET_KEY);

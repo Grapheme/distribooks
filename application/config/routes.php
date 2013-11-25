@@ -19,6 +19,8 @@ $route['sign-in/facebook'] = "global_interface/signInUpFacebook";
 $route['search-authors-list'] = "global_interface/searchAuthor";
 $route['search-genres-list'] = "global_interface/searchGenre";
 $route['search-books-list'] = "global_interface/searchBook";
+/****************** Оплата PayU *******************************/
+$route['payu-ipn-request'] = "global_interface/payuIPNRequest";
 /***************************************************GUEST AJAX INTRERFACE ***********************************************/
 $route['request-call'] = "guest_ajax_interface/requestCall";
 

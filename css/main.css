@@ -124,6 +124,7 @@ textarea {
 
 .payu-payment a {
 	margin: 50px 15px;
+	text-decoration: none;
 }
 
 .min-div-right.pos2 .enter-div a:first-of-type {

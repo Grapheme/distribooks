@@ -1,14 +1,14 @@
-<form name="live_update_form_prev" method="POST" action="https://secure.payu.ru/order/lu.php" id="payu-submit-form" target="_blank">
+<form name="live_update_form_prev" method="POST" action="https://secure.payu.ru/order/lu.php" id="payu-submit-form">
 	<input name="MERCHANT" type="hidden" value="<?=PAYU_MERCHANT;?>" id="MERCHANT">
 	<input name="ORDER_REF" type="hidden" value="" id="ORDER_REF">
 	<input name="ORDER_DATE" type="hidden" value="" id="ORDER_DATE">
 	<?php $total_summa = 0;?>
 <?php for($i=0;$i<count($books);$i++):?>
+	<?php if(($i+1)%$this->project_config['free_book'] != 0):?>
 	<input name="ORDER_PNAME[]" type="hidden" value="<?=$books[$i][$this->uri->language_string.'_title'];?>">
 	<input name="ORDER_PCODE[]" type="hidden" value="<?=$books[$i]['id'];?>">
-<?php if(($i+1)%$this->project_config['free_book'] == 0):?>
-	<input name="ORDER_PRICE[]" type="hidden" value="0">
-<?php else:?>
+	<?php endif;?>
+<?php if(($i+1)%$this->project_config['free_book'] != 0):?>
 	<?php if($books[$i]['price_action'] > 0):?>
 	<input name="ORDER_PRICE[]" type="hidden" value="<?=$books[$i]['price_action'];?>">
 		<?php $total_summa += $books[$i]['price_action'];?>
@@ -17,9 +17,11 @@
 		<?php $total_summa += $books[$i]['price'];?>
 	<?php endif;?>
 <?php endif;?>
-	<input name="ORDER_PRICE_TYPE[]" type="hidden" value="NET">
+	<?php if(($i+1)%$this->project_config['free_book'] != 0):?>
+	<input name="ORDER_PRICE_TYPE[]" type="hidden" value="GROSS">
 	<input name="ORDER_QTY[]" type="hidden" value="1">
 	<input name="ORDER_VAT[]" type="hidden" value="18">
+	<?php endif;?>
 <?php endfor;?>
 	<input name="ORDER_SHIPPING" type="hidden" value="0">
 <?php

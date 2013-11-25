@@ -11,6 +11,16 @@ class Global_interface extends MY_Controller{
 		$this->lang->load('localization/global',$this->languages[$this->uri->language_string]);
 	}
 	
+	/*************************************************************************************************************/
+	public function payuIPNRequest(){
+		
+		
+		$this->load->helper('file');
+		write_file(TEMPORARY.'payu-request.txt',$this->input->post());
+		echo 'OK';
+	}
+	
+	/*************************************************************************************************************/
 	public function signIN(){
 		
 		$this->load->view("general_interface/signin");
