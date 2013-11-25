@@ -46,8 +46,11 @@ $(function(){
 		var bookID = $(this).parents('.buyor').attr('data-book-id').trim();
 		var pathname = location.pathname;
 		var basket_books = [];
-		if(cookies.getCookie('basket_books') !== null){basket_books = JSON.parse(cookies.getCookie('basket_books'));}
-		if(cookies.getCookie('buy_book') !== null){cookies.deleteCookie('buy_book','/');}
+		if(cookies.getCookie('basket_books') !== false){basket_books = JSON.parse(cookies.getCookie('basket_books'));}
+		if(cookies.getCookie('buy_book') !== false){cookies.deleteCookie('buy_book','/');}
+		
+		console.log(basket_books);
+		
 		if(basket_books.length < mt.max_basket && basket_books.indexOf(bookID) == -1){
 			basket_books.push(bookID);
 			cookies.setCookie('basket_books',JSON.stringify(basket_books),largeExpDate,'/');
@@ -98,7 +101,7 @@ $(function(){
 	function removeBookInBasket(_this){
 		
 		var bookID = $(_this).parents('.basket-item').attr('data-book-id').trim();
-		if(cookies.getCookie('basket_books') !== null){
+		if(cookies.getCookie('basket_books') !== false){
 			basket_books = JSON.parse(cookies.getCookie('basket_books'));
 			if(basket_books.indexOf(bookID) != -1){
 				delete basket_books[basket_books.indexOf(bookID)];
