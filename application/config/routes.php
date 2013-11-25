@@ -38,12 +38,16 @@ $route['pay'] = "users_interface/pay";
 $route['cabinet'] = "users_interface/cabinet";
 $route['cabinet/my-books(\/:any)*?'] = "users_interface/cabinet";
 $route['download-book'] = "users_interface/downloadBookFile";
+/************************************************* USER AJAX INTRERFACE *******************************************/
 $route['buy-books-in-basket'] = "user_ajax_interface/basketBuyBooks";
 $route['add-book-in-basket'] = "user_ajax_interface/addBookInBasket";
 $route['remove-book-in-basket'] = "user_ajax_interface/removeBookInBasket";
 $route['refresh-books-in-basket'] = "user_ajax_interface/refreshBooksInBasket";
 $route['clear-basket'] = "user_ajax_interface/clearBasket";
 $route['set-book-rating'] = "user_ajax_interface/setBookRating";
+
+$route['get-payu'] = "user_ajax_interface/payBookPayU";
+
 /************************************************* ADMIN AJAX INTRERFACE *******************************************/
 $route[ADMIN_START_PAGE.'/password-save'] = "admin_ajax_interface/adminSavePassword";
 $route[ADMIN_START_PAGE.'/promo-save'] = "admin_ajax_interface/updatePromo";

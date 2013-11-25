@@ -54,5 +54,9 @@ define('ALLOWED_TYPES_DOCUMENTS',				'doc|docx|xls|xlsx|txt|pdf|ppt|pptx');
 define('ALLOWED_TYPES_IMAGES',					'jpg|gif|jpeg|png');
 define('ALLOWED_TYPES_BOOKS',					'*');
 
+define('PAYU_MERCHANT',							'DISTMDDN');
+define('PAYU_MERCHANT_LENGTH',					8);
+define('PAYU_SECRET_KEY',						'O51N(yo7~?p2w5(x1(57');
+
 define('OAUTH_VK',								'https://oauth.vk.com/authorize?client_id=3955363&response_type=code&redirect_uri=');
 define('OAUTH_FACEBOOK',						'https://www.facebook.com/dialog/oauth?client_id=652720394760055&response_type=code&redirect_uri=');

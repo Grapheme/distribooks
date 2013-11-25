@@ -113,6 +113,19 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+.payu-payment {
+	margin: 30px auto;
+ 	width: 450px;
+}
+
+.payment-p {
+	font-size: 14px;
+}
+
+.payu-payment a {
+	margin: 50px 15px;
+}
+
 .min-div-right.pos2 .enter-div a:first-of-type {
 	line-height: 15px;
 	margin-left: 10px;

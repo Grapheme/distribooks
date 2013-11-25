@@ -35,7 +35,8 @@ class Users_interface extends MY_Controller{
 		$pagevar = array(
 			'meta_titles' => $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
 			'breadcrumbs' => array('pay'=>lang('user_pay')),
-			'books' => $this->books->getBooksByIDs($booksIDs,'id,ru_title,en_title,price,price_action')
+			'books' => $this->books->getBooksByIDs($booksIDs,'id,ru_title,en_title,price,price_action'),
+			'basket_list' => array()
 		);
 		
 //		print_r($pagevar['books']);exit;

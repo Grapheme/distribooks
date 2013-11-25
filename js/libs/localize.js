@@ -17,7 +17,8 @@ Localize['ru'] = {
 	confirm: 'Вы уверены, что хотите удалить?',
 	sending_mail: 'Письмо отправлено',
 	error_load_template: 'Ошибка при загрузке шаблона',
-	book_in_basket: 'В корзине'
+	book_in_basket: 'В корзине',
+	no_books_pay: 'Ошибка. Отсутствуют книги для продажи'
 };
 Localize['en'] = {
 	empty_field: 'Field cannot be empty',
@@ -33,5 +34,6 @@ Localize['en'] = {
 	confirm: 'Are you sure you want to delete?',
 	sending_mail: 'The letter was sent',
 	error_load_template: 'Error loading template',
-	book_in_basket: 'In cart'
+	book_in_basket: 'In cart',
+	no_books_pay: 'Error. There are no books for sale'
 };

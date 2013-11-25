@@ -125,11 +125,56 @@ class User_ajax_interface extends MY_Controller{
 	public function payBookPayU(){
 		
 		if($this->postDataValidation('PayU') == TRUE):
-			if($this->json_request['transaction'] = $this->writeToFinancialReport(1,100,$this->input->post('books'))):
-				$this->json_request['status'] = TRUE;
+			if($booksIDs = json_decode($this->input->post('books'))):
+				$this->load->model('books');
+				if($books = $this->books->getBooksByIDs($booksIDs,'id,ru_title,en_title,price,price_action')):
+					if($this->json_request['transaction'] = $this->writeToFinancialReport(1,100,$this->input->post('books'))):
+						$this->json_request['transaction_time'] = date("Y-m-d");
+						$this->json_request['order_hash'] = $this->getPayUHash($this->input->post(),$books,$this->json_request['transaction'],$this->json_request['transaction_time']);
+						$this->json_request['status'] = TRUE;
+					endif;
+				endif;
 			endif;
 		endif;
 		echo json_encode($this->json_request);
+	}
+	
+	private function getPayUHash($post,$books,$transactionID,$transaction_time){
+		
+		$order_hash = PAYU_MERCHANT_LENGTH.PAYU_MERCHANT.strlen($transactionID).$transactionID.strlen($transaction_time).$transaction_time;
+		for($i=0;$i<count($books);$i++):
+			$order_hash .= strlen($books[$i][$this->uri->language_string.'_title']).$books[$i][$this->uri->language_string.'_title']; //NAME
+		endfor;
+		for($i=0;$i<count($books);$i++):
+			$order_hash .= strlen($books[$i]['id']).$books[$i]['id']; //ID
+		endfor;
+		for($i=0;$i<count($books);$i++):
+			if(($i+1)%$this->project_config['free_book'] == 0):
+				$order_hash .= '10';
+			else:
+				if($books[$i]['price_action'] > 0):
+					$order_hash .= strlen($books[$i]['price_action']).$books[$i]['price_action'];
+				else:
+					$order_hash .= strlen($books[$i]['price']).$books[$i]['price'];
+				endif;
+			endif;
+		endfor;
+		for($i=0;$i<count($books);$i++):
+			$order_hash .= '11'; //QTY
+		endfor;
+		for($i=0;$i<count($books);$i++):
+			$order_hash .= '218'; //VAT
+		endfor;
+		$order_hash .= '10'; //SHIPPING
+		$order_hash .= '3RUB'.strlen($post['discount']).$post['discount'];
+		$order_hash .= strlen($post['pay_method']).$post['pay_method'];
+		for($i=0;$i<count($books);$i++):
+			$order_hash .= '3NET';
+		endfor;
+		
+//		print_r($order_hash);exit;
+		
+		return hash_hmac('md5',$order_hash,PAYU_SECRET_KEY);
 	}
 	
 	private function writeToFinancialReport($code,$summa,$books){
@@ -139,7 +184,7 @@ class User_ajax_interface extends MY_Controller{
 			$transaction_status = 0;
 			switch($code):
 				case 1: $description = 'Оплата через PayU';break;
-				case 1: $description = 'Оплата через PayPal';break;
+				case 2: $description = 'Оплата через PayPal';break;
 			endswitch;
 			$insert = array("account"=>$this->account['id'],"summa"=>$summa,'books'=>$books,'operation'=>$code,'description'=>$description,'transaction_status'=>$transaction_status);
 			return $this->financial_reports->insertRecord($insert);

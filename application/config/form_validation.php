@@ -73,7 +73,10 @@
 			array('field'=>'action_price','label'=>'Сумма для скидки','rules'=>'required|trim'),
 			array('field'=>'action_percent','label'=>'Процент скидки','rules'=>'required|trim')
 		),'PayU' =>array(
-
+			array('field'=>'books','label'=>'Номера книг','rules'=>'required|trim'),
+			array('field'=>'pay_method','label'=>'Метод оплаты','rules'=>'required|trim'),
+			array('field'=>'discount','label'=>'Метод оплаты','rules'=>'required|trim'),
+			array('field'=>'total','label'=>'Метод оплаты','rules'=>'required|trim')
 		)
 	);
 ?>

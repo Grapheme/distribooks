@@ -14,7 +14,7 @@ cookies.setCookie = function(name,value,expires,path,domain,secure){
 cookies.getCookie = function(name){
 	var prefix = name+"=";
 	var cookieStartIndex = document.cookie.indexOf(prefix);
-	if(cookieStartIndex == -1){return null;}
+	if(cookieStartIndex == -1){return false;}
 	var cookieEndIndex = document.cookie.indexOf(";",cookieStartIndex+prefix.length)
 	if(cookieEndIndex == -1){cookieEndIndex = document.cookie.length;}
 	return unescape(document.cookie.substring(cookieStartIndex+prefix.length,cookieEndIndex));

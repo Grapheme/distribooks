@@ -23,8 +23,39 @@
 			<div class="grid_1 left-boxes shop">
 				<?php $this->load->view('guests_interface/includes/left-nav');?>
 			</div>
-			<div class="grid_4 top-shop-div">
-				
+			<div class="grid_4 cart-page">
+				<img src="<?=baseURL('img/payu.jpg');?>" style="margin: 0 auto; display: block; width: 200px;">
+				<p class="payment-p"><?=lang('pay-title');?></p>
+				<p class="payment-p"><?=lang('pay-desc');?> <a href="payu.ru">PayU</a></p>
+				<p class="payment-p"><?=lang('pay-choose');?>:</p>
+				<p class="payu-payment">
+					<!--<a href="" data-pay-method="MTS" class="no-clickable">
+						<img src="<?=baseURL('img/pay/mts.jpg');?>">
+					</a>
+					<a href="" data-pay-method="MEGAFON" class="set-pay-method no-clickable">
+						<img src="<?=baseURL('img/pay/megafon.png');?>">
+					</a>
+					<a href="" data-pay-method="BEELINE" class="set-pay-method no-clickable">
+						<img src="<?=baseURL('img/pay/beeline.png');?>">
+					</a>-->
+					<a href="" data-pay-method="CCVISAMC" class="set-pay-method no-clickable">
+						<img src="<?=baseURL('img/pay/mastercard.png');?>">
+					</a>
+					<a href="" data-pay-method="CCVISAMC" class="set-pay-method no-clickable">
+						<img src="<?=baseURL('img/pay/visa.png');?>">
+					</a>
+					<a href="" data-pay-method="ALFACLICK" class="set-pay-method no-clickable">
+						<img src="<?=baseURL('img/pay/alphabank.png');?>">
+					</a>
+					<a href="" data-pay-method="QIWI"  class="set-pay-method no-clickable">
+						<img src="<?=baseURL('img/pay/qiwi.png');?>">
+					</a>
+					<a href="" data-pay-method="MAILRU" class="set-pay-method no-clickable">
+						<img src="<?=baseURL('img/pay/mail.png');?>">
+					</a>
+				</p>
+				<!--<p class="payment-p"><?=lang('pay-type');?></p>-->
+				<?php $this->load->view("users_interface/forms/pay-u");?>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -37,5 +68,6 @@
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>
+	<script type="text/javascript" src="<?=baseURL('js/cabinet/user.js')?>"></script>
 </body>
 </html>
