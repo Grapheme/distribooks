@@ -48,9 +48,6 @@ $(function(){
 		var basket_books = [];
 		if(cookies.getCookie('basket_books') !== false){basket_books = JSON.parse(cookies.getCookie('basket_books'));}
 		if(cookies.getCookie('buy_book') !== false){cookies.deleteCookie('buy_book','/');}
-		
-		console.log(basket_books);
-		
 		if(basket_books.length < mt.max_basket && basket_books.indexOf(bookID) == -1){
 			basket_books.push(bookID);
 			cookies.setCookie('basket_books',JSON.stringify(basket_books),largeExpDate,'/');

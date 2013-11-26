@@ -128,7 +128,7 @@ class User_ajax_interface extends MY_Controller{
 			if($booksIDs = json_decode($this->input->post('books'))):
 				$this->load->model('books');
 				if($books = $this->books->getBooksByIDs($booksIDs,'id,ru_title,en_title,price,price_action')):
-					if($this->json_request['transaction'] = $this->writeToFinancialReport(1,100,$this->input->post('books'))):
+					if($this->json_request['transaction'] = $this->writeToFinancialReport(1,$this->input->post('total'),$this->input->post('books'))):
 						$this->json_request['transaction_time'] = date("Y-m-d");
 						$this->json_request['order_hash'] = $this->getPayUHash($this->input->post(),$books,$this->json_request['transaction'],$this->json_request['transaction_time']);
 						$this->json_request['status'] = TRUE;
@@ -179,8 +179,6 @@ class User_ajax_interface extends MY_Controller{
 				$order_hash .= '5GROSS';
 			endif;
 		endfor;
-//		print_r($order_hash);exit;
-		
 		return hash_hmac('md5',$order_hash,PAYU_SECRET_KEY);
 	}
 	

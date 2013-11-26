@@ -14,12 +14,53 @@ class Global_interface extends MY_Controller{
 	/*************************************************************************************************************/
 	public function payuIPNRequest(){
 		
-		
 		$this->load->helper('file');
-		write_file(TEMPORARY.'payu-request.txt',$this->input->post());
-		echo 'OK';
+		if($this->postDataValidation('payu_request')):
+			$this->load->model('financial_reports');
+			if($report = $this->financial_reports->getWhere($this->input->post('REFNOEXT'),array('transaction_status'=>0,'operation'=>1))):
+				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE' || $this->input->post('ORDERSTATUS') == 'TEST'):
+					if($account = $this->accounts->getWhere($report['account'],array('group'=>USER_GROUP_VALUE,'active'=>1))):
+						write_file(TEMPORARY.'ipn-'.date("Y-m-d").'-'.$report['account'].'.txt',json_encode($this->input->post()));
+						if(!empty($report['books'])):
+							if($booksIDs = json_decode($report['books'])):
+								for($i=0;$i<count($booksIDs);$i++):
+									$this->buyBook($booksIDs[$i],$report['account']);
+								endfor;
+								$this->financial_reports->updateField($this->input->post('REFNOEXT'),'transaction_status',1);
+								$this->payuIDNRequest($this->input->post(),$report);
+							endif;
+						endif;
+					endif;
+				endif;
+			endif;
+		else:
+//			$message = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
+//			write_file(TEMPORARY.'message.txt',json_encode($message));
+			show_404();
+		endif;
 	}
 	
+	private function payuIDNRequest($pay_post,$report){
+		
+		$transaction_time = date("Y-m-d H:i:s");
+		$hesh = PAYU_MERCHANT_LENGTH.PAYU_MERCHANT.strlen($pay_post['REFNO']).$pay_post['REFNO'].strlen($report['summa']).$report['summa'].'3RUB'.strlen($transaction_time).$transaction_time;
+		$curl_post = 'MERCHANT='.PAYU_MERCHANT.'&ORDER_REF='.$pay_post['REFNO'].'&ORDER_AMOUNT='.$report['summa'].'&ORDER_CURRENCY=RUB&IDN_DATE='.$transaction_time.'&ORDER_HASH='.hash_hmac('md5',$hesh,PAYU_SECRET_KEY);
+		try{
+			if($curl = curl_init()):
+				curl_setopt($curl,CURLOPT_URL,'https://secure.payu.ru/order/idn.php');
+				curl_setopt($curl,CURLOPT_RETURNTRANSFER,TRUE);
+				curl_setopt($curl,CURLOPT_POST,TRUE);
+				curl_setopt($curl,CURLOPT_POSTFIELDS,$curl_post);
+				$curl_out = curl_exec($curl);
+				write_file(TEMPORARY.'idn-'.date("Y-m-d").'-'.$report['account'].'.txt',$curl_out);
+				curl_close($curl);
+				return TRUE;
+			endif;
+			return FALSE;
+		}catch (Exception $e){
+			return FALSE;
+		}
+	}
 	/*************************************************************************************************************/
 	public function signIN(){
 		

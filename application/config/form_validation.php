@@ -66,17 +66,25 @@
 			array('field'=>'oldpassword','label'=>'Cтарый пароль','rules'=>'required|min_length[6]|trim'),
 			array('field'=>'password','label'=>'Новый пароль','rules'=>'required|min_length[6]|trim'),
 			array('field'=>'confirm','label'=>'Повтор пароля','rules'=>'required|min_length[6]|matches[password]|trim')
-		),'promo' =>array(
+		),
+		'promo' =>array(
 			array('field'=>'dollar_rate','label'=>'Курс доллара','rules'=>'required|trim'),
 			array('field'=>'free_book','label'=>'Номер бесплатной книги','rules'=>'required|trim'),
 			array('field'=>'count_free_book','label'=>'Количество бесплатных книг','rules'=>'required|trim'),
 			array('field'=>'action_price','label'=>'Сумма для скидки','rules'=>'required|trim'),
 			array('field'=>'action_percent','label'=>'Процент скидки','rules'=>'required|trim')
-		),'PayU' =>array(
+		),
+		'PayU' =>array(
 			array('field'=>'books','label'=>'Номера книг','rules'=>'required|trim'),
 			array('field'=>'pay_method','label'=>'Метод оплаты','rules'=>'required|trim'),
-			array('field'=>'discount','label'=>'Метод оплаты','rules'=>'required|trim'),
-			array('field'=>'total','label'=>'Метод оплаты','rules'=>'required|trim')
+			array('field'=>'discount','label'=>'Дисконтная скидка','rules'=>'required|trim'),
+			array('field'=>'total','label'=>'Мтоговая сумма','rules'=>'required|trim')
+		),
+		'payu_request' =>array(
+			array('field'=>'SALEDATE','label'=>'Дата покупки','rules'=>'required|trim'),
+			array('field'=>'REFNO','label'=>'Номер PayU','rules'=>'required|trim'),
+			array('field'=>'REFNOEXT','label'=>'Номер заказа','rules'=>'required|numeric|trim'),
+			array('field'=>'ORDERSTATUS','label'=>'Статус транзации','rules'=>'required|trim')
 		)
 	);
 ?>

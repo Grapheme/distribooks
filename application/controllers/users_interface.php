@@ -45,7 +45,10 @@ class Users_interface extends MY_Controller{
 	}
 	
 	public function cabinet(){
-
+		
+		if($this->input->get('err') !== FALSE):
+			redirect('basket'.urlGETParameters());
+		endif;
 		$this->load->model('signed_books');
 		$this->offset = (int)$this->uri->segment(4);
 		$pagevar = array(
@@ -60,6 +63,19 @@ class Users_interface extends MY_Controller{
 		for($i=0;$i<count($pagevar['books']);$i++):
 			$pagevar['books'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['books'][$i]['authors']);
 		endfor;
+		if($this->input->get('status') === FALSE):
+			if($this->input->get('result') !== FALSE && ($this->input->get('result') == 0 || $this->input->get('result') == -1)):
+				if($this->input->cookie('buy_book') !== FALSE):
+					delete_cookie('buy_book');
+				elseif($this->validBasket()):
+					delete_cookie('basket_books');
+					delete_cookie('basket_total_price');
+					$this->accounts->updateField($this->account['id'],'basket','');
+					$this->account_basket['basket_books'] = $pagevar['basket_list'] = array();
+				endif;
+				redirect(uri_string().urlGETParameters().'&status=ok');
+			endif;
+		endif;
 		$this->load->view("users_interface/my-books",$pagevar);
 	}
 

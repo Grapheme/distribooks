@@ -23,7 +23,27 @@
 			<div class="grid_1 left-boxes shop">
 				<?php $this->load->view('guests_interface/includes/left-nav');?>
 			</div>
-			<div class="grid_4 cart-page">
+			<div class="grid_4 top-shop-div cart-page">
+	<?php if(isUserLoggined()):
+			$notificationText = '';
+			if($this->input->get('err') !== FALSE):
+				$notificationText = 'Возникла ошибка при оплате. Попробуйте снова.<br/>Если ошибка повториться обратитесь за помощью к администрации сайта';
+			elseif($this->input->get('result') !== FALSE):
+				switch($this->input->get('result')):
+					case 0: $notificationText = 'Оплата прошла успешно';
+						break;
+					case 1: $notificationText = 'Оплата невыполнена';
+						break;
+					case -1: $notificationText = 'Счет на оплату успешно выставлен покупателю в его QIWI кошелек, но еще не оплачен';
+						break;
+					default:
+						break;
+				endswitch;
+			endif;
+			if(!empty($notificationText)):?>
+			<div class="pay-messages"><?=$notificationText;?></div>
+		<?php endif;
+		endif;?>
 			<?php if(!empty($basket_list)):?>
 				<div class="basket-min">
 					<p class="basket-title"><?=lang('basket_title');?></p>

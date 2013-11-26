@@ -863,7 +863,7 @@ class MY_Controller extends CI_Controller{
 	
 	public function setDBBasket(){
 		
-		if($this->loginstatus === TRUE && $this->account['group'] == USER_GROUP_VALUE):
+		if($this->isUserLoggined()):
 			$basket = '';
 			if($this->input->cookie('basket_books') !== FALSE):
 				$basket = $this->input->cookie('basket_books');
@@ -917,12 +917,16 @@ class MY_Controller extends CI_Controller{
 		return '';
 	}
 	
-	public function buyBook($bookID){
+	public function buyBook($bookID,$accountID = NULL){
+		
+		if(is_null($accountID)):
+			$accountID = $this->account['id'];
+		endif;
 		
 		$this->load->model(array('books','signed_books'));
 		if($this->books->getWhere($bookID)):
-			if(!$this->signed_books->getWhere(NULL,array('book'=>$bookID,'account'=>$this->account['id']))):
-				return $signedID = $this->insertItem(array('insert'=>array('book'=>$bookID,'account'=>$this->account['id']),'model'=>'signed_books'));
+			if(!$this->signed_books->getWhere(NULL,array('book'=>$bookID,'account'=>$accountID))):
+				return $signedID = $this->insertItem(array('insert'=>array('book'=>$bookID,'account'=>$accountID),'model'=>'signed_books'));
 			endif;
 		endif;
 		return FALSE;

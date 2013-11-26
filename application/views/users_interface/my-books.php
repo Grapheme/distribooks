@@ -41,7 +41,7 @@
 				endswitch;
 			endif;?>
 		<?php if(!empty($notificationText)):?>
-			<div class=""><?=$notificationText;?></div>
+			<div class="pay-messages"><?=$notificationText;?></div>
 		<?php endif;?>
 		<?php if(!empty($books)):?>
 			<?php for($i=0;$i<count($books);$i++):?>
