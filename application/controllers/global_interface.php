@@ -18,7 +18,7 @@ class Global_interface extends MY_Controller{
 		if($this->postDataValidation('payu_request')):
 			$this->load->model('financial_reports');
 			if($report = $this->financial_reports->getWhere($this->input->post('REFNOEXT'),array('transaction_status'=>0,'operation'=>1))):
-				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE'):
+				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE' || $this->input->post('ORDERSTATUS') == 'TEST'):
 					if($account = $this->accounts->getWhere($report['account'],array('group'=>USER_GROUP_VALUE,'active'=>1))):
 						write_file(TEMPORARY.'ipn-'.date("Y-m-d").'-'.$report['account'].'.txt',json_encode($this->input->post()));
 						if(!empty($report['books'])):
@@ -43,8 +43,19 @@ class Global_interface extends MY_Controller{
 	
 	private function payuIPNResponse($pay_post){
 		
-		$IPN_date = date("Y-m-d H:i:s");
-		$HASH = strlen($IPN_date).$IPN_date;
+		$IPN_date = date("YmdHis");
+		$pid_id = 0; $pid_name = ''; $pid_date = '';
+		if(isset($pay_post['IPN_PID'][0])):
+			$pid_id  = $pay_post['IPN_PID'][0];
+		endif;
+		if(isset($pay_post['IPN_PNAME'][0])):
+			$pid_name = $pay_post['IPN_PNAME'][0];
+		endif;
+		if(isset($pay_post['IPN_DATE'])):
+			$pid_date = $pay_post['IPN_DATE'];
+		endif;
+		
+		$HASH = strlen($pid_id).$pid_id.strlen($pid_name).$pid_name.strlen($pid_date).$pid_date;
 		return $IPN_Response = '<EPAYMENT>'.$IPN_date.'|'.$HASH.'</EPAYMENT>';
 	}
 	
