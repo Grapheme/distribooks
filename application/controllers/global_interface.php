@@ -18,7 +18,7 @@ class Global_interface extends MY_Controller{
 		if($this->postDataValidation('payu_request')):
 			$this->load->model('financial_reports');
 			if($report = $this->financial_reports->getWhere($this->input->post('REFNOEXT'),array('transaction_status'=>0,'operation'=>1))):
-				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE' || $this->input->post('ORDERSTATUS') == 'TEST'):
+				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE'):
 					if($account = $this->accounts->getWhere($report['account'],array('group'=>USER_GROUP_VALUE,'active'=>1))):
 						write_file(TEMPORARY.'ipn-'.date("Y-m-d").'-'.$report['account'].'.txt',json_encode($this->input->post()));
 						if(!empty($report['books'])):
@@ -27,7 +27,8 @@ class Global_interface extends MY_Controller{
 									$this->buyBook($booksIDs[$i],$report['account']);
 								endfor;
 								$this->financial_reports->updateField($this->input->post('REFNOEXT'),'transaction_status',1);
-								$this->payuIDNRequest($this->input->post(),$report);
+								//$this->payuIDNRequest($this->input->post(),$report);
+								echo $this->payuIPNResponse($this->input->post());
 							endif;
 						endif;
 					endif;
@@ -38,6 +39,13 @@ class Global_interface extends MY_Controller{
 //			write_file(TEMPORARY.'message.txt',json_encode($message));
 			show_404();
 		endif;
+	}
+	
+	private function payuIPNResponse($pay_post){
+		
+		$IPN_date = date("Y-m-d H:i:s");
+		$HASH = strlen($IPN_date).$IPN_date;
+		return $IPN_Response = '<EPAYMENT>'.$IPN_date.'|'.$HASH.'</EPAYMENT>';
 	}
 	
 	private function payuIDNRequest($pay_post,$report){

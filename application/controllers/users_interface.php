@@ -38,9 +38,6 @@ class Users_interface extends MY_Controller{
 			'books' => $this->books->getBooksByIDs($booksIDs,'id,ru_title,en_title,price,price_action'),
 			'basket_list' => array()
 		);
-		
-//		print_r($pagevar['books']);exit;
-		
 		$this->load->view("users_interface/pay",$pagevar);
 	}
 	
