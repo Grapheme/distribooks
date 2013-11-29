@@ -39,6 +39,6 @@
 	<input name="ORDER_HASH" autocomplete="off" type="hidden" value="" id="ORDER_HASH">
 	<input name="BACK_REF" type="hidden" value="<?=site_url('cabinet');?>">
 	<input name="LANGUAGE" type="hidden" value="<?=$this->uri->language_string;?>" id="LANGUAGE">
-	<input name="TESTORDER" type="hidden" value="TRUE">
+	<input name="TESTORDER" type="hidden" value="FALSE">
 	<div id="TOTAL_SUMMA" class="hidden"><?=$total_summa-$discount;?></div>
 </form>
