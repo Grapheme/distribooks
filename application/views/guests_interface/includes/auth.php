@@ -22,7 +22,7 @@
 			<div class="div-form-operation">
 				<button type="button" class="auth-button btn-sign-submit btn-loading"><?=lang('signup_button')?></button>
 			</div>
-			<p class="policies">Нажимая на кнопку «зарегистрироваться» Вы соглашаетесь с <a href="<?=site_url('policies')?>">Пользовательским соглашением.</a></p>
+			<p class="policies"><?=lang('policies_text')?> <a href="<?=site_url('policies')?>"><?=lang('policies_link')?></a></p>
 		</form>
 	</div>
 </div>
