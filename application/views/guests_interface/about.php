@@ -60,13 +60,11 @@
 				<div style="position: relative;"><img src="<?=baseURL('img/shadow-top.png');?>" class="shadow-top"></div>
 				<div class="grid_1 gift shop">&nbsp;</div>
 				<div class="grid_1 pos1">&nbsp;</div>
-				<?php if(!empty($trailers)):?>
-			<?php for($i=0;$i<count($trailers);$i++):?>
-				<div class="grid_2 vidiv">
-					<?=$trailers[$i];?>
+				<div class="grid_4">
+					<div class="contacts">
+					<?=lang('contacts')?>
+					</div>
 				</div>
-			<?php endfor;?>
-		<?php endif;?>
 			</div>
 		</div>
 		<div class="container_5">

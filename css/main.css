@@ -151,6 +151,21 @@ textarea {
 	margin-bottom: 50px;
 }
 
+.contacts {
+	color: #fff;
+	font-size: 14px;
+	margin-top: 25px;
+}
+
+.policies {
+	margin-top: 0 !important;
+	text-align: center !important;
+}
+
+.policies a {
+	color: #fff;
+}
+
 .min-div-right.pos2 .enter-div a:first-of-type {
 	line-height: 15px;
 	margin-left: 10px;
