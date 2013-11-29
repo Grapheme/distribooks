@@ -23,12 +23,19 @@
 			<div class="grid_1 left-boxes shop">
 				<?php $this->load->view('guests_interface/includes/left-nav');?>
 			</div>
-			<div class="grid_4 cart-page">
-				<img src="<?=baseURL('img/payu.jpg');?>" style="margin: 0 auto; display: block; width: 200px;">
-				<p class="payment-p"><?=lang('pay-title');?></p>
-				<p class="payment-p"><?=lang('pay-desc');?> <a href="payu.ru">PayU</a></p>
+			<div class="grid_4 top-shop-div">
 				<p class="payment-p"><?=lang('pay-choose');?>:</p>
-				<p class="payu-payment">
+				<p class="payment-title">С помощью PayPal</p>
+				<div class="payment-s-div">
+					<div class="payment-div">
+						<a href="#">
+							<img src="<?=baseURL('img/pay/paypal.png');?>"><br>
+							<span>PayPal</span>
+						</a>
+					</div>
+				</div>
+				<div class="payment-s-div">
+					<p class="payment-title">Банковской картой, электронными деньгами или через терминал</p>
 					<!--<a href="" data-pay-method="MTS" class="no-clickable">
 						<img src="<?=baseURL('img/pay/mts.jpg');?>">
 					</a>
@@ -38,22 +45,37 @@
 					<a href="" data-pay-method="BEELINE" class="set-pay-method no-clickable">
 						<img src="<?=baseURL('img/pay/beeline.png');?>">
 					</a>-->
-					<a href="" data-pay-method="CCVISAMC" class="set-pay-method no-clickable">
-						<img src="<?=baseURL('img/pay/mastercard.png');?>">
-					</a>
-					<a href="" data-pay-method="CCVISAMC" class="set-pay-method no-clickable">
-						<img src="<?=baseURL('img/pay/visa.png');?>">
-					</a>
-					<a href="" data-pay-method="ALFACLICK" class="set-pay-method no-clickable">
-						<img src="<?=baseURL('img/pay/alphabank.png');?>">
-					</a>
-					<a href="" data-pay-method="QIWI"  class="set-pay-method no-clickable">
-						<img src="<?=baseURL('img/pay/qiwi.png');?>">
-					</a>
-					<a href="" data-pay-method="MAILRU" class="set-pay-method no-clickable">
-						<img src="<?=baseURL('img/pay/mail.png');?>">
-					</a>
-				</p>
+					<div class="payment-div">
+						<a href="" data-pay-method="CCVISAMC" class="set-pay-method no-clickable">
+							<img src="<?=baseURL('img/pay/mastercard.png');?>"><br>
+							<span>Master Card</span>
+						</a>
+					</div>
+					<div class="payment-div">
+						<a href="" data-pay-method="CCVISAMC" class="set-pay-method no-clickable">
+							<img src="<?=baseURL('img/pay/visa.png');?>"><br>
+							<span>VISA</span>
+						</a>
+					</div>
+					<div class="payment-div">
+						<a href="" data-pay-method="ALFACLICK" class="set-pay-method no-clickable">
+							<img src="<?=baseURL('img/pay/alfabank.png');?>"><br>
+							<span>Альфа клик</span>	
+						</a>
+					</div>
+					<div class="payment-div">
+						<a href="" data-pay-method="QIWI"  class="set-pay-method no-clickable">
+							<img src="<?=baseURL('img/pay/qiwi.png');?>"><br>
+							<span>Qiwi</span>
+						</a>
+					</div>
+					<div class="payment-div">
+						<a href="" data-pay-method="MAILRU" class="set-pay-method no-clickable">
+							<img src="<?=baseURL('img/pay/mailru.png');?>"><br>
+							<span>Mail.Ru</span>
+						</a>
+					</div>
+				</div>
 				<!--<p class="payment-p"><?=lang('pay-type');?></p>-->
 				<?php $this->load->view("users_interface/forms/pay-u");?>
 			</div>
