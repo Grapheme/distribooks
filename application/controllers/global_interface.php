@@ -18,16 +18,17 @@ class Global_interface extends MY_Controller{
 		if($this->postDataValidation('payu_request')):
 			$this->load->model('financial_reports');
 			if($report = $this->financial_reports->getWhere($this->input->post('REFNOEXT'),array('transaction_status'=>0,'operation'=>1))):
-				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE' || $this->input->post('ORDERSTATUS') == 'TEST'):
+				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE'):
+//				 || $this->input->post('ORDERSTATUS') == 'TEST'
 					if($account = $this->accounts->getWhere($report['account'],array('group'=>USER_GROUP_VALUE,'active'=>1))):
-						write_file(TEMPORARY.'ipn-'.date("Y-m-d").'-'.$report['account'].'.txt',json_encode($this->input->post()));
+						write_file(TEMPORARY.'ipn-'.date("YmdHis").'-'.$report['account'].'.txt',json_encode($this->input->post()));
 						if(!empty($report['books'])):
 							if($booksIDs = json_decode($report['books'])):
 								for($i=0;$i<count($booksIDs);$i++):
 									$this->buyBook($booksIDs[$i],$report['account']);
 								endfor;
 								$this->financial_reports->updateField($this->input->post('REFNOEXT'),'transaction_status',1);
-								//$this->payuIDNRequest($this->input->post(),$report);
+								$this->payuIDNRequest($this->input->post(),$report);
 								echo $this->payuIPNResponse($this->input->post());
 							endif;
 						endif;
@@ -56,7 +57,9 @@ class Global_interface extends MY_Controller{
 		endif;
 		
 		$HASH = strlen($pid_id).$pid_id.strlen($pid_name).$pid_name.strlen($pid_date).$pid_date;
-		return $IPN_Response = '<EPAYMENT>'.$IPN_date.'|'.$HASH.'</EPAYMENT>';
+		$IPN_Response = '<EPAYMENT>'.$IPN_date.'|'.$HASH.'</EPAYMENT>';
+		write_file(TEMPORARY.'ipn-response'.$IPN_date.'-'.$pid_id.'.txt',$IPN_Response);
+		return hash_hmac('md5',$IPN_Response,PAYU_SECRET_KEY);
 	}
 	
 	private function payuIDNRequest($pay_post,$report){
@@ -71,7 +74,7 @@ class Global_interface extends MY_Controller{
 				curl_setopt($curl,CURLOPT_POST,TRUE);
 				curl_setopt($curl,CURLOPT_POSTFIELDS,$curl_post);
 				$curl_out = curl_exec($curl);
-				write_file(TEMPORARY.'idn-'.date("Y-m-d").'-'.$report['account'].'.txt',$curl_out);
+				write_file(TEMPORARY.'idn-'.date("YmdHis").'-'.$report['account'].'.txt',$curl_out);
 				curl_close($curl);
 				return TRUE;
 			endif;
