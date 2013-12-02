@@ -146,6 +146,20 @@ textarea {
 	font-size: 15px;
 }
 
+.payment-desc {
+	color: #AAAAAA;
+	font-size: 14px;
+}
+
+.payment-sec {
+	float: left;
+	margin-bottom: 20px;
+}
+
+.payment-sec img {
+	max-height: 50px;
+}
+
 .payment-s-div:last-of-type {
 	margin-top: 20px;
 	margin-bottom: 50px;
@@ -2093,8 +2107,17 @@ input[type="radio"]:checked + label
 
 .social-footer {
 	width: 100px;
-	margin-left: 25px;
+	margin-left: 45px;
 	height: 52px;
+}
+
+.footer-payu {
+	height: 44px;
+	background: #fff;
+	display: inline-block;
+	float: left;
+	margin-left: 20px;
+	border-radius: 2px;
 }
 
 .social-link#vk {
@@ -3048,6 +3071,14 @@ input[type="checkbox"].cart-check:checked + label
 }
 
 @media screen and (min-width: 768px) and (max-width: 960px) {
+	
+	.footer-payu {
+		margin-left: 0;
+	}
+	
+	.social-footer {
+		margin-left: 36px;
+	}
 
 	.min-div-right.pos2 .enter-div a:first-of-type {
 		margin-left: 0;

@@ -61,6 +61,7 @@
 				<div class="grid_1 gift shop">&nbsp;</div>
 				<div class="grid_1 pos1">&nbsp;</div>
 				<div class="grid_4">
+					<a name="contacts"></a>
 					<div class="contacts">
 					<?=lang('contacts')?>
 					</div>
