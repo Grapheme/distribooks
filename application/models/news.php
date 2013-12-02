@@ -5,7 +5,7 @@ class News extends MY_Model{
 	protected $table = "news";
 	protected $primary_key = "id";
 	protected $fields = array("*");
-	protected $order_by = "sort,date DESC";
+	protected $order_by = "date DESC";
 
 	function __construct(){
 		
