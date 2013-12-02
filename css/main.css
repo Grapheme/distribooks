@@ -119,12 +119,51 @@ textarea {
 }
 
 .payment-p {
-	font-size: 14px;
+	font-size: 16px;
+	text-align: center;
 }
 
-.payu-payment a {
-	margin: 50px 15px;
+.payment-s-div {
+	overflow: hidden;
+}
+
+.payment-div {
+	text-align: center;
+	float: left;
+	margin: 10px 20px 10px 0;
+	min-width: 100px;
+}
+
+.payment-div a {
+	font-size: 14px;
+	color: #000;
 	text-decoration: none;
+}
+
+.payment-title {
+	margin-top: 0;
+	margin-bottom: 20px;
+	font-size: 15px;
+}
+
+.payment-s-div:last-of-type {
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.contacts {
+	color: #fff;
+	font-size: 14px;
+	margin-top: 25px;
+}
+
+.policies {
+	margin-top: 0 !important;
+	text-align: center !important;
+}
+
+.policies a {
+	color: #fff;
 }
 
 .min-div-right.pos2 .enter-div a:first-of-type {

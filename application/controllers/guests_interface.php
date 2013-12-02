@@ -144,6 +144,18 @@ class Guests_interface extends MY_Controller{
 		$pagevar['breadcrumbs'] = array('about'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/about",$pagevar);
 	}
+	
+	public function policies(){
+		
+		$pagevar = array(
+			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
+			'breadcrumbs' => array('policies'=>lang('about-title')),
+			'basket_list' => $this->getBooksInBasket(),
+			'trailers' => $this->getTrailers(2)
+		);
+		$pagevar['breadcrumbs'] = array('policies'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
+		$this->load->view("guests_interface/policies",$pagevar);
+	}
 
 	public function sale(){
 		

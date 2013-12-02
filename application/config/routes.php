@@ -122,6 +122,7 @@ $route['editing'] = "guests_interface/editing";
 $route['typography'] = "guests_interface/typography";
 $route['translation'] = "guests_interface/translation";
 $route['distribution'] = "guests_interface/distribution";
+$route['policies'] = "guests_interface/policies";
 
 $route['basket'] = "guests_interface/basket";
 

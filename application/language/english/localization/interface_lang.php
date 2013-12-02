@@ -177,4 +177,11 @@ The team of creative workshop <b>DistribBooks</b>
 Buying our e-books, you save from destruction forests!";
 $lang['about-title'] = "Dear friends!";
 
+$lang['contacts'] = "Self-employed entrepreneur Sidelnikov Roman Leonidovich<br>
+					Russia, 344029, Rostov-na-Donu, Metallurgicheskaya st., 111, 19<br>
+					phone: +7 (916) 031-34-88, +7 (916) 608-65-54";
+					
+$lang['policies_text'] = "Clicking on the button to register you agree with";
+$lang['policies_link'] = "Terms of Use.";
+
 ?>
