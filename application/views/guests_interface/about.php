@@ -81,7 +81,7 @@
 				<div class="grid_4">
 					<h2><span class="sale-title">Акция:</span></h2>
 					<img src="<?=baseURL('img/sale.png')?>" class="sale">
-					<div class="position: relative;"><a href="#" class="button red sale">Выбрать книги</a></div>
+					<div class="position: relative;"><a href="<?=site_url('catalog');?>" class="button red sale">Выбрать книги</a></div>
 				</div>
 			</div>
 		</div>
