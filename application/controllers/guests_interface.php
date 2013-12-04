@@ -149,11 +149,10 @@ class Guests_interface extends MY_Controller{
 		
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
-			'breadcrumbs' => array('policies'=>lang('about-title')),
+			'breadcrumbs' => array('policies'=>lang('policies_breadcrumbs')),
 			'basket_list' => $this->getBooksInBasket(),
 			'trailers' => $this->getTrailers(2)
 		);
-		$pagevar['breadcrumbs'] = array('policies'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/policies",$pagevar);
 	}
 

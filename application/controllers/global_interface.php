@@ -18,7 +18,7 @@ class Global_interface extends MY_Controller{
 		if($this->postDataValidation('payu_request')):
 			$this->load->model('financial_reports');
 			if($report = $this->financial_reports->getWhere($this->input->post('REFNOEXT'),array('transaction_status'=>0,'operation'=>1))):
-				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE'):
+				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE' || $this->input->post('ORDERSTATUS') == 'TEST'):
 //				 || $this->input->post('ORDERSTATUS') == 'TEST'
 					if($account = $this->accounts->getWhere($report['account'],array('group'=>USER_GROUP_VALUE,'active'=>1))):
 						write_file(TEMPORARY.'ipn-'.date("YmdHis").'-'.$report['account'].'.txt',json_encode($this->input->post()));
@@ -28,7 +28,7 @@ class Global_interface extends MY_Controller{
 									$this->buyBook($booksIDs[$i],$report['account']);
 								endfor;
 								$this->financial_reports->updateField($this->input->post('REFNOEXT'),'transaction_status',1);
-								$this->payuIDNRequest($this->input->post(),$report);
+								//$this->payuIDNRequest($this->input->post(),$report);
 								echo $this->payuIPNResponse($this->input->post());
 							endif;
 						endif;
@@ -47,7 +47,7 @@ class Global_interface extends MY_Controller{
 		$IPN_date = date("YmdHis");
 		$pid_id = 0; $pid_name = ''; $pid_date = '';
 		if(isset($pay_post['IPN_PID'][0])):
-			$pid_id  = $pay_post['IPN_PID'][0];
+			$pid_id = $pay_post['IPN_PID'][0];
 		endif;
 		if(isset($pay_post['IPN_PNAME'][0])):
 			$pid_name = $pay_post['IPN_PNAME'][0];
@@ -56,10 +56,11 @@ class Global_interface extends MY_Controller{
 			$pid_date = $pay_post['IPN_DATE'];
 		endif;
 		
-		$HASH = strlen($pid_id).$pid_id.strlen($pid_name).$pid_name.strlen($pid_date).$pid_date;
-		$IPN_Response = '<EPAYMENT>'.$IPN_date.'|'.$HASH.'</EPAYMENT>';
+		$HASH = strlen($pid_id).$pid_id.strlen($pid_name).$pid_name.strlen($pid_date).$pid_date.strlen($IPN_date).$IPN_date;
+		$IPN_Response = '<EPAYMENT>'.$IPN_date.'|MD5('.$HASH.')</EPAYMENT>';
+		$IPN_Response_hash = '<EPAYMENT>'.$IPN_date.'|'.hash_hmac('md5',$HASH,PAYU_SECRET_KEY).'</EPAYMENT>';
 		write_file(TEMPORARY.'ipn-response'.$IPN_date.'-'.$pid_id.'.txt',$IPN_Response);
-		return hash_hmac('md5',$IPN_Response,PAYU_SECRET_KEY);
+		return $IPN_Response_hash;
 	}
 	
 	private function payuIDNRequest($pay_post,$report){

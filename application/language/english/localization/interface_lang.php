@@ -183,6 +183,7 @@ $lang['contacts'] = "Self-employed entrepreneur Sidelnikov Roman Leonidovich<br>
 					
 $lang['policies_text'] = "Clicking on the button to register you agree with";
 $lang['policies_link'] = "Terms of Use.";
+$lang['policies_breadcrumbs'] = "Terms of Use";
 
 $lang['contacts_link'] = "Contacts";
 
