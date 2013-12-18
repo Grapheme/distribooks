@@ -81,8 +81,10 @@ class User_ajax_interface extends MY_Controller{
 		
 		$this->getAccountBasketBooks();
 		if($basket_list = $this->getBooksInBasket()):
+			$this->load->library('plural_words');
 			$this->json_request['responseText'] = $this->load->view('guests_interface/html/basket/basket-full-lists',array('basket_list'=>$basket_list),TRUE);
 			$this->json_request['booksTotalPrice'] = $this->getBasketTotalPrice();
+			$this->json_request['booksTotalCount'] = count($basket_list).' '.$this->plural_words->pluralBook(count($basket_list));
 			$this->json_request['status'] = TRUE;
 		endif;
 		echo json_encode($this->json_request);

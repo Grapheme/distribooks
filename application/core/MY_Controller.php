@@ -117,7 +117,7 @@ class MY_Controller extends CI_Controller{
 	/*************************************************************************************************************/
 	public function getVKontakteAccessToken($code,$redirect){
 		
-		$url = "https://oauth.vk.com/access_token?client_id=3955363&client_secret=T08z8CWN82QxY5pl4S1r&code=".$code."&redirect_uri=".$redirect;
+		$url = "https://oauth.vk.com/access_token?client_id=4047214&client_secret=UaFFSHkNFONzFLy0uUcW&code=".$code."&redirect_uri=".$redirect;
 		$VKontakteResponse = json_decode($this->getCurlLink($url),TRUE);
 		if(isset($VKontakteResponse['access_token'])):
 			return $VKontakteResponse;

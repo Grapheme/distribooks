@@ -33,7 +33,8 @@
 					<div style="position: absolute; bottom: -1px; right: 0;">
 						<a href="skype:DistibBooks?call" class="top-contact"><img src="<?=baseURL('img/skype.png');?>">DistibBooks</a>
 					<?php if($this->project_config['action_percent'] > 0):?>
-						<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>
+						<!--<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>-->
+						<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -25%!</a>
 					<?php endif;?>
 					</div>
 				</div>

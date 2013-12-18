@@ -2308,6 +2308,10 @@ input[type="radio"]:checked + label
 	white-space: nowrap;
 }
 
+#count-book {
+	display: inline;
+}
+
 .basket-item-name a {
 	color: #000;
 }

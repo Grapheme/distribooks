@@ -86,7 +86,7 @@ $lang['basket_page_part1'] = "Choose the amount of books";
 $lang['basket_page_part2'] = "and get a discount";
 $lang['basket_page_part3'] = "for the full amount";
 $lang['basket_page_part4'] = "Total selected";
-$lang['basket_page_part5'] = "books on sum";
+$lang['basket_page_part5'] = "on sum";
 
 $lang['signin_auth_text'] = "You need to sign up for the books you bought on e-mail and access to bonuses and rebates";
 $lang['signin_nickname'] = "Nickname";

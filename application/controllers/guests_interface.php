@@ -341,6 +341,7 @@ class Guests_interface extends MY_Controller{
 			'basket_list' => $this->getBooksInBasket()
 		);
 		delete_cookie('buy_book');
+		$this->load->library('plural_words');
 		$this->load->view("guests_interface/basket",$pagevar);
 	}
 	/*********************************************** catalog ***********************************************************/

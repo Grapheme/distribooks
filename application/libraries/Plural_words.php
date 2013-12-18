@@ -9,54 +9,12 @@ class Plural_words{
 		$this->CI = & get_instance();
 	}
 
-	public function pluralFiles($count){
+	public function pluralBook($count){
 		
-		$words = array('файл','файла','файлов');
+		$words = array('книга','книги','книг');
 		return $this->getWord($count,$words);
 	}
-	
-	public function pluralHours($count){
-		
-		$words = array('час','часа','часов');
-		return $this->getWord($count,$words);
-	}
-	
-	public function pluralTasks($count){
-		
-		$words = array('проект','проекта','проектов');
-		return $this->getWord($count,$words);
-	}
-	
-	public function pluralVideoLessons($count){
-		
-		$words = array('видео-урок','видео-урока','видео-уроков');
-		return $this->getWord($count,$words);
-	}
-	
-	public function pluralLikedUsers($count){
-		
-		$words = array('пользователю','пользователям','пользователям');
-		return $this->getWord($count,$words);
-	}
-	
-	public function pluralComments($count){
-		
-		$words = array('комментарий','комментария','комментариев');
-		return $this->getWord($count,$words);
-	}
-	
-	public function pluralVisits($count){
-		
-		$words = array('просмотр','просмотра','просмотров');
-		return $this->getWord($count,$words);
-	}
-	
-	public function pluralSubscribesStudents($count){
-		
-		$words = array('студент подписался на курс','студента подписались на курс','студентов подписались на курс');
-		return $this->getWord($count,$words);
-	}
-	
+
 	private function getWord($n,$words){
 		
 		$n = abs($n) % 100;

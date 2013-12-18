@@ -162,6 +162,7 @@ $(function(){
 					$("div.basket-items-full-list").html(response.responseText);
 					if($(".basket-main-total-price").length > 0){
 						$(".basket-main-total-price").html(priceOnAction(response.booksTotalPrice));
+						$("#count-book").html(response.booksTotalCount);
 					}
 					$(".basket-total-price").html(response.booksTotalPrice);
 					$("div.basket-items-full-list").find(".remove-book-in-basket").on('click',function(event){event.preventDefault();event.stopPropagation();removeBookInBasket(this);});
