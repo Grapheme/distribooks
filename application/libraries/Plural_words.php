@@ -9,9 +9,12 @@ class Plural_words{
 		$this->CI = & get_instance();
 	}
 
-	public function pluralBook($count){
+	public function pluralBook($count,$lang = RUSLAN){
 		
 		$words = array('книга','книги','книг');
+		if($lang == ENGLAN):
+			$words = array('book','books','books');
+		endif;
 		return $this->getWord($count,$words);
 	}
 
