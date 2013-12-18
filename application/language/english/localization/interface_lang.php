@@ -65,7 +65,7 @@ $lang['formats_text'] = "Read more about the available formats";
 
 $lang['form_donation_thank_you'] = "Thanks<br/>for the help";
 $lang['form_donation_summs'] = "Other amount";
-$lang['form_donate_another_text'] = "you can use the account at any bank supports the following payment systems";
+$lang['form_donate_another_text'] = "You can use the account at any bank";
 
 $lang['form_recall_text'] = "We'll answer you as soon as possible";
 $lang['form_recall_after_text'] = "Your message sent";
@@ -178,13 +178,68 @@ Buying our e-books, you save from destruction forests!";
 $lang['about-title'] = "Dear friends!";
 
 $lang['contacts'] = "Self-employed entrepreneur Sidelnikov Roman Leonidovich<br>
-					Russia, 344029, Rostov-na-Donu, Metallurgicheskaya st., 111, 19<br>
-					phone: +7 (916) 031-34-88, +7 (916) 608-65-54";
+					Russia, 344029, Rostov-na-Donu, Metallurgicheskaya st., 111<br>
+					phone: +7 (863) 290-86-89 ";
 					
 $lang['policies_text'] = "Clicking on the button to register you agree with";
 $lang['policies_link'] = "Terms of Use.";
 $lang['policies_breadcrumbs'] = "Terms of Use";
 
 $lang['contacts_link'] = "Contacts";
+
+$lang['policies-title'] = "TERMS OF USE";
+
+$lang['policies'] = "
+1. Terms and definitions
+<br>1.1. User - a capable person who has registered on the Website.
+<br>1.2. Site - site under the domain name distribbooks.com and / or distribbooks.ru.
+<br>1.3. Dealer - An individual entrepreneur Sidelnikov Roman Leonidovich:
+<br>Postal and legal address: Russia, 344029 , Rostov-on-Don , Metallurgicheskaya st., 111.
+<br>Tel. +7 (863) 290-86-89
+<br>CEO : Sidelnikov Roman Leonidovich
+<br>Site carries out its work every day 24 hours a day , except for the time required to maintain and update the site (technical work ) and possible failures on the server.
+<br>Ordering Products Users can perform every day, around the clock, through the use of the Site.
+<br>1.4. Goods - electronic link to the right to a one-time download from the site of the seller e-book purchased by the user , intended solely for personal , individual use by the User (without copying it , and resell the benefit of third parties ), and suggests the seller through the Site .
+<br>1.5. Individual sections of the site - the section of the Site (the set of pages of the Site ) , containing information relating to customer orders .
+<br>2 . Join the Site
+<br>2.1. Terms considered valid only after confirmation by the User on the Site registration confirmation and acceptance of the User Agreement. The text of the User Agreement User can be found on the Website .
+<br>2.2. Registration on the Site may be effected by the User to the checkout stage. If the User has not been registered on the Site to the checkout stage , user registration on the Site provided at the checkout stage .
+<br>2.3. By accessing the Website by filling their profiles fields on the registration page and perform other actions , where indicated , including the expression of consent to the User Agreement .
+<br>2.4. When registering on the Website user specifies in the appropriate fields profiles registration page your name and email address.
+<br>2.5. By the user can be given to them for more information referred to in the appropriate fields profiles registration page .
+<br>2.6. Seller maintains a database of registered users . The User agrees that the Seller in identifying hazards User action for the operation of the Site the right to remove a user from a database of registered users (including information on the actions performed by the user on the Website ) .
+<br>3 . Procedure for making purchases using the Site
+<br>3.1. The user through the site yourself acquainted with information about products and adds in 'basket' of goods that wishes to purchase. Users also tend to be given the opportunity to select from a seller's offer payment methods and formats downloadable goods .
+<br>3.2. Contract of sale of goods between the Seller and the User shall be deemed concluded , and obligations of the Seller to transfer goods and other obligations related to the transfer of the goods that arose - from the completion of the User procedure of registration and payment of the order, as provided User Agreement and on the Website ( order confirmation in accordance with the procedure provided functionality of the Site ) .
+<br>Text User Agreement and conditions of the contract of sale (with a list of purchased goods , price and dr.dannym ) - may be sent to the user via email.
+<br>3.3. Order product by phone user can not .
+<br>3.4. In order to obtain payment from the User Seller shall be entitled to engage third parties ( paying agents and aggregators ) . In this case, the User undertakes to comply with the rules and procedure of payment provided by such third parties .
+<br>3.5. On the Website are approximate delivery time. Seller is not responsible for the increase in delivery times caused by possible failures of the servers and technical support services, availability of sites that are not subdivisions of the Seller.
+<br>4 . personal data
+<br>4.1. User understands that the Seller processes personal data only for the proper execution of the User Agreement . Nevertheless , additional user confirms his consent to the processing of personal data , including the collection ( including gathering information from the user and from third parties ), recording , classification, accumulation , storage, (updating , changing ) , extraction, use, transfer (distribution, providing access ) , depersonalization, blocking and destruction of personal data .
+<br>4.2. Methods of personal data processing , as a rule, include the collection of personal data by filling in forms on the Site by the User , sending information by e-mail . Seller may also collect user data from public sources and / or by obtaining them from third parties to verify the data provided by the User for plausibility.
+<br>4.3. The user gives his or her consent to the processing of technical information on the Seller computer from which Customer to access the site and send e-mails , including , but not limited to : IP- address , MAC- address , location of the computer , operating system information , Internet browser, screen resolution. This information is processed by the Seller to the User identification performance of the Agreement , as well as for development of the site and site optimization and the Personal section of the Site under User.
+<br>4.4. Seller has the right to process the data for statistical purposes, the User , but in this case, the data depersonalized . User understands and agrees that Seller may make it publicly available, subject depersonalization ( for statistical purposes ) , namely without reference surname, name and patronymic of the rest of the data of the User.
+<br>4.5. Seller handles personal data for the entire term of the Agreement , and anonymous data and after.
+<br>4.6. The user gives his or her consent to the processing of personal data by the Seller in order to alert the user of the Site news updates , promotions , special offers , other information related to the activities of the Seller.
+<br>4.7. Seller shall be entitled on the basis of the automated processing of data , the user decides that generate legal consequences for the User , or otherwise affect the rights and / or legitimate interests , including those entitled to make jokes, actions, etc. ( offer discounts , bonuses, additional services at no charge and vozmeznoy basis, etc. ) .
+<br>4.8. The user is responsible for the accuracy of the personal data , for the removal, or modification performed under the username and password . User shall compensate losses incurred in connection with the second providing the user with inaccurate personal data.
+<br>5 . Other conditions
+<br>5.1. Terms may be changed unilaterally by the Seller without notice Members . The new edition of the User Agreement enters into force, and the former loses its legal revision effective upon posting on the Site of the new edition of the User Agreement .
+<br>5.2. Address permanent placement valid version of the User Agreement : http://distribbooks.ru/en/policies.
+<br>5.3. Seller warrants the goods - fourteen (14 ) calendar days from the date of purchase of the goods by the User , the User with proper observance of technical requirements for downloading and use of goods .
+<br>5.4 . User has the right to reject the goods at any time before its transfer Seller user-specified email address.
+<br>5.5. Return Items Seller good quality - not possible.
+<br>5.6. Refunds User has paid for goods , carried out by the Seller no later than ten (10) days from the date the Seller User presents the relevant requirements of the following methods agreed by the Parties :
+<br>A) postal order ;
+<br>B) by transferring the corresponding amount to the bank account or other user specified them in their demand .
+<br>5.7. In case of refund User , he shall compensate the costs associated with the preparation and processing of the order issued by the User on the product purchased .
+<br>5.8. All actions performed by the user using the username and password specified by the user when registering on the Website are user actions committed or authorized user , as only user has the information about the combination of username and password ( simple electronic signature) . User agrees to keep confidential.
+<br>5.9 . User and Seller agree that the messages sent by the User to the Seller from the email address specified by the user when registering on the Website, the User and Seller with e-mail addresses listed on the site are valid and recognized by customers and resellers equivalent of paper documents signed handwritten signature , because only user and the Seller (and their authorized persons ) have access to the relevant e-mail addresses , which is an electronic signature , respectively User or Vendor. Email access User and Seller performed by password and will retain his privacy.
+<br>5.10 . By accepting this agreement , the User confirms their awareness on the right to use the goods for personal purposes , without the right to copy , resale, use in the interests of third parties and not authorized by the Seller citation contents of the Goods without the written consent of the Seller .
+<br>
+<br>Form this User Agreement , which is a public offer IP Sidel'nikov Roman Leonidovich approved. If you do not agree with any term or is it you do not understand , please do not perform these actions in the User Agreement ( registration) , and first contact us for clarification.
+<br>
+<br>";
 
 ?>
