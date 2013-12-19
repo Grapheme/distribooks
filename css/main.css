@@ -1397,6 +1397,7 @@ ul, li {
 	display: none;
 	position: fixed;
 	width: 600px;
+	padding: 1.5%;
 	background: #88b41f;
 	left: 50%;
 	margin-left: -210px;
@@ -1575,15 +1576,16 @@ ul, li {
 }
 
 .auth-left {
-	width: 150px;
-	margin-top: 20px;
-	margin: 0 auto;
+    float: left;
+    margin: 0 auto;
+    width: 40%;
 }
 
 .auth-right {
-	margin: 0 auto;
-	width: 310px;
-	text-align: center;
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+    width: 60%;
 }
 
 .auth-soc {
@@ -1612,7 +1614,6 @@ ul, li {
 }
 
 .auth-soc-email {
-	width: 280px !important;
 	margin-top: 8px;
 }
 
@@ -1620,8 +1621,14 @@ ul, li {
 	color: #fff;
 	text-align: left;
 	font-size: 11px;
-	width: 280px;
+	width: 95%;
 	margin-left: 13px;
+}
+
+.social-invite {
+    float: left;
+    line-height: 3em;
+    margin: 0 1em 0 0;
 }
 
 .auth-left a {
@@ -1633,9 +1640,7 @@ ul, li {
 }
 .auth-left a {
 	color: #fff;
-	text-align: left;
 	font-size: 11px;
-	width: 280px;
 	margin-left: 29px;
 }
 
@@ -1651,14 +1656,17 @@ ul, li {
     text-align: left;
     width: 280px;
 }
-
-.window-auth input[type=text],input[type=password] {
-	height: 15px;
-	width: 145px;
-	border-radius: 3px;
-	border: 0;
-	font-size: 12px;
-	padding-left: 5px;
+.btn-sign-submit {
+	margin-bottom: 0;
+}
+.window-auth input[type="text"], input[type="password"] {
+    border: 0 none;
+    border-radius: 3px;
+    font-size: 12px;
+    height: 22px;
+    margin: 0 0 0.5em;
+    padding-left: 5px;
+    width: 85%;
 }
 
 .howmuch {
@@ -1834,9 +1842,17 @@ input[type="radio"]:checked + label
 	border: 0;
 }
 
+.auth-header {
+    margin: 0 0 0.5em;
+}
+
 .auth-button {
 	width: 148px;
 	margin: 30px 0 0;
+}
+
+.auth-right .auth-button {
+	margin: 30px 0 5px;
 }
 
 .forgot-button{
