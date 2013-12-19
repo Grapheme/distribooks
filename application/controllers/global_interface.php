@@ -147,6 +147,29 @@ class Global_interface extends MY_Controller{
 		endif;
 	}
 	
+	public function forgot(){
+		
+		if(!$this->input->is_ajax_request() && $this->loginstatus === FALSE):
+			show_error('В доступе отказано');
+		endif;
+		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
+		if($this->postDataValidation('signup') == TRUE):
+			if($account = $this->accounts->getWhere(NULL,array('email'=>$this->input->post('email')))):
+				$this->load->helper('string');
+				$password = random_string('alnum',12);
+				$this->accounts->updateField($account['id'],'password',md5($password));
+				$mailtext = $this->load->view('mails/forgot',array('account'=>$account,'password'=>$password),TRUE);
+				$this->sendMail($account['email'],FROM_BASE_EMAIL,'Distribboks','Восстановление доступа на distribbooks.com',$mailtext);
+				$json_request['status'] = TRUE;
+				$json_request['responseText'] = lang('forgot_email_success');
+				$json_request['redirect'] = FALSE;
+			else:
+				$json_request['responseText'] = lang('forgot_email_notfound');
+			endif;
+		endif;
+		echo json_encode($json_request);
+	}
+	
 	public function redactorUploadImage(){
 		
 		if($this->loginstatus):

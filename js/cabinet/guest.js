@@ -77,6 +77,11 @@ $(function(){
 			return false;
 		}
 	})
+	$("#a-forgor-password").click(function(){
+		$(".form-sign").fadeOut('fast',function(){
+			$(".form-forgor-password").removeClass('hidden');
+		})
+	});
 	function currencyExchange(price){
 		
 		if(mt.currentLanguage == 'en'){

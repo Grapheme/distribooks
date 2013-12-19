@@ -36,5 +36,5 @@ $(function(){
 		}else{
 			alert(Localize[mt.currentLanguage]['no_books_pay']);
 		}
-	})
+	});
 });

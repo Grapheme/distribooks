@@ -1,6 +1,10 @@
-<p>Привет, <em><?=$data['name'].' '.$data['surname'];?></em>.</p>
-Кажется, Вы забыли свой пароль. Пройди по <?=anchor('forgot/password/comfirm-code/'.$temporary_code,'ссылке',array('target'=>'_blank'));?>, чтобы создать новый.
-
+<p>Здравствуйте!</p>
+<p>Кажется, Вы забыли свой пароль.</p>
+<p>
+	Для доступа к личному кабинету воспользуйтеся логином и паролем.<br/>
+	Логин: id<?=$account['id'];?><br/>
+	Пароль: id<?=$password;?><br/>
+</p>
 <br/><br/>
 --
-Администрация <?=anchor('','Universiality',array('target'=>'_blank'));?>.
+Администрация <?=anchor('','Distribboks.com',array('target'=>'_blank'));?>.

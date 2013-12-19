@@ -10,7 +10,7 @@
 			<error val="3;892;74;892;2502;1;"/>
 			<error val="3;907;74;907;2502;1;"/>
 			<error val="3;921;74;921;2502;1;"/>
-			<error val="1;4089;15;4089;2502;1;"/>
+			<error val="1;4115;15;4115;2502;1;"/>
 		</errfile>
 	</errors>
 	<codestructure version="4.6.1">
@@ -10213,14 +10213,38 @@
 				<treenode node="table;PHP:Var Name;S:\home\distribbooks.ru\www\application\models\users_accounts.php;f11;4;17;4;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="Users_interface;PHP:Class Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f0;2;1;110;;;;vpos;;vMY_Controller;;c;;r;;d43,2;;b0,0;;m">
+			<treenode node="Users_interface;PHP:Class Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f0;2;1;111;;;;vpos;;vMY_Controller;;c;;r;;d43,2;;b0,0;;m">
 				<treenode node="__construct;PHP:Function Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f1;6;2;21;;;;vpos;;v;;r;;d23,6;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f5;9;10;9;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
 				<treenode node="cabinet;PHP:Function Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f8;43;2;76;;;;vpos;;v;;r;;d26,43;;b1,0;;m">
+					<treenode node="i;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f6;59;8;59;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="pagevar;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f2;50;10;50;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f5;45;10;45;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
-				<treenode node="downloadBookFile;PHP:Function Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f8;78;2;109;;;;vpos;;v;;r;;d35,78;;b1,0;;m">
+				<treenode node="downloadBookFile;PHP:Function Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f8;78;2;110;;;;vpos;;v;;r;;d35,78;;b1,0;;m">
+					<treenode node="files;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f7;83;13;83;;;;vposmixed;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="full_path;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f8;87;18;87;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="i;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f10;85;12;85;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="signedBook;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f5;81;16;81;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f2;80;7;80;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
 				<treenode node="pay;PHP:Function Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f8;23;2;41;;;;vpos;;v;;r;;d22,23;;b1,0;;m">
+					<treenode node="booksIDs;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f2;25;11;25;;;;vposmixed;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="pagevar;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f2;34;10;34;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f5;26;10;26;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
 				<treenode node="offset;PHP:Var Name;S:\home\distribbooks.ru\www\application\controllers\users_interface.php;f5;4;12;4;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
@@ -11569,7 +11593,7 @@
 			</treenode>
 			<treenode node="HTMLbasketList;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\guests_interface\html\basket\basket-full-lists.php;f1;1;16;1;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="i;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\users_interface\my-books.php;f13;46;15;46;;S:\home\distribbooks.ru\www\application\views\html\select\genres.php;f11;3;13;3;;S:\home\distribbooks.ru\www\application\views\html\select\format-category.php;f11;3;13;3;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\book-formats.php;f11;3;13;3;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\about-product.php;f54;15;56;15;;S:\home\distribbooks.ru\www\application\views\guests_interface\trailers.php;f15;33;17;33;;S:\home\distribbooks.ru\www\application\views\guests_interface\search-results.php;f13;27;15;27;;S:\home\distribbooks.ru\www\application\views\guests_interface\news.php;f13;28;15;28;;S:\home\distribbooks.ru\www\application\views\guests_interface\index.php;f13;32;15;32;;S:\home\distribbooks.ru\www\application\views\guests_interface\formats.php;f13;39;15;39;;S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php;f14;63;16;63;;S:\home\distribbooks.ru\www\application\views\admin_interface\pages\list.php;f15;30;17;30;;S:\home\distribbooks.ru\www\application\views\admin_interface\news\list.php;f15;35;17;35;;S:\home\distribbooks.ru\www\application\views\admin_interface\genres\list.php;f15;39;17;39;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\formats\update.php;f12;7;14;7;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\formats\insert.php;f12;6;14;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\upload-files.php;f11;3;13;3;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\update.php;f14;71;16;71;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\insert.php;f12;103;14;103;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\caption-files.php;f10;2;12;2;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\list.php;f15;37;17;37;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\categories.php;f15;33;17;33;;S:\home\distribbooks.ru\www\application\views\admin_interface\books\list.php;f15;42;17;42;;S:\home\distribbooks.ru\www\application\views\admin_interface\authors\list.php;f15;38;17;38;;S:\home\distribbooks.ru\www\application\views\users_interface\forms\pay-u.php;f10;5;12;5;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\basket\basket-full-lists.php;f5;4;7;4;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="i;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\users_interface\my-books.php;f13;46;15;46;;S:\home\distribbooks.ru\www\application\views\html\select\genres.php;f11;3;13;3;;S:\home\distribbooks.ru\www\application\views\html\select\format-category.php;f11;3;13;3;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\book-formats.php;f11;3;13;3;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\about-product.php;f54;15;56;15;;S:\home\distribbooks.ru\www\application\views\guests_interface\trailers.php;f15;33;17;33;;S:\home\distribbooks.ru\www\application\views\guests_interface\search-results.php;f13;27;15;27;;S:\home\distribbooks.ru\www\application\views\guests_interface\news.php;f13;28;15;28;;S:\home\distribbooks.ru\www\application\views\guests_interface\index.php;f13;32;15;32;;S:\home\distribbooks.ru\www\application\views\guests_interface\formats.php;f13;39;15;39;;S:\home\distribbooks.ru\www\application\views\admin_interface\pages\list.php;f15;30;17;30;;S:\home\distribbooks.ru\www\application\views\admin_interface\news\list.php;f15;35;17;35;;S:\home\distribbooks.ru\www\application\views\admin_interface\genres\list.php;f15;39;17;39;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\formats\update.php;f12;7;14;7;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\formats\insert.php;f12;6;14;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\upload-files.php;f11;3;13;3;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\update.php;f14;71;16;71;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\insert.php;f12;103;14;103;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\caption-files.php;f10;2;12;2;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\list.php;f15;37;17;37;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\categories.php;f15;33;17;33;;S:\home\distribbooks.ru\www\application\views\admin_interface\books\list.php;f15;42;17;42;;S:\home\distribbooks.ru\www\application\views\admin_interface\authors\list.php;f15;38;17;38;;S:\home\distribbooks.ru\www\application\views\users_interface\forms\pay-u.php;f10;5;12;5;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\basket\basket-full-lists.php;f5;4;7;4;;S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php;f14;63;16;63;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="IN;PHP:Var Name;S:\home\distribbooks.ru\www\system\core\CodeIgniter.php;f1;212;4;212;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -11603,7 +11627,7 @@
 			</treenode>
 			<treenode node="notificationText;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\users_interface\my-books.php;f3;27;20;27;;S:\home\distribbooks.ru\www\application\views\guests_interface\basket.php;f3;27;20;27;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="novelty;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\guests_interface\index.php;f27;32;35;32;;S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php;f18;118;26;118;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="novelty;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\guests_interface\index.php;f27;32;35;32;;S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php;f18;121;26;121;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="OUT;PHP:Var Name;S:\home\distribbooks.ru\www\system\core\CodeIgniter.php;f1;185;5;185;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -11613,7 +11637,7 @@
 			</treenode>
 			<treenode node="page_url;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\header.php;f33;21;42;21;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="pages;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\users_interface\my-books.php;f6;55;12;55;;S:\home\distribbooks.ru\www\application\views\guests_interface\trailers.php;f9;40;15;40;;S:\home\distribbooks.ru\www\application\views\guests_interface\news.php;f6;43;12;43;;S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php;f8;76;14;76;;S:\home\distribbooks.ru\www\application\views\admin_interface\genres\list.php;f7;29;13;29;;S:\home\distribbooks.ru\www\application\views\admin_interface\books\list.php;f7;30;13;30;;S:\home\distribbooks.ru\www\application\views\admin_interface\authors\list.php;f7;29;13;29;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="pages;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\users_interface\my-books.php;f6;55;12;55;;S:\home\distribbooks.ru\www\application\views\guests_interface\trailers.php;f9;40;15;40;;S:\home\distribbooks.ru\www\application\views\guests_interface\news.php;f6;43;12;43;;S:\home\distribbooks.ru\www\application\views\admin_interface\genres\list.php;f7;29;13;29;;S:\home\distribbooks.ru\www\application\views\admin_interface\books\list.php;f7;30;13;30;;S:\home\distribbooks.ru\www\application\views\admin_interface\authors\list.php;f7;29;13;29;;S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php;f8;76;14;76;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="password;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\mails\signup.php;f12;4;21;4;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -11623,7 +11647,7 @@
 			</treenode>
 			<treenode node="profile;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\mails\after-activation-account.php;f18;0;26;0;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="recommended;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php;f18;129;30;129;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="recommended;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php;f18;132;30;132;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="resources;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\upload-files.php;f6;0;16;0;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\caption-files.php;f6;0;16;0;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -11657,11 +11681,11 @@
 			</treenode>
 			<treenode node="temporary_code;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\mails\forgot.php;f84;1;99;1;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="this;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\users_interface\my-books.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\html\select\genres.php;f46;4;51;4;;S:\home\distribbooks.ru\www\application\views\html\select\format-category.php;f50;4;55;4;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\recall-div.php;f9;11;14;11;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\left-nav.php;f61;2;66;2;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\head.php;f31;2;36;2;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\basket.php;f9;6;14;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\basket\basket-item-sale-full.php;f23;4;28;4;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\buyor.php;f9;0;14;0;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\book-in-shop.php;f8;2;13;2;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\book-formats.php;f86;5;91;5;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\about-product.php;f64;16;69;16;;S:\home\distribbooks.ru\www\application\views\guests_interface\forms\search.php;f69;1;74;1;;S:\home\distribbooks.ru\www\application\views\guests_interface\typography.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\translation.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\trailers.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\single-news.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\single-book.php;f7;7;12;7;;S:\home\distribbooks.ru\www\application\views\guests_interface\search-results.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\sale.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\news.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\index.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\formats.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\editing.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\distribution.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\general_interface\includes\header.php;f7;11;12;11;;S:\home\distribbooks.ru\www\application\views\general_interface\signin.php;f6;3;11;3;;S:\home\distribbooks.ru\www\application\views\admin_interface\pages\list.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\pages\edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\news\list.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\news\edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\news\add.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\genres\list.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\genres\edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\genres\add.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\genres\update.php;f42;1;47;1;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\formats\insert.php;f51;7;56;7;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\formats\category-edit.php;f42;1;47;1;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\upload-files.php;f118;2;123;2;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\insert.php;f46;110;51;110;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\caption-files.php;f97;1;102;1;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\authors\update.php;f42;1;47;1;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\list.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\category-edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\categories.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\add.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\cabinet\promo.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\cabinet\profile.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\cabinet\control-panel.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\books\upload.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\books\list.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\books\edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\books\add.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\authors\list.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\authors\edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\authors\add.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\users_interface\forms\pay-u.php;f17;6;22;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\basket\basket-full-lists.php;f12;5;17;5;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\basket\basket-item.php;f21;3;26;3;;S:\home\distribbooks.ru\www\application\views\users_interface\pay.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\about.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\policies.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\auth.php;f27;7;32;7;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\header.php;f10;3;15;3;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\header404.php;f14;34;19;34;;S:\home\distribbooks.ru\www\application\views\guests_interface\basket.php;f7;6;12;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="this;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\users_interface\my-books.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\html\select\genres.php;f46;4;51;4;;S:\home\distribbooks.ru\www\application\views\html\select\format-category.php;f50;4;55;4;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\recall-div.php;f9;11;14;11;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\left-nav.php;f61;2;66;2;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\head.php;f31;2;36;2;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\basket.php;f9;6;14;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\basket\basket-item-sale-full.php;f23;4;28;4;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\buyor.php;f9;0;14;0;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\book-in-shop.php;f8;2;13;2;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\book-formats.php;f86;5;91;5;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\about-product.php;f64;16;69;16;;S:\home\distribbooks.ru\www\application\views\guests_interface\forms\search.php;f69;1;74;1;;S:\home\distribbooks.ru\www\application\views\guests_interface\typography.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\translation.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\trailers.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\single-news.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\single-book.php;f7;7;12;7;;S:\home\distribbooks.ru\www\application\views\guests_interface\search-results.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\sale.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\news.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\index.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\formats.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\editing.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\distribution.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\general_interface\includes\header.php;f7;11;12;11;;S:\home\distribbooks.ru\www\application\views\general_interface\signin.php;f6;3;11;3;;S:\home\distribbooks.ru\www\application\views\admin_interface\pages\list.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\pages\edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\news\list.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\news\edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\news\add.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\genres\list.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\genres\edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\genres\add.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\genres\update.php;f42;1;47;1;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\formats\insert.php;f51;7;56;7;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\formats\category-edit.php;f42;1;47;1;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\upload-files.php;f118;2;123;2;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\insert.php;f46;110;51;110;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\caption-files.php;f97;1;102;1;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\authors\update.php;f42;1;47;1;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\list.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\category-edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\categories.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\formats\add.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\cabinet\promo.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\cabinet\profile.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\cabinet\control-panel.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\books\upload.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\books\list.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\books\edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\books\add.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\authors\list.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\authors\edit.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\admin_interface\authors\add.php;f6;6;11;6;;S:\home\distribbooks.ru\www\application\views\users_interface\forms\pay-u.php;f17;6;22;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\basket\basket-full-lists.php;f12;5;17;5;;S:\home\distribbooks.ru\www\application\views\guests_interface\html\basket\basket-item.php;f21;3;26;3;;S:\home\distribbooks.ru\www\application\views\users_interface\pay.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\about.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\policies.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\header.php;f10;3;15;3;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\header404.php;f14;34;19;34;;S:\home\distribbooks.ru\www\application\views\guests_interface\basket.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php;f7;6;12;6;;S:\home\distribbooks.ru\www\application\views\guests_interface\includes\auth.php;f27;7;32;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="total_summa;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\users_interface\forms\pay-u.php;f7;4;19;4;;S:\home\distribbooks.ru\www\application\views\guests_interface\basket.php;f6;54;18;54;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="trailers;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\guests_interface\trailers.php;f19;30;28;30;;S:\home\distribbooks.ru\www\application\views\guests_interface\index.php;f18;58;27;58;;S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php;f18;87;27;87;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\update.php;f10;69;19;69;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="trailers;PHP:Var Name;S:\home\distribbooks.ru\www\application\views\guests_interface\trailers.php;f19;30;28;30;;S:\home\distribbooks.ru\www\application\views\guests_interface\index.php;f18;58;27;58;;S:\home\distribbooks.ru\www\application\views\admin_interface\forms\books\update.php;f10;69;19;69;;S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php;f18;87;27;87;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="UNI;PHP:Var Name;S:\home\distribbooks.ru\www\system\core\CodeIgniter.php;f1;157;5;157;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -11673,48 +11697,162 @@
 			</treenode>
 		</phptree>
 		<jstree>
-			<treenode node="addToBasketBlock;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;121;2;153;;;;vpos;;v;;r;;d33,121;;b0,0;;mthis;;p">
-				<treenode node="data;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;124;101;124;;;;vpos;;v;;r;;d38,124;;b0,0;;m">
-					<treenode node="_this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f48;124;53;124;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="addToBasketBlock;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;126;2;158;;;;vpos;;v;;r;;d33,126;;b0,0;;mthis;;p">
+				<treenode node="data;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;129;101;129;;;;vpos;;v;;r;;d38,129;;b0,0;;m">
+					<treenode node="_this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f48;129;53;129;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="beforeSend;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;125;27;125;;;;vpos;;v;;r;;d25,125;;b0,0;;m">
+				<treenode node="beforeSend;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;130;27;130;;;;vpos;;v;;r;;d25,130;;b0,0;;m">
 				</treenode>
-				<treenode node="error;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;151;48;151;;;;vpos;;v;;r;;d46,151;;b0,0;;mxhr;;ptextStatus;;perrorThrown;;p">
-					<treenode node="errorThrown;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f34;151;45;151;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="error;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;156;48;156;;;;vpos;;v;;r;;d46,156;;b0,0;;mxhr;;ptextStatus;;perrorThrown;;p">
+					<treenode node="errorThrown;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f34;156;45;156;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;151;33;151;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;156;33;156;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f19;151;22;151;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="success;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;126;4;150;;;;vpos;;v;;r;;d45,126;;b0,0;;mresponse;;ptextStatus;;pxhr;;p">
-					<treenode node="_this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f7;147;12;147;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="event;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f89;130;94;130;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="Localize;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f86;147;94;147;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f95;147;97;147;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="response;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f21;126;29;126;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;126;40;126;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f41;126;44;126;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f19;156;22;156;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="data;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;124;37;124;;;;vposdata;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="success;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;131;4;155;;;;vpos;;v;;r;;d45,131;;b0,0;;mresponse;;ptextStatus;;pxhr;;p">
+					<treenode node="_this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f7;152;12;152;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="event;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f89;135;94;135;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="Localize;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f86;152;94;152;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f95;152;97;152;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="response;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f21;131;29;131;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;131;40;131;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f41;131;44;131;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
-				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f16;124;24;124;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="data;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;129;37;129;;;;vposdata;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;123;10;123;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f16;129;24;129;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f28;121;32;121;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;128;10;128;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;124;7;124;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f28;126;32;126;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;123;6;123;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;129;7;129;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;128;6;128;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="mainOptions;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;7;125;7;;;;vpos;;v;;r;;d19,7;;b0,0;;m">
+				<treenode node="beforeSubmit;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;7;45;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f97;7;105;7;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f47;7;49;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="success;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f67;7;74;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="target;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f20;7;26;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f113;7;117;7;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="refreshBasket;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;159;2;177;;;;vpos;;v;;r;;d25,159;;b0,0;;m">
+				<treenode node="beforeSend;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;163;27;163;;;;vpos;;v;;r;;d25,163;;b0,0;;m">
+				</treenode>
+				<treenode node="error;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;175;48;175;;;;vpos;;v;;r;;d46,175;;b0,0;;mxhr;;ptextStatus;;perrorThrown;;p">
+					<treenode node="errorThrown;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f34;175;45;175;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;175;33;175;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f19;175;22;175;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="success;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;164;4;174;;;;vpos;;v;;r;;d45,164;;b0,0;;mresponse;;ptextStatus;;pxhr;;p">
+					<treenode node="event;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f88;172;93;172;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="response;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f21;164;29;164;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;164;40;164;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f41;164;44;164;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f66;162;74;162;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;162;10;162;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f53;162;57;162;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;162;6;162;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="removeToBasketBlock;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;178;2;206;;;;vpos;;v;;r;;d37,178;;b0,0;;mbookID;;p">
+				<treenode node="data;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;181;53;181;;;;vpos;;v;;r;;d38,181;;b0,0;;m">
+					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f46;181;52;181;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="beforeSend;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;182;4;185;;;;vpos;;v;;r;;d25,182;;b0,0;;m">
+					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f44;183;50;183;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="error;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;201;4;204;;;;vpos;;v;;r;;d46,201;;b0,0;;mxhr;;ptextStatus;;perrorThrown;;p">
+					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f44;202;50;202;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="errorThrown;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f34;201;45;201;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;201;33;201;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f19;201;22;201;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="success;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;186;4;200;;;;vpos;;v;;r;;d45,186;;b0,0;;mresponse;;ptextStatus;;pxhr;;p">
+					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f45;188;51;188;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;192;13;192;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="response;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f21;186;29;186;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;186;40;186;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f41;186;44;186;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;178;36;178;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="data;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;181;37;181;;;;vposdata;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f16;181;24;181;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;180;10;180;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;181;7;181;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;180;6;180;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="actionBasketTarget;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;207;2;230;;;;vpos;;v;;r;;d30,207;;b0,0;;m">
+				<treenode node="action_percent;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;211;20;211;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="action_price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;210;18;210;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="configuration;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f7;216;20;216;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;212;12;212;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;216;27;216;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="total_price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;209;17;209;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="currencyExchange;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;84;2;95;;;;vpos;;v;;r;;d33,84;;b0,0;;mprice;;p">
+				<treenode node="configuration;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;89;21;89;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;88;13;88;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f24;89;28;89;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;86;7;86;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f27;84;32;84;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="deleteResource;JS:Function Name;S:\home\distribbooks.ru\www\js\libs\base.js;f3;63;1;83;;;;vpos;;v;;r;;d35,63;;b0,0;;m_this;;p">
@@ -11761,94 +11899,6 @@
 				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\libs\base.js;f46;70;50;70;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\libs\base.js;f2;70;5;70;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</treenode>
-			<treenode node="mainOptions;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;7;125;7;;;;vpos;;v;;r;;d19,7;;b0,0;;m">
-				<treenode node="beforeSubmit;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;7;45;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f97;7;105;7;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f47;7;49;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="success;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f67;7;74;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="target;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f20;7;26;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f113;7;117;7;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</treenode>
-			<treenode node="refreshBasket;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;154;2;172;;;;vpos;;v;;r;;d25,154;;b0,0;;m">
-				<treenode node="beforeSend;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;158;27;158;;;;vpos;;v;;r;;d25,158;;b0,0;;m">
-				</treenode>
-				<treenode node="error;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;170;48;170;;;;vpos;;v;;r;;d46,170;;b0,0;;mxhr;;ptextStatus;;perrorThrown;;p">
-					<treenode node="errorThrown;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f34;170;45;170;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;170;33;170;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f19;170;22;170;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="success;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;159;4;169;;;;vpos;;v;;r;;d45,159;;b0,0;;mresponse;;ptextStatus;;pxhr;;p">
-					<treenode node="event;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f88;167;93;167;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="response;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f21;159;29;159;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;159;40;159;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f41;159;44;159;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f66;157;74;157;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;157;10;157;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f53;157;57;157;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;157;6;157;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</treenode>
-			<treenode node="removeToBasketBlock;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;173;2;201;;;;vpos;;v;;r;;d37,173;;b0,0;;mbookID;;p">
-				<treenode node="data;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;176;53;176;;;;vpos;;v;;r;;d38,176;;b0,0;;m">
-					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f46;176;52;176;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="beforeSend;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;177;4;180;;;;vpos;;v;;r;;d25,177;;b0,0;;m">
-					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f44;178;50;178;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="error;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;196;4;199;;;;vpos;;v;;r;;d46,196;;b0,0;;mxhr;;ptextStatus;;perrorThrown;;p">
-					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f44;197;50;197;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="errorThrown;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f34;196;45;196;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;196;33;196;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f19;196;22;196;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="success;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;181;4;195;;;;vpos;;v;;r;;d45,181;;b0,0;;mresponse;;ptextStatus;;pxhr;;p">
-					<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f45;183;51;183;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;187;13;187;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="response;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f21;181;29;181;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="textStatus;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;181;40;181;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="xhr;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f41;181;44;181;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;173;36;173;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="data;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f33;176;37;176;;;;vposdata;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="dataType;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f16;176;24;176;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;175;10;175;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="type;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;176;7;176;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="url;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;175;6;175;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node=".fn.barrating.defaults;JS:Function Name;S:\home\distribbooks.ru\www\js\vendor\jquery.barrating.js;f12;297;5;309;;;;vpos;;v;;r;;d37,297;;b0,0;;m">
@@ -11960,20 +12010,6 @@
 			<treenode node="acceptedImgTypes;JS:Function Name;S:\home\distribbooks.ru\www\js\libs\dropzone.js;f4;17;79;17;;;;vpos;;v;;r;;d23,17;;b0,0;;m">
 			</treenode>
 			<treenode node="acceptedTypes;JS:Function Name;S:\home\distribbooks.ru\www\js\libs\single-upload-image.js;f4;11;76;11;;;;vpos;;v;;r;;d20,11;;b0,0;;m">
-			</treenode>
-			<treenode node="actionBasketTarget;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;202;2;225;;;;vpos;;v;;r;;d30,202;;b0,0;;m">
-				<treenode node="action_percent;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;206;20;206;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="action_price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;205;18;205;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="configuration;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f7;211;20;211;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;207;12;207;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;211;27;211;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="total_price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;204;17;204;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
 			</treenode>
 			<treenode node="addBack;JS:Function Name;S:\home\distribbooks.ru\www\js\datepicker\jquery.ui.datepicker.js;f3008;5;3095;5;;;;vpos;;v;;r;;d3027,5;;b0,0;;me;;p">
 				<treenode node="e;JS:JS Var Name;S:\home\distribbooks.ru\www\js\datepicker\jquery.ui.datepicker.js;f3025;5;3026;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
@@ -12871,18 +12907,6 @@
 				<treenode node="r;JS:JS Var Name;S:\home\distribbooks.ru\www\js\vendor\jquery-1.10.2.min.js;f9063;4;9064;4;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="t;JS:JS Var Name;S:\home\distribbooks.ru\www\js\vendor\jquery-1.10.2.min.js;f9081;4;9082;4;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</treenode>
-			<treenode node="currencyExchange;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;79;2;90;;;;vpos;;v;;r;;d33,79;;b0,0;;mprice;;p">
-				<treenode node="configuration;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;84;21;84;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;83;13;83;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f24;84;28;84;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;81;7;81;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f27;79;32;79;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="datepicker;JS:Function Name;S:\home\distribbooks.ru\www\js\datepicker\jquery.ui.datepicker.js;f2785;6;3509;6;;;;vpos;;v;;r;;d2807,6;;b0,0;;me;;p">
@@ -14631,22 +14655,22 @@
 				<treenode node="END;JS:JS Var Name;S:\home\distribbooks.ru\www\js\vendor\jquery.tokeninput.js;f4;95;7;95;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="priceOnAction;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;226;2;245;;;;vpos;;v;;r;;d30,226;;b0,0;;mprice;;p">
-				<treenode node="action_percent;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;229;20;229;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="priceOnAction;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;231;2;250;;;;vpos;;v;;r;;d30,231;;b0,0;;mprice;;p">
+				<treenode node="action_percent;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;234;20;234;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="action_price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;228;18;228;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="action_price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;233;18;233;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="configuration;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f7;233;20;233;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="configuration;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f7;238;20;238;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;232;12;232;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;237;12;237;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="currency;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;230;14;230;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="currency;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;235;14;235;;;;vposString;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;233;27;233;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f23;238;27;238;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;240;7;240;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;245;7;245;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f24;226;29;226;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="price;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f24;231;29;231;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="q;JS:Function Name;S:\home\distribbooks.ru\www\static\js\vendor\jquery-1.9.0.min.js;f6959;0;7508;0;;S:\home\distribbooks.ru\www\js\vendor\jquery-1.9.0.min.js;f6959;0;7508;0;;;;vpos;;v;;r;;d6974,0;;b0,0;;me;;pt;;p">
@@ -14839,24 +14863,24 @@
 				<treenode node="rtlTextDirection;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\redactor-config.js;f1;158;2;161;;;;vpos;;v;;r;;d29,158;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="removeBookInBasket;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;97;2;120;;;;vpos;;v;;r;;d35,97;;b0,0;;mthis;;p">
-				<treenode node="_this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f17;99;22;99;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="removeBookInBasket;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;102;2;125;;;;vpos;;v;;r;;d35,102;;b0,0;;mthis;;p">
+				<treenode node="_this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f17;104;22;104;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="basket_books;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;101;15;101;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="basket_books;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f3;106;15;106;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;99;12;99;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="bookID;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f6;104;12;104;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;100;12;100;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="cookies;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f5;105;12;105;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="cookieValue;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f9;106;20;106;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="cookieValue;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f9;111;20;111;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f18;101;22;101;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="JSON;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f18;106;22;106;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f25;104;27;104;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f25;109;27;109;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="newBasketBooks;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;104;22;104;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="newBasketBooks;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f8;109;22;109;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;97;34;97;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="this;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f30;102;34;102;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="resetForm;JS:Function Name;S:\home\distribbooks.ru\www\js\vendor\jquery.form.js;f5;1127;1;1135;;;;vpos;;v;;r;;d28,1127;;b0,0;;m">
@@ -15047,6 +15071,10 @@
 				<treenode node="y;JS:JS Var Name;S:\home\distribbooks.ru\www\js\vendor\jquery-1.10.2.min.js;f13940;3;13941;3;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="Y;JS:JS Var Name;S:\home\distribbooks.ru\www\static\js\vendor\jquery-1.9.0.min.js;f23558;1;23559;1;;S:\home\distribbooks.ru\www\js\vendor\jquery-1.9.0.min.js;f23558;1;23559;1;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</treenode>
+			<treenode node="showRequestDivForm;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;96;2;101;;;;vpos;;v;;r;;d37,96;;b0,0;;melement;;p">
+				<treenode node="element;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;96;36;96;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="size;JS:Function Name;S:\home\distribbooks.ru\www\js\vendor\jquery-1.10.2.min.js;f28647;5;28682;5;;;;vpos;;v;;r;;d28662,5;;b0,0;;m">
@@ -17861,10 +17889,6 @@
 				<treenode node="tooltipPlace;JS:JS Var Name;S:\home\distribbooks.ru\www\js\libs\base.js;f6;175;18;175;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="showRequestDivForm;JS:Function Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f0;91;2;96;;;;vpos;;v;;r;;d37,91;;b0,0;;melement;;p">
-				<treenode node="element;JS:JS Var Name;S:\home\distribbooks.ru\www\js\cabinet\guest.js;f29;91;36;91;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</treenode>
 			<treenode node="showToolTip;JS:Function Name;S:\home\distribbooks.ru\www\js\libs\base.js;f5;188;1;203;;;;vpos;;v;;r;;d40,188;;b0,0;;mToolTipText;;p">
 				<treenode node="config;JS:Function Name;S:\home\distribbooks.ru\www\js\libs\base.js;f5;192;89;192;;;;vpos;;v;;r;;d14,192;;b0,0;;m">
 					<treenode node="mt;JS:JS Var Name;S:\home\distribbooks.ru\www\js\libs\base.js;f25;192;27;192;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
@@ -19555,8 +19579,18 @@
 			<todo name="@todo - this needs to be made more general purpose" pos="6;1130"/>
 		</todofile>
 	</todoblock>
+	<dbgurls>
+	</dbgurls>
 	<filescache>
 		<file name="S:\home\distribbooks.ru\www\temporary\payu-request.txt" crc="0"/>
+		<file name="S:\home\distribbooks.ru\www\temporary\ipn-response20131204120800-2411244.txt" crc="1835368152"/>
+		<file name="S:\home\distribbooks.ru\www\temporary\ipn-response20131203171654-2398250.txt" crc="-1907290140"/>
+		<file name="S:\home\distribbooks.ru\www\temporary\ipn-response20131203170314-2397895.txt" crc="1107487622"/>
+		<file name="S:\home\distribbooks.ru\www\temporary\ipn-response20131203165342-2397745.txt" crc="-1712654576"/>
+		<file name="S:\home\distribbooks.ru\www\temporary\ipn-20131204120800-5.txt" crc="-581080298"/>
+		<file name="S:\home\distribbooks.ru\www\temporary\ipn-20131203171654-2.txt" crc="-1214827495"/>
+		<file name="S:\home\distribbooks.ru\www\temporary\ipn-20131203170314-2.txt" crc="-1967282212"/>
+		<file name="S:\home\distribbooks.ru\www\temporary\ipn-20131203165342-2.txt" crc="-1027013964"/>
 		<file name="S:\home\distribbooks.ru\www\system\libraries\javascript\Jquery.php" crc="1251186840"/>
 		<file name="S:\home\distribbooks.ru\www\system\libraries\Cache\drivers\Cache_memcached.php" crc="1655735133"/>
 		<file name="S:\home\distribbooks.ru\www\system\libraries\Cache\drivers\Cache_file.php" crc="-1986649260"/>
@@ -19719,11 +19753,11 @@
 		<file name="S:\home\distribbooks.ru\www\js\libs\base.js" crc="292917035"/>
 		<file name="S:\home\distribbooks.ru\www\js\datepicker\jquery.ui.datepicker.js" crc="1383642652"/>
 		<file name="S:\home\distribbooks.ru\www\js\datepicker\jquery.ui.datepicker-ru.js" crc="-1837043559"/>
-		<file name="S:\home\distribbooks.ru\www\js\cabinet\user.js" crc="987365723"/>
+		<file name="S:\home\distribbooks.ru\www\js\cabinet\user.js" crc="438305518"/>
 		<file name="S:\home\distribbooks.ru\www\js\cabinet\token-config.js" crc="-449731132"/>
 		<file name="S:\home\distribbooks.ru\www\js\cabinet\selects.js" crc="1362830316"/>
 		<file name="S:\home\distribbooks.ru\www\js\cabinet\redactor-config.js" crc="156509328"/>
-		<file name="S:\home\distribbooks.ru\www\js\cabinet\guest.js" crc="-1070482065"/>
+		<file name="S:\home\distribbooks.ru\www\js\cabinet\guest.js" crc="-2067241766"/>
 		<file name="S:\home\distribbooks.ru\www\js\cabinet\general.js" crc="654353631"/>
 		<file name="S:\home\distribbooks.ru\www\js\cabinet\datepicker-config.js" crc="1646701626"/>
 		<file name="S:\home\distribbooks.ru\www\js\cabinet\barrating-config.js" crc="-277170997"/>
@@ -19742,7 +19776,7 @@
 		<file name="S:\home\distribbooks.ru\www\css\admin-panel\bootstrap-responsive.css" crc="-221374218"/>
 		<file name="S:\home\distribbooks.ru\www\css\tooltip.css" crc="-173714874"/>
 		<file name="S:\home\distribbooks.ru\www\css\normalize.css" crc="-1600544904"/>
-		<file name="S:\home\distribbooks.ru\www\css\main.css" crc="2009315209"/>
+		<file name="S:\home\distribbooks.ru\www\css\main.css" crc="-1464691478"/>
 		<file name="S:\home\distribbooks.ru\www\catalog\366294343868.txt" crc="-1890172786"/>
 		<file name="S:\home\distribbooks.ru\www\application\views\users_interface\forms\pay-u.php" crc="-1273392912"/>
 		<file name="S:\home\distribbooks.ru\www\application\views\users_interface\pay.php" crc="-1101835137"/>
@@ -19787,7 +19821,7 @@
 		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\includes\footer.php" crc="1213399007"/>
 		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\includes\big-nav.php" crc="-1986657352"/>
 		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\includes\basket.php" crc="291685269"/>
-		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\includes\auth.php" crc="1673619553"/>
+		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\includes\auth.php" crc="1675345881"/>
 		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\html\basket\basket-item.php" crc="1593481800"/>
 		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\html\basket\basket-item-sale-full.php" crc="-77960110"/>
 		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\html\basket\basket-item-sale-empty.php" crc="1111927300"/>
@@ -19824,7 +19858,7 @@
 		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\formats.php" crc="-1530872600"/>
 		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\editing.php" crc="-494696103"/>
 		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\distribution.php" crc="-1715554068"/>
-		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php" crc="-1702820693"/>
+		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\catalog.php" crc="-1833300130"/>
 		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\basket.php" crc="-762811926"/>
 		<file name="S:\home\distribbooks.ru\www\application\views\guests_interface\about.php" crc="1846599838"/>
 		<file name="S:\home\distribbooks.ru\www\application\views\general_interface\includes\scripts.php" crc="-17788367"/>
@@ -19900,7 +19934,7 @@
 		<file name="S:\home\distribbooks.ru\www\application\libraries\Phpmailer.php" crc="-1768418980"/>
 		<file name="S:\home\distribbooks.ru\www\application\libraries\Images.php" crc="2077691153"/>
 		<file name="S:\home\distribbooks.ru\www\application\libraries\class.smtp.php" crc="-17864942"/>
-		<file name="S:\home\distribbooks.ru\www\application\language\russian\localization\interface_lang.php" crc="-676285308"/>
+		<file name="S:\home\distribbooks.ru\www\application\language\russian\localization\interface_lang.php" crc="-1852866864"/>
 		<file name="S:\home\distribbooks.ru\www\application\language\russian\localization\global_lang.php" crc="1751285201"/>
 		<file name="S:\home\distribbooks.ru\www\application\language\russian\upload_lang.php" crc="1356730451"/>
 		<file name="S:\home\distribbooks.ru\www\application\language\russian\unit_test_lang.php" crc="1102025619"/>
@@ -19913,7 +19947,7 @@
 		<file name="S:\home\distribbooks.ru\www\application\language\russian\db_lang.php" crc="317716839"/>
 		<file name="S:\home\distribbooks.ru\www\application\language\russian\date_lang.php" crc="1286252337"/>
 		<file name="S:\home\distribbooks.ru\www\application\language\russian\calendar_lang.php" crc="-150386462"/>
-		<file name="S:\home\distribbooks.ru\www\application\language\english\localization\interface_lang.php" crc="1288835319"/>
+		<file name="S:\home\distribbooks.ru\www\application\language\english\localization\interface_lang.php" crc="-2105328360"/>
 		<file name="S:\home\distribbooks.ru\www\application\language\english\localization\global_lang.php" crc="1676311321"/>
 		<file name="S:\home\distribbooks.ru\www\application\language\english\upload_lang.php" crc="1432032011"/>
 		<file name="S:\home\distribbooks.ru\www\application\language\english\unit_test_lang.php" crc="1635284008"/>
@@ -19940,7 +19974,7 @@
 		<file name="S:\home\distribbooks.ru\www\application\core\MY_Router.php" crc="689312774"/>
 		<file name="S:\home\distribbooks.ru\www\application\core\MY_Model.php" crc="-1243573845"/>
 		<file name="S:\home\distribbooks.ru\www\application\core\MY_Controller.php" crc="-918375763"/>
-		<file name="S:\home\distribbooks.ru\www\application\controllers\users_interface.php" crc="-1600393752"/>
+		<file name="S:\home\distribbooks.ru\www\application\controllers\users_interface.php" crc="-481594708"/>
 		<file name="S:\home\distribbooks.ru\www\application\controllers\user_ajax_interface.php" crc="-1736431664"/>
 		<file name="S:\home\distribbooks.ru\www\application\controllers\guests_interface.php" crc="903041181"/>
 		<file name="S:\home\distribbooks.ru\www\application\controllers\guest_ajax_interface.php" crc="-413732843"/>

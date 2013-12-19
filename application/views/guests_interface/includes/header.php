@@ -67,8 +67,8 @@
 					<img class="qr pos2" src="<?=baseURL('img/qr.png');?>">
 					<div style="position: absolute; bottom: -1px; right: 0;">
 						<a href="skype:DistibBooks?call" class="top-contact"><img src="<?=baseURL('img/skype.png');?>">DistibBooks</a>
-					<?php if($this->project_config['action_percent'] > 0):?>
 						<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -25%!</a>
+					<?php if($this->project_config['action_percent'] > 0):?>
 						<!--<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>-->
 					<?php endif;?>
 					</div>
@@ -125,11 +125,10 @@
 				<a class="min-logo" href="<?=site_url();?>"></a>
 				<div class="min-right">
 					<div class="min-div-left">
+					<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -25%!</a>
 					<?php if($this->project_config['action_percent'] > 0):?>
-						<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a><br>
+						<!--<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>-->
 					<?php endif;?>
-						<a href="#" class="blue button menu-open no-clickable"><?=lang('top_menu_main');?></a>
-					</div>
 					<div class="min-div-right">
 						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a>
 						<?php if($this->loginstatus === FALSE):?>

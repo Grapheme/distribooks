@@ -11,6 +11,7 @@ $route['redactor/get-uploaded-images'] = "global_interface/redactorUploadedImage
 $route['book-format/:num'] = "global_interface/showDocumentIco";
 $route['load-image/avatar/:num'] = "global_interface/loadimage";
 /********** sing in by social network *************/
+$route['forgot'] = "global_interface/forgot";
 $route['sign-in/manual'] = "global_interface/loginIn";
 $route['sign-up/manual'] = "global_interface/signUpManual";
 $route['sign-in/vk'] = "global_interface/signInVK";

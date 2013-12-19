@@ -1599,6 +1599,34 @@ ul, li {
 	margin-left: 13px;
 }
 
+.auth-left a {
+	color: #fff;
+	text-align: left;
+	font-size: 11px;
+	width: 280px;
+	margin-left: 29px;
+}
+.auth-left a {
+	color: #fff;
+	text-align: left;
+	font-size: 11px;
+	width: 280px;
+	margin-left: 29px;
+}
+
+.forgot-left {
+	margin: 0 auto;
+	width: 288px;
+}
+
+.forgot-left p {
+    color: #FFFFFF;
+    font-size: 11px;
+    margin-left: 13px;
+    text-align: left;
+    width: 280px;
+}
+
 .window-auth input[type=text],input[type=password] {
 	height: 15px;
 	width: 145px;
@@ -1765,7 +1793,7 @@ input[type="radio"]:checked + label
 	border: 1px solid red;
 }
 
-.recall-button,.auth-button {
+.recall-button,.auth-button,.forgot-button {
 	width: 135px;
 	height: 35px;
 	line-height: 35px;
@@ -1783,7 +1811,13 @@ input[type="radio"]:checked + label
 
 .auth-button {
 	width: 148px;
-	margin: 30px 0 20px 0;
+	margin: 30px 0 0;
+}
+
+.forgot-button{
+	
+	margin: 15px 65px 21px;
+	width: 148px;
 }
 
 .recall-button:active {

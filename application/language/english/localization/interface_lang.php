@@ -93,6 +93,9 @@ $lang['signin_nickname'] = "Nickname";
 $lang['signin_password'] = "Password";
 $lang['signin_number'] = "Telephone number";
 $lang['signin_button'] = "Authorize";
+
+$lang['forgot_text'] = "You must specify the email";
+$lang['forgot_button'] = "Restore password";
 $lang['signup_button'] = "Singup";
 $lang['signin_auth_soc'] = "You can also register through any available to you social network, specifying the e-mail address";
 
@@ -181,6 +184,7 @@ $lang['contacts'] = "Self-employed entrepreneur Sidelnikov Roman Leonidovich<br>
 					Russia, 344029, Rostov-na-Donu, Metallurgicheskaya st., 111<br>
 					phone: +7 (863) 290-86-89 ";
 					
+$lang['lost_password'] = "Forgot your password?";
 $lang['policies_text'] = "Clicking on the button to register you agree with";
 $lang['policies_link'] = "Terms of Use.";
 $lang['policies_breadcrumbs'] = "Terms of Use";
