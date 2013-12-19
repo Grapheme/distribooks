@@ -2135,6 +2135,14 @@ input[type="radio"]:checked + label
 	background: url('../img/tw.png');
 }
 
+.social-link#odn {
+	background: url('../img/odnokl.png');
+}
+
+.social-link#gooo {
+	background: url('../img/google.png');
+}
+
 .sn-tooltip .social-link#vk {
 	background: url('../img/tooltip-vk.png') no-repeat;
 	width: 18px;
