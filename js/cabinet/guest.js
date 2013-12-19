@@ -37,6 +37,8 @@ $(function(){
 			cookies.deleteCookie('buy_book','/');
 		}
 		$(".dark-screen").fadeIn("fast");
+		$(".forgot-left").addClass('hidden');
+		$(".form-sign").show();
 		$(".window-auth").fadeIn("fast");
 	});
 	$(".buy-link").click(function(){
