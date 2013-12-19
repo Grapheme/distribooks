@@ -15,5 +15,9 @@
 </div>
 <div class="sale-popup">
 	<a href="#" class="donate-close"></a>
+<?php if($this->uri->language_string == RUSLAN):?>
 	<img src="<?=baseURL('img/sale.png');?>">
+<?php else:?>
+	<img src="<?=baseURL('img/sale_en.png');?>">
+<?php endif;?>
 </div>
