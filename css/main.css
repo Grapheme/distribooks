@@ -227,6 +227,15 @@ textarea {
     width: 36px;
     outline: none;
 }
+.donation-recvisits,
+.donation-recs-item {
+	list-style-type: square; 
+    list-style-position: outside;     
+}
+.donation-recvisits {
+	padding: 0 0 0 15px;
+}
+
 .donation-recs-item > a:hover {
 	text-decoration: none;
 }
@@ -2171,23 +2180,28 @@ input[type="radio"]:checked + label
 }
 
 .social-link#vk {
-	background: url('../img/vk.png');
+	background: url('../img/vk.png') no-repeat;
+	background-size: 100% 100%;
 }
 
 .social-link#fb {
-	background: url('../img/fb.png');
+	background: url('../img/fb.png') no-repeat;
+	background-size: 100% 100%;
 }
 
 .social-link#tw {
-	background: url('../img/tw.png');
+	background: url('../img/tw.png') no-repeat;
+	background-size: 100% 100%;
 }
 
 .social-link#odn {
-	background: url('../img/odnokl.png');
+	background: url('../img/odnokl.png') no-repeat;
+	background-size: 100% 100%;
 }
 
 .social-link#gooo {
-	background: url('../img/google.png');
+	background: url('../img/google.png') no-repeat;
+	background-size: 100% 100%;
 }
 
 .sn-tooltip .social-link#vk {
