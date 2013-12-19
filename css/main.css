@@ -85,7 +85,9 @@ textarea {
 .rating-f .br-widget {
     height: 24px;
 }
-
+.br-widget.br-readonly > a {
+	cursor: default;
+}
 .rating-f .br-widget a {
     background: url('../img/star.png');
     width: 21px;
@@ -1043,7 +1045,8 @@ ul, li {
 	top: 5px;
 }
 
-.title-1 {
+.title-1,
+.strongify-span {
 	color: #0080b6;
 	font-weight: 700;
 	font-size: 17px;
@@ -2100,7 +2103,7 @@ input[type="radio"]:checked + label
 
 .top-shop-title {
 	color: #007195;
-	font-size: 14px;
+	font-size: 20px;
 	margin-bottom: 20px;
 }
 
@@ -2164,6 +2167,14 @@ input[type="radio"]:checked + label
 
 .social-link#tw {
 	background: url('../img/tw.png');
+}
+
+.social-link#odn {
+	background: url('../img/odnokl.png');
+}
+
+.social-link#gooo {
+	background: url('../img/google.png');
 }
 
 .sn-tooltip .social-link#vk {

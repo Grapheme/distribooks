@@ -21,7 +21,7 @@ $lang['top_menu_find_author'] = "Author";
 $lang['top_menu_find_audio'] = "Audio";
 $lang['top_menu_find_text'] = "Text";
 $lang['top_menu_find_format'] = "Format";
-$lang['top_menu_find_shopping_card'] = "Shopping card";
+$lang['top_menu_find_shopping_card'] = "Shopping cart";
 $lang['top_menu_sign_in'] = "Sing in";
 $lang['top_menu_admin_panel'] = "Admin panel";
 $lang['top_menu_user_cabinet'] = "My cabinet";
@@ -177,7 +177,7 @@ Thank you for that!
 Sincerely,
 The team of creative workshop <b>DistribBooks</b>
 <br><br>
-Buying our e-books, you save from destruction forests!";
+<span class='strongify-span'>Buying our e-books, you save from destruction forests!</span>";
 $lang['about-title'] = "Dear friends!";
 
 $lang['contacts'] = "Self-employed entrepreneur Sidelnikov Roman Leonidovich<br>
