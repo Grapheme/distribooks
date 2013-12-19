@@ -99,7 +99,9 @@
 	<?php $this->load->view('guests_interface/includes/scripts');?>
 	<script src="<?=baseURL('js/vendor/jquery.elevatezoom.min.js');?>"></script>
 	<script>
-		$('#zoomImage').elevateZoom();
+		$('#zoomImage').elevateZoom({
+			responsive: true
+		});
 	</script>
 	<script type="text/javascript" src="<?=baseURL('js/vendor/jquery.barrating.js');?>"></script>
 	<script type="text/javascript" src="<?=baseURL('js/cabinet/barrating-config.js')?>"></script>
