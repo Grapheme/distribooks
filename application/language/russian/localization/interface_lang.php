@@ -67,6 +67,7 @@ $lang['formats_text'] = "Подробнее о доступных формата
 $lang['form_donation_thank_you'] = "Спасибо<br>за помощь";
 $lang['form_donation_summs'] = "Другая сумма";
 $lang['form_donate_another_text'] = "Вы можете воспользоваться счетом в любом банке";
+$lang['form_donation_text'] = "Для поддержки проекта вы можете воспользоваться счетом в любом банке.<br>Наши реквизиты:";
 
 $lang['form_recall_text'] = "Мы ответим вам как можно быстрее";
 $lang['form_recall_after_text'] = "Ваш запрос успешно обработан";

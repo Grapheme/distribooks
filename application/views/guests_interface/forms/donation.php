@@ -5,33 +5,12 @@
 	</div>
 	
 	<div class="donation-info">
-		<p>
-					Р/с &nbsp;
-			40817810004410010709 (RUR)
-			
-			<br>
-			
-			
-			в банке ОАО «Альфа-Банк» г. Москва
-			<br>
-			
-			БИК:
-			
-			044525593<br>
-			
-			Кор. Счет: 
-			
-			
-			30101810200000000593<br>
-			
-			ИНН Банка:
-			
-			  7728168971<br>
-			
-			КПП Банка:
-			
-			  775001001<br>
-  		</p>
+		<p><?=lang('form_donation_text')?></p>
+		<ul class="donation-recvisits">
+			<li class="donation-recs-item"><a href="<?=base_url('download/recvisits/recv_rub.pdf');?>" target="_blank">RUR</a></li>
+			<li class="donation-recs-item"><a href="<?=base_url('download/recvisits/recv_eur.pdf');?>" target="_blank">EUR</a></li>
+			<li class="donation-recs-item"><a href="<?=base_url('download/recvisits/recv_usd.pdf');?>" target="_blank">USD</a></li>
+		</ul>
 		<p class="donate-another-text"><?=lang('form_donate_another_text')?></p>
 		<!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_donations">

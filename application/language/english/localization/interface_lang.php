@@ -66,6 +66,7 @@ $lang['formats_text'] = "Read more about the available formats";
 $lang['form_donation_thank_you'] = "Thanks<br/>for the help";
 $lang['form_donation_summs'] = "Other amount";
 $lang['form_donate_another_text'] = "You can use the account at any bank";
+$lang['form_donation_text'] = "For making donation you can use the account at any bank.<br>Our recvisits:";
 
 $lang['form_recall_text'] = "We'll answer you as soon as possible";
 $lang['form_recall_after_text'] = "Your message sent";

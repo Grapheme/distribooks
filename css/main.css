@@ -216,7 +216,20 @@ textarea {
 	left: 55px;
 	overflow: hidden;
 }
-
+.donation-info > p {
+    width: 75%;
+}
+.donation-recs-item > a {
+	color: #0080B6;
+    display: block;
+    font-size: 12px;
+    height: 26px;
+    width: 36px;
+    outline: none;
+}
+.donation-recs-item > a:hover {
+	text-decoration: none;
+}
 .sale-popup-open {
 	cursor: pointer;
 }
@@ -1386,7 +1399,7 @@ ul, li {
 }
 
 .window-donation {
-	height: 420px;
+	height: 358px;
 	margin-top: -210px;
 }
 
