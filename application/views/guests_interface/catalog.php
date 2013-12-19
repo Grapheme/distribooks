@@ -106,6 +106,9 @@
 			<div class="grid_1">&nbsp;</div>
 			<div class="grid_4 shop-new-div catalog-main-div">
 				<?php for($i=0;$i<count($bestsellers);$i++):?>
+				<?php if($i%3 == 0):?>
+					<div class="clear"></div>
+				<?php endif;?>
 				<div class="top-shop">
 					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$bestsellers[$i]));?>
 					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$bestsellers[$i]['id'],'mySignedBook'=>$bestsellers[$i]['signed_book'],'in_basket'=>$bestsellers[$i]['book_in_basket']));?>

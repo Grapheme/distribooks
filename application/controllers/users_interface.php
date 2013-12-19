@@ -85,18 +85,19 @@ class Users_interface extends MY_Controller{
 					if(isset($files[0]) && !empty($files[0])):
 						for($i=0;$i<count($files);$i++):
 							if($files[$i]['format_id'] == $this->input->get('format')):
-								if(file_exists($files[$i]['full_path'])):
+								$full_path = getcwd().'/catalog/'.$files[$i]['file_name'];
+								if(file_exists($full_path)):
 									header('Pragma: public');
 									header('Expires: 0');
 									header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-									header('Last-Modified: '.gmdate('D, d M Y H:i:s', filemtime($files[$i]['full_path'])).' GMT');
+									header('Last-Modified: '.gmdate('D, d M Y H:i:s', filemtime($full_path)).' GMT');
 									header('Cache-Control: private',false);
 									header('Content-Type: '.$files[$i]['file_type']);
-									header('Content-Disposition: attachment; filename="'.basename($files[$i]['full_path']).'"');
+									header('Content-Disposition: attachment; filename="'.basename($full_path).'"');
 									header('Content-Transfer-Encoding: binary');
-									header('Content-Length: '.filesize($files[$i]['full_path']));
+									header('Content-Length: '.filesize($full_path));
 									header('Connection: close');
-									readfile($files[$i]['full_path']);
+									readfile($full_path);
 								else:
 									show_404();
 								endif;

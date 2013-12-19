@@ -18,7 +18,7 @@ class Global_interface extends MY_Controller{
 		if($this->postDataValidation('payu_request')):
 			$this->load->model('financial_reports');
 			if($report = $this->financial_reports->getWhere($this->input->post('REFNOEXT'),array('transaction_status'=>0,'operation'=>1))):
-				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE' || $this->input->post('ORDERSTATUS') == 'TEST'):
+				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE'):
 //				 || $this->input->post('ORDERSTATUS') == 'TEST'
 					if($account = $this->accounts->getWhere($report['account'],array('group'=>USER_GROUP_VALUE,'active'=>1))):
 						write_file(TEMPORARY.'ipn-'.date("YmdHis").'-'.$report['account'].'.txt',json_encode($this->input->post()));
@@ -35,10 +35,6 @@ class Global_interface extends MY_Controller{
 					endif;
 				endif;
 			endif;
-		else:
-//			$message = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
-//			write_file(TEMPORARY.'message.txt',json_encode($message));
-			show_404();
 		endif;
 	}
 	
