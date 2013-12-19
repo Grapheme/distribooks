@@ -31,7 +31,7 @@
 						<div class="shop-img">
 							<?php $this->load->view('guests_interface/html/book-properties',array('book'=>$book,'big_icons'=>TRUE));?>
 							<a href="#" class="shopi big"><img src="<?=baseURL($age_limit['image']);?>"></a>
-							<div class="shop-img-cont one"><img src="<?=baseURL($book['image']);?>"></div>
+							<div class="shop-img-cont one"><img id="zoomImage" src="<?=baseURL($book['image']);?>" data-zoom-image="<?=baseURL('download/books/big/fanatka.jpg');?>"></div>
 						</div>
 						<div class="shop-about big">
 							<p class="title no-clickable"><?=$book[$this->uri->language_string.'_title'];?></p>
@@ -97,7 +97,12 @@
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>
-	
+	<script src="<?=baseURL('js/vendor/jquery.elevatezoom.min.js');?>"></script>
+	<script>
+		$('#zoomImage').elevateZoom({
+			responsive: true
+		});
+	</script>
 	<script type="text/javascript" src="<?=baseURL('js/vendor/jquery.barrating.js');?>"></script>
 	<script type="text/javascript" src="<?=baseURL('js/cabinet/barrating-config.js')?>"></script>
 </body>

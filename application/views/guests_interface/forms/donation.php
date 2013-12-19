@@ -11,7 +11,6 @@
 			<li class="donation-recs-item"><a href="<?=BaseURL('download/recvisits/recv_eur.pdf');?>" target="_blank">EUR</a></li>
 			<li class="donation-recs-item"><a href="<?=BaseURL('download/recvisits/recv_usd.pdf');?>" target="_blank">USD</a></li>
 		</ul>
-		<p class="donate-another-text"><?=lang('form_donate_another_text')?></p>
 		<!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_donations">
 <input type="hidden" name="business" value="admin@distribbooks.com">
