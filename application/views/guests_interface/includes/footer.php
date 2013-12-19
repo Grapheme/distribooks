@@ -6,6 +6,8 @@
 				<a href="http://vk.com/distribbooks" class="social-link" target="_blank" id="vk"></a>
 				<a href="https://www.facebook.com/pages/Distribbooks/414587435333963?skip_nax_wizard=true" class="social-link" target="_blank" id="fb"></a>
 				<a href="https://twitter.com/DistribBooks" target="_blank" class="social-link" id="tw"></a>
+				<a href="http://www.odnoklassniki.ru/group/56862678843444" target="_blank" class="social-link" id="odn"></a>
+				<a href="https://plus.google.com/u/0/communities/108042272121599202035" target="_blank" class="social-link" id="gooo"></a>
 			</div>
 			<div style="display: inline-block; float: left;"><img src="<?=baseURL('img/paypal.jpg');?>" style="width: 70px;"></div>
 			<div class="footer-payu"><img src="<?=baseURL('img/payu.gif');?>" style="width: 70px; margin-top: 10px;"></div>

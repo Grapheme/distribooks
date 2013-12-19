@@ -2165,9 +2165,9 @@ input[type="radio"]:checked + label
 }
 
 .social-footer {
-	width: 100px;
-	margin-left: 45px;
-	height: 52px;
+    height: 52px;
+    margin-left: 20px;
+    width: 119px;
 }
 
 .footer-payu {
