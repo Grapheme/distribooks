@@ -81,6 +81,20 @@ class Global_interface extends MY_Controller{
 		}
 	}
 	/*************************************************************************************************************/
+	public function autoBuyBook(){
+		
+		if(!$this->input->is_ajax_request() && $this->loginstatus === FALSE):
+			show_error('В доступе отказано');
+		endif;
+		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
+		if($userID = $this->registerUserManual()):
+			$this->signInAccount($userID);
+			$json_request['redirect'] = site_url($this->uri->language_string.'/pay');
+			$json_request['status'] = TRUE;
+		endif;
+		echo json_encode($json_request);
+	}
+	/*************************************************************************************************************/
 	public function signIN(){
 		
 		$this->load->view("general_interface/signin");
@@ -272,22 +286,12 @@ class Global_interface extends MY_Controller{
 		redirect();
 	}
 	
-	private function signInAccount($userID){
-		
-		if($user = $this->accounts->getWhere($userID,array('active'=>1))):
-			if($this->setLoginSession($user['id'])):
-				if($this->validBasket()):
-					$this->setDBBasket();
-				else:
-					$this->getDBBasket();
-				endif;
-			endif;
-			return TRUE;
-		endif;
-		return FALSE;
-	}
 	/*************************************************************************************************************/
-	private function registerUserManual($post){
+	private function registerUserManual($post = NULL){
+		
+		if(is_null($post)):
+			$post['email'] = '';
+		endif;
 		
 		$insert = array('group'=>2,'email'=>$post['email'],'active'=>1);
 		if($accountID = $this->accounts->insertRecord($insert)):
@@ -295,8 +299,10 @@ class Global_interface extends MY_Controller{
 			$password = random_string('alnum',12);
 			$this->accounts->updateField($accountID,'login','id'.$accountID);
 			$this->accounts->updateField($accountID,'password',md5($password));
-			$mailtext = $this->load->view('mails/signup',array('login'=>'id'.$accountID,'password'=>$password),TRUE);
-			$this->sendMail($post['email'],FROM_BASE_EMAIL,'Distribboks','Регистрация на distribbooks.ru',$mailtext);
+			if(!empty($post['email'])):
+				$mailtext = $this->load->view('mails/signup',array('login'=>'id'.$accountID,'password'=>$password),TRUE);
+				$this->sendMail($post['email'],FROM_BASE_EMAIL,'Distribboks','Регистрация на distribbooks.ru',$mailtext);
+			endif;
 			return $accountID;
 		endif;
 		return FALSE;

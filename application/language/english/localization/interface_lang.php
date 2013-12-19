@@ -160,6 +160,8 @@ $lang['catalog_tag_keyword'] = "All books tagged as";
 $lang['catalog_tag_author'] = "All books by";
 
 $lang['user_cabinet'] = "My books";
+$lang['union_email_text'] = "Set your Email";
+$lang['union_email'] = "Save Email";
 $lang['user_pay'] = "Pay";
 
 $lang['trailer'] = "Videotrailer";

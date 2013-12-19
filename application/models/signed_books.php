@@ -27,4 +27,11 @@ class Signed_books extends MY_Model{
 		endif;
 		return NULL;
 	}
+	
+	function transferRecord($from,$to){
+	
+		$this->db->set('account',$to);
+		$this->db->where('account',$from);
+		$this->db->update($this->table);
+	}
 }

@@ -455,8 +455,10 @@ class Admin_ajax_interface extends MY_Controller{
 					if(isset($_FILES['file']['tmp_name'])):
 						$validImage = $this->validationUploadImage(array('min_width'=>300,'max_size'=>1000000));
 						if($validImage['status'] == TRUE):
-							$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,304,431);
 							$photoPath = getcwd().'/download/books';
+							$photoUpload = $this->uploadSingleImage($photoPath);
+							$this->books->updateField($bookID,'origin','download/books/'.$photoUpload['uploadData']['file_name']);
+							$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,304,431);
 							$photoUpload = $this->uploadSingleImage($photoPath);
 							if($photoUpload['status'] == TRUE):
 								$this->load->model('books');
@@ -497,6 +499,8 @@ class Admin_ajax_interface extends MY_Controller{
 						$validImage = $this->validationUploadImage(array('min_width'=>300,'max_size'=>1000000));
 						if($validImage['status'] == TRUE):
 							$this->deteleBooksImage($this->input->post('book_id'));
+							$photoUpload = $this->uploadSingleImage($photoPath);
+							$this->books->updateField($bookID,'origin','download/books/'.$photoUpload['uploadData']['file_name']);
 							$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,304,431);
 							$photoPath = getcwd().'/download/books';
 							$photoUpload = $this->uploadSingleImage($photoPath);
@@ -679,6 +683,7 @@ class Admin_ajax_interface extends MY_Controller{
 	private function deteleBooksImage($bookID){
 		
 		$this->load->model('books');
+		$this->filedelete(getcwd().'/'.$this->books->value($bookID,'origin'));
 		$this->filedelete(getcwd().'/'.$this->books->value($bookID,'image'));
 		$this->filedelete(getcwd().'/'.$this->books->value($bookID,'thumbnail'));
 		$this->books->updateField($bookID,'image','');

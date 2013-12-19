@@ -11,5 +11,11 @@ class Financial_reports extends MY_Model{
 		
 		parent::__construct();
 	}
+
+	function transferRecord($from,$to){
 	
+		$this->db->set('account',$to);
+		$this->db->where('account',$from);
+		$this->db->update($this->table);
+	}
 }

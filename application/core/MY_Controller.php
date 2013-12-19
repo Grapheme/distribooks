@@ -51,6 +51,8 @@ class MY_Controller extends CI_Controller{
 		if($accountInfo = $this->accounts->getWhere($accountID)):
 			$this->account = array('id'=>$accountInfo['id'],'group'=>$accountInfo['group']);
 			$this->session->set_userdata(array('logon'=>md5($accountInfo['email']),'account'=>json_encode($this->account)));
+			$this->profile = $accountInfo;
+			$this->session->set_userdata('profile',json_encode($this->profile));
 			$this->loginstatus = TRUE;
 			return TRUE;
 		endif;
@@ -113,6 +115,21 @@ class MY_Controller extends CI_Controller{
 		else:
 			return FALSE;
 		endif;
+	}
+
+	public function signInAccount($userID){
+		
+		if($user = $this->accounts->getWhere($userID,array('active'=>1))):
+			if($this->setLoginSession($user['id'])):
+				if($this->validBasket()):
+					$this->setDBBasket();
+				else:
+					$this->getDBBasket();
+				endif;
+			endif;
+			return TRUE;
+		endif;
+		return FALSE;
 	}
 	/*************************************************************************************************************/
 	public function getVKontakteAccessToken($code,$redirect){

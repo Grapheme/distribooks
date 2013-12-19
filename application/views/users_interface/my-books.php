@@ -43,6 +43,13 @@
 		<?php if(!empty($notificationText)):?>
 			<div class="pay-messages"><?=$notificationText;?></div>
 		<?php endif;?>
+		<?php if(empty($this->profile['email'])):?>
+			<div>
+				<?=lang('union_email_text');?>
+				<?php $this->load->view('users_interface/forms/email');?>
+				
+			</div>
+		<?php endif;?>
 		<?php if(!empty($books)):?>
 			<?php for($i=0;$i<count($books);$i++):?>
 				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($books)-1))?' omega':'';?>">
@@ -68,6 +75,7 @@
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>
 	
+	<script type="text/javascript" src="<?=baseURL('js/cabinet/user.js');?>"></script>
 	<script type="text/javascript" src="<?=baseURL('js/vendor/jquery.barrating.js');?>"></script>
 	<script type="text/javascript" src="<?=baseURL('js/cabinet/barrating-config.js')?>"></script>
 </body>

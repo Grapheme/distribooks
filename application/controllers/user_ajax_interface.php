@@ -141,6 +141,28 @@ class User_ajax_interface extends MY_Controller{
 		echo json_encode($this->json_request);
 	}
 	
+	public function saveEmail(){
+		
+		if($this->postDataValidation('signup')):
+			if($account = $this->accounts->getWhere(NULL,array('email'=>$this->input->post('email')))):
+				if($account['password'] == md5($this->input->post('password'))):
+					$this->load->model(array('financial_reports','signed_books'));
+					$this->financial_reports->transferRecord($this->account['id'],$account['id']);
+					$this->signed_books->transferRecord($this->account['id'],$account['id']);
+					$this->signInAccount($account['id']);
+					$this->json_request['redirect'] = site_url($this->uri->language_string.'/cabinet');
+				else:
+					$this->json_request['exist'] = TRUE;
+				endif;
+			else:
+				$this->accounts->updateField($this->account['id'],'email',$this->input->post('email'));
+				$this->json_request['redirect'] = site_url($this->uri->language_string.'/cabinet');
+			endif;
+			$this->json_request['status'] = TRUE;
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
 	private function getPayUHash($post,$books,$transactionID,$transaction_time){
 		
 		$order_hash = PAYU_MERCHANT_LENGTH.PAYU_MERCHANT.strlen($transactionID).$transactionID.strlen($transaction_time).$transaction_time;

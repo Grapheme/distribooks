@@ -17,6 +17,8 @@ $route['sign-up/manual'] = "global_interface/signUpManual";
 $route['sign-in/vk'] = "global_interface/signInVK";
 $route['sign-in/facebook'] = "global_interface/signInUpFacebook";
 /*************************************************/
+$route['auto-buy-book'] = "global_interface/autoBuyBook";
+
 $route['search-authors-list'] = "global_interface/searchAuthor";
 $route['search-genres-list'] = "global_interface/searchGenre";
 $route['search-books-list'] = "global_interface/searchBook";
@@ -50,6 +52,7 @@ $route['clear-basket'] = "user_ajax_interface/clearBasket";
 $route['set-book-rating'] = "user_ajax_interface/setBookRating";
 
 $route['get-payu'] = "user_ajax_interface/payBookPayU";
+$route[USER_START_PAGE.'/save-email'] = "user_ajax_interface/saveEmail";
 
 /************************************************* ADMIN AJAX INTRERFACE *******************************************/
 $route[ADMIN_START_PAGE.'/password-save'] = "admin_ajax_interface/adminSavePassword";

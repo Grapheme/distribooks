@@ -56,7 +56,7 @@ $(function(){
 			addToBasketBlock(this);
 		}
 	});
-	$(".remove-book-in-basket").click(function(){removeBookInBasket(this);})
+	$(".remove-book-in-basket").click(function(){removeBookInBasket(this);});
 	$(".clear-basket").click(function(){
 		$.ajax({
 			url: mt.getLangBaseURL('clear-basket'),type: 'POST',dataType: 'json',
@@ -73,16 +73,30 @@ $(function(){
 			},
 			error: function(xhr,textStatus,errorThrown){}
 		})
-	})
+	});
 	$(".btn-search-submit").click(function(){
 		if($(".input-search-text").emptyValue() === true){
 			return false;
 		}
-	})
+	});
 	$("#a-forgor-password").click(function(){
 		$(".form-sign").fadeOut('fast',function(){
 			$(".form-forgor-password").removeClass('hidden');
 		})
+	});
+	$(".auto-buy-link").click(function(){
+		cookies.setCookie('buy_book',$(this).parents('.buyor').attr('data-book-id'),largeExpDate,'/');
+		$.ajax({
+			url: mt.getLangBaseURL('auto-buy-book'),
+			type: 'POST',dataType: 'json',
+			success: function(response,textStatus,xhr){
+				if(response.status){
+					mt.redirect(response.redirect);
+				}else{
+					alert(response.responseText);
+				}
+			}
+		});
 	});
 	function currencyExchange(price){
 		

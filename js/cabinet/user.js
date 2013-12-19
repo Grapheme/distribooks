@@ -37,4 +37,24 @@ $(function(){
 			alert(Localize[mt.currentLanguage]['no_books_pay']);
 		}
 	});
+	$(".btn-union-email").click(function(){
+		var _form = $(this).parents('form');
+		var options = {
+			target: null,dataType:'json',type:'post',
+			beforeSubmit: mt.ajaxBeforeSubmit,
+			success: function(response,status,xhr,jqForm){
+				mt.ajaxSuccessSubmit(response,status,xhr,jqForm);
+				if(response.status == true){
+					if(response.exist){
+						$(_form).find('input[name="password"]').removeClass('hidden').addClass('valid-required');
+					}
+					if(response.redirect !== false){
+						mt.redirect(response.redirect);
+					}
+				}
+			}
+		}
+		$(_form).ajaxSubmit(options);
+		return false;
+	})
 });

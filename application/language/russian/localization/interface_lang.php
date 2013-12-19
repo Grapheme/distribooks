@@ -161,6 +161,8 @@ $lang['catalog_tag_keyword'] = "Все книги с тегом";
 $lang['catalog_tag_author'] = "Все книги автора";
 
 $lang['user_cabinet'] = "Мои книги";
+$lang['union_email_text'] = "Укажите Ваш Email";
+$lang['union_email'] = "Сохранить Email";
 $lang['user_pay'] = "Оплата";
 
 $lang['trailer'] = "Видеотрейлер";
