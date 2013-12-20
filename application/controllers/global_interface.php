@@ -27,6 +27,10 @@ class Global_interface extends MY_Controller{
 								for($i=0;$i<count($booksIDs);$i++):
 									$this->buyBook($booksIDs[$i],$report['account']);
 								endfor;
+								if(!empty($account['email'])):
+									$mailtext = $this->load->view('mails/buy-book',array('account'=>$account),TRUE);
+									$this->sendMail($account['email'],FROM_BASE_EMAIL,'Distribboks','Покупка книг на distribbooks.com',$mailtext);
+								endif;
 								$this->financial_reports->updateField($this->input->post('REFNOEXT'),'transaction_status',1);
 								//$this->payuIDNRequest($this->input->post(),$report);
 								echo $this->payuIPNResponse($this->input->post());

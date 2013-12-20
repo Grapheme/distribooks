@@ -160,8 +160,8 @@ $lang['catalog_tag_keyword'] = "All books tagged as";
 $lang['catalog_tag_author'] = "All books by";
 
 $lang['user_cabinet'] = "My books";
-$lang['union_email_text'] = "Set your Email";
-$lang['union_email_exist'] = "Email already exists, enter the password to link accounts";
+$lang['union_email_text'] = "Just enter your e-mail for saving your books here.";
+$lang['union_email_exist'] = "This e-mail already exists. Please, enter password";
 $lang['union_email'] = "Save Email";
 $lang['union_account'] = "Link accounts";
 $lang['user_pay'] = "Pay";
@@ -251,4 +251,11 @@ $lang['policies'] = "
 <br>
 <br>";
 
+$lang ['payu_error'] = 'An error occurred during payment. Try again! <br/> If the problem persists, please let us know: <a href="mailto:welcome@distibbooks.com"> welcome@distibbooks.com </ a>. ';
+$lang ['payu_succesfull'] = "Successful payment.";
+$lang ['payu_failure'] = "Payment failed.";
+$lang ['payu_succesfull_qiwi'] = "To complete your purchase you need to pay the invoice in Qiwi.";
+$lang ['pay_wait_books'] = "Your books will be here soon.";
+$lang ['pay_insert_books'] = "";
+$lang ['cabinel_empty_books'] = "You have not yet purchased the books.";
 ?>

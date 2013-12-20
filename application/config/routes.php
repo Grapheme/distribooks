@@ -51,6 +51,8 @@ $route['refresh-books-in-basket'] = "user_ajax_interface/refreshBooksInBasket";
 $route['clear-basket'] = "user_ajax_interface/clearBasket";
 $route['set-book-rating'] = "user_ajax_interface/setBookRating";
 
+$route['request-pay-status'] = "user_ajax_interface/requestPayStatus";
+
 $route['get-payu'] = "user_ajax_interface/payBookPayU";
 $route[USER_START_PAGE.'/save-email'] = "user_ajax_interface/saveEmail";
 

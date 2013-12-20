@@ -1145,7 +1145,15 @@ class MY_Controller extends CI_Controller{
 			endfor;
 		endfor;
 		return $sortBooks;
-	}	
+	}
+	
+	public function setPayStatusInLastOrder($accountID,$status){
+		
+		$this->load->model('financial_reports');
+		if($ID = $this->financial_reports->getLastOrder($accountID,'id')):
+			$this->financial_reports->updateField($ID,'pay_status',$status);
+		endif;
+	}
 	
 	private function getBooksPrice($booksIDs){
 		

@@ -141,6 +141,25 @@ class User_ajax_interface extends MY_Controller{
 		echo json_encode($this->json_request);
 	}
 	
+	public function requestPayStatus(){
+		
+		if(isUserLoggined()):
+			$this->load->model(array('signed_books','financial_reports'));
+			if($this->financial_reports->getLastOrder($this->account['id'],'transaction_status',1) == 1):
+				if($books = $this->signed_books->getMyBooks(PER_PAGE_DEFAULT,0)):
+					$books = $this->BooksGenre($books);
+					$books = $this->mySignedBooks($books);
+					for($i=0;$i<count($books);$i++):
+						$books[$i]['authors'] = $this->getAuthorsByIDs($books[$i]['authors']);
+					endfor;
+					$this->json_request['responseText'] = $this->load->view('html/print-books-list',array('books'=>$books),TRUE);
+					$this->json_request['status'] = TRUE;
+				endif;
+			endif;
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
 	public function saveEmail(){
 		
 		if($this->postDataValidation('signup')):
@@ -148,6 +167,11 @@ class User_ajax_interface extends MY_Controller{
 				if($account['password'] == md5($this->input->post('password'))):
 					$this->load->model(array('financial_reports','signed_books'));
 					$this->financial_reports->transferRecord($this->account['id'],$account['id']);
+					if($newSignedBooks = $this->signed_books->getWhere(NULL,array('account'=>$this->account['id']),TRUE)):
+						if($newSignedBooksIDs = $this->getValuesInArray($newSignedBooks,'book')):
+							$this->signed_books->deleteOldBooks($newSignedBooksIDs,$account['id']);
+						endif;
+					endif;
 					$this->signed_books->transferRecord($this->account['id'],$account['id']);
 					$this->signInAccount($account['id']);
 					$this->json_request['redirect'] = site_url($this->uri->language_string.'/cabinet');

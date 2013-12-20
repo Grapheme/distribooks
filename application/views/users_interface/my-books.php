@@ -27,37 +27,37 @@
 		<?php 
 			$notificationText = '';
 			if($this->input->get('err') !== FALSE):
-				$notificationText = 'Возникла ошибка при оплате. Попробуйте снова!.<br/>Если ошибка повториться обратитесь за помощью к администрации сайта';
 			elseif($this->input->get('result') !== FALSE):
 				switch($this->input->get('result')):
-					case 0: $notificationText = 'Оплата прошла успешно';
+					case 0: $notificationText = lang('payu_succesfull');
+							if($order_status == 0):
+								$notificationText.= ' '.lang('pay_wait_books');
+							else:
+								$notificationText.= ' '.lang('pay_insert_books');
+							endif;
 						break;
-					case 1: $notificationText = 'Оплата невыполнена';
+					case 1: $notificationText = lang('payu_failure');
 						break;
-					case -1: $notificationText = 'Счет на оплату успешно выставлен покупателю в его QIWI кошелек, но еще не оплачен';
+					case -1: $notificationText = lang('payu_succesfull_qiwi');
 						break;
 					default:
 						break;
 				endswitch;
 			endif;?>
 		<?php if(!empty($notificationText)):?>
-			<div class="pay-messages"><?=$notificationText;?></div>
+			<div class="pay-messages">
+				<?=$notificationText;?>
+			</div>
 		<?php endif;?>
-		<?php if(empty($this->profile['email']) && $this->input->cookie('reques_email') === FALSE):?>
-			<?php $this->load->view('users_interface/includes/request-email');?>
-		<?php endif;?>
-		<?php if(!empty($books)):?>
-			<?php for($i=0;$i<count($books);$i++):?>
-				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($books)-1))?' omega':'';?>">
-					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$books[$i],'currency'=>array()));?>
-				</div>
-				<?php if(($i+1)%3 == 0):?>
+				<div id="book-list">
+			<?php if(!empty($books)):?>
+					<?php $this->load->view('html/print-books-list',array('books'=>$books));?>
 				<div class="clear"></div>
-				<?php endif?>
-			<?php endfor;?>
-			<div class="clear"></div>
-			<?=$pages;?>
-		<?php endif;?>
+				<?=$pages;?>
+			<?php elseif(empty($notificationText)):?>
+				<?=lang('cabinel_empty_books');?>
+			<?php endif;?>
+				</div>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -70,7 +70,39 @@
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>
-	
+<?php if(empty($this->profile['email']) && $this->input->cookie('reques_email') === FALSE):?>
+	<?php $this->load->view('users_interface/includes/request-email');?>
+	<script type="text/javascript">
+		$(".dark-screen").fadeIn("fast");
+	</script>
+<?php endif;?>
+<?php if(!is_null($order_pay_status) && $order_status == 0):?>
+	<script type="text/javascript" src="<?=baseURL('js/libs/history.js');?>"></script>
+	<script type="text/javascript">
+		var requestIntervalID = {};
+		function clearGetURL(){
+			return mt.currentURL.replace(/\?result=\d&status=ok/,'');
+		}
+		function requestPayStatus(){
+			$.ajax({
+				url: mt.getLangBaseURL('request-pay-status'),type: 'POST',dataType: 'json',
+				beforeSend: function(){},
+				success: function(response,textStatus,xhr){
+					if(response.status){
+						$(".pay-messages").remove();
+						$("#book-list").html(response.responseText);
+						clearInterval(requestIntervalID);
+						History.navigateToPath(clearGetURL());
+					}
+				},
+				error: function(xhr,textStatus,errorThrown){}
+			});
+		}
+		$(function(){
+			requestIntervalID = window.setInterval(requestPayStatus,10000);
+		})
+	</script>
+<?php endif;?>
 	<script type="text/javascript" src="<?=baseURL('js/cabinet/user.js');?>"></script>
 	<script type="text/javascript" src="<?=baseURL('js/vendor/jquery.barrating.js');?>"></script>
 	<script type="text/javascript" src="<?=baseURL('js/cabinet/barrating-config.js')?>"></script>

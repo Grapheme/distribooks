@@ -44,16 +44,19 @@ class Users_interface extends MY_Controller{
 	public function cabinet(){
 		
 		if($this->input->get('err') !== FALSE):
+			$this->setPayStatusInLastOrder($this->account['id'],4);
 			redirect('basket'.urlGETParameters());
 		endif;
-		$this->load->model('signed_books');
 		$this->offset = (int)$this->uri->segment(4);
+		$this->load->model(array('signed_books','financial_reports'));
 		$pagevar = array(
 			'meta_titles' => $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
 			'breadcrumbs' => array('cabinet'=>lang('user_cabinet')),
 			'books' => $this->signed_books->getMyBooks(PER_PAGE_DEFAULT,$this->offset),
 			'pages' => $this->pagination('cabinet/my-books',4,$this->signed_books->countAllResults(array('account'=>$this->account['id'])),PER_PAGE_DEFAULT),
-			'basket_list' => $this->getBooksInBasket()
+			'basket_list' => $this->getBooksInBasket(),
+			'order_status' => $this->financial_reports->getLastOrder($this->account['id']),
+			'order_pay_status' => $this->financial_reports->getLastOrder($this->account['id'],'pay_status',1)
 		);
 		$pagevar['books'] = $this->BooksGenre($pagevar['books']);
 		$pagevar['books'] = $this->mySignedBooks($pagevar['books']);
@@ -61,6 +64,15 @@ class Users_interface extends MY_Controller{
 			$pagevar['books'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['books'][$i]['authors']);
 		endfor;
 		if($this->input->get('status') === FALSE):
+			if($this->input->get('result') !== FALSE):
+				$status = 3; //ошибка
+				if((int)$this->input->get('result') === 0):
+					$status = 1;//оплата
+				elseif((int)$this->input->get('result') === -1):
+					$status = 1;//оплата киви
+				endif;
+				$this->setPayStatusInLastOrder($this->account['id'],$status);
+			endif;
 			if($this->input->get('result') !== FALSE && ($this->input->get('result') == 0 || $this->input->get('result') == -1)):
 				if($this->input->cookie('buy_book') !== FALSE):
 					delete_cookie('buy_book');

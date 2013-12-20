@@ -50,7 +50,7 @@ $(function(){
 						$('.form-union-account').find('input[name="email"]').val($(_form).find('input[name="email"]').val().trim());
 						$('.form-union-account').find('input[name="password"]').focus();
 						$('.form-union-account').removeClass('hidden');
-						$('.div-request-union-email').find('.recall-text').html(response.responseText).css('width','175');
+						$('.div-request-union-email').find('.recall-text').html(response.responseText);
 					}
 					if(response.redirect !== false){
 						mt.redirect(response.redirect);

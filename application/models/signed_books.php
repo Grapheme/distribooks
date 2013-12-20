@@ -34,4 +34,11 @@ class Signed_books extends MY_Model{
 		$this->db->where('account',$from);
 		$this->db->update($this->table);
 	}
+	
+	function deleteOldBooks($booksIDs,$accountID){
+		
+		$this->db->where('account',$accountID);
+		$this->db->where_in('book',$booksIDs);
+		$this->db->delete($this->table);
+	}
 }

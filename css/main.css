@@ -1771,11 +1771,14 @@ input[type="radio"]:checked + label
 	margin-left: 5px;
 }
 
-.request-div .recall-text {
+.request-div .recall-text{
 	width: 112px;
 	margin-left: 15px;
 	margin-top: 15px;
 	margin-bottom: 15px;
+}
+.div-request-union-email .recall-text{
+	width: 180px;
 }
 
 .recall-div input[type=text] {

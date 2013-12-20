@@ -18,4 +18,19 @@ class Financial_reports extends MY_Model{
 		$this->db->where('account',$from);
 		$this->db->update($this->table);
 	}
+	
+	function getLastOrder($accountID,$field = 'transaction_status',$pay_status = NULL){
+		
+		$this->db->select('*,MAX(`date`) AS maxdate');
+		$this->db->where('account',$accountID);
+		if(!is_null($pay_status)):
+			$this->db->where('pay_status',$pay_status);
+		endif;
+		$this->db->limit(1);
+		$query = $this->db->get($this->table);
+		if($data = $query->result_array()):
+			return $data[0][$field];
+		endif;
+		return FALSE;
+	}
 }
