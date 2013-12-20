@@ -21,11 +21,12 @@ class Financial_reports extends MY_Model{
 	
 	function getLastOrder($accountID,$field = 'transaction_status',$pay_status = NULL){
 		
-		$this->db->select('*,MAX(`date`) AS maxdate');
+		$this->db->select('*');
 		$this->db->where('account',$accountID);
 		if(!is_null($pay_status)):
 			$this->db->where('pay_status',$pay_status);
 		endif;
+		$this->db->order_by('id DESC');
 		$this->db->limit(1);
 		$query = $this->db->get($this->table);
 		if($data = $query->result_array()):

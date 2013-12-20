@@ -64,16 +64,16 @@ class Users_interface extends MY_Controller{
 		for($i=0;$i<count($pagevar['books']);$i++):
 			$pagevar['books'][$i]['authors'] = $this->getAuthorsByIDs($pagevar['books'][$i]['authors']);
 		endfor;
-		if($this->input->get('status') === FALSE):
-			if($this->input->get('result') !== FALSE):
-				$status = 3; //ошибка
-				if((int)$this->input->get('result') === 0):
-					$status = 1;//оплата
-				elseif((int)$this->input->get('result') === -1):
-					$status = 1;//оплата киви
-				endif;
-				$this->setPayStatusInLastOrder($this->account['id'],$status);
+		if($this->input->get('result') !== FALSE):
+			$status = 3; //ошибка
+			if((int)$this->input->get('result') === 0):
+				$status = 1;//оплата
+			elseif((int)$this->input->get('result') === -1):
+				$status = 1;//оплата киви
 			endif;
+			$this->setPayStatusInLastOrder($this->account['id'],$status);
+		endif;
+		if($this->input->get('status') === FALSE):
 			if($this->input->get('result') !== FALSE && ($this->input->get('result') == 0 || $this->input->get('result') == -1)):
 				if($this->input->cookie('buy_book') !== FALSE):
 					delete_cookie('buy_book');
