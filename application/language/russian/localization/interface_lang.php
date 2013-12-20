@@ -164,7 +164,7 @@ $lang['user_cabinet'] = "Мои книги";
 $lang['union_email_text'] = "Достаточно ввести e-mail, чтобы сохранить здесь все купленные книги.";
 $lang['union_email_exist'] = "Email уже зарегистрирован. Введите пароль";
 $lang['union_email'] = "Сохранить Email";
-$lang['union_account'] = "Связать аккаунты";
+$lang['union_account'] = "Ввести";
 $lang['user_pay'] = "Оплата";
 
 $lang['trailer'] = "Видеотрейлер";
@@ -262,4 +262,5 @@ $lang['pay_wait_books'] = "Скоро здесь появятся купленн
 $lang['pay_insert_books'] = ""; 
 $lang['cabinel_empty_books'] = "У вас пока нет купленных книг.";
 
+$lang['no-ask-email'] = "Больше не спрашивать";
 ?>

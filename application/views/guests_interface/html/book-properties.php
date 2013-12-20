@@ -9,7 +9,7 @@
 	if(!empty($book['trailers'])):
 		if($video_trailer = json_decode($book['trailers'],TRUE)):
 			if(isset($video_trailer[0]) && !empty($video_trailer[0])):
-				echo anchor('#','&nbsp;',array('class'=>'shopi no-clickable'.$addClass,'id'=>'play'));
+				echo anchor('#','&nbsp;',array('class'=>'shopi no-clickable'.$addClass,'id'=>'play','title'=>lang('trailer')));
 			endif;
 		endif;
 	endif;
@@ -18,7 +18,7 @@
 	if(!empty($book['audio_recording'])):
 		if($audio_recording = json_decode($book['audio_recording'],TRUE)):
 			if(isset($audio_recording[0]) && !empty($audio_recording[0])):
-				echo anchor('#','&nbsp;',array('class'=>'shopi no-clickable'.$addClass,'id'=>'a'));
+				echo anchor('#','&nbsp;',array('class'=>'shopi no-clickable'.$addClass,'id'=>'a','title'=>lang('audio')));
 			endif;
 		endif;
 	endif;

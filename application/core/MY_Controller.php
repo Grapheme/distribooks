@@ -9,7 +9,7 @@ class MY_Controller extends CI_Controller{
 	var $project_config = array('dollar_rate'=>32.00,'free_book'=>4,'count_free_book'=>1,'action_price'=>2000,'action_percent'=>10);
 	
 	var $baseURL = '';
-	var $baseLanguageURL = RUSLAN;
+	var $baseLanguageURL = ENGLAN;
 	var $languages = array(RUSLAN=>'russian',ENGLAN=>'english');
 	
 	function __construct(){

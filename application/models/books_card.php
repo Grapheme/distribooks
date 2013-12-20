@@ -107,7 +107,7 @@ class Books_card extends MY_Model{
 	function getBooksIDsByKeyWords($limit = NULL,$offset = NULL,$keyWordsIDs){
 		
 		if(!empty($keyWordsIDs)):
-			$this->db->select('id');
+			$this->db->select('books_card.id');
 			$this->db->from($this->table);
 			$this->db->join('matching','books_card.id = matching.book');
 			$this->db->where_in('matching.word',$keyWordsIDs);

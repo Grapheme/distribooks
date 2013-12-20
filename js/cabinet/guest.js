@@ -74,7 +74,7 @@ $(function(){
 			error: function(xhr,textStatus,errorThrown){}
 		})
 	});
-	$(".btn-search-submit").click(function(){
+	$(".form-search").submit(function(){
 		if($(".input-search-text").emptyValue() === true){
 			return false;
 		}

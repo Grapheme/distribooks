@@ -70,7 +70,7 @@
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>
-<?php if(empty($this->profile['email']) && $this->input->cookie('reques_email') === FALSE):?>
+<?php if((int)$reques_email === 0):?>
 	<?php $this->load->view('users_interface/includes/request-email');?>
 	<script type="text/javascript">
 		$(".dark-screen").fadeIn("fast");

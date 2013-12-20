@@ -141,6 +141,15 @@ class User_ajax_interface extends MY_Controller{
 		echo json_encode($this->json_request);
 	}
 	
+	public function noEmailAsk(){
+		
+		if(isUserLoggined()):
+			$this->accounts->updateField($this->account['id'],'no_ask_email',1);
+			$this->json_request['status'] = TRUE;
+		endif;
+		echo json_encode($this->json_request);
+	}
+	
 	public function requestPayStatus(){
 		
 		if(isUserLoggined()):
@@ -180,6 +189,8 @@ class User_ajax_interface extends MY_Controller{
 					$this->json_request['exist'] = TRUE;
 				endif;
 			else:
+				$this->profile['email'] = $this->input->post('email');
+				$this->session->set_userdata('profile',json_encode($this->profile));
 				$this->accounts->updateField($this->account['id'],'email',$this->input->post('email'));
 				$this->json_request['redirect'] = site_url($this->uri->language_string.'/cabinet');
 			endif;

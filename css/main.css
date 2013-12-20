@@ -1630,14 +1630,13 @@ ul, li {
     line-height: 3em;
     margin: 0 1em 0 0;
 }
-
+#noask-email,
 .auth-left a {
 	color: #fff;
-	text-align: left;
 	font-size: 11px;
-	width: 280px;
-	margin-left: 29px;
+	margin-left: 70px;
 }
+
 .auth-left a {
 	color: #fff;
 	font-size: 11px;

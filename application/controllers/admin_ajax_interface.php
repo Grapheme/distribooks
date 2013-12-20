@@ -499,10 +499,10 @@ class Admin_ajax_interface extends MY_Controller{
 						$validImage = $this->validationUploadImage(array('min_width'=>300,'max_size'=>1000000));
 						if($validImage['status'] == TRUE):
 							$this->deteleBooksImage($this->input->post('book_id'));
-							$photoUpload = $this->uploadSingleImage($photoPath);
-							$this->books->updateField($bookID,'origin','download/books/'.$photoUpload['uploadData']['file_name']);
-							$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,304,431);
 							$photoPath = getcwd().'/download/books';
+							$photoUpload = $this->uploadSingleImage($photoPath);
+							$this->books->updateField($this->input->post('book_id'),'origin','download/books/'.$photoUpload['uploadData']['file_name']);
+							$this->imageManupulation($_FILES['file']['tmp_name'],'height',TRUE,304,431);
 							$photoUpload = $this->uploadSingleImage($photoPath);
 							if($photoUpload['status'] == TRUE):
 								$this->load->model('books');

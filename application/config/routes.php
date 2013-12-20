@@ -53,6 +53,7 @@ $route['set-book-rating'] = "user_ajax_interface/setBookRating";
 
 $route['request-pay-status'] = "user_ajax_interface/requestPayStatus";
 
+$route['no-email-ask'] = "user_ajax_interface/noEmailAsk";
 $route['get-payu'] = "user_ajax_interface/payBookPayU";
 $route[USER_START_PAGE.'/save-email'] = "user_ajax_interface/saveEmail";
 

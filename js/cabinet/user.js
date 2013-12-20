@@ -78,5 +78,7 @@ $(function(){
 		$(_form).ajaxSubmit(options);
 		return false;
 	})
-
+	$("#noask-email").click(function(){
+		$.post(mt.getLangBaseURL('no-email-ask'),function(response){if(response.status){$(".donate-close").click();}},"json");
+	})
 });

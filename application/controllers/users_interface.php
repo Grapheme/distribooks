@@ -56,7 +56,8 @@ class Users_interface extends MY_Controller{
 			'pages' => $this->pagination('cabinet/my-books',4,$this->signed_books->countAllResults(array('account'=>$this->account['id'])),PER_PAGE_DEFAULT),
 			'basket_list' => $this->getBooksInBasket(),
 			'order_status' => $this->financial_reports->getLastOrder($this->account['id']),
-			'order_pay_status' => $this->financial_reports->getLastOrder($this->account['id'],'pay_status',1)
+			'order_pay_status' => $this->financial_reports->getLastOrder($this->account['id'],'pay_status',1),
+			'reques_email' => $this->accounts->value($this->account['id'],'no_ask_email')
 		);
 		$pagevar['books'] = $this->BooksGenre($pagevar['books']);
 		$pagevar['books'] = $this->mySignedBooks($pagevar['books']);
