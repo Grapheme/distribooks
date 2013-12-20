@@ -24,7 +24,7 @@ $lang['top_menu_find_format'] = "Format";
 $lang['top_menu_find_shopping_card'] = "Shopping cart";
 $lang['top_menu_sign_in'] = "Sing in";
 $lang['top_menu_admin_panel'] = "Admin panel";
-$lang['top_menu_user_cabinet'] = "My cabinet";
+$lang['top_menu_user_cabinet'] = "My books";
 $lang['top_menu_bookmark'] = "Bookmark";
 $lang['top_menu_publisher'] = "Online Publisher";
 $lang['top_menu_main'] = "Menu";
@@ -161,7 +161,9 @@ $lang['catalog_tag_author'] = "All books by";
 
 $lang['user_cabinet'] = "My books";
 $lang['union_email_text'] = "Set your Email";
+$lang['union_email_exist'] = "Email already exists, enter the password to link accounts";
 $lang['union_email'] = "Save Email";
+$lang['union_account'] = "Link accounts";
 $lang['user_pay'] = "Pay";
 
 $lang['trailer'] = "Videotrailer";

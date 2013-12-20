@@ -43,12 +43,8 @@
 		<?php if(!empty($notificationText)):?>
 			<div class="pay-messages"><?=$notificationText;?></div>
 		<?php endif;?>
-		<?php if(empty($this->profile['email'])):?>
-			<div>
-				<?=lang('union_email_text');?>
-				<?php $this->load->view('users_interface/forms/email');?>
-				
-			</div>
+		<?php if(empty($this->profile['email']) && $this->input->cookie('reques_email') === FALSE):?>
+			<?php $this->load->view('users_interface/includes/request-email');?>
 		<?php endif;?>
 		<?php if(!empty($books)):?>
 			<?php for($i=0;$i<count($books);$i++):?>

@@ -24,7 +24,7 @@ $lang['top_menu_find_format'] = "Формат";
 $lang['top_menu_find_shopping_card'] = "Корзина";
 $lang['top_menu_sign_in'] = "Вход";
 $lang['top_menu_admin_panel'] = "Админ панель";
-$lang['top_menu_user_cabinet'] = "Мой кабинет";
+$lang['top_menu_user_cabinet'] = "Мои книги";
 $lang['top_menu_bookmark'] = "В закладки";
 $lang['top_menu_publisher'] = "Интернет-издательство";
 $lang['top_menu_main'] = "Меню";
@@ -162,7 +162,9 @@ $lang['catalog_tag_author'] = "Все книги автора";
 
 $lang['user_cabinet'] = "Мои книги";
 $lang['union_email_text'] = "Укажите Ваш Email";
+$lang['union_email_exist'] = "Email уже существует введите пароль чтобы связать аккаунты";
 $lang['union_email'] = "Сохранить Email";
+$lang['union_account'] = "Связать аккаунты";
 $lang['user_pay'] = "Оплата";
 
 $lang['trailer'] = "Видеотрейлер";

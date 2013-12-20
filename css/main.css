@@ -1798,7 +1798,8 @@ input[type="radio"]:checked + label
 	padding-left: 5px;
 }
 
-.request-div input[type=text] {
+.request-div input[type=text],
+.request-div input[type=password] {
 	height: 15px;
 	margin: 5px 20px 0px 20px;
 	width: 220px;
@@ -1826,7 +1827,7 @@ input[type="radio"]:checked + label
 	border: 1px solid red;
 }
 
-.recall-button,.auth-button,.forgot-button {
+.recall-button,.auth-button,.forgot-button,.recall-union-email, .recall-union-account {
 	width: 135px;
 	height: 35px;
 	line-height: 35px;
@@ -1871,6 +1872,8 @@ input[type="radio"]:checked + label
 	background-size: 100% 100%;
 }
 
+.request-div .recall-union-email, 
+.request-div .recall-union-account, 
 .request-div .recall-button {
 	width: 213px;
 	margin-left: 25px;

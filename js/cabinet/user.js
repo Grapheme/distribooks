@@ -37,7 +37,7 @@ $(function(){
 			alert(Localize[mt.currentLanguage]['no_books_pay']);
 		}
 	});
-	$(".btn-union-email").click(function(){
+	$(".recall-union-email").click(function(){
 		var _form = $(this).parents('form');
 		var options = {
 			target: null,dataType:'json',type:'post',
@@ -46,7 +46,11 @@ $(function(){
 				mt.ajaxSuccessSubmit(response,status,xhr,jqForm);
 				if(response.status == true){
 					if(response.exist){
-						$(_form).find('input[name="password"]').removeClass('hidden').addClass('valid-required');
+						$(_form).addClass('hidden');
+						$('.form-union-account').find('input[name="email"]').val($(_form).find('input[name="email"]').val().trim());
+						$('.form-union-account').find('input[name="password"]').focus();
+						$('.form-union-account').removeClass('hidden');
+						$('.div-request-union-email').find('.recall-text').html(response.responseText).css('width','175');
 					}
 					if(response.redirect !== false){
 						mt.redirect(response.redirect);
@@ -57,4 +61,22 @@ $(function(){
 		$(_form).ajaxSubmit(options);
 		return false;
 	})
+	$(".recall-union-account").click(function(){
+		var _form = $(this).parents('form');
+		var options = {
+			target: null,dataType:'json',type:'post',
+			beforeSubmit: mt.ajaxBeforeSubmit,
+			success: function(response,status,xhr,jqForm){
+				mt.ajaxSuccessSubmit(response,status,xhr,jqForm);
+				if(response.status == true){
+					if(response.redirect !== false){
+						mt.redirect(response.redirect);
+					}
+				}
+			}
+		}
+		$(_form).ajaxSubmit(options);
+		return false;
+	})
+
 });

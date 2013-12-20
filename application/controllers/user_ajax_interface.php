@@ -152,6 +152,7 @@ class User_ajax_interface extends MY_Controller{
 					$this->signInAccount($account['id']);
 					$this->json_request['redirect'] = site_url($this->uri->language_string.'/cabinet');
 				else:
+					$this->json_request['responseText'] = lang('union_email_exist');
 					$this->json_request['exist'] = TRUE;
 				endif;
 			else:
