@@ -71,6 +71,8 @@ $(function(){
 				if(response.status == true){
 					if(response.redirect !== false){
 						mt.redirect(response.redirect);
+					}else{
+						$(_form).find('input[name="password"]').attr('role','tooltip').showToolTip(Localize[mt.currentLanguage]['valid_password']);
 					}
 				}
 			}

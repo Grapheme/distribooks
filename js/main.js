@@ -1,4 +1,24 @@
 $(document).ready(function(){
+
+	$('.add-bookmark').click(function() {
+        if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+            window.sidebar.addPanel(document.title,window.location.href,'');
+        } else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
+            window.external.AddFavorite(location.href,document.title); 
+        } else if(window.opera && window.print) { // Opera Hotlist
+            this.title=document.title;
+            return true;
+        }
+    });
+    
+    
+    if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+    } else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
+    } else if(window.opera && window.print) { // Opera Hotlist
+    } else {
+    	$('.add-bookmark').addClass('hidden');
+    }
+	
 	$(document).keypress(function(e) {
     	if(e.which == 13) {
     	    return false;
@@ -92,7 +112,7 @@ $(document).ready(function(){
 			minmenu = "close";
 		} else {
 			$(".min-menu").css({
-				"top:" : $(this).offset().top,
+				"top" : $(this).offset().top + $(this).height(),
 				"left" : $(this).offset().left
 			});
 			$(".min-menu").slideDown("fast");

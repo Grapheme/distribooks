@@ -78,7 +78,6 @@ class MY_Controller extends CI_Controller{
 		if($basket_exist === TRUE && !empty($booksIDs)):
 			$this->account_basket['basket_books'] = $booksIDs;
 			$this->account_basket['basket_total_price'] = $this->getBooksPrice($booksIDs);
-			
 			return $booksIDs;
 		endif;
 	}

@@ -245,12 +245,21 @@ $(function(){
 		}
 		return action_percent;
 	}
+	function replaceCurrency(price){
+		
+		if(mt.currentLanguage == 'en'){
+			return parseFloat(price.substr(1)).toFixed(2);
+		}else{
+			return parseInt(price);
+		}
+	}
+
 	function priceOnAction(price){
 		
 		var action_price = 0;
 		var action_percent = false;
 		var currency = ' руб.';
-		price = parseInt(price);
+		price = replaceCurrency(price);
 		if(cookies.getCookie('project_config') !== false){
 			var configuration = JSON.parse(cookies.getCookie('project_config'));
 			action_price = currencyExchange(configuration['action_price']);

@@ -76,7 +76,7 @@
 		$(".dark-screen").fadeIn("fast");
 	</script>
 <?php endif;?>
-<?php if(!is_null($order_pay_status) && $order_status == 0):?>
+<?php if(!is_null($order_pay_status) && $order_status == 0 && $this->input->get('result') !== FALSE):?>
 	<script type="text/javascript" src="<?=baseURL('js/libs/history.js');?>"></script>
 	<script type="text/javascript">
 		var requestIntervalID = {};

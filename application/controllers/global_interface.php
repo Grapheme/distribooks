@@ -293,11 +293,13 @@ class Global_interface extends MY_Controller{
 	/*************************************************************************************************************/
 	private function registerUserManual($post = NULL){
 		
+		$no_ask_email = 1;
 		if(is_null($post)):
 			$post['email'] = '';
+			$no_ask_email = 0;
 		endif;
 		
-		$insert = array('group'=>2,'email'=>$post['email'],'active'=>1);
+		$insert = array('group'=>2,'email'=>$post['email'],'active'=>1,'no_ask_email'=>$no_ask_email);
 		if($accountID = $this->accounts->insertRecord($insert)):
 			$this->load->helper('string');
 			$password = random_string('alnum',12);

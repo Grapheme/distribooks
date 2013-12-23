@@ -13,7 +13,7 @@
 				$CI->load->model('configuration');
 				$dollar_rate = $CI->configuration->getDollarRate();
 			endif;
-			return round($bookPrice/$dollar_rate,2).' $';
+			return '$'.round($bookPrice/$dollar_rate,2);
 		endif;
 	}
 	
@@ -23,7 +23,7 @@
 		if($CI->uri->language_string == RUSLAN):
 			return $bookPrice.' руб.';
 		elseif($CI->uri->language_string == ENGLAN):
-			return $bookPrice.' $';
+			return '$'.$bookPrice;
 		endif;
 	}
 	

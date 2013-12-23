@@ -38,6 +38,9 @@
 					<p class="title-1"><?=lang('formats_text');?></p>
 				</div>
 			<?php for($i=0;$i<count($formats);$i++):?>
+				<?php if($i%2 == 0):?>
+					<div class="clear"></div>
+				<?php endif;?>
 				<div class="format-div">
 					<div><img src="<?=baseURL($formats[$i]['image']);?>"></div>
 					<div>
