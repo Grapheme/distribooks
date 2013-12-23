@@ -1,3 +1,8 @@
+<?php
+	if(!isset($basket_list)):
+		$basket_list = NULL;
+	endif;
+?>
 <div class="basket-min-div">
 	<a href="" class="basket-close no-clickable"></a>
 	<img src="<?=baseURL('img/basket-arrow.png');?>" class="basket-arrow">

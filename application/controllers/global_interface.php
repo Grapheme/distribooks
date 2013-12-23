@@ -297,7 +297,7 @@ class Global_interface extends MY_Controller{
 			$post['email'] = '';
 		endif;
 		
-		$insert = array('group'=>2,'email'=>$post['email'],'active'=>1);
+		$insert = array('group'=>2,'email'=>$post['email'],'active'=>1,'no_ask_email'=>1);
 		if($accountID = $this->accounts->insertRecord($insert)):
 			$this->load->helper('string');
 			$password = random_string('alnum',12);

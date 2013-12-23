@@ -192,6 +192,12 @@ class User_ajax_interface extends MY_Controller{
 				$this->profile['email'] = $this->input->post('email');
 				$this->session->set_userdata('profile',json_encode($this->profile));
 				$this->accounts->updateField($this->account['id'],'email',$this->input->post('email'));
+				$this->accounts->updateField($this->account['id'],'no_ask_email',1);
+				$this->load->helper('string');
+				$password = random_string('alnum',12);
+				$this->accounts->updateField($this->account['id'],'password',md5($password));
+				$mailtext = $this->load->view('mails/signup',array('login'=>'id'.$this->account['id'],'password'=>$password),TRUE);
+				$this->sendMail($this->input->post('email'),FROM_BASE_EMAIL,'Distribboks','Регистрация на distribbooks.ru',$mailtext);
 				$this->json_request['redirect'] = site_url($this->uri->language_string.'/cabinet');
 			endif;
 			$this->json_request['status'] = TRUE;
