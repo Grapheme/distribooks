@@ -754,6 +754,10 @@ ul, li {
 	line-height: 13px !important;
 }
 
+.enter-div a {
+	color: #000;
+}
+
 .enter {
 	position: absolute;
 	top: 0;
@@ -3258,6 +3262,10 @@ input[type="checkbox"].cart-check:checked + label
 
 @media screen and (min-width: 768px) and (max-width: 960px) {
 	
+	.min-div-right .enter-div {
+		margin-left: 10px;
+	}
+	
 	.footer-payu {
 		margin-left: 0;
 	}
@@ -3281,7 +3289,11 @@ input[type="checkbox"].cart-check:checked + label
 
 	.shop-sort {
 		left: 0;
-    	top: -25px;
+    	top: -10px;
+	}
+	
+	.top-shop-title {
+		margin-top: 30px;
 	}
 	
 	.itrailer {
@@ -3354,8 +3366,7 @@ input[type="checkbox"].cart-check:checked + label
 	
 	.enter {
 		position: absolute;
-		right: 10px;
-		top: 4px;
+		right: 0;
 	}
 	
 	.min-div-right {
@@ -4095,7 +4106,8 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.enter {
-		position: static !important;
+		position: absolute !important;
+		right: 0;
 	}
 	
 	.sale {
