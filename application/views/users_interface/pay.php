@@ -24,8 +24,7 @@
 				<?php $this->load->view('guests_interface/includes/left-nav');?>
 			</div>
 			<div class="grid_4 top-shop-div">
-				<p class="payment-p"><?=lang('pay-choose');?>:</p>
-				<p class="payment-title">С помощью PayPal</p>
+				<p class="top-shop-title"><?=lang('pay-choose');?>:</p>
 				<div class="payment-s-div">
 					<div class="payment-div">
 						<a href="#">
@@ -33,9 +32,6 @@
 							<span>PayPal</span>
 						</a>
 					</div>
-				</div>
-				<div class="payment-s-div">
-					<p class="payment-title">Банковской картой, электронными деньгами или через терминал*</p>
 					<!--<a href="" data-pay-method="MTS" class="no-clickable">
 						<img src="<?=baseURL('img/pay/mts.jpg');?>">
 					</a>

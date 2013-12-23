@@ -12,7 +12,10 @@
 <link rel="icon" href="<?=baseURL('favicon.ico')?>" type="image/x-icon">
 <link rel="shortcut icon" href="<?=baseURL('favicon.ico')?>" type="image/x-icon">
 <link rel="stylesheet" href="<?=baseURL('css/normalize.css');?>">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="<?=baseURL('css/main.css');?>">
 <link rel="stylesheet" href="<?=baseURL('css/tooltip.css');?>">
+<!--
 <script type="text/javascript" src="//use.typekit.net/tuk3ffo.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+-->
