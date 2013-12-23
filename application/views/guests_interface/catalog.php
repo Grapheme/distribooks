@@ -99,11 +99,15 @@
 			<div class="min-nav pos3">
 				<?php $this->load->view('guests_interface/includes/small-nav');?>
 			</div>
-		<?php if(!empty($bestsellers)):?>
 			<div class="grid_1">&nbsp;</div>
-			<p class="top-shop-title"><span class="catalog-top-shop-link active-link"><?=lang('catalog_top_shop')?></span>&nbsp;|&nbsp;<span class="catalog-novelty-link"><?=lang('catalog_novelty')?></span>&nbsp;|&nbsp;<span class="catalog-recommended-link"><?=lang('catalog_recommended')?></span></p>
+			<p class="top-shop-title">
+				<?php if(!empty($bestsellers)):?><span class="catalog-top-shop-link active-link"><?=lang('catalog_top_shop')?></span>&nbsp;|&nbsp;<?php endif;?>
+				<?php if(!empty($novelty)):?><span class="catalog-novelty-link"><?=lang('catalog_novelty')?></span>&nbsp;|&nbsp;<?php endif;?>
+				<?php if(!empty($recommended)):?><span class="catalog-recommended-link"><?=lang('catalog_recommended')?></span><?php endif;?>
+			</p>
 			<div class="clear"></div>
 			<div class="grid_1">&nbsp;</div>
+		<?php if(!empty($bestsellers)):?>
 			<div class="grid_4 shop-new-div catalog-main-div">
 				<?php for($i=0;$i<count($bestsellers);$i++):?>
 				<?php if($i%3 == 0):?>
@@ -120,9 +124,12 @@
 			</div>
 		<?php endif;?>
 		<?php if(!empty($novelty)):?>
-			<div class="grid_4 shop-new-div novelty-div" style="display: none;">	
+			<div class="grid_4 shop-new-div novelty-div" style="display: none;">
 			<?php for($i=0;$i<count($novelty);$i++):?>
-				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($novelty)-1))?' omega':'';?>">
+				<?php if($i%3 == 0):?>
+					<div class="clear"></div>
+				<?php endif;?>
+				<div class="top-shop">
 					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$novelty[$i]));?>
 					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$novelty[$i]['id'],'mySignedBook'=>$novelty[$i]['signed_book'],'in_basket'=>$novelty[$i]['book_in_basket']));?>
 				</div>
@@ -133,7 +140,7 @@
 		<?php if(!empty($recommended)):?>
 			<div class="grid_4 shop-new-div recommended-div" style="display: none;">
 			<?php for($i=0;$i<count($recommended);$i++):?>
-				<div class="grid_1<?=($i==0)?' alpha':'';?><?=($i==(count($recommended)-1))?' omega':'';?>">
+				<div class="top-shop">
 					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$recommended[$i]));?>
 					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$recommended[$i]['id'],'mySignedBook'=>$recommended[$i]['signed_book'],'in_basket'=>$recommended[$i]['book_in_basket']));?>
 				</div>

@@ -9,8 +9,12 @@
 				<a href="http://www.odnoklassniki.ru/group/56862678843444" target="_blank" class="social-link" id="odn"></a>
 				<a href="https://plus.google.com/u/0/communities/108042272121599202035" target="_blank" class="social-link" id="gooo"></a>
 			</div>
-			<div style="display: inline-block; float: left;"><img src="<?=baseURL('img/paypal.jpg');?>" style="width: 70px;"></div>
-			<div class="footer-payu"><img src="<?=baseURL('img/payu.gif');?>" style="width: 70px; margin-top: 10px;"></div>
+			<div style="display: inline-block; float: left;">
+				<a href="https://www.paypal.com/" target="_blank"><img src="<?=baseURL('img/paypal.jpg');?>" style="width: 70px;"></a>
+			</div>
+			<div class="footer-payu">
+				<a href="http://www.payu.ru/" target="_blank"><img src="<?=baseURL('img/payu.gif');?>" style="width: 70px; margin-top: 10px;"></a>
+			</div>
 		</div>
 		<div class="grid_1 footer-nav">
 			<p class="footer-title"><?=lang('footer_menu_main');?></p>
