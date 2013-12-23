@@ -60,7 +60,7 @@
 			</div>
 			<div class="top-container">
 				<div class="grid_1">&nbsp;
-					<a href="#" class="red button topb-left pos2"><?=lang('top_menu_bookmark');?></a>
+					<a href="#" class="red button topb-left pos2 add-bookmark"><?=lang('top_menu_bookmark');?></a>
 					<div style="position: absolute; bottom: -1px; line-height: 35px;">
 						<p class="top-title"><?=lang('top_menu_publisher');?></p>
 					</div>
@@ -88,7 +88,7 @@
 				</div>
 				<div class="grid_1 pos1">
 					<img class="qr" src="<?=baseURL('img/qr.png');?>">
-					<a href="#" class="red button topb no-clickable"><?=lang('top_menu_bookmark');?></a>
+					<a href="#" class="red button topb no-clickable add-bookmark"><?=lang('top_menu_bookmark');?></a>
 					<div class="lang">
 						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng<?=($this->uri->language_string == ENGLAN)?' active-lang no-clickable':''?>"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus<?=($this->uri->language_string == RUSLAN)?' active-lang no-clickable':''?>"></a>
 					<?php if($this->loginstatus === FALSE):?>
@@ -146,6 +146,7 @@
 						<img src="<?=baseURL('img/cart.png');?>"><?=lang('top_menu_find_shopping_card');?>&nbsp;<span class="basket-total-price"><?=$this->account_basket['basket_total_price'];?></span>
 					</a>
 				<?php endif;?>
+					<a href="#" class="blue button menu-open no-clickable" style="width: 235px;"><?=lang('top_menu_main');?></a>
 				</div>
 			</div>
 			<div class="clear"></div>

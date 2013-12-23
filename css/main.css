@@ -686,7 +686,7 @@ ul, li {
 
 .min-menu {
 	position: absolute;
-	top: 94px;
+	top: 145px;
 	z-index: 999;
 	display: none;
 }
@@ -3152,7 +3152,7 @@ input[type="checkbox"].cart-check:checked + label
 }
 
 .info-bottom-div {
-	min-height: 415px;
+	min-height: 470px;
 }
 
 .basket-gift-text {
@@ -3799,7 +3799,7 @@ input[type="checkbox"].cart-check:checked + label
 	
 	.social-footer .social-link {
 		margin: 0;
-		margin-left: 14px;
+		margin-left: 3px;
 	}
 	
 	.social-footer .social-link:first-child {
