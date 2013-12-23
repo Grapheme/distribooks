@@ -112,7 +112,7 @@ $(document).ready(function(){
 			minmenu = "close";
 		} else {
 			$(".min-menu").css({
-				"top:" : $(this).offset().top,
+				"top" : $(this).offset().top + $(this).height(),
 				"left" : $(this).offset().left
 			});
 			$(".min-menu").slideDown("fast");

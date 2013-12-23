@@ -3271,7 +3271,7 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.social-footer {
-		margin-left: 36px;
+		margin-left: 0;
 	}
 
 	.min-div-right.pos2 .enter-div a:first-of-type {
