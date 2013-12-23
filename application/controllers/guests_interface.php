@@ -338,11 +338,20 @@ class Guests_interface extends MY_Controller{
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'breadcrumbs' => array('basket'=>lang('catalog_catalog')),
-			'basket_list' => $this->getBooksInBasket()
+			'basket_list' => $this->getBooksInBasket(),
+			'basket_total_price' => $this->replaceCurrency()
 		);
 		delete_cookie('buy_book');
 		$this->load->library('plural_words');
 		$this->load->view("guests_interface/basket",$pagevar);
+	}
+	private function replaceCurrency(){
+		
+		if($this->uri->language_string == RUSLAN):
+			return (float)$this->account_basket['basket_total_price'];
+		elseif($this->uri->language_string == ENGLAN):
+			return (float)substr($this->account_basket['basket_total_price'],1);
+		endif;
 	}
 	/*********************************************** catalog ***********************************************************/
 	public function catalog(){

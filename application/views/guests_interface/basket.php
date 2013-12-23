@@ -52,8 +52,9 @@
 					</div>
 					<div class="basket-item" style="background: #fff; margin-top: 10px; margin-bottom: 25px;">
 					<?php 
-						$total_summa = (int)$this->account_basket['basket_total_price'];
-						if($this->account_basket['basket_total_price'] >= $this->project_config['action_price']):
+						$total_summa = $basket_total_price;
+						//$total_summa = (float)$this->account_basket['basket_total_price'];
+						if($basket_total_price >= $this->project_config['action_price']):
 							$total_summa = $total_summa - round($total_summa*($this->project_config['action_percent']/100),2);
 						endif;
 					?>
@@ -72,7 +73,7 @@
 						</div>
 					</div>
 					<?php if($this->project_config['action_price'] > 0):?>
-						<div class="summa-action-block<?=($this->account_basket['basket_total_price'] < $this->project_config['action_price'])?' hidden':'';?>">
+						<div class="summa-action-block<?=($basket_total_price < $this->project_config['action_price'])?' hidden':'';?>">
 							<div class="basket-bottom-sale-top"></div>
 							<div class="basket-bottom-sale">
 								<p class="basket-bottom-sale-text">
@@ -83,7 +84,7 @@
 						</div>
 					<?php endif;?>
 			<?php if($this->project_config['action_price'] > 0):?>
-				<div class="summa-action-block-info<?=($this->account_basket['basket_total_price'] > $this->project_config['action_price'])?' hidden':'';?>">
+				<div class="summa-action-block-info<?=($basket_total_price > $this->project_config['action_price'])?' hidden':'';?>">
 					<div class="basket-bottom-sale-top"></div>
 					<div class="basket-bottom-sale">
 						<p class="basket-bottom-sale-text">
