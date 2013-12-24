@@ -16,7 +16,7 @@
 			<div style="float: left;">
 			<a href="" class="no-clickable clear-basket"><?=lang('clear-basket');?></a>
 			<?php if($this->project_config['action_price'] > 0):?>
-				<div class="summa-action-block<?=(CurrencyExchange($this->account_basket['basket_total_price']) < $this->project_config['action_price'])?' hidden':'';?>">
+				<div class="summa-action-block<?=(CurrencyExchangeRUStoUS($this->account_basket['basket_total_price']) < $this->project_config['action_price'])?' hidden':'';?>">
 					<?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%
 				</div>
 			<?php endif;?>

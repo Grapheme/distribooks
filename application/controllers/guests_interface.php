@@ -232,6 +232,7 @@ class Guests_interface extends MY_Controller{
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'breadcrumbs' => array('search'.urlGETParameters()=>lang('search_catalog')),
+			'basket_list' => $this->getBooksInBasket()
 		);
 		if($this->input->get('param') !== FALSE && $this->input->get('param') != ''):
 			$this->offset = (int)$this->input->get('offset');

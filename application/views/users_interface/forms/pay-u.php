@@ -28,7 +28,7 @@
 	$discount = 0;
 	if($this->project_config['action_price'] > 0):
 		if($total_summa > $this->project_config['action_price']):
-			$discount = round($total_summa*($this->project_config['action_percent']/100),2);
+			$discount = round($total_summa*($this->project_config['action_percent']/100),2,PHP_ROUND_HALF_EVEN);
 		endif;
 	endif;
 ?>

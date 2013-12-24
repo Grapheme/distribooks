@@ -183,6 +183,7 @@ class User_ajax_interface extends MY_Controller{
 					endif;
 					$this->signed_books->transferRecord($this->account['id'],$account['id']);
 					$this->signInAccount($account['id']);
+					$this->accounts->updateField($account['id'],'no_ask_email',1);
 					$this->json_request['redirect'] = site_url($this->uri->language_string.'/cabinet');
 				else:
 					$this->json_request['responseText'] = lang('union_email_exist');
@@ -246,21 +247,6 @@ class User_ajax_interface extends MY_Controller{
 			endif;
 		endfor;
 		return hash_hmac('md5',$order_hash,PAYU_SECRET_KEY);
-	}
-	
-	private function writeToFinancialReport($code,$summa,$books){
-		
-		if(!empty($books)):
-			$this->load->model('financial_reports');
-			$transaction_status = 0;
-			switch($code):
-				case 1: $description = 'Оплата через PayU';break;
-				case 2: $description = 'Оплата через PayPal';break;
-			endswitch;
-			$insert = array("account"=>$this->account['id'],"summa"=>$summa,'books'=>$books,'operation'=>$code,'description'=>$description,'transaction_status'=>$transaction_status);
-			return $this->financial_reports->insertRecord($insert);
-		endif;
-		return FALSE;
 	}
 	
 	private function updateBookRating($bookID){

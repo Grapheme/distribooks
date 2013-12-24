@@ -261,4 +261,9 @@ $lang['cabinel_empty_books'] = "You have not yet purchased the books.";
 
 $lang['no-ask-email'] = "Do not ask yet";
 
+$lang['pay_with_paypal'] = "Pay With PayPal";
+$lang['alpha_click'] = "Alfa-Click";
+
+$lang['pay_text'] = "English text";
+
 ?>
