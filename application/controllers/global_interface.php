@@ -161,7 +161,7 @@ class Global_interface extends MY_Controller{
 		if(isset($_SERVER['HTTP_REFERER'])):
 			redirect($_SERVER['HTTP_REFERER']);
 		else:
-			redirect('');
+			redirect($this->uri->language_string);
 		endif;
 	}
 	
