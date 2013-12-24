@@ -26,12 +26,6 @@
 			<div class="grid_4 top-shop-div">
 				<p class="top-shop-title"><?=lang('pay-choose');?>:</p>
 				<div class="payment-s-div">
-					<div class="payment-div">
-						<a href="#">
-							<img src="<?=baseURL('img/pay/paypal.png');?>"><br>
-							<span>PayPal</span>
-						</a>
-					</div>
 					<!--<a href="" data-pay-method="MTS" class="no-clickable">
 						<img src="<?=baseURL('img/pay/mts.jpg');?>">
 					</a>
@@ -41,6 +35,22 @@
 					<a href="" data-pay-method="BEELINE" class="set-pay-method no-clickable">
 						<img src="<?=baseURL('img/pay/beeline.png');?>">
 					</a>-->
+					
+					<div class="payment-div">
+						<form action='checkout.php' METHOD='POST'>
+							<input type='image' name='paypal_submit' id='paypal_submit'  src='https://www.paypal.com/ru_RU/i/btn/btn_dg_pay_w_paypal.gif' border='0' align='top' alt='Pay with PayPal'/>
+						</form>
+					</div>
+					
+					<script src='https://www.paypalobjects.com/js/external/dg.js' type='text/javascript'></script>
+					<script>
+						var dg = new PAYPAL.apps.DGFlow(
+						{
+							trigger: 'paypal_submit',
+							expType: 'instant'
+						});
+					</script>
+					
 					<div class="payment-div">
 						<a href="" data-pay-method="CCVISAMC" class="set-pay-method no-clickable">
 							<img src="<?=baseURL('img/pay/mastercard.png');?>"><br>
