@@ -43,6 +43,10 @@ $route['pay'] = "users_interface/pay";
 $route['cabinet'] = "users_interface/cabinet";
 $route['cabinet/my-books(\/:any)*?'] = "users_interface/cabinet";
 $route['download-book'] = "users_interface/downloadBookFile";
+$route[USER_START_PAGE.'/checkout-paypal'] = "users_interface/checkoutPaypal";
+/****************** Оплата PayPal *******************************/
+$route['paypal-request'] = "users_interface/paypalRequest";
+$route['paypal-cancel'] = "users_interface/paypalCancel";
 /************************************************* USER AJAX INTRERFACE *******************************************/
 $route['buy-books-in-basket'] = "user_ajax_interface/basketBuyBooks";
 $route['add-book-in-basket'] = "user_ajax_interface/addBookInBasket";

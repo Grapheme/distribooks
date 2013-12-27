@@ -1154,6 +1154,21 @@ class MY_Controller extends CI_Controller{
 		endif;
 	}
 	
+	public function writeToFinancialReport($code,$summa,$books){
+		
+		if(!empty($books)):
+			$this->load->model('financial_reports');
+			$transaction_status = 0;
+			switch($code):
+				case 1: $description = 'Оплата через PayU';break;
+				case 2: $description = 'Оплата через PayPal';break;
+			endswitch;
+			$insert = array("account"=>$this->account['id'],"summa"=>$summa,'books'=>$books,'operation'=>$code,'description'=>$description,'transaction_status'=>$transaction_status);
+			return $this->financial_reports->insertRecord($insert);
+		endif;
+		return FALSE;
+	}
+	
 	private function getBooksPrice($booksIDs){
 		
 		$this->load->model('books');

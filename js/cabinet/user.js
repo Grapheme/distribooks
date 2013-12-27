@@ -1,6 +1,18 @@
 /*  Author: Grapheme Group
  *  http://grapheme.ru/
  */
+ var PayPalStatusInterval = -1;
+ 
+ function paypal_checkout(){
+ 	
+	if(cookies.getCookie('paypal_checkout') == 1){
+		cookies.deleteCookie('paypal_checkout','/');
+		mt.redirect(mt.getLangBaseURL('cabinet?result=2'));
+	}else if(cookies.getCookie('paypal_checkout') == 2){
+		cookies.deleteCookie('paypal_checkout','/');
+		clearInterval(PayPalStatusInterval);
+	}
+ }
 
 $(function(){
 	$(".set-pay-method").click(function(){
@@ -82,5 +94,9 @@ $(function(){
 	})
 	$("#noask-email").click(function(){
 		$.post(mt.getLangBaseURL('no-email-ask'),function(response){if(response.status){$(".donate-close").click();}},"json");
-	})
+	});
+	$("#paypal_submit").click(function(){
+		cookies.setCookie('paypal_checkout',0,largeExpDate,'/');
+		PayPalStatusInterval = setInterval(paypal_checkout,1000);
+	});
 });
