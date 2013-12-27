@@ -1,4 +1,4 @@
-<div class="input select rating-f">
+<div class="input select rating-f<?= (!$book['signed_book'])?' off-set-rating':''?>">
 	<select autocomplete="off" class="select-rating book-ratind<?=($disabled === TRUE)?'-disabled':'';?>" name="rating" data-book-id="<?=$bookID;?>" >
 		<option value="1"<?=($book['rating'] == 1)?' selected="selected"':'';?>>1</option>
 		<option value="2"<?=($book['rating'] == 2)?' selected="selected"':'';?>>2</option>

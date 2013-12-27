@@ -98,6 +98,9 @@ $(function(){
 			}
 		});
 	});
+	$(".off-set-rating").click(function(){
+		alert(Localize[mt.currentLanguage]['no_set_rating']);
+	})
 	function currencyExchange(price){
 		
 		if(mt.currentLanguage == 'en'){
@@ -253,7 +256,6 @@ $(function(){
 			return parseInt(price);
 		}
 	}
-
 	function priceOnAction(price){
 		
 		var action_price = 0;
