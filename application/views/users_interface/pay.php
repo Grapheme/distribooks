@@ -35,22 +35,14 @@
 					<a href="" data-pay-method="BEELINE" class="set-pay-method no-clickable">
 						<img src="<?=baseURL('img/pay/beeline.png');?>">
 					</a>-->
-					
 					<div class="payment-div">
-						<form action='checkout.php' METHOD='POST'>
-							<input type='image' name='paypal_submit' id='paypal_submit'  src='https://www.paypal.com/ru_RU/i/btn/btn_dg_pay_w_paypal.gif' border='0' align='top' alt='Pay with PayPal'/>
-						</form>
+						<?php $this->load->view("users_interface/forms/pay-pal");?>
 					</div>
 					
-					<script src='https://www.paypalobjects.com/js/external/dg.js' type='text/javascript'></script>
+					<script src="https://www.paypalobjects.com/js/external/dg.js" type="text/javascript"></script>
 					<script>
-						var dg = new PAYPAL.apps.DGFlow(
-						{
-							trigger: 'paypal_submit',
-							expType: 'instant'
-						});
+						var dg = new PAYPAL.apps.DGFlow({trigger: 'paypal_submit',expType: 'instant'});
 					</script>
-					
 					<div class="payment-div">
 						<a href="" data-pay-method="CCVISAMC" class="set-pay-method no-clickable">
 							<img src="<?=baseURL('img/pay/mastercard.png');?>"><br>
@@ -66,7 +58,7 @@
 					<div class="payment-div">
 						<a href="" data-pay-method="ALFACLICK" class="set-pay-method no-clickable">
 							<img src="<?=baseURL('img/pay/alfabank.png');?>"><br>
-							<span>Альфа клик</span>	
+							<span><?=lang('alpha_click')?></span>
 						</a>
 					</div>
 					<div class="payment-div">
@@ -82,9 +74,7 @@
 						</a>
 					</div>
 				</div>
-				<p class="payment-desc">
-					*При выборе данной формы оплаты при оформлении заказа на сайте distribboks.ru, Вы будете автоматически перенаправлены на платежную форму процессингового центра PayU, для внесения данных Вашей банковской карты. Все данные, введенные Вами на платежной форме процессингового центра PayU, полностью защищены в соответствии с требованиями стандарта безопасности PCI DSS. Мы получаем информацию только о совершенном Вами платеже. На указанный Вами при оформлении платежа адрес электронной почты, будет отправлено сообщение об авторизации платежа. Сразу после совершения платежа Вы будете перенаправлены обратно на наш сайт. Информация о Вашем платеже может идти до нас от 5 секунд до нескольких минут. В случае, если у Вас возникла проблема с оплатой, Вам необходимо обратиться в службу поддержки процессинговой компании PayU по бесплатному номеру 8 (800) 200 32 62. Режим работы службы поддержки: круглосуточно.
-				</p>
+				<p class="payment-desc"><?=lang('pay_text');?></p>
 				<div class="payment-sec"><img src="<?=baseURL('img/pay/visa-sec.gif');?>"></div>
 				<div class="payment-sec"><img src="<?=baseURL('img/pay/mc-sec.gif');?>"></div>
 				<!--<p class="payment-p"><?=lang('pay-type');?></p>-->

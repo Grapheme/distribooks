@@ -833,7 +833,7 @@ ul, li {
 
 .gift-pad h2 span {
 	font-size: 30px;
-	background: url('../img/gift-title.png') repeat-x;
+	background: url('../img/gift-title.png') repeat-x 0 7px;
 }
 
 .sale10 h2 span {
@@ -1335,7 +1335,7 @@ ul, li {
 .sale-title {
 	position: absolute;
 	font-size: 30px;
-	background: url('../img/gift-title.png') repeat-x;
+	background: url('../img/gift-title.png') 0 8px repeat-x;
 }
 
 .sale.button {

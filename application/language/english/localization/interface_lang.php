@@ -11,7 +11,7 @@ $lang['pay-type'] = "Enter required information in the form";
 $lang['trailers_title'] = "Trailers of our books";
 $lang['index_page'] = "Distribbooks";
 $lang['top_menu_catalog'] = "Catalog";
-$lang['top_menu_about'] = "About";
+$lang['top_menu_about'] = "About Us";
 $lang['top_menu_donation'] = "Make donation";
 $lang['top_menu_promotion'] = "Promotion";
 $lang['top_menu_request_the_call'] = "Contact us";
@@ -32,7 +32,7 @@ $lang['top_menu_formats'] = "Formats";
 $lang['top_menu_trailers'] = "Trailers";
 
 $lang['menu_editing'] = "Editing";
-$lang['menu_typography'] = "Typography";
+$lang['menu_typography'] = "Design";
 $lang['menu_translation'] = "Translation";
 $lang['menu_distribution'] = "Distribution";
 
@@ -260,5 +260,10 @@ $lang['pay_insert_books'] = "";
 $lang['cabinel_empty_books'] = "You have not yet purchased the books.";
 
 $lang['no-ask-email'] = "Do not ask yet";
+
+$lang['pay_with_paypal'] = "Pay With PayPal";
+$lang['alpha_click'] = "Alfa-Click";
+
+$lang['pay_text'] = "English text";
 
 ?>

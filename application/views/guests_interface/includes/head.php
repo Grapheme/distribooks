@@ -9,8 +9,8 @@
 		document.write('<meta name="viewport" content="width=device-width">');
 	}
 </script>
-<link rel="icon" href="<?=baseURL('favicon.ico')?>" type="image/x-icon">
-<link rel="shortcut icon" href="<?=baseURL('favicon.ico')?>" type="image/x-icon">
+<link rel="icon" href="http://www.distribbooks.com/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="http://www.distribbooks.com/favicon.ico" type="image/x-icon">  
 <link rel="stylesheet" href="<?=baseURL('css/normalize.css');?>">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="<?=baseURL('css/main.css');?>">

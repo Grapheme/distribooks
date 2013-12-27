@@ -53,9 +53,10 @@
 					<div class="basket-item" style="background: #fff; margin-top: 10px; margin-bottom: 25px;">
 					<?php 
 						$total_summa = $basket_total_price;
+						$action_price = CurrencyExchangeUStoRUS($this->project_config['action_price']);
 						//$total_summa = (float)$this->account_basket['basket_total_price'];
-						if($basket_total_price >= $this->project_config['action_price']):
-							$total_summa = $total_summa - round($total_summa*($this->project_config['action_percent']/100),2);
+						if($basket_total_price >= $action_price):
+							$total_summa = $total_summa - round($total_summa*($this->project_config['action_percent']/100),2,PHP_ROUND_HALF_EVEN);
 						endif;
 					?>
 						<div>
@@ -72,8 +73,8 @@
 							</div>
 						</div>
 					</div>
-					<?php if($this->project_config['action_price'] > 0):?>
-						<div class="summa-action-block<?=($basket_total_price < $this->project_config['action_price'])?' hidden':'';?>">
+					<?php if($action_price > 0):?>
+						<div class="summa-action-block<?=($basket_total_price < $action_price)?' hidden':'';?>">
 							<div class="basket-bottom-sale-top"></div>
 							<div class="basket-bottom-sale">
 								<p class="basket-bottom-sale-text">
@@ -83,12 +84,12 @@
 							<div class="basket-bottom-sale-bottom"></div>
 						</div>
 					<?php endif;?>
-			<?php if($this->project_config['action_price'] > 0):?>
-				<div class="summa-action-block-info<?=($basket_total_price > $this->project_config['action_price'])?' hidden':'';?>">
+			<?php if($action_price > 0):?>
+				<div class="summa-action-block-info<?=($basket_total_price > $action_price)?' hidden':'';?>">
 					<div class="basket-bottom-sale-top"></div>
 					<div class="basket-bottom-sale">
 						<p class="basket-bottom-sale-text">
-							<?=lang('basket_page_part1');?> <span><?=getPriceInCurrency($this->project_config['action_price']);?></span> <?=lang('basket_page_part2');?> <span><?=$this->project_config['action_percent']?>%</span> <?=lang('basket_page_part3');?>
+							<?=lang('basket_page_part1');?> <span><?=getPriceInCurrency($action_price);?></span> <?=lang('basket_page_part2');?> <span><?=$this->project_config['action_percent']?>%</span> <?=lang('basket_page_part3');?>
 						</p>
 					</div>
 					<div class="basket-bottom-sale-bottom"></div>
