@@ -2004,6 +2004,7 @@ input[type="radio"]:checked + label
 
 .big .title {
 	font-size: 22px;
+	white-space: nowrap;
 }
 
 .genre {

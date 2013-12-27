@@ -11,7 +11,7 @@ download/*
 temporary/*
 catalog/*
 
-*.clpprj
+distribbooks.clpprj
 *.project
 .settings/*
 
