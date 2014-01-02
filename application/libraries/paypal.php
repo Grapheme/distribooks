@@ -7,7 +7,7 @@
 	$PROXY_HOST = '127.0.0.1';
 	$PROXY_PORT = '808';
 
-	$SandboxFlag = true;
+	$SandboxFlag = false;
 	//' TODO:
 	//'------------------------------------
 	//' PayPal API Credentials
@@ -16,10 +16,10 @@
 	//' Replace <API_SIGNATURE> with your Signature
 	//'------------------------------------
 	$API_UserName="ro_mail_api1.mail.ru";
-	$API_Password="1385131305";
-	$API_Signature="AjcQqD-Dpb-K8varTJJBcSuICFjkA0cQeVD6SJQRMHY.TraWpMgYFxIJ";
+	$API_Password="N9LNKME2RS2DHH66";
+	$API_Signature="ADcOgVwR5PFTMFDRF-BmwGrlLYSKAK2W1vjRQw2XJC3jXXl3mGcLoq0n";
 
-	// BN Code 	is only applicable for partners
+	// BN Code is only applicable for partners
 	$sBNCode = "PP-ECWizard";
 	
 	/*	
