@@ -7,16 +7,13 @@ class Admin_ajax_interface extends MY_Controller{
 	function __construct(){
 		
 		parent::__construct();
-		if($this->account['group'] != ADMIN_GROUP_VALUE):
+		if(!$this->isAdminLoggined()):
 			show_404();
 		endif;
 	}
 	/******************************************** cabinet ******************************************************/
 	public function adminSavePassword(){
 		
-		if($this->account['group'] != ADMIN_GROUP_VALUE):
-			show_error('В доступе отказано');
-		endif;
 		if($this->postDataValidation('password')):
 			if($this->validOldPassword($this->input->post('oldpassword'))):
 				$this->accounts->updateField($this->account['id'],'password',md5($this->input->post('password')));
@@ -44,6 +41,15 @@ class Admin_ajax_interface extends MY_Controller{
 		
 		if($this->postDataValidation('seo') === TRUE):
 			if($this->updatingSEO($this->input->post())):
+				$this->load->model(array('meta_titles','pages'));
+				if($pageID = $this->meta_titles->value($this->input->post('meta_titles_id'),'item_id',array('group'=>'page'))):
+					if($this->pages->getWhere($pageID)):
+						$this->updatingPageContent($pageID,$this->input->post());
+					else:
+						$itemID = $this->insertingPageContent($this->input->post());
+						$this->meta_titles->updateField($this->input->post('meta_titles_id'),'item_id',$itemID);
+					endif;
+				endif;
 				$this->json_request['status'] = TRUE;
 				$this->json_request['responseText'] = 'Страница cохранена';
 				$this->json_request['redirect'] = site_url(ADMIN_START_PAGE.'/seo');
@@ -62,6 +68,23 @@ class Admin_ajax_interface extends MY_Controller{
 			'en_page_title'=>$post['en_page_title'],'en_page_description'=>$post['en_page_description'],'en_page_h1'=>$post['en_page_h1']
 		);
 		$this->updateItem(array('update'=>$seoMeta,'model'=>'meta_titles'));
+		return TRUE;
+	}
+	
+	private function insertingPageContent($post){
+		
+		$pageContent = array(
+			'ru_content'=>json_encode($post['ru_content']),'en_content'=>json_encode($post['en_content'])
+		);
+		return $this->insertItem(array('insert'=>$pageContent,'model'=>'pages'));
+	}
+	
+	private function updatingPageContent($id,$post){
+		
+		$pageContent = array(
+			'id'=>$id,'ru_content'=>json_encode($post['ru_content']),'en_content'=>json_encode($post['en_content'])
+		);
+		$this->updateItem(array('update'=>$pageContent,'model'=>'pages'));
 		return TRUE;
 	}
 	/********************************************** promo ********************************************************/

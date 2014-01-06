@@ -5,7 +5,7 @@ class Admin_interface extends MY_Controller{
 	function __construct(){
 		
 		parent::__construct();
-		if(!$this->loginstatus || ($this->account['group'] != ADMIN_GROUP_VALUE)):
+		if(!$this->isAdminLoggined()):
 			redirect('');
 		endif;
 		$this->load->helper('form');
@@ -21,6 +21,7 @@ class Admin_interface extends MY_Controller{
 		
 		$this->load->view("admin_interface/cabinet/profile");
 	}
+	
 	public function promoAction(){
 		
 		$this->load->model('configuration');
@@ -59,7 +60,7 @@ class Admin_interface extends MY_Controller{
 		
 		$this->load->model('meta_titles');
 		$pagevar = array(
-			'meta_titles' => $this->meta_titles->getWhere(NULL,array('group'=>'interface'),TRUE)
+			'meta_titles' => $this->meta_titles->getWhereIN(array('field'=>'group','where_in'=>array('interface','page'),'many_records'=>TRUE))
 		);
 		$this->load->view("admin_interface/pages/list",$pagevar);
 	}
@@ -72,7 +73,18 @@ class Admin_interface extends MY_Controller{
 		$this->load->model('meta_titles');
 		$pagevar = array(
 			'meta_titles' => $this->meta_titles->getWhere($this->input->get('id')),
+			'edit_content' => FALSE,
+			'ru_page_content' => array(),
+			'en_page_content' => array()
 		);
+		if($pagevar['meta_titles']['group'] == 'page'):
+			$this->load->model('pages');
+			if($content = $this->pages->getWhere($pagevar['meta_titles']['item_id'])):
+				$pagevar['ru_page_content'] = json_decode($content['ru_content'],TRUE);
+				$pagevar['en_page_content'] = json_decode($content['en_content'],TRUE);
+			endif;
+			$pagevar['edit_content'] = TRUE;
+		endif;
 		$this->load->view("admin_interface/pages/edit",$pagevar);
 	}
 	/********************************************* formats ********************************************************/

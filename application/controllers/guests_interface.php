@@ -173,6 +173,10 @@ class Guests_interface extends MY_Controller{
 			'breadcrumbs' => array(),
 			'basket_list' => $this->getBooksInBasket()
 		);
+		$this->load->model('pages');
+		if($content = $this->pages->getWhere($pagevar['page_content']['item_id'])):
+			$pagevar['text_blocks'] = json_decode($content[$this->uri->language_string.'_content'],TRUE);
+		endif;
 		$pagevar['breadcrumbs'] = array('editing'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/editing",$pagevar);
 	}
@@ -185,6 +189,10 @@ class Guests_interface extends MY_Controller{
 			'breadcrumbs' => array(),
 			'basket_list' => $this->getBooksInBasket()
 		);
+		$this->load->model('pages');
+		if($content = $this->pages->getWhere($pagevar['page_content']['item_id'])):
+			$pagevar['text_blocks'] = json_decode($content[$this->uri->language_string.'_content'],TRUE);
+		endif;
 		$pagevar['breadcrumbs'] = array('typography'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/typography",$pagevar);
 	}
@@ -197,6 +205,10 @@ class Guests_interface extends MY_Controller{
 			'breadcrumbs' => array(),
 			'basket_list' => $this->getBooksInBasket()
 		);
+		$this->load->model('pages');
+		if($content = $this->pages->getWhere($pagevar['page_content']['item_id'])):
+			$pagevar['text_blocks'] = json_decode($content[$this->uri->language_string.'_content'],TRUE);
+		endif;
 		$pagevar['breadcrumbs'] = array('translation'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/translation",$pagevar);
 	}
@@ -209,6 +221,10 @@ class Guests_interface extends MY_Controller{
 			'breadcrumbs' => array(),
 			'basket_list' => $this->getBooksInBasket()
 		);
+		$this->load->model('pages');
+		if($content = $this->pages->getWhere($pagevar['page_content']['item_id'])):
+			$pagevar['text_blocks'] = json_decode($content[$this->uri->language_string.'_content'],TRUE);
+		endif;
 		$pagevar['breadcrumbs'] = array('distribution'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/distribution",$pagevar);
 	}

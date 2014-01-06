@@ -49,7 +49,7 @@
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_request_translation');?></span></p>
-						<p class="desc"><?=lang('service_request_translation_text');?></p>
+						<p class="desc"><?=$text_blocks['left_top_block'];?></p>
 					</div>
 				</div>
 				<div class="grid_2 information">
@@ -59,31 +59,29 @@
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_begin_translating');?></span></p>
-						<p class="desc"><?=lang('service_begin_translating_text');?></p>
+						<p class="desc"><?=$text_blocks['right_top_block'];?></p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container_5">
-            <div class="clear"></div>                         
-            
+            <div class="clear"></div>
             <div class="grid_1 pos3-no">
                     &nbsp;
             </div>
-            
             <div class="grid_2 info-bottom-div">
 	            <div class="info-bottom">
                     <p>
-                    	<?=lang('service_request_translation_text_2');?>
+                    	<?=$text_blocks['left_bottom_block'];?>
                     </p>
-	            </div>                                 
+	            </div>
             </div>
             <div class="grid_2 info-bottom-div">
                 <div class="info-bottom right">
                     <p>
-                    	<?=lang('service_begin_translating_text_2');?>
+                    	<?=$text_blocks['right_bottom_block'];?>
                     </p>
-                </div>                                 
+                </div>
             </div>
         </div>
 		<div class="clearfix"></div>

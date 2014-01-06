@@ -48,7 +48,7 @@
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_order_clearance');?></span></p>
-						<p class="desc style"><?=lang('service_order_clearance_text');?></p>
+						<p class="desc style"><?=$text_blocks['left_top_block'];?></p>
 					</div>
 				</div>
 				<div class="grid_2 information">
@@ -58,30 +58,26 @@
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_do_design');?></span></p>
-						<p class="desc style"><?=lang('service_do_design_text');?></p>
+						<p class="desc style"><?=$text_blocks['right_top_block'];?></p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container_5">
-                
-                                <div class="clear"></div>                         
-                                
-                                        <div class="grid_1 pos3-no">
-                                        &nbsp;
-                                </div>
-                                
-                                <div class="grid_2 info-bottom-div">
-                                        <div class="style-bottom">
-                                                <p><?=lang('service_order_clearance_text_2');?></p>
-                                        </div>                                 
-                                </div>
-                                <div class="grid_2 info-bottom-div">
-                                        <div class="style-bottom right">
-                                        	<p><?=lang('service_do_design_text_2');?></p>
-                                        </div>                                 
-                                </div>
+            <div class="clear"></div>
+            <div class="grid_1 pos3-no">
+                &nbsp;
+            </div>
+            <div class="grid_2 info-bottom-div">
+                <div class="style-bottom">
+                        <p><?=$text_blocks['left_bottom_block'];?></p>
                 </div>
+            </div>
+            <div class="grid_2 info-bottom-div">
+                <div class="style-bottom right">
+                	<p><?=$text_blocks['right_bottom_block'];?></p>
+                </div>
+			</div>
 		<div class="clearfix"></div>
 		<div class="container_5">
 			<div class="min-nav pos3">

@@ -23,8 +23,8 @@
 				<table class="table table-bordered table-striped table-hover table-condensed">
 					<thead>
 						<tr>
-							<th class="span2"></th>
-							<th class="span5">Название</th>
+							<th class="span1"></th>
+							<th class="span8">Название</th>
 						</tr>
 					</thead>
 					<tbody>
