@@ -10,7 +10,15 @@
 			<a href="<?=site_url('catalog?author='.$book['authors'][$j]['id'])?>"><?=$book['authors'][$j][$this->uri->language_string.'_name'];?></a><?php if(isset($book['authors'][$j+1])):?>,<br/> <?php endif;?>
 		<?php endfor;?>
 		</p>
-		<?php $this->load->view('guests_interface/html/book-rating',array('disabled'=>TRUE,'bookID'=>$book['id']));?>
+		<?php
+			$disabled = TRUE;
+			if(isUserLoggined()):
+				if($book['signed_book'] === TRUE):
+					$disabled = FALSE;
+				endif;
+			endif;
+		?>
+		<?php $this->load->view('guests_interface/html/book-rating',array('disabled'=>$disabled,'bookID'=>$book['id']));?>
 		<a href="<?=site_url('catalog?genre='.$book['genre']);?>" class="genre"><?=$book['genre_title'];?></a>
 		<?php $this->load->view('guests_interface/html/book-price');?>
 	</div>

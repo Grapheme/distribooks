@@ -42,7 +42,7 @@
 							</p>
 							<?php
 								$disabled = TRUE;
-								if($this->loginstatus === TRUE && $this->account['group'] == USER_GROUP_VALUE):
+								if(isUserLoggined()):
 									if($book['signed_book'] === TRUE):
 										$disabled = FALSE;
 									endif;
