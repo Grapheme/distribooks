@@ -95,6 +95,7 @@
 		<div class="clearfix"></div>
 		<?php $this->load->view('guests_interface/html/yelow-block');?>
 		<?php $this->load->view('guests_interface/includes/footer');?>
+		<?php $this->load->view('guests_interface/includes/modal-message');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>
 	<script src="<?=baseURL('js/vendor/jquery.elevatezoom.min.js');?>"></script>
