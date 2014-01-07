@@ -1784,6 +1784,17 @@ input[type="radio"]:checked + label
 	top: 0;
 }
 
+.recall-in.modal-message{
+	width: 270px;
+	height: 90px;
+	top: 100px;
+}
+.recall-in.modal-message .recall-text{
+	margin-left: 35px;
+	width: 190px;
+	height: 70px;
+}
+
 .recall-text {
 	color: #fff;
 	font-size: 11px;

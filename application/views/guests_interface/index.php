@@ -65,6 +65,7 @@
 			<?php endfor;?>
 		<?php endif;?>
 			</div>
+			<?php $this->load->view('guests_interface/includes/modal-message');?>
 		</div>
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>

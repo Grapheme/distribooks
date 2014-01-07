@@ -99,7 +99,8 @@ $(function(){
 		});
 	});
 	$(".off-set-rating").click(function(){
-		alert(Localize[mt.currentLanguage]['no_set_rating']);
+		$(".div-modal-message").find('.recall-text').html(Localize[mt.currentLanguage]['no_set_rating']);
+		$(".div-modal-message").fadeIn(300,function(){window.setTimeout(function(){$(".div-modal-message").fadeOut(300);},4000);});
 	})
 	function currencyExchange(price){
 		
