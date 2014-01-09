@@ -264,6 +264,6 @@ $lang['no-ask-email'] = "Do not ask yet";
 $lang['pay_with_paypal'] = "Pay With PayPal";
 $lang['alpha_click'] = "Alfa-Click";
 
-$lang['pay_text'] = "English text";
+$lang['pay_text'] = "You will be automatically redirected to the payment form processing center PayU to enter the data of your credit card when you choose this form of payment during online ordering on distribboks.com. All the data you entered on the form of payment processing center PayU, fully protected in accordance with the requirements of safety standard PCI DSS. We get only information about your payment. After payment the e-mail will be sent with the information of the authorization of payment. Immediately after payment you will be redirected back to our site. If you have a problem with your payment, you will need to contact support PayU processing company by the phone 8 (800) 200 32 62.";
 
 ?>

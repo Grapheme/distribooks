@@ -91,7 +91,6 @@
 		//' If an error occured, show the resulting errors
 		//'---------------------------------------------------------------------------------------------------------------
 	    $resArray = hash_call("SetExpressCheckout", $nvpstr);
-		
 		$ack = strtoupper($resArray["ACK"]);
 		if($ack == "SUCCESS" || $ack == "SUCCESSWITHWARNING"){
 			$token = urldecode($resArray["TOKEN"]);
@@ -242,7 +241,12 @@
 			 //closing the curl
 		  	curl_close($ch);
 		}
-
+			
+		if(!isset($nvpResArray['ACK'])):
+			echo "SetExpressCheckout API call failed. ";
+			exit();
+		endif;
+			
 		return $nvpResArray;
 	}
 
