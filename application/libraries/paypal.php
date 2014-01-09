@@ -243,7 +243,7 @@
 		}
 			
 		if(!isset($nvpResArray['ACK'])):
-			echo "SetExpressCheckout API call failed. ";
+			echo "Oops. Something went wrong. Please retry to pay your books.";
 			exit();
 		endif;
 			
