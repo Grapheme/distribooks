@@ -6,7 +6,7 @@ class MY_Controller extends CI_Controller{
 	var $profile = '';
 	var $loginstatus = FALSE;
 	var $account_basket = array('basket_books'=>array(),'basket_total_price'=>0);
-	var $project_config = array('dollar_rate'=>32.00,'free_book'=>4,'count_free_book'=>1,'action_price'=>2000,'action_percent'=>10);
+	var $project_config = array('dollar_rate'=>DOLLAR_RATE,'free_book'=>4,'count_free_book'=>1,'action_price'=>2000,'action_percent'=>10);
 	
 	var $baseURL = '';
 	var $baseLanguageURL = ENGLAN;

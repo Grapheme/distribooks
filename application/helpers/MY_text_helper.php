@@ -1,14 +1,15 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 	
-	function getDollarRate(){
+	function getDollarRate($set_rate = FALSE,$dollar_rate = DOLLAR_RATE){
 		
 		$CI = & get_instance();
-		$dollar_rate = 32.00;
-		if(!empty($CI->project_config['dollar_rate'])):
-			$dollar_rate = $CI->project_config['dollar_rate'];
-		else:
-			$CI->load->model('configuration');
-			$dollar_rate = $CI->configuration->getDollarRate();
+		if($set_rate === FALSE):
+			if(!empty($CI->project_config['dollar_rate'])):
+				$dollar_rate = $CI->project_config['dollar_rate'];
+			else:
+				$CI->load->model('configuration');
+				$dollar_rate = $CI->configuration->getDollarRate();
+			endif;
 		endif;
 		return $dollar_rate;
 	}

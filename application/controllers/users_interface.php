@@ -142,18 +142,25 @@ class Users_interface extends MY_Controller{
 			show_404();
 		else:
 			$total_summa = $total_summa_dollar = $discount = $discount_dollar = 0.00;
+			
+			$set_rate = FALSE; $dollar_rate = $this->project_config['dollar_rate'];
+			if($this->uri->language_string == RUSLAN):
+				$set_rate = TRUE;
+				$dollar_rate = 1.00;
+			endif;
+			
 			for($i=0,$num=0;$i<count($books);$i++):
 				if(($i+1)%$this->project_config['free_book'] != 0):
 					$payBooks[$num]['name'] = $books[$i][$this->uri->language_string.'_title'];
 					$payBooks[$num]['qty'] = 1;
 					if($books[$i]['price_action'] > 0):
 						$total_summa += $books[$i]['price_action'];
-						$total_summa_dollar += round($books[$i]['price_action']/getDollarRate(),2,PHP_ROUND_HALF_EVEN);
-						$payBooks[$num]['amt'] = round($books[$i]['price_action']/getDollarRate(),2,PHP_ROUND_HALF_EVEN);
+						$total_summa_dollar += round($books[$i]['price_action']/getDollarRate($set_rate,$dollar_rate),2,PHP_ROUND_HALF_EVEN);
+						$payBooks[$num]['amt'] = round($books[$i]['price_action']/getDollarRate($set_rate,$dollar_rate),2,PHP_ROUND_HALF_EVEN);
 					else:
 						$total_summa += $books[$i]['price'];
-						$total_summa_dollar += round($books[$i]['price']/getDollarRate(),2,PHP_ROUND_HALF_EVEN);
-						$payBooks[$num]['amt'] = round($books[$i]['price']/getDollarRate(),2,PHP_ROUND_HALF_EVEN);
+						$total_summa_dollar += round($books[$i]['price']/getDollarRate($set_rate,$dollar_rate),2,PHP_ROUND_HALF_EVEN);
+						$payBooks[$num]['amt'] = round($books[$i]['price']/getDollarRate($set_rate,$dollar_rate),2,PHP_ROUND_HALF_EVEN);
 					endif;
 					$num++;
 				endif;
@@ -181,6 +188,9 @@ class Users_interface extends MY_Controller{
 				$paymentAmount += $payBooks[$i]['amt'];
 			endfor;
 			$currencyCodeType = "USD";
+			if($this->uri->language_string == RUSLAN):
+				$currencyCodeType = "RUB";
+			endif;
 			$paymentType = "Sale";
 			$returnURL = site_url('paypal-request');
 			$cancelURL = site_url('paypal-cancel');
