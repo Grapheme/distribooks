@@ -74,7 +74,7 @@
 						</a>
 					</div>
 				</div>
-				<p class="payment-desc"><?=lang('pay_text');?></p>
+				<div class="payment-desc"><?=$text_blocks['content'];?></div>
 				<div class="payment-sec"><img src="<?=baseURL('img/pay/visa-sec.gif');?>"></div>
 				<div class="payment-sec"><img src="<?=baseURL('img/pay/mc-sec.gif');?>"></div>
 				<!--<p class="payment-p"><?=lang('pay-type');?></p>-->

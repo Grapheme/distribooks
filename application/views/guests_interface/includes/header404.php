@@ -1,7 +1,5 @@
 <header>
-
 	<div class="container_5">
-
 	</div>
 	<div class="social">
 		<a href="http://vk.com/distribbooks" class="social-link" target="_blank" id="vk"></a>

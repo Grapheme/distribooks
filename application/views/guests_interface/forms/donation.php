@@ -5,7 +5,18 @@
 	</div>
 	
 	<div class="donation-info">
-		<p><?=lang('form_donation_text')?></p>
+		<?php
+			$donation_text = array('content'=>'');
+			$CI = & get_instance();
+			$CI->load->model('pages');
+			if($meta_titles = $CI->meta_titles->getWhere(NULL,array('group'=>'donation'))):
+				if($content = $CI->pages->getWhere($meta_titles['item_id'])):
+					$donation_text = json_decode($content[$CI->uri->language_string.'_content'],TRUE);
+				endif;
+			endif;
+		?>
+		<!--<p><?=lang('form_donation_text')?></p>-->
+		<p><?=$donation_text['content']?></p>
 		<ul class="donation-recvisits">
 			<li class="donation-recs-item"><a href="<?=BaseURL('download/recvisits/recv_rub.pdf');?>" target="_blank">RUR</a></li>
 			<li class="donation-recs-item"><a href="<?=BaseURL('download/recvisits/recv_eur.pdf');?>" target="_blank">EUR</a></li>

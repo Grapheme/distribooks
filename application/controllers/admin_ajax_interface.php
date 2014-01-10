@@ -42,7 +42,7 @@ class Admin_ajax_interface extends MY_Controller{
 		if($this->postDataValidation('seo') === TRUE):
 			if($this->updatingSEO($this->input->post())):
 				$this->load->model(array('meta_titles','pages'));
-				if($pageID = $this->meta_titles->value($this->input->post('meta_titles_id'),'item_id',array('group'=>'page'))):
+				if($pageID = $this->meta_titles->value($this->input->post('meta_titles_id'),'item_id',array('group'=>$this->input->post('meta_titles_group')))):
 					if($this->pages->getWhere($pageID)):
 						$this->updatingPageContent($pageID,$this->input->post());
 					else:

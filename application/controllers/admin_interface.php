@@ -60,7 +60,7 @@ class Admin_interface extends MY_Controller{
 		
 		$this->load->model('meta_titles');
 		$pagevar = array(
-			'meta_titles' => $this->meta_titles->getWhereIN(array('field'=>'group','where_in'=>array('interface','page'),'many_records'=>TRUE))
+			'meta_titles' => $this->meta_titles->getWhereIN(array('field'=>'group','where_in'=>array('interface','services','about','donation','pay'),'many_records'=>TRUE))
 		);
 		$this->load->view("admin_interface/pages/list",$pagevar);
 	}
@@ -73,17 +73,19 @@ class Admin_interface extends MY_Controller{
 		$this->load->model('meta_titles');
 		$pagevar = array(
 			'meta_titles' => $this->meta_titles->getWhere($this->input->get('id')),
-			'edit_content' => FALSE,
+			'edit_meta_titles' => TRUE,
 			'ru_page_content' => array(),
 			'en_page_content' => array()
 		);
-		if($pagevar['meta_titles']['group'] == 'page'):
+		if(in_array($pagevar['meta_titles']['group'],array('services','about','donation','pay'))):
 			$this->load->model('pages');
 			if($content = $this->pages->getWhere($pagevar['meta_titles']['item_id'])):
 				$pagevar['ru_page_content'] = json_decode($content['ru_content'],TRUE);
 				$pagevar['en_page_content'] = json_decode($content['en_content'],TRUE);
 			endif;
-			$pagevar['edit_content'] = TRUE;
+		endif;
+		if(in_array($pagevar['meta_titles']['group'],array('donation'))):
+			$pagevar['edit_meta_titles'] = FALSE;
 		endif;
 		$this->load->view("admin_interface/pages/edit",$pagevar);
 	}

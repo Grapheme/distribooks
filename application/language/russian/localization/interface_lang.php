@@ -95,6 +95,9 @@ $lang['signin_nickname'] = "Никнейм";
 $lang['signin_password'] = "Пароль";
 $lang['signin_number'] = "Номер телефона";
 $lang['signin_button'] = "Авторизоваться";
+$lang['signin_enter'] = "Вход";
+$lang['signin_fast_reg'] = "Быстрая регистрация";
+$lang['signin_SN'] = "Войти через соц.сети";
 
 $lang['forgot_text'] = "Необходимо указать электронную почту";
 $lang['forgot_button'] = "Восстановить пароль";

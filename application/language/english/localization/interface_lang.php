@@ -94,6 +94,9 @@ $lang['signin_nickname'] = "Nickname";
 $lang['signin_password'] = "Password";
 $lang['signin_number'] = "Telephone number";
 $lang['signin_button'] = "Authorize";
+$lang['signin_enter'] = "Sign-in";
+$lang['signin_fast_reg'] = "Quick Registration";
+$lang['signin_SN'] = "Sign in social networks";
 
 $lang['forgot_text'] = "You must specify the email";
 $lang['forgot_button'] = "Restore password";

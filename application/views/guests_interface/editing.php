@@ -45,7 +45,7 @@
 				<div class="grid_2 information">
 					<div>
 						<img class="inf-img" src="<?=baseURL('img/edit-left.png')?>" style="margin-bottom: 65px;">
-						<a href="#" class="apply-button apply-order-editing no-clickable"><?=lang('service_send_enquiry');?></a>
+						<a href="#" class="apply-button apply-order-editing no-clickable"><?=$text_blocks['left_button'];?></a>
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_order_ending');?></span></p>
@@ -55,7 +55,7 @@
 				<div class="grid_2 information">
 					<div>
 						<img class="inf-img" src="<?=baseURL('img/edit-right.png')?>">
-						<a href="#" class="apply-button apply-do-editing no-clickable"><?=lang('service_send_enquiry');?></a>
+						<a href="#" class="apply-button apply-do-editing no-clickable"><?=$text_blocks['right_button'];?></a>
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_do_ending');?></span></p>

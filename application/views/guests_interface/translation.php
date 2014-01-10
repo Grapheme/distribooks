@@ -45,7 +45,7 @@
 				<div class="grid_2 information">
 					<div>
 						<img class="inf-img" src="<?=baseURL('img/trans-left.png')?>" style="margin-bottom: 24px;">
-						<a href="#" class="apply-button apply-order-translation no-clickable"><?=lang('service_send_enquiry');?></a>
+						<a href="#" class="apply-button apply-order-translation no-clickable"><?=$text_blocks['left_button'];?></a>
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_request_translation');?></span></p>
@@ -55,7 +55,7 @@
 				<div class="grid_2 information">
 					<div>
 						<img class="inf-img" src="<?=baseURL('img/trans-right.png')?>">
-						<a href="#" class="apply-button apply-do-translation no-clickable"><?=lang('service_send_enquiry');?></a>
+						<a href="#" class="apply-button apply-do-translation no-clickable"><?=$text_blocks['right_button'];?></a>
 					</div>
 					<div>
 						<p class="title"><span><?=lang('service_begin_translating');?></span></p>

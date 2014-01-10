@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 <?php $this->load->view("admin_interface/includes/head");?>
+<link rel="stylesheet" href="<?=site_url('css/admin-panel/redactor.css');?>" />
 </head>
 <body>
 	<?php $this->load->view("admin_interface/includes/navbar");?>
@@ -17,7 +18,7 @@
 				<ul class="breadcrumb">
 					<li><a href="<?=site_url(ADMIN_START_PAGE);?>">Панель управления</a> <span class="divider">/</span></li>
 					<li><a href="<?=site_url(ADMIN_START_PAGE.'/seo');?>">SEO</a> <span class="divider">/</span></li>
-					<li class="active">Редатирование</li>
+					<li class="active">Редактирование</li>
 				</ul>
 				<div class="clear"></div>
 				<?php $this->load->view('admin_interface/forms/pages/update');?>
@@ -26,5 +27,7 @@
 	</div>
 	<?php $this->load->view("admin_interface/includes/footer");?>
 	<?php $this->load->view("admin_interface/includes/scripts");?>
+	<script type="text/javascript" src="<?=site_url('js/vendor/redactor.js');?>"></script>
+	<script type="text/javascript" src="<?=site_url('js/cabinet/redactor-config.js');?>"></script>
 </body>
 </html>

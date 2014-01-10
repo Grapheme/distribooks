@@ -35,11 +35,16 @@ class Users_interface extends MY_Controller{
 		endif;
 		$this->load->model('books');
 		$pagevar = array(
-			'meta_titles' => $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
+			'page_content' => $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
 			'breadcrumbs' => array('pay'=>lang('user_pay')),
 			'books' => $this->books->getBooksByIDs($booksIDs,'id,ru_title,en_title,price,price_action'),
-			'basket_list' => array()
+			'basket_list' => array(),
+			'text_blocks' => array('content'=>'')
 		);
+		$this->load->model('pages');
+		if($content = $this->pages->getWhere($pagevar['page_content']['item_id'])):
+			$pagevar['text_blocks'] = json_decode($content[$this->uri->language_string.'_content'],TRUE);
+		endif;
 		$this->load->view("users_interface/pay",$pagevar);
 	}
 	
@@ -52,7 +57,7 @@ class Users_interface extends MY_Controller{
 		$this->offset = (int)$this->uri->segment(4);
 		$this->load->model(array('signed_books','financial_reports'));
 		$pagevar = array(
-			'meta_titles' => $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
+			'page_content' => $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
 			'breadcrumbs' => array('cabinet'=>lang('user_cabinet')),
 			'books' => $this->signed_books->getMyBooks(PER_PAGE_DEFAULT,$this->offset),
 			'pages' => $this->pagination('cabinet/my-books',4,$this->signed_books->countAllResults(array('account'=>$this->account['id'])),PER_PAGE_DEFAULT),

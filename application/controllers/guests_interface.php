@@ -138,9 +138,14 @@ class Guests_interface extends MY_Controller{
 		$pagevar = array(
 			'page_content'=> $this->meta_titles->getWhere(NULL,array('page_address'=>uri_string())),
 			'breadcrumbs' => array(),
+			'text_blocks' => array('content'=>''),
 			'basket_list' => $this->getBooksInBasket(),
 			'trailers' => $this->getTrailers(2)
 		);
+		$this->load->model('pages');
+		if($content = $this->pages->getWhere($pagevar['page_content']['item_id'])):
+			$pagevar['text_blocks'] = json_decode($content[$this->uri->language_string.'_content'],TRUE);
+		endif;
 		$pagevar['breadcrumbs'] = array('about'=>$pagevar['page_content'][$this->uri->language_string.'_page_title']);
 		$this->load->view("guests_interface/about",$pagevar);
 	}
@@ -362,6 +367,7 @@ class Guests_interface extends MY_Controller{
 		$this->load->library('plural_words');
 		$this->load->view("guests_interface/basket",$pagevar);
 	}
+	
 	private function replaceCurrency(){
 		
 		if($this->uri->language_string == RUSLAN):

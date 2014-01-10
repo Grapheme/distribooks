@@ -33,24 +33,8 @@
 					</div>
 				</div>
 			</div>
-				<p class="about-title title-1"</p>
-				<p class="about-text typo-normal-text">
-					
-				</p>
-			<div class="grid_4 news-one" style="margin-top: 0;">
-                <div>
-                	<p class="title-1"><?=lang('about-title')?></p>
-                    <img class="typo-img" src="<?=baseURL('img/typo.png');?>">
-                    <div>
-                    	<p class="typo-left-text"><?=lang('about_project_1')?></p>
-                    </div>
-                </div>
-                <div>
-                    <p class="typo-normal-text">
-                    	<?=lang('about_project_2')?>
-                    </p>
-                </div>
-                
+			<div class="grid_4 news-one">
+            	<?=$text_blocks['content'];?>
                 <div class="clear"></div>
              </div>
         </div>
@@ -63,7 +47,7 @@
 				<div class="grid_4">
 					<a name="contacts"></a>
 					<div class="contacts">
-					<?=lang('contacts')?>
+					<?=nl2br($text_blocks['address_block']);?>
 					</div>
 				</div>
 			</div>
@@ -74,21 +58,7 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<div class="yellow">
-			<div class="container_5">
-				<div style="position: relative;"><img src="<?=baseURL('img/shadow-y.png');?>" class="shadow-top"></div>
-				<div class="grid_1">&nbsp;</div>
-				<div class="grid_4">
-					<h2><span class="sale-title">Акция:</span></h2>
-					<?php if($this->uri->language_string == 'ru'): ?>
-						<img src="<?=baseURL('img/sale.png')?>" class="sale">
-					<?php elseif($this->uri->language_string == 'en'): ?>
-						<img src="<?=baseURL('img/sale_en.png')?>" class="sale">
-					<?php endif;?>
-					<div class="position: relative;"><a href="<?=site_url('catalog');?>" class="button red sale">Выбрать книги</a></div>
-				</div>
-			</div>
-		</div>
+		<?php $this->load->view('guests_interface/html/yelow-block');?>
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>

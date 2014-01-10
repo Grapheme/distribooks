@@ -19,6 +19,7 @@ ImperaviRedactor.config = {
 	imageUpload: mt.getBaseURL('redactor/upload'),
 	imageGetJson: mt.getBaseURL('redactor/get-uploaded-images'),
 	imageUploadErrorCallback: function(response){alert(response.error);},
+	convertDivs: false,
 	changeCallback: function(){
 		mt.inputChanged = true;
 		$(this.$element[0]).hideToolTip();

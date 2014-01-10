@@ -52,6 +52,7 @@ $(document).ready(function(){
 		$(".dark-screen").fadeOut("fast");
 		$(".window-donation").fadeOut("fast");
 		$(".request-div").fadeOut("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
+		$(".window-auth").fadeOut("fast",function(){$(this).find('form').defaultValidationErrorStatus();});
 		$(".sale-popup").fadeOut("fast");
 	});
 	

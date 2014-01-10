@@ -40,7 +40,7 @@
 					<div class="grid_2 information">
 						<div>
 							<img class="inf-img" src="<?=baseURL('img/dist-left.png')?>" style="margin-bottom: 54px;">
-							<a href="#" class="apply-button apply-order-distribution no-clickable"><?=lang('service_send_enquiry');?></a>
+							<a href="#" class="apply-button apply-order-distribution no-clickable"><?=$text_blocks['left_button'];?></a>
 						</div>
 						<div>
 							<p class="title"><span><?=lang('service_order_distribution');?></span></p>
@@ -50,7 +50,7 @@
 					<div class="grid_2 information">
 						<div>
 							<img class="inf-img" src="<?=baseURL('img/dist-right.png')?>" style="margin-bottom: 20px;">
-							<a href="#" class="apply-button apply-do-distribution no-clickable"><?=lang('service_send_enquiry');?></a>
+							<a href="#" class="apply-button apply-do-distribution no-clickable"><?=$text_blocks['right_button'];?></a>
 						</div>
 						<div>
 							<p class="title"><span><?=lang('service_begin_distribution');?></span></p>
