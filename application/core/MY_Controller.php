@@ -84,6 +84,7 @@ class MY_Controller extends CI_Controller{
 
 	public function setProjectConfig(){
 		
+		$this->load->model('configuration');
 		if($project_config = $this->configuration->getWhere(1)):
 			$this->project_config = $project_config;
 			set_cookie('project_config',json_encode($project_config),time()+86500,'','/');
