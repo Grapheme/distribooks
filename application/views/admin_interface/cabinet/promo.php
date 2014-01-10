@@ -19,7 +19,7 @@
 			<div class="span9">
 				<ul class="breadcrumb">
 					<li><a href="<?=site_url(ADMIN_START_PAGE);?>">Панель управления</a> <span class="divider">/</span></li>
-					<li class="active">Промо акции</li>
+					<li class="active">Настройки</li>
 				</ul>
 				<?php $this->load->view('admin_interface/forms/promo');?>
 			</div>
