@@ -1,7 +1,7 @@
 <div class="shop-top">
 	<div class="shop-img">
 		<?php $this->load->view('guests_interface/html/book-properties');?>
-		<div class="shop-img-cont"><a href="<?=site_url($book['page_address'])?>"><img src="<?=baseURL($book['thumbnail']);?>"></a></div>
+		<div class="shop-img-cont"><a href="<?=site_url($book['page_address'])?>"><img class="zoom-img" src="<?=baseURL($book['thumbnail']);?>" data-zoom-image="<?=baseURL($book['origin']);?>"></a></div>
 	</div>
 	<div class="shop-about">
 		<a href="<?=site_url($book['page_address'])?>" class="title"><?=$book[$this->uri->language_string.'_title'];?></a>

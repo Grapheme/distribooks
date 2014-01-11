@@ -158,5 +158,15 @@
 	
 	<script type="text/javascript" src="<?=baseURL('js/vendor/jquery.barrating.js');?>"></script>
 	<script type="text/javascript" src="<?=baseURL('js/cabinet/barrating-config.js')?>"></script>
+	<script src="<?=baseURL('js/vendor/jquery.elevatezoom.min.js');?>"></script>
+	<script>
+		$('.zoom-img').elevateZoom({
+			responsive: true,
+			zoomWindowWidth:168,
+            zoomWindowHeight:182,
+            scrollZoom : true,
+            zoomWindowOffety: -8
+		});
+	</script>
 </body>
 </html>
