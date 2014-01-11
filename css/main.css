@@ -495,7 +495,6 @@ input, textarea, select {
 .search {
 	position: relative;
 	display: inline-block;
-	background: #fff;
 	text-decoration: none;
 	font-weight: 400;
 	font-size: 13px;
