@@ -51,7 +51,7 @@
 			</div>
 			<div class="footer-right">
 				<div><a href="<?=site_url('about#contacts');?>"><img src="<?=baseURL('img/white-mail.png')?>"><?=lang('contacts_link');?></a></div>
-				<div><a href="skype:DistibBooks?call"><img src="<?=baseURL('img/white-skype.png')?>">DistibBooks</a></div>
+				<div><a href="skype:distribbooks?call"><img src="<?=baseURL('img/white-skype.png')?>">DistibBooks</a></div>
 			</div>
 			<div style="display: inline-block; float: left;"><img src="<?=baseURL('img/paypal.jpg');?>" style="width: 70px;"></div>
 			<div class="footer-payu"><img src="<?=baseURL('img/payu.gif');?>" style="width: 70px; margin-top: 10px;"></div>
@@ -62,9 +62,9 @@
 				<img class="footer-adult pos3-no" src="<?=baseURL('img/adult.png')?>">
 			</div>
 			<div class="footer-right">
-				<div><img class="footer-logo" src="<?=baseURL('img/min-logo.png')?>"><p>&copy; Distibbooks.com<br>2013 - <?=date("Y");?></p></div>
+				<div><img class="footer-logo" src="<?=baseURL('img/min-logo.png')?>"><p>&copy; Distribbooks.com<br>2013 - <?=date("Y");?></p></div>
 				<div class="pos3-no"><a href="<?=site_url('about#contacts');?>"><img src="<?=baseURL('img/white-mail.png')?>"><?=lang('contacts_link');?></a></div>
-				<div class="pos3-no"><a href="skype:DistibBooks?call"><img src="<?=baseURL('img/white-skype.png')?>">DistibBooks</a></div>
+				<div class="pos3-no"><a href="skype:DistribBooks?call"><img src="<?=baseURL('img/white-skype.png')?>">DistribBooks</a></div>
 				<img class="footer-adult pos3" src="<?=baseURL('img/adult.png')?>" style="float: left; margin: 0;">
 			</div>
 		</div>

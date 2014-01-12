@@ -68,7 +68,7 @@
 				<div class="grid_1">
 					<img class="qr pos2" src="<?=baseURL('img/qr.png');?>">
 					<div style="position: absolute; bottom: -1px; right: 0;">
-						<a href="skype:DistibBooks?call" class="top-contact"><img src="<?=baseURL('img/skype.png');?>">DistibBooks</a>
+						<a href="skype:DistribBooks?call" class="top-contact"><img src="<?=baseURL('img/skype.png');?>">DistribBooks</a>
 						<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -25%!</a>
 					<?php if($this->project_config['action_percent'] > 0):?>
 						<!--<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>-->
@@ -77,7 +77,7 @@
 				</div>
 				<div class="grid_1">
 					<div style="position: absolute; bottom: -1px; width: 100%;">
-						<a href="mailto:welcome@distibbooks.com" class="top-contact"><img src="<?=baseURL('img/mail.png');?>">welcome@distibbooks.com</a>
+						<a href="mailto:welcome@distribbooks.com" class="top-contact"><img src="<?=baseURL('img/mail.png');?>">welcome@distribbooks.com</a>
 						<a href="#" class="blue button call pos1 recall no-clickable"><img src="<?=baseURL('img/call.png');?>"><?=lang('top_menu_request_the_call');?></a>
 					<?php if($this->uri->segment(1) != 'pay'):?>
 						<a href="" class="blue button call pos2 basket<?=($this->uri->segment(1) == 'basket')?'':' basket-show-link';?> no-clickable<?=(empty($this->account_basket['basket_books']))?' hidden':'';?>">
