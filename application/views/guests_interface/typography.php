@@ -47,7 +47,7 @@
 						<a href="#" class="apply-button apply-order-clearance no-clickable"><?=$text_blocks['left_button'];?></a>
 					</div>
 					<div>
-						<p class="title"><span><?=lang('service_order_clearance');?></span></p>
+						<p class="title"><span><?=$text_blocks['left_title'];?></span></p>
 						<p class="desc style"><?=$text_blocks['left_top_block'];?></p>
 					</div>
 				</div>
@@ -57,7 +57,7 @@
 						<a href="#" class="apply-button apply-do-clearance no-clickable"><?=$text_blocks['right_button'];?></a>
 					</div>
 					<div>
-						<p class="title"><span><?=lang('service_do_design');?></span></p>
+						<p class="title"><span><?=$text_blocks['right_title'];?></span></p>
 						<p class="desc style"><?=$text_blocks['right_top_block'];?></p>
 					</div>
 				</div>
