@@ -17,6 +17,10 @@ class Guests_interface extends MY_Controller{
 		$this->lang->load('localization/interface',$this->languages[$this->uri->language_string]);
 		$this->load->model('meta_titles');
 		$this->getAccountBasketBooks();
+		$this->session->unset_userdata('gift_user_id');
+		delete_cookie('gift_book');
+		delete_cookie('buy_book');
+		delete_cookie('paypal_checkout');
 	}
 	
 	public function index(){

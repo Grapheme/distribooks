@@ -36,6 +36,7 @@ $(function(){
 		}else{
 			cookies.deleteCookie('buy_book','/');
 		}
+		cookies.deleteCookie('gift_book','/');
 		$(".dark-screen").fadeIn("fast");
 		$(".forgot-left").addClass('hidden');
 		$(".form-sign").show();
@@ -43,11 +44,13 @@ $(function(){
 	});
 	$(".buy-link").click(function(){
 		cookies.setCookie('buy_book',$(this).parents('.buyor').attr('data-book-id'),largeExpDate,'/');
+		cookies.deleteCookie('gift_book','/');
 	});
 	$(".basket-link").click(function(){
 		var bookID = $(this).parents('.buyor').attr('data-book-id').trim();
 		var pathname = location.pathname;
 		var basket_books = [];
+		cookies.deleteCookie('gift_book','/');
 		if(cookies.getCookie('basket_books') !== false){basket_books = JSON.parse(cookies.getCookie('basket_books'));}
 		if(cookies.getCookie('buy_book') !== false){cookies.deleteCookie('buy_book','/');}
 		if(basket_books.length < mt.max_basket && basket_books.indexOf(bookID) == -1){
@@ -86,6 +89,7 @@ $(function(){
 	});
 	$(".auto-buy-link").click(function(){
 		cookies.setCookie('buy_book',$(this).parents('.buyor').attr('data-book-id'),largeExpDate,'/');
+		cookies.deleteCookie('gift_book','/');
 		$.ajax({
 			url: mt.getLangBaseURL('auto-buy-book'),
 			type: 'POST',dataType: 'json',
@@ -98,10 +102,32 @@ $(function(){
 			}
 		});
 	});
+	$(".gift-link").click(function(){
+		cookies.setCookie('buy_book',$(this).parents('.buyor').attr('data-book-id'),largeExpDate,'/');
+		cookies.setCookie('gift_book',1,largeExpDate,'/');
+		$(".set-gift-email").show();
+	});
+	$(".donate-gift-close").click(function(){
+		cookies.deleteCookie('buy_book','/');
+		cookies.deleteCookie('gift_book','/');
+		$(".request-div").fadeOut("fast");
+	});
+	$(".recall-gift-email").click(function(){
+		var _form = $(this).parents("form");
+		var options = mainOptions;
+		options.success = function(response,status,xhr,jqForm){
+			mt.ajaxSuccessSubmit(response,status,xhr,jqForm);
+			if(response.status){
+				mt.redirect(response.redirect);
+			}
+		}
+		$(_form).ajaxSubmit(options);
+		return false;
+	});
 	$(".off-set-rating").click(function(){
 		$(".div-modal-message").find('.recall-text').html(Localize[mt.currentLanguage]['no_set_rating']);
 		$(".div-modal-message").fadeIn(300,function(){window.setTimeout(function(){$(".div-modal-message").fadeOut(300);},4000);});
-	})
+	});
 	function currencyExchange(price){
 		
 		if(mt.currentLanguage == 'en'){

@@ -92,7 +92,12 @@ class Users_interface extends MY_Controller{
 					$this->accounts->updateField($this->account['id'],'basket','');
 					$this->account_basket['basket_books'] = $pagevar['basket_list'] = array();
 				endif;
-				redirect(uri_string().urlGETParameters().'&status=ok');
+				$gift_status = '';
+				if($this->input->cookie('gift_book') !== FALSE):
+					delete_cookie('gift_book');
+					$gift_status = '&gift=success';
+				endif;
+				redirect(uri_string().urlGETParameters().'&status=ok'.$gift_status);
 			endif;
 		endif;
 		$this->load->view("users_interface/my-books",$pagevar);
@@ -275,6 +280,8 @@ class Users_interface extends MY_Controller{
 									if(!empty($this->profile['email'])):
 										$mailtext = $this->load->view('mails/buy-book',array('account'=>$this->profile),TRUE);
 										$this->sendMail($this->profile['email'],FROM_BASE_EMAIL,'Distribboks','Покупка книг на distribbooks.com',$mailtext);
+									elseif(!empty($account['email']) && $report['account_gift'] > 0 && isset($booksIDs[0])):
+										$this->sendMailAboutGift($account['id'],$account['email'],$booksIDs[0]);
 									endif;
 									$this->financial_reports->updateField($reportID,'transaction_status',1);
 									$this->financial_reports->updateField($reportID,'pay_status',1);

@@ -1510,7 +1510,7 @@ ul, li {
 	margin-top: 20px;
 }
 
-.donate-close {
+.donate-close,.donate-gift-close {
 	position: absolute;
 	display: block;
 	height: 22px;
@@ -1865,7 +1865,8 @@ input[type="radio"]:checked + label
 	border: 1px solid red;
 }
 
-.recall-button,.auth-button,.forgot-button,.recall-union-email, .recall-union-account {
+.recall-button,.auth-button,.forgot-button,
+.recall-union-email,.recall-gift-email,.recall-union-account {
 	width: 135px;
 	height: 35px;
 	line-height: 35px;
@@ -1913,7 +1914,7 @@ input[type="radio"]:checked + label
 
 .request-div .recall-union-email, 
 .request-div .recall-union-account, 
-.request-div .recall-button {
+.request-div .recall-button, .recall-gift-email {
 	width: 213px;
 	margin-left: 25px;
 	margin-top: 10px;

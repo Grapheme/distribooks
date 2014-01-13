@@ -41,6 +41,7 @@ $lang['gift_pad_text'] = "Выберите книгу в нашем магази
 $lang['gift_pad_button'] = "Выбрать";
 
 $lang['book_shop_buyor'] = "Купить";
+$lang['book_shop_gift'] = "Подарить";
 $lang['book_shop_tocart'] = "В корзину";
 $lang['book_share'] = "Поделиться";
 $lang['book_or'] = "или";
@@ -164,6 +165,8 @@ $lang['catalog_tag_keyword'] = "Все книги с тегом";
 $lang['catalog_tag_author'] = "Все книги автора";
 
 $lang['user_cabinet'] = "Мои книги";
+$lang['gift_email_text'] = "Введите e-mail кому подарить книгу";
+$lang['gift_email'] = "Подарить книгу";
 $lang['union_email_text'] = "Достаточно ввести e-mail, чтобы сохранить здесь все купленные книги.";
 $lang['union_email_exist'] = "Email уже зарегистрирован. Введите пароль";
 $lang['union_email'] = "Сохранить Email";
@@ -259,6 +262,7 @@ $lang['policies'] = '1.	Термины и определения
 
 $lang['payu_error'] = 'Возникла ошибка при оплате. Попробуйте снова!<br/>Если ошибка повторится, дайте нам знать:  <a href="mailto:welcome@distibbooks.com">welcome@distibbooks.com</a>.';
 $lang['payu_succesfull'] = "Оплата проведена успешно.";
+$lang['payu_succesfull_gift'] = "Оплата проведена успешно. Книга успешно подарена";
 $lang['payu_failure'] = "Оплата не выполнена.";
 $lang['payu_succesfull_qiwi'] = "Для завершения покупки вам необходимо оплатить выставленный счет в Qiwi.";
 $lang['pay_wait_books'] = "Скоро здесь появятся купленные книги.";

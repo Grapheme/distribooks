@@ -20,6 +20,9 @@ class Global_interface extends MY_Controller{
 			if($report = $this->financial_reports->getWhere($this->input->post('REFNOEXT'),array('transaction_status'=>0,'operation'=>1))):
 				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE'):
 //				 || $this->input->post('ORDERSTATUS') == 'TEST'
+					if($report['account_gift'] > 0):
+						$report['account'] = $report['account_gift'];
+					endif;
 					if($account = $this->accounts->getWhere($report['account'],array('group'=>USER_GROUP_VALUE,'active'=>1))):
 						write_file(TEMPORARY.'ipn-'.date("YmdHis").'-'.$report['account'].'.txt',json_encode($this->input->post()));
 						if(!empty($report['books'])):
@@ -27,9 +30,11 @@ class Global_interface extends MY_Controller{
 								for($i=0;$i<count($booksIDs);$i++):
 									$this->buyBook($booksIDs[$i],$report['account']);
 								endfor;
-								if(!empty($account['email'])):
+								if(!empty($account['email']) && $report['account_gift'] == 0):
 									$mailtext = $this->load->view('mails/buy-book',array('account'=>$account),TRUE);
 									$this->sendMail($account['email'],FROM_BASE_EMAIL,'Distribboks','Покупка книг на distribbooks.com',$mailtext);
+								elseif(!empty($account['email']) && $report['account_gift'] > 0 && isset($booksIDs[0])):
+									$this->sendMailAboutGift($account['id'],$account['email'],$booksIDs[0]);
 								endif;
 								$this->financial_reports->updateField($this->input->post('REFNOEXT'),'transaction_status',1);
 								//$this->payuIDNRequest($this->input->post(),$report);
@@ -41,6 +46,8 @@ class Global_interface extends MY_Controller{
 			endif;
 		endif;
 	}
+	
+	
 	
 	private function payuIPNResponse($pay_post){
 		
@@ -95,6 +102,32 @@ class Global_interface extends MY_Controller{
 			$this->signInAccount($userID);
 			$json_request['redirect'] = site_url($this->uri->language_string.'/pay');
 			$json_request['status'] = TRUE;
+		endif;
+		echo json_encode($json_request);
+	}
+
+	public function setGiftEmail(){
+		
+		if(!$this->input->is_ajax_request()):
+			show_error('В доступе отказано');
+		endif;
+		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
+		if($this->postDataValidation('signup')):
+			if($this->isUserLoggined() === FALSE):
+				if($userID = $this->registerUserManual()):
+					$this->signInAccount($userID);
+				endif;
+			endif;
+			if(!$giftUserID = $this->accounts->search('email',$this->input->post('email'),array('active'=>1))):
+				$giftUserID = $this->registerUserManual($this->input->post(),FALSE);
+			endif;
+			if($giftUserID):
+				$this->session->set_userdata('gift_user_id',$giftUserID);
+				$json_request['status'] = TRUE;
+				$json_request['redirect'] = site_url($this->uri->language_string.'/pay');
+			endif;
+		else:
+			$json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
 		endif;
 		echo json_encode($json_request);
 	}
@@ -289,9 +322,8 @@ class Global_interface extends MY_Controller{
 		endif;
 		redirect();
 	}
-	
 	/*************************************************************************************************************/
-	private function registerUserManual($post = NULL){
+	private function registerUserManual($post = NULL,$send_email = TRUE){
 		
 		$no_ask_email = 1;
 		if(is_null($post)):
@@ -305,7 +337,7 @@ class Global_interface extends MY_Controller{
 			$password = random_string('alnum',12);
 			$this->accounts->updateField($accountID,'login','id'.$accountID);
 			$this->accounts->updateField($accountID,'password',md5($password));
-			if(!empty($post['email'])):
+			if(!empty($post['email']) && $send_email === TRUE):
 				$mailtext = $this->load->view('mails/signup',array('login'=>'id'.$accountID,'password'=>$password),TRUE);
 				$this->sendMail($post['email'],FROM_BASE_EMAIL,'Distribboks','Регистрация на distribbooks.ru',$mailtext);
 			endif;

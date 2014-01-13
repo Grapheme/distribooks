@@ -1160,6 +1160,9 @@ class MY_Controller extends CI_Controller{
 				case 2: $description = 'Оплата через PayPal';break;
 			endswitch;
 			$insert = array("account"=>$this->account['id'],"summa"=>$summa,'books'=>$books,'operation'=>$code,'description'=>$description,'transaction_status'=>$transaction_status);
+			if($this->input->cookie('gift_book') !== FALSE && $this->session->userdata('gift_user_id') !== FALSE):
+				$insert['account_gift'] = $this->session->userdata('gift_user_id');
+			endif;
 			return $this->financial_reports->insertRecord($insert);
 		endif;
 		return FALSE;
@@ -1183,5 +1186,15 @@ class MY_Controller extends CI_Controller{
 		return getPriceInCurrency($summa);
 	}
 	
+	public function sendMailAboutGift($accountID,$email,$bookID){
+		
+		$this->load->model('books');
+		$password = random_string('alnum',12);
+		$this->accounts->updateField($accountID,'password',md5($password));
+		$bookName = $this->books->value($bookID,'ru_title');
+		$mailtext = $this->load->view('mails/gift-book',array('bookName'=>$bookName,'login'=>'id'.$accountID,'password'=>$password),TRUE);
+		$this->sendMail($email,FROM_BASE_EMAIL,'Distribboks','Подарок книги на distribbooks.com',$mailtext);
+		return TRUE;
+	}
 }
 ?>

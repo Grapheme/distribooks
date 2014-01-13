@@ -18,6 +18,7 @@ $route['sign-in/vk'] = "global_interface/signInVK";
 $route['sign-in/facebook'] = "global_interface/signInUpFacebook";
 /*************************************************/
 $route['auto-buy-book'] = "global_interface/autoBuyBook";
+$route['set-gift-email'] = "global_interface/setGiftEmail";
 
 $route['search-authors-list'] = "global_interface/searchAuthor";
 $route['search-genres-list'] = "global_interface/searchGenre";

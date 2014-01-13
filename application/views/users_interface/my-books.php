@@ -27,6 +27,8 @@
 		<?php 
 			$notificationText = '';
 			if($this->input->get('err') !== FALSE):
+			elseif($this->input->get('gift') !== FALSE):
+				$notificationText = lang('payu_succesfull_gift');
 			elseif($this->input->get('result') !== FALSE):
 				switch($this->input->get('result')):
 					case 0: $notificationText = lang('payu_succesfull');
@@ -70,13 +72,13 @@
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>
-<?php if((int)$reques_email === 0):?>
+<?php if((int)$reques_email === 0 && $this->input->get('gift') === FALSE):?>
 	<?php $this->load->view('users_interface/includes/request-email');?>
 	<script type="text/javascript">
 		$(".dark-screen").fadeIn("fast");
 	</script>
 <?php endif;?>
-<?php if(!is_null($order_pay_status) && $order_status == 0 && $this->input->get('result') !== FALSE):?>
+<?php if(!is_null($order_pay_status) && $order_status == 0 && $this->input->get('result') !== FALSE && $this->input->get('gift') === FALSE):?>
 	<script type="text/javascript" src="<?=baseURL('js/libs/history.js');?>"></script>
 	<script type="text/javascript">
 		var requestIntervalID = {};
