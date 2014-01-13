@@ -1,1 +1,0 @@
-ALTER TABLE `financial_reports` ADD `account_gift` INT UNSIGNED NOT NULL DEFAULT '0' AFTER `account` ;

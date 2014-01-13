@@ -41,7 +41,7 @@ $lang['gift_pad_text'] = "Выберите книгу в нашем магази
 $lang['gift_pad_button'] = "Выбрать";
 
 $lang['book_shop_buyor'] = "Купить";
-$lang['book_shop_gift'] = "Подарить";
+$lang['book_shop_gift'] = "Подарить другу";
 $lang['book_shop_tocart'] = "В корзину";
 $lang['book_share'] = "Поделиться";
 $lang['book_or'] = "или";
@@ -165,7 +165,7 @@ $lang['catalog_tag_keyword'] = "Все книги с тегом";
 $lang['catalog_tag_author'] = "Все книги автора";
 
 $lang['user_cabinet'] = "Мои книги";
-$lang['gift_email_text'] = "Введите e-mail кому подарить книгу";
+$lang['gift_email_text'] = "Укажите email для отправки книги";
 $lang['gift_email'] = "Подарить книгу";
 $lang['union_email_text'] = "Достаточно ввести e-mail, чтобы сохранить здесь все купленные книги.";
 $lang['union_email_exist'] = "Email уже зарегистрирован. Введите пароль";

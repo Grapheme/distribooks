@@ -41,7 +41,7 @@ $lang['gift_pad_text'] = "Choose a book in our store";
 $lang['gift_pad_button'] = "Choose";
 
 $lang['book_shop_buyor'] = "Buy";
-$lang['book_shop_gift'] = "Donate";
+$lang['book_shop_gift'] = "Buy book as gift";
 $lang['book_shop_tocart'] = "Move to cart";
 $lang['book_share'] = "Share";
 $lang['book_or'] = "or";
@@ -164,8 +164,8 @@ $lang['catalog_tag_keyword'] = "All books tagged as";
 $lang['catalog_tag_author'] = "All books by";
 
 $lang['user_cabinet'] = "My books";
-$lang['gift_email_text'] = "Enter the e-mail who donate a book";
-$lang['gift_email'] = "Donate book";
+$lang['gift_email_text'] = "Enter email the book should be sent.";
+$lang['gift_email'] = "Buy as a gift";
 $lang['union_email_text'] = "Just enter your e-mail for saving your books here.";
 $lang['union_email_exist'] = "This e-mail already exists. Please, enter password";
 $lang['union_email'] = "Save Email";
@@ -259,7 +259,7 @@ $lang['policies'] = "
 
 $lang['payu_error'] = 'An error occurred during payment. Try again! <br/> If the problem persists, please let us know: <a href="mailto:welcome@distibbooks.com"> welcome@distibbooks.com </ a>. ';
 $lang['payu_succesfull'] = "Successful payment.";
-$lang['payu_succesfull_gift'] = "Successful payment. Book donated successfully";
+$lang['payu_succesfull_gift'] = "Successful payment. The book is successfully sent as a gift.";
 $lang['payu_failure'] = "Payment failed.";
 $lang['payu_succesfull_qiwi'] = "To complete your purchase you need to pay the invoice in Qiwi.";
 $lang['pay_wait_books'] = "Your books will be here soon.";

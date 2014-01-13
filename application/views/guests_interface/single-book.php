@@ -50,13 +50,13 @@
 							?>
 							<?php $this->load->view('guests_interface/html/book-rating',array('disabled'=>$disabled,'bookID'=>$book['id']))?>
 							<?php $this->load->view('guests_interface/html/book-price');?>
-							<div class="buyor" data-book-id="<?=$book['id'];?>">
-								<a class="buy gift-link no-clickable" href=""><?=lang('book_shop_gift');?></a>
-							</div>
 							<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$book['id'],'mySignedBook'=>$book['signed_book'],'in_basket'=>$book['book_in_basket']));?>
 							<div class="pos3-no">
 								<?php $this->load->view('guests_interface/html/about-product')?>
 								<?php $this->load->view('guests_interface/html/book-formats',array('formats'=>$formats,'book'=>$book));?>
+							</div>
+							<div class="buyor" data-book-id="<?=$book['id'];?>">
+								<a class="gift gift-link no-clickable" href=""><?=lang('book_shop_gift');?></a>
 							</div>
 						</div>
 					</div>
