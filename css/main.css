@@ -2128,7 +2128,7 @@ input[type="radio"]:checked + label
 	max-width: 372px;
 }
 
-.buy, .gift {
+.buy, .gift-link {
 	display: block;
 	background: url('../img/green-button.png') repeat-x;
 	background-size: 100% 100%;
@@ -2144,16 +2144,16 @@ input[type="radio"]:checked + label
 	margin: 0 2px 0 0;
 }
 
-.gift:hover, .buy:hover {
+.gift-link:hover, .buy:hover {
 	background: url('../img/green-button-hover.png') no-repeat;
 	background-size: 100% 100%;
 }
 
-.gift:active,.buy:active {
+.gift-link:active,.buy:active {
 	background: url('../img/green-button-active.png') no-repeat;
 	background-size: 100% 100%;
 }
-.gift {
+.gift-link {
 	margin: 15px 0 0 10px;
 	width: 150px;
 }

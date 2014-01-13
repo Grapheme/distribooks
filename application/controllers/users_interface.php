@@ -215,11 +215,11 @@ class Users_interface extends MY_Controller{
 				$ErrorShortMsg = urldecode($resArray["L_SHORTMESSAGE0"]);
 				$ErrorLongMsg = urldecode($resArray["L_LONGMESSAGE0"]);
 				$ErrorSeverityCode = urldecode($resArray["L_SEVERITYCODE0"]);
-				echo "SetExpressCheckout API call failed. ";
+				/*echo "SetExpressCheckout API call failed. ";
 				echo "Detailed Error Message: " . $ErrorLongMsg;
 				echo "Short Error Message: " . $ErrorShortMsg;
 				echo "Error Code: " . $ErrorCode;
-				echo "Error Severity Code: " . $ErrorSeverityCode;
+				echo "Error Severity Code: " . $ErrorSeverityCode;*/
 			endif;
 		endif;
 	}

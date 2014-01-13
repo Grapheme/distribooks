@@ -56,7 +56,7 @@
 								<?php $this->load->view('guests_interface/html/book-formats',array('formats'=>$formats,'book'=>$book));?>
 							</div>
 							<div class="buyor" data-book-id="<?=$book['id'];?>">
-								<a class="gift gift-link no-clickable" href=""><?=lang('book_shop_gift');?></a>
+								<a class="gift-link no-clickable" href=""><?=lang('book_shop_gift');?></a>
 							</div>
 						</div>
 					</div>
