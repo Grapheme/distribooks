@@ -30,7 +30,7 @@
 		<label>Block order (bottom):</label>
 		<textarea class="span6" rows="5" name="en_content[left_bottom_block]"><?=(isset($en_page_content['left_bottom_block']))?$en_page_content['left_bottom_block']:'';?></textarea>
 		<label>Block to do (title):</label>
-		<input type="text" name="en_content[right_title]" class="span4" value="<?=(isset($en_page_content['right_title']))?$en_page_content['left_title']:'';?>" />
+		<input type="text" name="en_content[right_title]" class="span4" value="<?=(isset($en_page_content['right_title']))?$en_page_content['right_title']:'';?>" />
 		<label>Block to do:</label>
 		<textarea class="span6" rows="5" name="en_content[right_top_block]"><?=(isset($en_page_content['right_top_block']))?$en_page_content['right_top_block']:'';?></textarea>
 		<label>Block to do (button):</label>
