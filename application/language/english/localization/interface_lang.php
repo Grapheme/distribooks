@@ -259,7 +259,7 @@ $lang['policies'] = "
 
 $lang['payu_error'] = 'An error occurred during payment. Try again! <br/> If the problem persists, please let us know: <a href="mailto:welcome@distibbooks.com"> welcome@distibbooks.com </ a>. ';
 $lang['payu_succesfull'] = "Successful payment.";
-$lang['payu_succesfull_gift'] = "Successful payment. The book is successfully sent as a gift.";
+$lang['payu_succesfull_gift'] = "The payment is successful. Email with information about your gift is sent.";
 $lang['payu_failure'] = "Payment failed.";
 $lang['payu_succesfull_qiwi'] = "To complete your purchase you need to pay the invoice in Qiwi.";
 $lang['pay_wait_books'] = "Your books will be here soon.";

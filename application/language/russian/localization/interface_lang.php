@@ -261,8 +261,8 @@ $lang['policies'] = '1.	Термины и определения
 <br>';
 
 $lang['payu_error'] = 'Возникла ошибка при оплате. Попробуйте снова!<br/>Если ошибка повторится, дайте нам знать:  <a href="mailto:welcome@distibbooks.com">welcome@distibbooks.com</a>.';
-$lang['payu_succesfull'] = "Оплата проведена успешно.";
-$lang['payu_succesfull_gift'] = "Оплата проведена успешно. Книга успешно подарена";
+$lang['payu_succesfull'] = "Оплата произведена успешно.";
+$lang['payu_succesfull_gift'] = "Оплата успешно произведена. Письмо с информацией о получении книги отправлена по email.";
 $lang['payu_failure'] = "Оплата не выполнена.";
 $lang['payu_succesfull_qiwi'] = "Для завершения покупки вам необходимо оплатить выставленный счет в Qiwi.";
 $lang['pay_wait_books'] = "Скоро здесь появятся купленные книги.";
