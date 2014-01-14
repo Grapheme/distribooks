@@ -1,7 +1,7 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Global_interface extends MY_Controller{
-	
+ 	
 	function __construct(){
 
 		parent::__construct();
@@ -46,8 +46,6 @@ class Global_interface extends MY_Controller{
 			endif;
 		endif;
 	}
-	
-	
 	
 	private function payuIPNResponse($pay_post){
 		
@@ -176,7 +174,8 @@ class Global_interface extends MY_Controller{
 			if($this->accounts->search('email',$this->input->post('email')) === FALSE):
 				if($userID = $this->registerUserManual($this->input->post())):
 					$this->signInAccount($userID);
-					$json_request['redirect'] = 'cabinet';
+					
+					$json_request['redirect'] = $this->returnLink();
 					$json_request['status'] = TRUE;
 				endif;
 			else:
@@ -291,11 +290,11 @@ class Global_interface extends MY_Controller{
 				if($userID = $this->accounts->search('vkid',$VKontakteAccountInformation['uid'])):
 					$this->signInAccount($userID);
 					$this->accounts->updateField($userID,'vk_access_token',$vkontakte['access_token']);
-					redirect('cabinet');
+					redirect($this->returnLink());
 				else:
 					if($userID = $this->registerUserByVK($VKontakteAccountInformation)):
 						$this->signInAccount($userID);
-						redirect('cabinet');
+						redirect($this->returnLink());
 					endif;
 				endif;
 			endif;
@@ -311,11 +310,11 @@ class Global_interface extends MY_Controller{
 				if($userID = $this->accounts->search('facebookid',$faceBookAccountInformation['id'])):
 					$this->signInAccount($userID);
 					$this->accounts->updateField($userID,'facebook_access_token',$accessToken);
-					redirect('cabinet');
+					redirect($this->returnLink());
 				else:
 					if($userID = $this->registerUserByFaceBook($faceBookAccountInformation)):
 						$this->signInAccount($userID);
-						redirect('cabinet');
+						redirect($this->returnLink());
 					endif;
 				endif;
 			endif;
@@ -408,5 +407,14 @@ class Global_interface extends MY_Controller{
 			$json_request = json_encode($books);
 		endif;
 		echo $json_request;
+	}
+
+	private function returnLink(){
+		
+		$link = 'catalog';
+		if($this->validBasket()):
+			$link = 'basket';
+		endif;
+		return $link;
 	}
 }
