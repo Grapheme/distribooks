@@ -238,15 +238,15 @@ class MY_Controller extends CI_Controller{
 		
 		$this->load->library('phpmailer');
 		$mail = new PHPMailer();
-		$mail->IsSendmail();
+//		$mail->IsSendmail();
 //		$mail->SMTPDebug = 1;
-	/*	$mail->IsSMTP();
+		$mail->IsSMTP();
 		$mail->SMTPAuth = true;
 		$mail->SMTPSecure = "ssl";
 		$mail->Host = "smtp.yandex.ru";
 		$mail->Port = 465;
 		$mail->Username = "distribbooks@yandex.ru";
-		$mail->Password = "gfd688NNDNS";*/
+		$mail->Password = "gfd688NNDNS";
 		try {
 			$mail->AddReplyTo($from_mail,$from_name);
 			$mail->AddAddress($to);
