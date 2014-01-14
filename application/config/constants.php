@@ -50,7 +50,7 @@ define('USER_GROUP_VALUE',						2);
 define('DOLLAR_RATE',							32.00);
 
 define('TO_BASE_EMAIL',							'welcome@distribbooks.com');
-define('FROM_BASE_EMAIL',						'noreply@distribbooks.com');
+define('FROM_BASE_EMAIL',						'no-reply@distribbooks.com');
 
 define('ALLOWED_TYPES_DOCUMENTS',				'doc|docx|xls|xlsx|txt|pdf|ppt|pptx');
 define('ALLOWED_TYPES_IMAGES',					'jpg|gif|jpeg|png');

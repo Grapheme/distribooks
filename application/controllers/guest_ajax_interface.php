@@ -16,14 +16,15 @@ class Guest_ajax_interface extends MY_Controller{
 	public function requestOrderEditing(){
 		
 		if($this->postDataValidation('editing')):
-			$mailtext = $this->load->view('mails/services/order-editing',array('post'=>$this->input->post()),TRUE);
 			$file = NULL;
 			if(isset($_FILES['file']) && $_FILES['file']['error'] == 0):
 				if(move_uploaded_file($_FILES['file']['tmp_name'],getcwd().'/'.TEMPORARY.'/'.$_FILES['file']['name'])):
 					$file = getcwd().'/'.TEMPORARY.'/'.$_FILES['file']['name'];
 				endif;
 			endif;
+			$mailtext = $this->load->view('mails/services/order-editing',array('post'=>$this->input->post()),TRUE);
 			$this->sendMail(TO_BASE_EMAIL,FROM_BASE_EMAIL,'Distribboks','Новый заказ на редактирование',$mailtext,$file);
+			$this->sendCallBackMail();
 			$this->json_request['status'] = TRUE;
 		else:
 			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
@@ -42,6 +43,7 @@ class Guest_ajax_interface extends MY_Controller{
 				endif;
 			endif;
 			$this->sendMail(TO_BASE_EMAIL,FROM_BASE_EMAIL,'Distribboks','Новый заказ на редактирование',$mailtext,$file);
+			$this->sendCallBackMail();
 			$this->json_request['status'] = TRUE;
 		else:
 			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
@@ -60,6 +62,7 @@ class Guest_ajax_interface extends MY_Controller{
 				endif;
 			endif;
 			$this->sendMail(TO_BASE_EMAIL,FROM_BASE_EMAIL,'Distribboks','Новый заказ на оформление',$mailtext,$file);
+			$this->sendCallBackMail();
 			$this->json_request['status'] = TRUE;
 		else:
 			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
@@ -78,6 +81,7 @@ class Guest_ajax_interface extends MY_Controller{
 			endif;
 			$mailtext = $this->load->view('mails/services/do-clearance',array('post'=>$this->input->post()),TRUE);
 			$this->sendMail(TO_BASE_EMAIL,FROM_BASE_EMAIL,'Distribboks','Новый заказ на офомление',$mailtext,$file);
+			$this->sendCallBackMail();
 			$this->json_request['status'] = TRUE;
 		else:
 			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
@@ -96,6 +100,7 @@ class Guest_ajax_interface extends MY_Controller{
 				endif;
 			endif;
 			$this->sendMail(TO_BASE_EMAIL,FROM_BASE_EMAIL,'Distribboks','Новый заказ на перевод',$mailtext,$file);
+			$this->sendCallBackMail();
 			$this->json_request['status'] = TRUE;
 		else:
 			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
@@ -114,6 +119,7 @@ class Guest_ajax_interface extends MY_Controller{
 				endif;
 			endif;
 			$this->sendMail(TO_BASE_EMAIL,FROM_BASE_EMAIL,'Distribboks','Новый заказ на перевод',$mailtext,$file);
+			$this->sendCallBackMail();
 			$this->json_request['status'] = TRUE;
 		else:
 			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
@@ -132,6 +138,7 @@ class Guest_ajax_interface extends MY_Controller{
 				endif;
 			endif;
 			$this->sendMail(TO_BASE_EMAIL,FROM_BASE_EMAIL,'Distribboks','Новый заказ на перевод',$mailtext,$file);
+			$this->sendCallBackMail();
 			$this->json_request['status'] = TRUE;
 		else:
 			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
@@ -162,11 +169,20 @@ class Guest_ajax_interface extends MY_Controller{
 		if($this->postDataValidation('request_call')):
 			$mailtext = $this->load->view('mails/request-call',array('post'=>$this->input->post()),TRUE);
 			$this->sendMail(TO_BASE_EMAIL,FROM_BASE_EMAIL,'Distribboks','Новый заказ на звонок',$mailtext);
+			$this->sendCallBackMail();
 			$this->json_request['status'] = TRUE;
 		else:
 			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
 		endif;
 		echo json_encode($this->json_request);
+	}
+
+	private function sendCallBackMail(){
+		
+		if($this->input->post('email')):
+			$mailtext = $this->load->view('mails/callback-mail',NULL,TRUE);
+			$this->sendMail($this->input->post('email'),FROM_BASE_EMAIL,'Distribboks','Ваша заявка получина',$mailtext);
+		endif;
 	}
 
 }
