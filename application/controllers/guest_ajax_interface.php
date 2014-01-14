@@ -168,7 +168,7 @@ class Guest_ajax_interface extends MY_Controller{
 		
 		if($this->postDataValidation('request_call')):
 			$mailtext = $this->load->view('mails/request-call',array('post'=>$this->input->post()),TRUE);
-			$this->sendMail(TO_BASE_EMAIL,FROM_BASE_EMAIL,'Distribboks','Новый заказ на звонок',$mailtext);
+			$this->sendMail(TO_BASE_EMAIL,FROM_BASE_EMAIL,'Distribboks','Форма обратной связи',$mailtext);
 			$this->sendCallBackMail();
 			$this->json_request['status'] = TRUE;
 		else:
@@ -181,7 +181,7 @@ class Guest_ajax_interface extends MY_Controller{
 		
 		if($this->input->post('email')):
 			$mailtext = $this->load->view('mails/callback-mail',NULL,TRUE);
-			$this->sendMail($this->input->post('email'),FROM_BASE_EMAIL,'Distribboks','Ваша заявка получина',$mailtext);
+			$this->sendMail($this->input->post('email'),FROM_BASE_EMAIL,'Distribboks','Ваша заявка получена',$mailtext);
 		endif;
 	}
 
