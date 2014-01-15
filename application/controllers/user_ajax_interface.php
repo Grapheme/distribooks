@@ -198,7 +198,7 @@ class User_ajax_interface extends MY_Controller{
 				$password = random_string('alnum',12);
 				$this->accounts->updateField($this->account['id'],'password',md5($password));
 				$mailtext = $this->load->view('mails/signup',array('login'=>'id'.$this->account['id'],'password'=>$password),TRUE);
-				$this->sendMail($this->input->post('email'),FROM_BASE_EMAIL,'Distribboks','Регистрация на distribbooks.ru',$mailtext);
+				$this->sendMail($this->input->post('email'),FROM_BASE_EMAIL,'DistribBooks','Регистрация на distribbooks.ru',$mailtext);
 				$this->json_request['redirect'] = site_url($this->uri->language_string.'/cabinet');
 			endif;
 			$this->json_request['status'] = TRUE;

@@ -279,7 +279,7 @@ class Users_interface extends MY_Controller{
 									endfor;
 									if(!empty($this->profile['email'])):
 										$mailtext = $this->load->view('mails/buy-book',array('account'=>$this->profile),TRUE);
-										$this->sendMail($this->profile['email'],FROM_BASE_EMAIL,'Distribboks','Покупка книг на distribbooks.com',$mailtext);
+										$this->sendMail($this->profile['email'],FROM_BASE_EMAIL,'DistribBooks','Покупка книг на distribbooks.com',$mailtext);
 									elseif(!empty($account['email']) && $report['account_gift'] > 0 && isset($booksIDs[0])):
 										$this->sendMailAboutGift($account['id'],$account['email'],$booksIDs[0]);
 									endif;

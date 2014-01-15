@@ -1197,7 +1197,7 @@ class MY_Controller extends CI_Controller{
 		$this->accounts->updateField($accountID,'password',md5($password));
 		$bookName = $this->books->value($bookID,'ru_title');
 		$mailtext = $this->load->view('mails/gift-book',array('bookName'=>$bookName,'login'=>'id'.$accountID,'password'=>$password),TRUE);
-		$this->sendMail($email,FROM_BASE_EMAIL,'Distribboks','Подарок книги на distribbooks.com',$mailtext);
+		$this->sendMail($email,FROM_BASE_EMAIL,'DistribBooks','Подарок книги на distribbooks.com',$mailtext);
 		return TRUE;
 	}
 }

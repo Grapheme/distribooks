@@ -32,7 +32,7 @@ class Global_interface extends MY_Controller{
 								endfor;
 								if(!empty($account['email']) && $report['account_gift'] == 0):
 									$mailtext = $this->load->view('mails/buy-book',array('account'=>$account),TRUE);
-									$this->sendMail($account['email'],FROM_BASE_EMAIL,'Distribboks','Покупка книг на distribbooks.com',$mailtext);
+									$this->sendMail($account['email'],FROM_BASE_EMAIL,'DistribBooks','Покупка книг на distribbooks.com',$mailtext);
 								elseif(!empty($account['email']) && $report['account_gift'] > 0 && isset($booksIDs[0])):
 									$this->sendMailAboutGift($account['id'],$account['email'],$booksIDs[0]);
 								endif;
@@ -209,7 +209,7 @@ class Global_interface extends MY_Controller{
 				$password = random_string('alnum',12);
 				$this->accounts->updateField($account['id'],'password',md5($password));
 				$mailtext = $this->load->view('mails/forgot',array('account'=>$account,'password'=>$password),TRUE);
-				$this->sendMail($account['email'],FROM_BASE_EMAIL,'Distribboks','Восстановление доступа на distribbooks.com',$mailtext);
+				$this->sendMail($account['email'],FROM_BASE_EMAIL,'DistribBooks','Восстановление доступа на distribbooks.com',$mailtext);
 				$json_request['status'] = TRUE;
 				$json_request['responseText'] = lang('forgot_email_success');
 				$json_request['redirect'] = FALSE;
@@ -338,7 +338,7 @@ class Global_interface extends MY_Controller{
 			$this->accounts->updateField($accountID,'password',md5($password));
 			if(!empty($post['email']) && $send_email === TRUE):
 				$mailtext = $this->load->view('mails/signup',array('login'=>'id'.$accountID,'password'=>$password),TRUE);
-				$this->sendMail($post['email'],FROM_BASE_EMAIL,'Distribboks','Регистрация на distribbooks.ru',$mailtext);
+				$this->sendMail($post['email'],FROM_BASE_EMAIL,'DistribBooks','Регистрация на distribbooks.ru',$mailtext);
 			endif;
 			return $accountID;
 		endif;
