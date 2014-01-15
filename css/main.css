@@ -2009,7 +2009,7 @@ input[type="radio"]:checked + label
 	font-size: 13px;
 	width: 130px;
 	line-height: 1.3em;
-	height: 34px;
+	min-height: 34px;
 	text-decoration: none;
 }
 
