@@ -44,7 +44,7 @@
 				<div style="position: relative;"><img src="<?=baseURL('img/shadow-top.png');?>" class="shadow-top"></div>
 				<div class="grid_1 gift shop">&nbsp;</div>
 				<div class="grid_1 pos1">&nbsp;</div>
-				<div class="grid_4">
+				<div class="grid_3">
 					<a name="contacts"></a>
 					<div class="contacts">
 					<?=nl2br($text_blocks['address_block']);?>
