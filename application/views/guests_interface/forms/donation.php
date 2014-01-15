@@ -15,8 +15,7 @@
 				endif;
 			endif;
 		?>
-		<!--<p><?=lang('form_donation_text')?></p>-->
-		<p><?=$donation_text['content']?></p>
+		<?=$donation_text['content']?>
 		<ul class="donation-recvisits">
 			<li class="donation-recs-item"><a href="<?=BaseURL('download/recvisits/recv_rub.pdf');?>" target="_blank">RUR</a></li>
 			<li class="donation-recs-item"><a href="<?=BaseURL('download/recvisits/recv_eur.pdf');?>" target="_blank">EUR</a></li>

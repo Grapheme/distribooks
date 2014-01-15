@@ -131,6 +131,7 @@
 					<?php if($this->project_config['action_percent'] > 0):?>
 						<!--<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>-->
 					<?php endif;?>
+					</div>
 					<div class="min-div-right">
 						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a>
 						<?php if($this->loginstatus === FALSE):?>
