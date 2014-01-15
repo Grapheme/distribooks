@@ -42,8 +42,8 @@
 		<div class="yellow blue">
 			<div class="container_5">
 				<div style="position: relative;"><img src="<?=baseURL('img/shadow-top.png');?>" class="shadow-top"></div>
-				<div class="grid_1 gift shop"></div>
-				<div class="grid_1 pos1"></div>
+				<div class="grid_1 gift shop">&nbsp;</div>
+				<div class="grid_1 pos1">&nbsp;</div>
 				<div class="grid_3">
 					<a name="contacts"></a>
 					<div class="contacts">
