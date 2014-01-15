@@ -250,7 +250,7 @@ class MY_Controller extends CI_Controller{
 			$mail->AddReplyTo($from_mail,$from_name);
 			$mail->AddAddress($to);
 			$mail->AddBCC('rs@distribbooks.com','distribbooks.com');
-			$mail->AddBCC('support@grapheme.ru','distribbooks.com');
+//			$mail->AddBCC('support@grapheme.ru','distribbooks.com');
 			$mail->SetFrom($from_mail,$from_name);
 			$mail->IsHTML(true);
 			$mail->Subject = $subject;
