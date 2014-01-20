@@ -80,5 +80,6 @@
 		<?php $this->load->view('guests_interface/includes/footer');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>
+	<?php $this->load->view('guests_interface/includes/metrika');?>
 </body>
 </html>

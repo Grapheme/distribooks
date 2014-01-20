@@ -110,5 +110,6 @@
 	</script>
 	<script type="text/javascript" src="<?=baseURL('js/vendor/jquery.barrating.js');?>"></script>
 	<script type="text/javascript" src="<?=baseURL('js/cabinet/barrating-config.js')?>"></script>
+	<?php $this->load->view('guests_interface/includes/metrika');?>
 </body>
 </html>

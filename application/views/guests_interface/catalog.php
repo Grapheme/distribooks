@@ -168,5 +168,6 @@
             zoomWindowOffety: -8
 		});
 	</script>
+	<?php $this->load->view('guests_interface/includes/metrika');?>
 </body>
 </html>
