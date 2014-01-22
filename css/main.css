@@ -643,6 +643,7 @@ ul, li {
 	margin: 0;
 	margin-bottom: 5px;
 	color: #0080b6;
+	white-space: nowrap;
 }
 
 .top-contact img {
@@ -3782,6 +3783,8 @@ input[type="checkbox"].cart-check:checked + label
 	    top: 10%;
 	    width: 400px;
 	    z-index: 9999;
+	    left: 30px;
+	    margin-left: 0;
 	}
 	
 	.basket-select {
