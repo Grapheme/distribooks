@@ -38,10 +38,10 @@ $lang['menu_distribution'] = "Дистрибуция";
 
 $lang['gift_pad_h2'] = "Книга - лучший подарок";
 $lang['gift_pad_text'] = "Выберите книгу в нашем магазине";
-$lang['gift_pad_button'] = "Подарить книги";
+$lang['gift_pad_button'] = "Выбрать книги";
 
 $lang['book_shop_buyor'] = "Купить";
-$lang['book_shop_gift'] = "Подарить другу";
+$lang['book_shop_gift'] = "Подарить книгу";
 $lang['book_shop_tocart'] = "В корзину";
 $lang['book_share'] = "Поделиться";
 $lang['book_or'] = "или";
