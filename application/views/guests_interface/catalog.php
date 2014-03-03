@@ -132,6 +132,9 @@
 				<div class="top-shop">
 					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$novelty[$i]));?>
 					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$novelty[$i]['id'],'mySignedBook'=>$novelty[$i]['signed_book'],'in_basket'=>$novelty[$i]['book_in_basket']));?>
+					<div class="shop-desc">
+						<?=$novelty[$i][$this->uri->language_string.'_anonce']?>
+					</div>
 				</div>
 			<?php endfor;?>
 				<div class="clear"></div>
@@ -143,6 +146,9 @@
 				<div class="top-shop">
 					<?php $this->load->view('guests_interface/html/book-in-shop',array('book'=>$recommended[$i]));?>
 					<?php $this->load->view('guests_interface/html/buyor',array('book_id'=>$recommended[$i]['id'],'mySignedBook'=>$recommended[$i]['signed_book'],'in_basket'=>$recommended[$i]['book_in_basket']));?>
+					<div class="shop-desc">
+						<?=$recommended[$i][$this->uri->language_string.'_anonce']?>
+					</div>
 				</div>
 			<?php endfor;?>
 				<div class="clear"></div>
