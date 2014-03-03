@@ -27,7 +27,7 @@
 		<?php 
 			$notificationText = '';
 			if($this->input->get('err') !== FALSE):
-			elseif($this->input->get('gift') !== FALSE && $this->input->get('result') == 0):
+			elseif($this->input->get('gift') !== FALSE && ($this->input->get('result') == 0 || $this->input->get('result') == 2)):
 				$notificationText = lang('payu_succesfull_gift');
 			elseif($this->input->get('result') !== FALSE):
 				switch($this->input->get('result')):

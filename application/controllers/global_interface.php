@@ -17,7 +17,7 @@ class Global_interface extends MY_Controller {
 		$this->load->helper('file');
 		if($this->postDataValidation('payu_request')):
 			$this->load->model('financial_reports');
-			if($report = $this->financial_reports->getWhere($this->input->post('REFNOEXT'),array('transaction_status'=>0,'operation'=>1,'pay_status'=>0))):
+			if($report = $this->financial_reports->getWhere($this->input->post('REFNOEXT'),array('transaction_status'=>0,'operation'=>1))):
 				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE'):
 //				 || $this->input->post('ORDERSTATUS') == 'TEST'
 					write_file(TEMPORARY.'ipn-'.date("YmdHis").'-'.$report['account'].'.txt',json_encode($this->input->post()));
@@ -43,7 +43,6 @@ class Global_interface extends MY_Controller {
 								endif;
 							endif;
 							$this->financial_reports->updateField($this->input->post('REFNOEXT'),'transaction_status',1);
-							$this->financial_reports->updateField($this->input->post('REFNOEXT'),'pay_status',1);
 							//$this->payuIDNRequest($this->input->post(),$report);
 							echo $this->payuIPNResponse($this->input->post());
 						endif;
@@ -419,9 +418,9 @@ class Global_interface extends MY_Controller {
 
 	private function returnLink(){
 		
-		$link = 'catalog';
+		$link = $this->uri->language_string.'/catalog';
 		if($this->validBasket()):
-			$link = 'basket';
+			$link = $this->uri->language_string.'/basket';
 		endif;
 		return $link;
 	}
