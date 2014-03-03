@@ -42,6 +42,7 @@ $lang['gift_pad_button'] = "Choose books";
 
 $lang['book_shop_buyor'] = "Buy";
 $lang['book_shop_gift'] = "To buy book for a gift";
+$lang['books_shop_gift'] = "To buy books for a gift";
 $lang['book_shop_tocart'] = "Move to cart";
 $lang['book_share'] = "Share";
 $lang['book_or'] = "or";

@@ -9,6 +9,27 @@
 	Пароль: <?=$password;?><br/>
 </p>
 <p>Незаконное копирование и распространение объектов авторского права может влечь уголовную ответственность. </p>
-<br/><br/>
+<p>
 --
-Администрация <?=anchor('','Distribboks.com',array('target'=>'_blank'));?>.
+С наилучшими пожеланиями,
+команда <?=anchor('','DistribBooks',array('target'=>'_blank'));?>
+</p>
+
+<br/><hr/><br/>
+
+<p>Hello,</p>
+<p>
+<?php if($bookName === FALSE):?>
+	You received as a gift a few books. To take your gift please login on distribboks.com. <br/>
+<?php else:?>
+	You got a gift book "<?=$bookName;?>". To take your gift please login on distribboks.com. <br/>
+<?php endif;?>
+	Login: <?=$login;?><br/>
+	Password: <?=$password;?><br/>
+</p>
+<p>Illegal copying and distribution of copyrighted works may entail criminal liability.</p>
+<p>
+--
+With kind regards,<br/>
+<?=anchor('','DistribBooks',array('target'=>'_blank'));?> Team
+</p>
