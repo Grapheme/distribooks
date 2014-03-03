@@ -69,8 +69,8 @@
 							</p>
 							<p class="basket-item-name all" style="width: 210px;; color: #000; margin-left: 15px; float:right;"><?=lang('basket_page_part4');?> &mdash; <span id="count-book"><?=count($basket_list).' '.$this->plural_words->pluralBook(count($basket_list),$this->uri->language_string);?></span> <?=lang('basket_page_part5');?></p>
 							<div class="basket-one-buy">
-								<a style="left: 0;" href="<?=(isUserLoggined())?site_url('pay'):'';?>" class="buy buy-all <?=(isUserLoggined() === FALSE)?'sign-in-link no-clickable':'';?>" style="margin-right: 5px; width: 180px"><?=lang('basket_buy_all');?></a>
-								<a class="buy buy-all gifts-link no-clickable" href="#"><?=lang('books_shop_gift');?></a>
+								<a style="left: 0;" class="buy buy-all gifts-link no-clickable" href="#"><?=lang('books_shop_gift');?></a>
+								<a href="<?=(isUserLoggined())?site_url('pay'):'';?>" class="buy buy-all <?=(isUserLoggined() === FALSE)?'sign-in-link no-clickable':'';?>" style="margin-right: 5px; width: 180px"><?=lang('basket_buy_all');?></a>
 							</div>
 						<?php if(!isAdminLoggined()):?>
 							<div class="clear"></div>
