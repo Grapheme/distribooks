@@ -42,7 +42,7 @@ $lang['gift_pad_button'] = "Choose books";
 
 $lang['book_shop_buyor'] = "Buy";
 $lang['book_shop_gift'] = "To buy book for a gift";
-$lang['books_shop_gift'] = "To buy books for a gift";
+$lang['books_shop_gift'] = "Buy for a gift";
 $lang['book_shop_tocart'] = "Move to cart";
 $lang['book_share'] = "Share";
 $lang['book_or'] = "or";
@@ -82,7 +82,7 @@ $lang['basket_format'] = "Format";
 $lang['basket_buy'] = "Buy";
 $lang['basket_choice_price'] = "Choice";
 $lang['basket_total'] = "Total";
-$lang['basket_buy_all'] = "Purchase books";
+$lang['basket_buy_all'] = "Purchase";
 $lang['basket_action_book_block'] = "Free book";
 $lang['clear-basket'] = "Сlear";
 $lang['basket_page_part1'] = "Choose the amount of books";
