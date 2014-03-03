@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Guests_interface extends MY_Controller{
+class Guests_interface extends MY_Controller {
 
 	var $offset = 0;
 	var $TotalCount = 0;

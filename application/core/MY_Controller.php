@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class MY_Controller extends CI_Controller{
+class MY_Controller extends CI_Controller {
 
 	var $account = array('id'=>0,'group'=>0);
 	var $profile = '';
@@ -1167,6 +1167,9 @@ class MY_Controller extends CI_Controller{
 			if($this->input->cookie('gift_book') !== FALSE && $this->session->userdata('gift_user_id') !== FALSE):
 				$insert['account_gift'] = $this->session->userdata('gift_user_id');
 			endif;
+			if($this->input->cookie('gifts_book') !== FALSE && $this->session->userdata('gift_user_id') !== FALSE):
+				$insert['account_gift'] = $this->session->userdata('gift_user_id');
+			endif;
 			return $this->financial_reports->insertRecord($insert);
 		endif;
 		return FALSE;
@@ -1197,7 +1200,17 @@ class MY_Controller extends CI_Controller{
 		$this->accounts->updateField($accountID,'password',md5($password));
 		$bookName = $this->books->value($bookID,'ru_title');
 		$mailtext = $this->load->view('mails/gift-book',array('bookName'=>$bookName,'login'=>'id'.$accountID,'password'=>$password),TRUE);
-		$this->sendMail($email,FROM_BASE_EMAIL,'DistribBooks','Подарок книги на distribbooks.com',$mailtext);
+		$this->sendMail($email,FROM_BASE_EMAIL,'DistribBooks','Книга в подарок на distribbooks.com',$mailtext);
+		return TRUE;
+	}
+	
+	public function sendMailAboutGifts($accountID,$email,$booksID){
+		
+		$this->load->model('books');
+		$password = random_string('alnum',12);
+		$this->accounts->updateField($accountID,'password',md5($password));
+		$mailtext = $this->load->view('mails/gift-book',array('bookName'=>FALSE,'login'=>'id'.$accountID,'password'=>$password),TRUE);
+		$this->sendMail($email,FROM_BASE_EMAIL,'DistribBooks','Книги в подарок на distribbooks.com',$mailtext);
 		return TRUE;
 	}
 }

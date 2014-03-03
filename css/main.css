@@ -2513,6 +2513,10 @@ input[type="radio"]:checked + label
 	height: 34px;
 }
 
+.buy-as-gift{
+	margin: 20px 0 0 5px;
+	
+}
 .basket-select {
 	width: 190px;
 	height: 36px;

@@ -71,6 +71,12 @@
 							<div class="basket-one-buy">
 								<a href="<?=(isUserLoggined())?site_url('pay'):'';?>" class="buy buy-all <?=(isUserLoggined() === FALSE)?'sign-in-link no-clickable':'';?>" style="margin-right: 5px; width: 180px"><?=lang('basket_buy_all');?></a>
 							</div>
+						<?php if(!isAdminLoggined()):?>
+							<div class="clear"></div>
+							<div class="buy-as-gift">
+								<a class="buy buy-all gifts-link no-clickable" href="#"><?=lang('books_shop_gift');?></a>
+							</div>
+						<?php endif;?>
 						</div>
 					</div>
 					<?php if($action_price > 0):?>
@@ -107,6 +113,8 @@
 		</div>
 		<div class="clearfix"></div>
 		<?php $this->load->view('guests_interface/includes/footer');?>
+		<?php $this->load->view('guests_interface/includes/modal-message');?>
+		<?php $this->load->view('guests_interface/includes/modal-gift');?>
 	</div>
 	<?php $this->load->view('guests_interface/includes/scripts');?>
 	<?php $this->load->view('guests_interface/includes/metrika');?>

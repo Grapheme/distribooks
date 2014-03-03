@@ -42,6 +42,7 @@ $lang['gift_pad_button'] = "Выбрать книги";
 
 $lang['book_shop_buyor'] = "Купить";
 $lang['book_shop_gift'] = "Подарить книгу";
+$lang['books_shop_gift'] = "Подарить книги";
 $lang['book_shop_tocart'] = "В корзину";
 $lang['book_share'] = "Поделиться";
 $lang['book_or'] = "или";

@@ -41,7 +41,7 @@ $lang['gift_pad_text'] = "Choose a book in our store";
 $lang['gift_pad_button'] = "Choose books";
 
 $lang['book_shop_buyor'] = "Buy";
-$lang['book_shop_gift'] = "To buy book for a gift";
+$lang['book_shop_gift'] = "To buy bookы for a gift";
 $lang['book_shop_tocart'] = "Move to cart";
 $lang['book_share'] = "Share";
 $lang['book_or'] = "or";

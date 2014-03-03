@@ -1,7 +1,7 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Global_interface extends MY_Controller{
- 	
+class Global_interface extends MY_Controller {
+	
 	function __construct(){
 
 		parent::__construct();
@@ -17,29 +17,35 @@ class Global_interface extends MY_Controller{
 		$this->load->helper('file');
 		if($this->postDataValidation('payu_request')):
 			$this->load->model('financial_reports');
-			if($report = $this->financial_reports->getWhere($this->input->post('REFNOEXT'),array('transaction_status'=>0,'operation'=>1))):
+			if($report = $this->financial_reports->getWhere($this->input->post('REFNOEXT'),array('transaction_status'=>0,'operation'=>1,'pay_status'=>0))):
 				if($this->input->post('ORDERSTATUS') == 'PAYMENT_AUTHORIZED' || $this->input->post('ORDERSTATUS') == 'COMPLETE'):
 //				 || $this->input->post('ORDERSTATUS') == 'TEST'
-					if($report['account_gift'] > 0):
-						$report['account'] = $report['account_gift'];
-					endif;
-					if($account = $this->accounts->getWhere($report['account'],array('group'=>USER_GROUP_VALUE,'active'=>1))):
-						write_file(TEMPORARY.'ipn-'.date("YmdHis").'-'.$report['account'].'.txt',json_encode($this->input->post()));
-						if(!empty($report['books'])):
-							if($booksIDs = json_decode($report['books'])):
-								for($i=0;$i<count($booksIDs);$i++):
-									$this->buyBook($booksIDs[$i],$report['account']);
-								endfor;
-								if(!empty($account['email']) && $report['account_gift'] == 0):
-									$mailtext = $this->load->view('mails/buy-book',array('account'=>$account),TRUE);
-									$this->sendMail($account['email'],FROM_BASE_EMAIL,'DistribBooks','Покупка книг на distribbooks.com',$mailtext);
-								elseif(!empty($account['email']) && $report['account_gift'] > 0 && isset($booksIDs[0])):
-									$this->sendMailAboutGift($account['id'],$account['email'],$booksIDs[0]);
-								endif;
-								$this->financial_reports->updateField($this->input->post('REFNOEXT'),'transaction_status',1);
-								//$this->payuIDNRequest($this->input->post(),$report);
-								echo $this->payuIPNResponse($this->input->post());
+					write_file(TEMPORARY.'ipn-'.date("YmdHis").'-'.$report['account'].'.txt',json_encode($this->input->post()));
+					if(!empty($report['books'])):
+						if($booksIDs = json_decode($report['books'])):
+							$accountBuyBook = $report['account'];
+							if($report['account_gift'] > 0):
+								$accountBuyBook = $report['account_gift'];
 							endif;
+							for($i=0;$i<count($booksIDs);$i++):
+								$this->buyBook($booksIDs[$i],$accountBuyBook);
+							endfor;
+							if($account = $this->accounts->getWhere($accountBuyBook,array('group'=>USER_GROUP_VALUE,'active'=>1))):
+								if($account['id'] == $report['account'] && !empty($account['email'])):
+									$mailtext = $this->load->view('mails/buy-book',array('account'=>$this->profile),TRUE);
+									$this->sendMail($this->profile['email'],FROM_BASE_EMAIL,'DistribBooks','Покупка книг на distribbooks.com',$mailtext);
+								elseif($account['id'] == $report['account_gift'] && !empty($account['email'])):
+									if(count($booksIDs) == 1 && isset($booksIDs[0])):
+										$this->sendMailAboutGift($account['id'],$account['email'],$booksIDs[0]);
+									else:
+										$this->sendMailAboutGifts($account['id'],$account['email'],$booksIDs);
+									endif;
+								endif;
+							endif;
+							$this->financial_reports->updateField($this->input->post('REFNOEXT'),'transaction_status',1);
+							$this->financial_reports->updateField($this->input->post('REFNOEXT'),'pay_status',1);
+							//$this->payuIDNRequest($this->input->post(),$report);
+							echo $this->payuIPNResponse($this->input->post());
 						endif;
 					endif;
 				endif;

@@ -2,7 +2,7 @@
 
 require_once(APPPATH."/libraries/paypal.php");
 
-class Users_interface extends MY_Controller{
+class Users_interface extends MY_Controller {
 	
 	var $offset = 0;
 	
@@ -95,6 +95,10 @@ class Users_interface extends MY_Controller{
 				$gift_status = '';
 				if($this->input->cookie('gift_book') !== FALSE):
 					delete_cookie('gift_book');
+					$gift_status = '&gift=success';
+				endif;
+				if($this->input->cookie('gifts_book') !== FALSE):
+					delete_cookie('gifts_book');
 					$gift_status = '&gift=success';
 				endif;
 				redirect(uri_string().urlGETParameters().'&status=ok'.$gift_status);
@@ -238,7 +242,7 @@ class Users_interface extends MY_Controller{
 		
 		$message = '';
 		$PaymentOption = "PayPal";
-		if($PaymentOption == "PayPal"):
+		if($PaymentOption == "PayPal" && isset($_REQUEST['token'])):
 			$res = GetExpressCheckoutDetails($_REQUEST['token']);
 			$finalPaymentAmount = $res["PAYMENTREQUEST_0_AMT"];
 			$token = $_REQUEST['token'];
@@ -269,19 +273,29 @@ class Users_interface extends MY_Controller{
 				$reasonCode = $resArray["PAYMENTINFO_0_REASONCODE"];
 				
 				if(isUserLoggined()):
-					$this->load->model(array('signed_books','financial_reports'));
+					$this->load->model('financial_reports');
 					if($reportID = $this->financial_reports->getLastOrder($this->account['id'],'id')):
 						if($report = $this->financial_reports->getWhere($reportID,array('transaction_status'=>0,'operation'=>2,'pay_status'=>0))):
 							if(!empty($report['books'])):
 								if($booksIDs = json_decode($report['books'])):
+									$accountBuyBook = $report['account'];
+									if($report['account_gift'] > 0):
+										$accountBuyBook = $report['account_gift'];
+									endif;
 									for($i=0;$i<count($booksIDs);$i++):
-										$this->buyBook($booksIDs[$i],$report['account']);
+										$this->buyBook($booksIDs[$i],$accountBuyBook);
 									endfor;
-									if(!empty($this->profile['email'])):
-										$mailtext = $this->load->view('mails/buy-book',array('account'=>$this->profile),TRUE);
-										$this->sendMail($this->profile['email'],FROM_BASE_EMAIL,'DistribBooks','Покупка книг на distribbooks.com',$mailtext);
-									elseif(!empty($account['email']) && $report['account_gift'] > 0 && isset($booksIDs[0])):
-										$this->sendMailAboutGift($account['id'],$account['email'],$booksIDs[0]);
+									if($account = $this->accounts->getWhere($accountBuyBook,array('group'=>USER_GROUP_VALUE,'active'=>1))):
+										if($account['id'] == $report['account'] && !empty($account['email'])):
+											$mailtext = $this->load->view('mails/buy-book',array('account'=>$this->profile),TRUE);
+											$this->sendMail($this->profile['email'],FROM_BASE_EMAIL,'DistribBooks','Покупка книг на distribbooks.com',$mailtext);
+										elseif($account['id'] == $report['account_gift'] && !empty($account['email'])):
+											if(count($booksIDs) == 1 && isset($booksIDs[0])):
+												$this->sendMailAboutGift($account['id'],$account['email'],$booksIDs[0]);
+											else:
+												$this->sendMailAboutGifts($account['id'],$account['email'],$booksIDs);
+											endif;
+										endif;
 									endif;
 									$this->financial_reports->updateField($reportID,'transaction_status',1);
 									$this->financial_reports->updateField($reportID,'pay_status',1);
