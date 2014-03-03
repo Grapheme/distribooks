@@ -50,6 +50,8 @@ class Global_interface extends MY_Controller {
 					endif;
 				endif;
 			endif;
+		else:
+			show_404();
 		endif;
 	}
 	

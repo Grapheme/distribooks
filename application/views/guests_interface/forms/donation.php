@@ -8,7 +8,7 @@
 		<?php
 			$donation_text = array('content'=>'');
 			$CI = & get_instance();
-			$CI->load->model('pages');
+			$CI->load->model(array('pages','meta_titles'));
 			if($meta_titles = $CI->meta_titles->getWhere(NULL,array('group'=>'donation'))):
 				if($content = $CI->pages->getWhere($meta_titles['item_id'])):
 					$donation_text = json_decode($content[$CI->uri->language_string.'_content'],TRUE);
