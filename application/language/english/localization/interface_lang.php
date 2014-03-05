@@ -79,7 +79,7 @@ $lang['form_recall_button'] = "Send message";
 
 $lang['basket_title'] = "Every fourth book as a gift!";
 $lang['basket_format'] = "Format";
-$lang['basket_buy'] = "Buy";
+$lang['basket_buy'] = "Checkout";
 $lang['basket_choice_price'] = "Choice";
 $lang['basket_total'] = "Total";
 $lang['basket_buy_all'] = "Purchase";

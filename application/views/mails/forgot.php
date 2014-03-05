@@ -6,8 +6,8 @@
 	Пароль: <?=$password;?><br/>
 </p>
 <p>
---
-С наилучшими пожеланиями,
+--<br/>
+С наилучшими пожеланиями,<br/>
 команда <?=anchor('','DistribBooks',array('target'=>'_blank'));?>
 </p>
 
@@ -23,7 +23,7 @@
 	Password: <?=$password;?><br/>
 </p>
 <p>
---
+--<br/>
 With kind regards,<br/>
 <?=anchor('','DistribBooks',array('target'=>'_blank'));?> Team
 </p>

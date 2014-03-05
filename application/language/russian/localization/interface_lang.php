@@ -80,7 +80,7 @@ $lang['form_recall_button'] = "Отправить сообщение";
 
 $lang['basket_title'] = "Каждая четвертая книга в подарок!";
 $lang['basket_format'] = "Формат";
-$lang['basket_buy'] = "Купить";
+$lang['basket_buy'] = "Оформить заказ";
 $lang['basket_choice_price'] = "Выбрать";
 $lang['basket_total'] = "Всего";
 $lang['basket_buy_all'] = "Оплатить";

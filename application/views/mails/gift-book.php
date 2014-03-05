@@ -10,8 +10,8 @@
 </p>
 <p>Незаконное копирование и распространение объектов авторского права может влечь уголовную ответственность. </p>
 <p>
---
-С наилучшими пожеланиями,
+--<br/>
+С наилучшими пожеланиями,<br/>
 команда <?=anchor('','DistribBooks',array('target'=>'_blank'));?>
 </p>
 
@@ -29,7 +29,7 @@
 </p>
 <p>Illegal copying and distribution of copyrighted works may entail criminal liability.</p>
 <p>
---
+--<br/>
 With kind regards,<br/>
 <?=anchor('','DistribBooks',array('target'=>'_blank'));?> Team
 </p>
