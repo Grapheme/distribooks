@@ -3693,7 +3693,7 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.basket-one-buy {
-		width: 140px;
+		width: 260px;
 	}
 	
 	.basket-select select {
@@ -3726,7 +3726,7 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.buy.buy-all {
-		width: 147px !important;
+		width: 124px !important;
 	}
 	
 	.cart-check-div {
@@ -4044,7 +4044,7 @@ input[type="checkbox"].cart-check:checked + label
 	}
 	
 	.basket-one-buy {
-		width: 145px;
+		width: 310px;
 	}
 	
 	.basket-select {
