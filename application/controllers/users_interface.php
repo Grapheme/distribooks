@@ -37,10 +37,17 @@ class Users_interface extends MY_Controller {
 		$pagevar = array(
 			'page_content' => $this->meta_titles->getWhere(NULL,array('page_address'=>$this->uri->segment(1))),
 			'breadcrumbs' => array('pay'=>lang('user_pay')),
-			'books' => $this->books->getBooksByIDs($booksIDs,'id,ru_title,en_title,price,price_action'),
+			'books' => array(),
 			'basket_list' => array(),
 			'text_blocks' => array('content'=>'')
 		);
+		if($books = $this->books->getBooksByIDs($booksIDs,'id,ru_title,en_title,price,price_action')):
+			$booksIDsTranse = array();
+			for($i=0;$i<count($booksIDs);$i++):
+				$booksIDsTranse[]['id'] = $booksIDs[$i];
+			endfor;
+			$pagevar['books'] = $this->sortArrayByArray($books,$booksIDsTranse);
+		endif;
 		$this->load->model('pages');
 		if($content = $this->pages->getWhere($pagevar['page_content']['item_id'])):
 			$pagevar['text_blocks'] = json_decode($content[$this->uri->language_string.'_content'],TRUE);
@@ -155,7 +162,7 @@ class Users_interface extends MY_Controller {
 		if(!$books = $this->books->getBooksByIDs($booksIDs,'id,ru_title,en_title,price,price_action')):
 			show_404();
 		else:
-			$total_summa = $total_summa_dollar = $discount = $discount_dollar = 0.00;
+			$total_summa = $total_summa_dollar = 0.00;
 			
 			$set_rate = FALSE; $dollar_rate = $this->project_config['dollar_rate'];
 			if($this->uri->language_string == RUSLAN):
@@ -163,36 +170,22 @@ class Users_interface extends MY_Controller {
 				$dollar_rate = 1.00;
 			endif;
 			
-			for($i=0,$num=0;$i<count($books);$i++):
+			$booksIDsTranse = array();
+			for($i=0;$i<count($booksIDs);$i++):
+				$booksIDsTranse[]['id'] = $booksIDs[$i];
+			endfor;
+			$sortBooks = $this->sortArrayByArray($books,$booksIDsTranse);
+			for($i=0,$num=0;$i<count($sortBooks);$i++):
 				if(($i+1)%$this->project_config['free_book'] != 0):
-					$payBooks[$num]['name'] = $books[$i][$this->uri->language_string.'_title'];
+					$payBooks[$num]['name'] = $sortBooks[$i][$this->uri->language_string.'_title'];
 					$payBooks[$num]['qty'] = 1;
-					if($books[$i]['price_action'] > 0):
-						$total_summa += $books[$i]['price_action'];
-						$total_summa_dollar += round($books[$i]['price_action']/getDollarRate($set_rate,$dollar_rate),2,PHP_ROUND_HALF_EVEN);
-						$payBooks[$num]['amt'] = round($books[$i]['price_action']/getDollarRate($set_rate,$dollar_rate),2,PHP_ROUND_HALF_EVEN);
-					else:
-						$total_summa += $books[$i]['price'];
-						$total_summa_dollar += round($books[$i]['price']/getDollarRate($set_rate,$dollar_rate),2,PHP_ROUND_HALF_EVEN);
-						$payBooks[$num]['amt'] = round($books[$i]['price']/getDollarRate($set_rate,$dollar_rate),2,PHP_ROUND_HALF_EVEN);
-					endif;
+					$total_summa += $sortBooks[$i]['price'];
+					$total_summa_dollar += round($sortBooks[$i]['price']/getDollarRate($set_rate,$dollar_rate),2,PHP_ROUND_HALF_EVEN);
+					$payBooks[$num]['amt'] = round($sortBooks[$i]['price']/getDollarRate($set_rate,$dollar_rate),2,PHP_ROUND_HALF_EVEN);
 					$num++;
 				endif;
 			endfor;
 			$action_price = round($this->project_config['action_price']/getDollarRate(),2,PHP_ROUND_HALF_EVEN);
-			if($this->project_config['action_price'] > 0):
-				if($total_summa_dollar > $action_price):
-					$discount = round($total_summa*($this->project_config['action_percent']/100),2,PHP_ROUND_HALF_EVEN);
-					$discount_dollar = round($total_summa_dollar*($this->project_config['action_percent']/100),2,PHP_ROUND_HALF_EVEN);
-				endif;
-			endif;
-			$total_summa_dollar -= $discount_dollar;
-			$total_summa -= $discount;
-			if($discount_dollar > 0):
-				for($i=0;$i<count($payBooks);$i++):
-					$payBooks[$i]['amt'] -= round($payBooks[$i]['amt']*($this->project_config['action_percent']/100),2,PHP_ROUND_HALF_EVEN);
-				endfor;
-			endif;
 			$this->writeToFinancialReport(2,$total_summa,json_encode($booksIDs));
 		endif;
 		$PaymentOption = "PayPal";

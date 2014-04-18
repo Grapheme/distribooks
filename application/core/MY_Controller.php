@@ -860,6 +860,20 @@ class MY_Controller extends CI_Controller {
 		endforeach;
 		return  $retArray;
 	}
+
+	public function sortArrayByArray($array1,$array2,$field1 = 'id',$field2 = 'id'){
+		
+		$sortArray = array();
+		for($i=0;$i<count($array2);$i++):
+			for($j=0;$j<count($array1);$j++):
+				if($array2[$i][$field2] == $array1[$j][$field1]):
+					$sortArray[] = $array1[$j];
+				endif;
+			endfor;
+		endfor;
+		return $sortArray;
+	}
+	
 	/* -------------------------------------------------------------------------------------------- */
 	public function getDBBasket(){
 		
@@ -1180,13 +1194,14 @@ class MY_Controller extends CI_Controller {
 		$this->load->model('books');
 		$summa = 0;
 		if($books = $this->books->getBooksByIDs($booksIDs)):
-			for($i=0;$i<count($books);$i++):
+			$booksIDsTranse = array();
+			for($i=0;$i<count($booksIDs);$i++):
+				$booksIDsTranse[]['id'] = $booksIDs[$i];
+			endfor;
+			$sortBooks = $this->sortArrayByArray($books,$booksIDsTranse);
+			for($i=0;$i<count($sortBooks);$i++):
 				if(($i+1)%$this->project_config['free_book'] != 0):
-					if($books[$i]['price_action'] > 0):
-						$summa+=$books[$i]['price_action'];
-					else:
-						$summa+=$books[$i]['price'];
-					endif;
+					$summa+=$sortBooks[$i]['price'];
 				endif;
 			endfor;
 		endif;

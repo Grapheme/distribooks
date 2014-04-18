@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Guest_ajax_interface extends MY_Controller{
+class Guest_ajax_interface extends MY_Controller {
 	
 	var $json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>FALSE,'responsePhotoSrc'=>'');
 	

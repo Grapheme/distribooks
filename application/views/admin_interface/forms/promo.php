@@ -1,13 +1,13 @@
 <form action="<?=site_url(ADMIN_START_PAGE.'/promo-save');?>" method="POST" class="form-profile">
+	<!--<label>Сумма для скидки:</label>-->
+		<input type="hidden" class="valid-required" name="action_price" value="<?=$config['action_price'];?>">
 	<div class="control-group">
 		<label>Курс доллара:</label>
 		<input type="text" class="valid-required" name="dollar_rate" value="<?=$config['dollar_rate']?>"><br/>
 		<label>Номер бесплатной книги:</label>
-		<input type="text" class="valid-required" name="free_book" readonly="readonly" value="<?=$config['free_book']?>"><br/>
+		<input type="text" class="valid-required" name="free_book" value="<?=$config['free_book']?>"><br/>
 		<label>Количество бесплатных книг:</label>
-		<input type="text" class="valid-required" name="count_free_book" readonly="readonly" value="<?=$config['count_free_book']?>"><br/>
-		<label>Сумма для скидки:</label>
-		<input type="text" class="valid-required" name="action_price" value="<?=$config['action_price'];?>"><br/>
+		<input type="text" class="valid-required" name="count_free_book" value="<?=$config['count_free_book']?>"><br/>
 		<label>Процент скидки:</label>
 		<input type="text" class="valid-required" name="action_percent" value="<?=$config['action_percent'];?>"><br/>
 	</div>

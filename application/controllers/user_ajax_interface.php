@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class User_ajax_interface extends MY_Controller{
+class User_ajax_interface extends MY_Controller {
 	
 	var $json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>FALSE,'responsePhotoSrc'=>'');
 	
@@ -35,28 +35,16 @@ class User_ajax_interface extends MY_Controller{
 	public function addBookInBasket(){
 		
 		$this->json_request['responseBooks']=''; $this->json_request['booksTotalPrice'] = 0;
-		$this->json_request['responseBooksActions'] = ''; $this->json_request['isFullAction'] = FALSE;
 		if($this->postDataValidation('buy_book')):
 			$booksBasketCount = count($this->getValuesBasketBooksCookie());
-			if($booksBasketCount <= MAX_BOOKS_IN_BASKET):
-				$subNumber = floor($booksBasketCount/$this->project_config['free_book']);
-				if($subNumber > 0 && $booksBasketCount > ($this->project_config['free_book']*$subNumber+1)):
-					$booksBasketCount = $booksBasketCount - $subNumber;
-				endif;
-				if($booksBasketCount%($this->project_config['free_book']-1) == 0):
-					$this->json_request['responseBooksActions'] = $this->createBasketBlockEmptyAction();
-				elseif($booksBasketCount%($this->project_config['free_book']) == 0):
-					$this->json_request['responseBooksActions'] = $this->createBasketBlockAction($this->input->post('book'));
-					$this->json_request['isFullAction'] = TRUE;
-				endif;
-				if($this->json_request['isFullAction'] === FALSE):
-					$this->json_request['responseBooks'] = $this->createBasketBlock($this->input->post('book'));
-					$this->json_request['booksTotalPrice'] = $this->getBasketTotalPrice();
-					set_cookie('basket_total_price',$this->json_request['booksTotalPrice'],time()+86500,'','/');
-				endif;
-				$this->setDBBasket();
-				$this->json_request['status'] = TRUE;
+			if(($booksBasketCount%$this->project_config['free_book']) == 0):
+				$this->json_request['responseBooks'] = $this->createBasketBlockAction($this->input->post('book'));
+			else:
+				$this->json_request['responseBooks'] = $this->createBasketBlock($this->input->post('book'));
 			endif;
+			$this->json_request['booksTotalPrice'] = $this->getBasketTotalPrice();
+			set_cookie('basket_total_price',$this->json_request['booksTotalPrice'],time()+86500,'','/');
+			$this->json_request['status'] = TRUE;
 		else:
 			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
 		endif;
@@ -130,13 +118,20 @@ class User_ajax_interface extends MY_Controller{
 			if($booksIDs = json_decode($this->input->post('books'))):
 				$this->load->model('books');
 				if($books = $this->books->getBooksByIDs($booksIDs,'id,ru_title,en_title,price,price_action')):
+					$booksIDsTranse = array();
+					for($i=0;$i<count($booksIDs);$i++):
+						$booksIDsTranse[]['id'] = $booksIDs[$i];
+					endfor;
+					$sortBooks = $this->sortArrayByArray($books,$booksIDsTranse);
 					if($this->json_request['transaction'] = $this->writeToFinancialReport(1,$this->input->post('total'),$this->input->post('books'))):
 						$this->json_request['transaction_time'] = date("Y-m-d");
-						$this->json_request['order_hash'] = $this->getPayUHash($this->input->post(),$books,$this->json_request['transaction'],$this->json_request['transaction_time']);
+						$this->json_request['order_hash'] = $this->getPayUHash($this->input->post(),$sortBooks,$this->json_request['transaction'],$this->json_request['transaction_time']);
 						$this->json_request['status'] = TRUE;
 					endif;
 				endif;
 			endif;
+		else:
+			$this->json_request['responseText'] = $this->load->view('html/validation-errors',array('alert_header'=>FALSE),TRUE);
 		endif;
 		echo json_encode($this->json_request);
 	}
@@ -221,11 +216,7 @@ class User_ajax_interface extends MY_Controller{
 		endfor;
 		for($i=0;$i<count($books);$i++):
 			if(($i+1)%$this->project_config['free_book'] != 0):
-				if($books[$i]['price_action'] > 0):
-					$order_hash .= strlen($books[$i]['price_action']).$books[$i]['price_action'];
-				else:
-					$order_hash .= strlen($books[$i]['price']).$books[$i]['price'];
-				endif;
+				$order_hash .= strlen($books[$i]['price']).$books[$i]['price'];
 			endif;
 		endfor;
 		for($i=0;$i<count($books);$i++):

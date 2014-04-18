@@ -78,7 +78,7 @@ $lang['form_recall_name'] = "Представьтесь";
 $lang['form_recall_number'] = "Текст сообщения";
 $lang['form_recall_button'] = "Отправить сообщение";
 
-$lang['basket_title'] = "Каждая четвертая книга в подарок!";
+$lang['basket_title'] = "Каждая третья книга в подарок!";
 $lang['basket_format'] = "Формат";
 $lang['basket_buy'] = "Оформить заказ";
 $lang['basket_choice_price'] = "Выбрать";
