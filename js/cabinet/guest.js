@@ -6,6 +6,11 @@ largeExpDate.setTime(largeExpDate.getTime()+(24*3600*1000));
 
 $(function(){
 	var mainOptions = {target: null,beforeSubmit: mt.ajaxBeforeSubmit,success: mt.ajaxSuccessSubmit,dataType:'json',type:'post'};
+	
+	if(cookies.getCookie('buy_book') == undefined){
+		cookies.deleteCookie('buy_book','/');
+	}
+	
 	$(".apply-order-editing").click(function(){showRequestDivForm($(".div-request-order-editing"));});
 	$(".apply-do-editing").click(function(){showRequestDivForm($(".div-request-do-editing"));});
 	$(".apply-order-clearance").click(function(){showRequestDivForm($(".div-request-order-clearance"));});
@@ -32,7 +37,9 @@ $(function(){
 	});
 	$(".sign-in-link").click(function(){
 		if($(this).hasClass('buy')){
-			cookies.setCookie('buy_book',$(this).parents('.buyor').attr('data-book-id'),largeExpDate,'/');
+			if($(this).parents('.buyor').attr('data-book-id') != undefined){
+				cookies.setCookie('buy_book',$(this).parents('.buyor').attr('data-book-id'),largeExpDate,'/');
+			}
 		}else{
 			cookies.deleteCookie('buy_book','/');
 		}

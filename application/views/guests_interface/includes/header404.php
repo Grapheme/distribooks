@@ -32,9 +32,7 @@
 					<img class="qr pos2" src="<?=baseURL('img/qr.png');?>">
 					<div style="position: absolute; bottom: -1px; right: 0;">
 						<a href="skype:DistibBooks?call" class="top-contact"><img src="<?=baseURL('img/skype.png');?>">DistibBooks</a>
-					<?php if($this->project_config['action_percent'] > 0):?>
 						<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>
-					<?php endif;?>
 					</div>
 				</div>
 				<div class="grid_1">
@@ -83,9 +81,7 @@
 				<a class="min-logo" href="<?=site_url();?>"></a>
 				<div class="min-right">
 					<div class="min-div-left">
-					<?php if($this->project_config['action_percent'] > 0):?>
 						<a class="red button sale-popup-open"><?=lang('top_menu_promotion');?> -<?=$this->project_config['action_percent']?>%!</a>
-					<?php endif;?>
 					</div>
 					<div class="min-div-right">
 						<a href="<?=baseURL(ENGLAN.'/'.uri_string().urlGETParameters());?>" class="eng"></a><div class="med-bar"></div><a href="<?=baseURL(RUSLAN.'/'.uri_string().urlGETParameters());?>" class="rus"></a><div><a href="" class="enter-text no-clickable"><?=lang('top_menu_sign_in');?></a>&nbsp;<a href="#" class="enter"></a></div>
